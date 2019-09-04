@@ -117,14 +117,12 @@ nav hr {
     position: absolute;
     top: -100vh;
     left: -100vw;
-    display: none;
 }
 
 /*
 togling hamburger menu
 */
 .menu:target {
-    display: block;
     top: 0;
     left: 0;
     z-index: 20;

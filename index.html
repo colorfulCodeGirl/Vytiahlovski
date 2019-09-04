@@ -8,24 +8,23 @@
     <title>Vytiahlovski art gallery</title>
     <link href="https://fonts.googleapis.com/css?family=Didact+Gothic&display=swap&subset=cyrillic" rel="stylesheet">
     <link href="main.css" rel="stylesheet">
-    <script src="https://kit.fontawesome.com/7ea09c126e.js"></script>
 </head>
 
 <body>
     <header>
         <a href="#menu" class="hamburger-menu" id="hamburger-menu" aria-label="Open main menu">
             <span class="sr-only">Open main menu</span>
-            <span class="bar" aria-hidden="true"></span>
-            <span class="bar" aria-hidden="true"></span>
-            <span class="bar" aria-hidden="true"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
         </a>
 
-        <nav class="menu" id="menu" aria-label="Main menu">
+        <nav class="menu" id="menu" aria-label="Main menu" hidden>
             <a href="#hamburger-menu" class="close-menu" id="close-menu" aria-label="Close main menu">
                 <span class="sr-only">Close main menu</span>
                 <div class="close-menu-x">
-                    <span class="bar close" aria-hidden="true"></span>
-                    <span class="bar close" aria-hidden="true"></span>
+                    <span class="bar close"></span>
+                    <span class="bar close"></span>
                 </div>
             </a>
 
@@ -40,186 +39,207 @@
             </ul>
         </nav>
     </header>
-
-    <section class="first-screen-gallery">
-        <div class="slide-show">
-            <img id="main-header" alt="Tetiana and Mykhailo Vytiahlovski" src="images/text-bkgrd-mobile.png" />
-        </div>
-    </section>
-
-    <section class="biography" id="biography">
-        <div class="biography-person tetiana">
-            <img src="tetiana.jpg" alt="Portrait of Tetiana Vytiahlovska" />
-            <div class="short-text biography-tetiana">
-                <p><span class="name-capital">Tetiana Vytiahlovska</span> - she was born in Buchach in 1964 (Ternopil
-                    region). From 1975 to 1978 Tetiana studied at Buchach Art
-                    School for children.</p>
-                <p>In 1983 she finished Art Weaving Department of Vyzhnytsya College of Applied and Decorative Arts.</p>
-                <p>In 1989 Tetiana finished Art Weaving Department of Lviv Institute of Applied and Decorative Arts (now
-                    – Lviv National Art Academy).</p>
+    <main>
+        <section class="first-screen-gallery">
+            <div class="slide-show">
+                <img id="main-header" alt="Tetiana and Mykhailo Vytiahlovski" src="images/main-header.png" />
             </div>
-            <button class="show-more biography-tetiana">more...</button>
-            <div class="full-text biography-tetiana">
-                <p>She had personal exhibitions – in Ternopil, Kyiv, Slavutych, Lviv. Since 1995 she has been a member
-                    of the National Union of Artists of Ukraine.</p>
-                <ul>
-                    <li>Laureate of the exhibition dedicated to 400-th anniversary of the Union of Brest (Ternopil,
-                        1995);</li>
-                    <li>Laureate of the first prize in the International exhibition 6-th Lviv Autumn Salon "High Castle
-                        2002";</li>
-                    <li>Laureate of regional Culture Award in the category “Visual Art named after Mykhailo Boychuk” for
-                        art project "Holiday of heaven and earth" (2015, co-authored);</li>
-                    <li>Diploma in the category “For expressive language of textile" at the 1st Ukrainian Triennial of
-                        Artistic Textile (Kiev, 2004);</li>
-                    <li>Magazine “Child’s World” award at the International exhibition 10-th Lviv Autumn Salon “High
-                        Castle 2006”;</li>
-                    <li>Certificates of honor and valuable prizes from Minister of Culture and Arts (2008, 2009, 2010,
-                        2011, 2015, 2016 р.р.) for significant contribution to the creation of spiritual values and high
-                        professional excellence.</li>
-                </ul>
-                <p>Tetiana lives and works in Zavodske town, Chortkiv district, Ternopil region (she works as a head of
-                    the
-                    department and a teacher at School of Arts).</p>
-            </div>
-        </div>
+        </section>
 
-        <div class="biography-person mykhailo">
-            <img src="mykhailo.jpg" alt="Portrait of Mykhailo Vytiahlovskyi" />
-            <div class="short-text biography-mykhailo">
-                <p><span class="name-capital">Mykhailo Vytiahlovskyi</span> - he was born in Soroky, Buchach district,
-                    Ternopil region in 1963. From 1974 to 1978 Mykhailo studied at Buchach Art School for children.</p>
-                <p>In 1982 he finished Wooden Art Department of Kosiv Technical College of Folk Crafts.</p>
-                <p>In 1990 he finished faculty “Interior and Equipment” of Lviv Institute of Applied and Decorative Arts
-                    (now – Lviv National Art Academy).</p>
+        <section class="biography" id="biography">
+            <div class="biography-person tetiana">
+                <img src="tetiana.jpg" alt="Portrait of Tetiana Vytiahlovska" />
+                <div class="short-text biography-tetiana">
+                    <p><span class="name-capital">Tetiana Vytiahlovska</span> - she was born in Buchach in 1964
+                        (Ternopil
+                        region). From 1975 to 1978 Tetiana studied at Buchach Art
+                        School for children.</p>
+                    <p>In 1983 she finished Art Weaving Department of Vyzhnytsya College of Applied and Decorative Arts.
+                    </p>
+                    <p>In 1989 Tetiana finished Art Weaving Department of Lviv Institute of Applied and Decorative Arts
+                        (now
+                        – Lviv National Art Academy).</p>
+                </div>
+                <button class="show-more biography-tetiana">more...</button>
+                <div class="full-text biography-tetiana">
+                    <p>She had personal exhibitions – in Ternopil, Kyiv, Slavutych, Lviv. Since 1995 she has been a
+                        member
+                        of the National Union of Artists of Ukraine.</p>
+                    <ul>
+                        <li>Laureate of the exhibition dedicated to 400-th anniversary of the Union of Brest (Ternopil,
+                            1995);</li>
+                        <li>Laureate of the first prize in the International exhibition 6-th Lviv Autumn Salon "High
+                            Castle
+                            2002";</li>
+                        <li>Laureate of regional Culture Award in the category “Visual Art named after Mykhailo Boychuk”
+                            for
+                            art project "Holiday of heaven and earth" (2015, co-authored);</li>
+                        <li>Diploma in the category “For expressive language of textile" at the 1st Ukrainian Triennial
+                            of
+                            Artistic Textile (Kiev, 2004);</li>
+                        <li>Magazine “Child’s World” award at the International exhibition 10-th Lviv Autumn Salon “High
+                            Castle 2006”;</li>
+                        <li>Certificates of honor and valuable prizes from Minister of Culture and Arts (2008, 2009,
+                            2010,
+                            2011, 2015, 2016 р.р.) for significant contribution to the creation of spiritual values and
+                            high
+                            professional excellence.</li>
+                    </ul>
+                    <p>Tetiana lives and works in Zavodske town, Chortkiv district, Ternopil region (she works as a head
+                        of
+                        the
+                        department and a teacher at School of Arts).</p>
+                </div>
             </div>
-            <button class="show-more biography-mykhailo">more...</button>
-            <div class="full-text biography-mykhailo">
-                <p>He creates modern art projects, filed with deep philosophical sense. Mykhailo works as a sculptor,
-                    but also he creates many oil and acrylic paintings.</p>
-                <p>He was a participant of many regional, national and international exhibitions. He also had his
-                    personal
-                    exhibitions in Ternopil, Kyiv, Slavutych, Lviv.</p>
-                <p>Since 1995 he has been a member of the National Union of Artists of Ukraine. Mykhailo is a winner of
-                    Lviv autumn salon “High castle 2013”.</p>
-                <p>Laureate of regional Culture Award in the category “Visual Art named after Mykhailo Boychuk” for art
-                    project "Defects of the civilization" (2015, co-authored).</p>
+
+            <div class="biography-person mykhailo">
+                <img src="mykhailo.jpg" alt="Portrait of Mykhailo Vytiahlovskyi" />
+                <div class="short-text biography-mykhailo">
+                    <p><span class="name-capital">Mykhailo Vytiahlovskyi</span> - he was born in Soroky, Buchach
+                        district,
+                        Ternopil region in 1963. From 1974 to 1978 Mykhailo studied at Buchach Art School for children.
+                    </p>
+                    <p>In 1982 he finished Wooden Art Department of Kosiv Technical College of Folk Crafts.</p>
+                    <p>In 1990 he finished faculty “Interior and Equipment” of Lviv Institute of Applied and Decorative
+                        Arts
+                        (now – Lviv National Art Academy).</p>
+                </div>
+                <button class="show-more biography-mykhailo">more...</button>
+                <div class="full-text biography-mykhailo">
+                    <p>He creates modern art projects, filed with deep philosophical sense. Mykhailo works as a
+                        sculptor,
+                        but also he creates many oil and acrylic paintings.</p>
+                    <p>He was a participant of many regional, national and international exhibitions. He also had his
+                        personal
+                        exhibitions in Ternopil, Kyiv, Slavutych, Lviv.</p>
+                    <p>Since 1995 he has been a member of the National Union of Artists of Ukraine. Mykhailo is a winner
+                        of
+                        Lviv autumn salon “High castle 2013”.</p>
+                    <p>Laureate of regional Culture Award in the category “Visual Art named after Mykhailo Boychuk” for
+                        art
+                        project "Defects of the civilization" (2015, co-authored).</p>
+                </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <section class="works" id="works">
-        <div class="works-person tetiana">
-            <!--some containet for works with separate containers for each work-->
-        </div>
-
-        <div class="works-person mykhailo">
-            <!--some containet for works with separate containers for each work-->
-        </div>
-    </section>
-
-    <section class="achievements" id="achievements">
-        <div class="achievements-person tetiana">
-            <img src="achievements-tapestry.jpg" alt="Tapestry of Tetiana Vytiahlovska" />
-            <div class="short-text achievements-tetiana">
-                <p>An active artistic life since the 1989: regional, Ukrainian and international exhibitions. As result
-                    exhibitions:</p>
-                <ul>
-                    <li>Personal exhibitions in Ternopil – in 1995 and 2000.</li>
-                    <li>Personal exhibition in Slavutych – in 1996.</li>
-                    <li>Personal exhibition in Kyiv – in 1997.</li>
-                </ul>
+        <section class="works" id="works">
+            <div class="works-person tetiana">
+                <!--some containet for works with separate containers for each work-->
             </div>
-            <button class="show-more achievements-tetiana">more...</button>
-            <div class="full-text achievements-tetiana">
-                <ul>
-                    <li>Personal exhibition in Lviv – in 2004.</li>
-                    <li>Personal exhibition in Zbarazh – in 2008.</li>
-                    <li>Regional exhibition for 400th Anniversary of Berestechko's union. Ternopil, 1995. II place (the
-                        first one wasn’t selected).</li>
-                    <li>Modern Art Exhibition and Days of Ukrainian Culture in Munich “Ukraine – 1999”.</li>
-                    <li>6th International Exhibition: Lviv Autumn Salon “High Castle 2002”. First place for work
-                        “Exidental witnesses of somebody’s love”.</li>
-                    <li>4th Ukrainian Exhibition of Modern Art. Ternopil, 2002.</li>
-                    <li>7th International Exhibition: Lviv Autumn Salon “High Castle 2003”. </li>
-                    <li>Participation in annual regional exhibitions.</li>
-                    <li>1st Ukrainian Triennial of Artistic Textile. Kiev, 2004. Diploma "For expressive language of
-                        textile" for tapestry "Night still life".</li>
-                    <li>10th International Exhibition: Lviv Autumn Salon “High Castle 2006”. Magazine “Child’s World”
-                        award.</li>
-                    <li>2nd Ukrainian Triennial of Artistic Textile. Kiev, 2007.</li>
-                    <li>Ukrainian Art Exhibition “Picturesque Ukraine”. Ternopil, 2007.</li>
-                    <li>11th International Exhibition: Lviv Autumn Salon “High Castle 2007”.</li>
-                    <li>12th International Exhibition: Lviv Autumn Salon “High Castle 2008”.</li>
-                    <li>3rd Art En plein air “Artists about Ternopil region”. 2009.</li>
-                    <li>13th International Exhibition: Lviv Autumn Salon “High Castle 2009”.</li>
-                    <li>14th International Exhibition: Lviv Autumn Salon “High Castle 2010”.</li>
-                    <li>Collective Exhibition “Ternopil Artists in Lviv Art Palace”. 2012, 2013.</li>
-                    <li>16th International Exhibition: Lviv Autumn Salon “High Castle 2012”.</li>
-                    <li>Ukrainian Exhibition of Arts and Crafts “God’s World as an Easter Day”. Ternopil, 2013.</li>
-                    <li>2nd Ukrainian Triennial “Ukrainian Folk Modern 2012”. Chernivtsi.</li>
-                    <li>3rd Ukrainian Triennial “Ukrainian Folk Modern 2015”. Chernivtsi.</li>
-                    <li>19th International Exhibition: Lviv Autumn Salon “High Castle 2015”.</li>
-                    <li>Regional “Christmas” exhibition. Ternopil.</li>
-                    <li>Personal exhibition in Ternopil – in 2016.</li>
-                    <li>Personal exhibition in Chicago – in 2017.</li>
-                </ul>
-            </div>
-        </div>
 
-        <div class="achievements-person mykhailo">
-            <img src="achievements-sculpture.jpg" alt="Sculpture of Mykhailo Vytiahlovskyi" />
-            <div class="short-text achievements-mykhailo">
-                <p>An active artistic life since the 1989: regional, Ukrainian and international exhibitions. As a
-                    result exhibitions:</p>
-                <ul>
-                    <li>Personal exhibitions in Ternopil – in 1995 and 2000.</li>
-                    <li>Personal exhibition in Slavutych – in 1996.</li>
-                    <li>Personal exhibition in Kyiv – in 1997.</li>
-                </ul>
+            <div class="works-person mykhailo">
+                <!--some containet for works with separate containers for each work-->
             </div>
-            <button class="show-more achievements-mykhailo">more...</button>
-            <div class="full-text achievements-mykhailo">
-                <ul>
-                    <li>Personal exhibition in Lviv – in 2004.</li>
-                    <li>Personal exhibition in Zbarazh – in 2008.</li>
-                    <li>Modern Art Exhibition and Days of Ukrainian Culture in Munich “Ukraine – 1999”.</li>
-                    <li>4th Ukrainian Exhibition of Modern Art. Ternopil, 2002.</li>
-                    <li>6th International Exhibition: Lviv Autumn Salon “High Castle 2002”. </li>
-                    <li>Participation in annual regional and Ukrainian exhibitions.</li>
-                    <li>7th International Exhibition: Lviv Autumn Salon “High Castle 2003”. </li>
-                    <li>11th International Exhibition: Lviv Autumn Salon “High Castle 2007”.</li>
-                    <li>Ukrainian Art Exhibition “Picturesque Ukraine”. Ternopil, 2007. </li>
-                    <li>7th Ukrainian Exhibition of Modern Art. Ternopil, 2008.</li>
-                    <li>12th International Exhibition: Lviv Autumn Salon “High Castle 2008”.</li>
-                    <li>3rd Art En plein air “Artists about Ternopil region”. 2009.</li>
-                    <li>Collective Exhibition “Ternopil Artists in Lviv Art Palace”. 2012, 2013.</li>
-                    <li>Ukrainian Exhibition of Arts and Crafts “God’s world as an Easter day”. Ternopil, 2013.</li>
-                    <li>13th International Exhibition: Lviv Autumn Salon “High Castle 2009”. Diploma for work “A young
-                        miss and her old blanket”. </li>
-                    <li>10th Ukrainian Exhibition of Modern Art. Ternopil, 2014.</li>
-                    <li>19th International Exhibition: Lviv Autumn Salon “High Castle 2015”.</li>
-                    <li>Regional “Christmas” exhibition. Ternopil. </li>
-                    <li>Personal exhibition in Ternopil – in 2016.</li>
-                    <li>Personal exhibition in Chicago – in 2017.</li>
-                </ul>
+        </section>
+
+        <section class="achievements" id="achievements">
+            <div class="achievements-person tetiana">
+                <img src="achievements-tapestry.jpg" alt="Tapestry of Tetiana Vytiahlovska" />
+                <div class="short-text achievements-tetiana">
+                    <p>An active artistic life since the 1989: regional, Ukrainian and international exhibitions. As
+                        result
+                        exhibitions:</p>
+                    <ul>
+                        <li>Personal exhibitions in Ternopil – in 1995 and 2000.</li>
+                        <li>Personal exhibition in Slavutych – in 1996.</li>
+                        <li>Personal exhibition in Kyiv – in 1997.</li>
+                    </ul>
+                </div>
+                <button class="show-more achievements-tetiana">more...</button>
+                <div class="full-text achievements-tetiana">
+                    <ul>
+                        <li>Personal exhibition in Lviv – in 2004.</li>
+                        <li>Personal exhibition in Zbarazh – in 2008.</li>
+                        <li>Regional exhibition for 400th Anniversary of Berestechko's union. Ternopil, 1995. II place
+                            (the
+                            first one wasn’t selected).</li>
+                        <li>Modern Art Exhibition and Days of Ukrainian Culture in Munich “Ukraine – 1999”.</li>
+                        <li>6th International Exhibition: Lviv Autumn Salon “High Castle 2002”. First place for work
+                            “Exidental witnesses of somebody’s love”.</li>
+                        <li>4th Ukrainian Exhibition of Modern Art. Ternopil, 2002.</li>
+                        <li>7th International Exhibition: Lviv Autumn Salon “High Castle 2003”. </li>
+                        <li>Participation in annual regional exhibitions.</li>
+                        <li>1st Ukrainian Triennial of Artistic Textile. Kiev, 2004. Diploma "For expressive language of
+                            textile" for tapestry "Night still life".</li>
+                        <li>10th International Exhibition: Lviv Autumn Salon “High Castle 2006”. Magazine “Child’s
+                            World”
+                            award.</li>
+                        <li>2nd Ukrainian Triennial of Artistic Textile. Kiev, 2007.</li>
+                        <li>Ukrainian Art Exhibition “Picturesque Ukraine”. Ternopil, 2007.</li>
+                        <li>11th International Exhibition: Lviv Autumn Salon “High Castle 2007”.</li>
+                        <li>12th International Exhibition: Lviv Autumn Salon “High Castle 2008”.</li>
+                        <li>3rd Art En plein air “Artists about Ternopil region”. 2009.</li>
+                        <li>13th International Exhibition: Lviv Autumn Salon “High Castle 2009”.</li>
+                        <li>14th International Exhibition: Lviv Autumn Salon “High Castle 2010”.</li>
+                        <li>Collective Exhibition “Ternopil Artists in Lviv Art Palace”. 2012, 2013.</li>
+                        <li>16th International Exhibition: Lviv Autumn Salon “High Castle 2012”.</li>
+                        <li>Ukrainian Exhibition of Arts and Crafts “God’s World as an Easter Day”. Ternopil, 2013.</li>
+                        <li>2nd Ukrainian Triennial “Ukrainian Folk Modern 2012”. Chernivtsi.</li>
+                        <li>3rd Ukrainian Triennial “Ukrainian Folk Modern 2015”. Chernivtsi.</li>
+                        <li>19th International Exhibition: Lviv Autumn Salon “High Castle 2015”.</li>
+                        <li>Regional “Christmas” exhibition. Ternopil.</li>
+                        <li>Personal exhibition in Ternopil – in 2016.</li>
+                        <li>Personal exhibition in Chicago – in 2017.</li>
+                    </ul>
+                </div>
             </div>
-        </div>
-    </section>
 
-    <section class="contact" id="contact">
-        <div class="facebook">
-            <!--icon-->
-            <a href="https://www.facebook.com/profile.php?id=100000902379341">facebook.com/T_Vytiahlovska</a>
-        </div>
-        <div class="email">
-            <!--icon-->
-            <a href="gobelin@ukr.net">gobelin@ukr.net</a>
-        </div>
-    </section>
+            <div class="achievements-person mykhailo">
+                <img src="achievements-sculpture.jpg" alt="Sculpture of Mykhailo Vytiahlovskyi" />
+                <div class="short-text achievements-mykhailo">
+                    <p>An active artistic life since the 1989: regional, Ukrainian and international exhibitions. As a
+                        result exhibitions:</p>
+                    <ul>
+                        <li>Personal exhibitions in Ternopil – in 1995 and 2000.</li>
+                        <li>Personal exhibition in Slavutych – in 1996.</li>
+                        <li>Personal exhibition in Kyiv – in 1997.</li>
+                    </ul>
+                </div>
+                <button class="show-more achievements-mykhailo">more...</button>
+                <div class="full-text achievements-mykhailo">
+                    <ul>
+                        <li>Personal exhibition in Lviv – in 2004.</li>
+                        <li>Personal exhibition in Zbarazh – in 2008.</li>
+                        <li>Modern Art Exhibition and Days of Ukrainian Culture in Munich “Ukraine – 1999”.</li>
+                        <li>4th Ukrainian Exhibition of Modern Art. Ternopil, 2002.</li>
+                        <li>6th International Exhibition: Lviv Autumn Salon “High Castle 2002”. </li>
+                        <li>Participation in annual regional and Ukrainian exhibitions.</li>
+                        <li>7th International Exhibition: Lviv Autumn Salon “High Castle 2003”. </li>
+                        <li>11th International Exhibition: Lviv Autumn Salon “High Castle 2007”.</li>
+                        <li>Ukrainian Art Exhibition “Picturesque Ukraine”. Ternopil, 2007. </li>
+                        <li>7th Ukrainian Exhibition of Modern Art. Ternopil, 2008.</li>
+                        <li>12th International Exhibition: Lviv Autumn Salon “High Castle 2008”.</li>
+                        <li>3rd Art En plein air “Artists about Ternopil region”. 2009.</li>
+                        <li>Collective Exhibition “Ternopil Artists in Lviv Art Palace”. 2012, 2013.</li>
+                        <li>Ukrainian Exhibition of Arts and Crafts “God’s world as an Easter day”. Ternopil, 2013.</li>
+                        <li>13th International Exhibition: Lviv Autumn Salon “High Castle 2009”. Diploma for work “A
+                            young
+                            miss and her old blanket”. </li>
+                        <li>10th Ukrainian Exhibition of Modern Art. Ternopil, 2014.</li>
+                        <li>19th International Exhibition: Lviv Autumn Salon “High Castle 2015”.</li>
+                        <li>Regional “Christmas” exhibition. Ternopil. </li>
+                        <li>Personal exhibition in Ternopil – in 2016.</li>
+                        <li>Personal exhibition in Chicago – in 2017.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
 
+        <section class="contact" id="contact">
+            <div class="facebook">
+                <!--icon-->
+                <a href="https://www.facebook.com/profile.php?id=100000902379341">facebook.com/T_Vytiahlovska</a>
+            </div>
+            <div class="email">
+                <!--icon-->
+                <a href="gobelin@ukr.net">gobelin@ukr.net</a>
+            </div>
+        </section>
+    </main>
     <footer>
-        <p>© Vytiaglovski Gallery all rights reserved. Created by Oleksandra Vytiahlovska</p>
+        <p>© Vytiaglovski Gallery all rights reserved. Created by <a href="#">Oleksandra Vytiahlovska</a></p>
     </footer>
 </body>
 <script src="main.js"></script>
+
 </html>
