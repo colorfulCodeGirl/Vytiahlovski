@@ -4,3 +4,132 @@
     font-family: 'Didact Gothic', sans-serif;
 }
 
+body {
+    background-color: #353030;
+    color: #fff;
+}
+
+.sr-only {
+    border: 0;
+    clip: rect(0, 0, 0, 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+}
+
+/*
+first screen for monile
+*/
+
+header {
+    height: 7vh;
+    background-color: #353030;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.first-screen-gallery {
+    height: 93vh;
+}
+
+.slide-show {
+    background-image: url(images/slide_1.jpg);
+    background-size: cover;
+    background-position: center;
+    background-position-y: 0;
+    height: 100%;
+}
+
+#main-header {
+    height: 30vh;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+
+/*
+hamburger menu
+*/
+
+header a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 1.5em;
+    text-transform: uppercase;
+}
+
+.hamburger-menu, .close-menu {
+    position: absolute;
+    left: .4em;
+    width: 1.9em;
+    height: 7vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    cursor: pointer;
+    background-color: #353030;
+}
+
+.bar {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: .2em;
+    margin-bottom: .2em;
+    background-color: #DD0000;
+}
+
+.hamburger-menu .bar:last-child, .close-menu-x .bar{
+    margin: 0;
+}
+
+.close-menu-x .bar:first-child {
+    transform: translateY(.1em) rotate(45deg);
+}
+
+.close-menu-x .bar:last-child {
+    transform: translateY(-.1em) rotate(-45deg);
+}
+
+nav ul {
+    list-style: none;
+    padding: 10vh 0 20vh 0;
+    position: absolute;
+    top: 7vh;
+    background-color: #353030;
+    width: 100vw;
+    height: 93vh;
+    display: flex;
+    flex-flow: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+nav hr {
+    width: 30vw;
+}
+
+.menu {
+    position: absolute;
+    top: -100vh;
+    left: -100vw;
+    display: none;
+}
+
+/*
+togling hamburger menu
+*/
+.menu:target {
+    display: block;
+    top: 0;
+    left: 0;
+    z-index: 20;
+}
+
+.menu:target > .close-menu {
+    z-index: 21;
+}

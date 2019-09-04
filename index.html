@@ -8,25 +8,46 @@
     <title>Vytiahlovski art gallery</title>
     <link href="https://fonts.googleapis.com/css?family=Didact+Gothic&display=swap&subset=cyrillic" rel="stylesheet">
     <link href="main.css" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/7ea09c126e.js"></script>
 </head>
 
 <body>
     <header>
-        <div class="hamburger-menu" tabindex=0></div>
-        <nav class="menu">
-            <a class="nav biography">Biography</a>
-            <a class="nav works">Works</a>
-            <a class="nav achievements">Achievements</a>
-            <a class="nav contact">Contact</a>
+        <a href="#menu" class="hamburger-menu" id="hamburger-menu" aria-label="Open main menu">
+            <span class="sr-only">Open main menu</span>
+            <span class="bar" aria-hidden="true"></span>
+            <span class="bar" aria-hidden="true"></span>
+            <span class="bar" aria-hidden="true"></span>
+        </a>
+
+        <nav class="menu" id="menu" aria-label="Main menu">
+            <a href="#hamburger-menu" class="close-menu" id="close-menu" aria-label="Close main menu">
+                <span class="sr-only">Close main menu</span>
+                <div class="close-menu-x">
+                    <span class="bar close" aria-hidden="true"></span>
+                    <span class="bar close" aria-hidden="true"></span>
+                </div>
+            </a>
+
+            <ul>
+                <li><a href="#biography" class="nav biography">Biography</a></li>
+                <hr>
+                <li><a href="#works" class="nav works">Works</a></li>
+                <hr>
+                <li><a href="#achievements" class="nav achievements">Achievements</a></li>
+                <hr>
+                <li><a href="#contact" class="nav contact">Contact</a></li>
+            </ul>
         </nav>
     </header>
 
     <section class="first-screen-gallery">
-        <!--slideshow-->
-        <img alt="Tetiana and Mykhailo Vytiahlovska" src="tetiana-and-mykhailo-vytiahlovski.jpg" />
+        <div class="slide-show">
+            <img id="main-header" alt="Tetiana and Mykhailo Vytiahlovski" src="images/text-bkgrd-mobile.png" />
+        </div>
     </section>
 
-    <section class="biography">
+    <section class="biography" id="biography">
         <div class="biography-person tetiana">
             <img src="tetiana.jpg" alt="Portrait of Tetiana Vytiahlovska" />
             <div class="short-text biography-tetiana">
@@ -86,17 +107,17 @@
         </div>
     </section>
 
-    <section class="works">
+    <section class="works" id="works">
         <div class="works-person tetiana">
             <!--some containet for works with separate containers for each work-->
         </div>
-    
+
         <div class="works-person mykhailo">
             <!--some containet for works with separate containers for each work-->
         </div>
     </section>
 
-    <section class="achievements">
+    <section class="achievements" id="achievements">
         <div class="achievements-person tetiana">
             <img src="achievements-tapestry.jpg" alt="Tapestry of Tetiana Vytiahlovska" />
             <div class="short-text achievements-tetiana">
@@ -185,7 +206,7 @@
         </div>
     </section>
 
-    <section class="contact">
+    <section class="contact" id="contact">
         <div class="facebook">
             <!--icon-->
             <a href="https://www.facebook.com/profile.php?id=100000902379341">facebook.com/T_Vytiahlovska</a>
@@ -200,5 +221,5 @@
         <p>© Vytiaglovski Gallery all rights reserved. Created by Oleksandra Vytiahlovska</p>
     </footer>
 </body>
-
+<script src="main.js"></script>
 </html>
