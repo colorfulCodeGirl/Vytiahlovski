@@ -95,39 +95,88 @@ header a {
     transform: translateY(-.1em) rotate(-45deg);
 }
 
-nav ul {
+.menu ul {
     list-style: none;
     padding: 10vh 0 20vh 0;
     position: absolute;
     top: 7vh;
     background-color: #353030;
-    width: 100vw;
-    height: 93vh;
+    width: 100%;
+    height: 93%;
     display: flex;
     flex-flow: column;
     justify-content: space-around;
-    align-items: center;
+    /*align-items: center;*/
 }
 
-nav hr {
+.menu ul>li {
+    display: block;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.menu hr {
     width: 30vw;
 }
 
 .menu {
+    visibility: hidden;
     position: absolute;
-    top: -100vh;
+    width: 100vw;
+    height: 100vh;
     left: -100vw;
+    transition: all 1s;
+    background-color: #353030;
+}
+
+.nav-elem, .menu hr {
+    display: block;
+    margin-left: -100vw;
+    transition: margin-left 1s ease-in-out;
+}
+
+.menu hr:first-of-type {
+    transition-delay: .1s;
+}
+
+.works {
+    transition-delay: .2s;
+}
+
+.menu hr:nth-of-type(2) {
+    transition-delay: .3s;
+}
+
+.achievements {
+    transition-delay: .4s;
+}
+
+.menu hr:nth-of-type(3) {
+    transition-delay: .5s;
+}
+
+.contact {
+    transition-delay: .6s;
 }
 
 /*
 togling hamburger menu
 */
 .menu:target {
-    top: 0;
+    visibility: visible;
     left: 0;
     z-index: 20;
 }
 
 .menu:target > .close-menu {
     z-index: 21;
+}
+
+.menu:target .nav-elem, .menu:target hr {
+    margin-left: 0;
+}
+
+.hidden {
+    visibility: hidden;
 }
