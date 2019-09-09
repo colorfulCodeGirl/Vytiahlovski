@@ -6,7 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Vytiahlovski art gallery</title>
-    <link href="https://fonts.googleapis.com/css?family=Didact+Gothic&display=swap&subset=cyrillic" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css?family=Martel+Sans:200,300|Roboto:100,300,500&display=swap&subset=cyrillic,cyrillic-ext,latin-ext"
+        rel="stylesheet">
     <link href="main.css" rel="stylesheet">
 </head>
 
@@ -41,25 +43,28 @@
     <main>
         <section class="first-screen-gallery">
             <div class="slide-show"></div>
+            <h1 class="sr-only">Tetiana and Mykhailo Vytiahlovski</h1>
             <img id="main-header" alt="Tetiana and Mykhailo Vytiahlovski" src="images/main-header.png" />
         </section>
 
         <section class="biography" id="biography">
+            <h2 class="section-heading"><span>Biography</span></h2>
             <div class="biography-person tetiana">
-                <img src="tetiana.jpg" alt="Portrait of Tetiana Vytiahlovska" />
+                <img src="images/tetiana.jpg" class="portrait" alt="Portrait of Tetiana Vytiahlovska" />
                 <div class="short-text biography-tetiana">
-                    <p><span class="name-capital">Tetiana Vytiahlovska</span> - she was born in Buchach in 1964
+                    <p class="short-text-p"><span class="name-uppercase">Tetiana Vytiahlovska</span> - she was born in
+                        Buchach in 1964
                         (Ternopil
                         region). From 1975 to 1978 Tetiana studied at Buchach Art
                         School for children.</p>
+                    <button class="show-more biography-tetiana" aria-label="Tetniana's biography">more...</button>
+                </div>
+                <div class="full-text biography-tetiana">
                     <p>In 1983 she finished Art Weaving Department of Vyzhnytsya College of Applied and Decorative Arts.
                     </p>
                     <p>In 1989 Tetiana finished Art Weaving Department of Lviv Institute of Applied and Decorative Arts
                         (now
                         – Lviv National Art Academy).</p>
-                </div>
-                <button class="show-more biography-tetiana">more...</button>
-                <div class="full-text biography-tetiana">
                     <p>She had personal exhibitions – in Ternopil, Kyiv, Slavutych, Lviv. Since 1995 she has been a
                         member
                         of the National Union of Artists of Ukraine.</p>
@@ -91,19 +96,21 @@
             </div>
 
             <div class="biography-person mykhailo">
-                <img src="mykhailo.jpg" alt="Portrait of Mykhailo Vytiahlovskyi" />
+
                 <div class="short-text biography-mykhailo">
-                    <p><span class="name-capital">Mykhailo Vytiahlovskyi</span> - he was born in Soroky, Buchach
+                    <p class="short-text-p"><span class="name-uppercase">Mykhailo Vytiahlovskyi</span> - he was born in
+                        Soroky, Buchach
                         district,
                         Ternopil region in 1963. From 1974 to 1978 Mykhailo studied at Buchach Art School for children.
                     </p>
+                    <button class="show-more biography-mykhailo" aria-label="Mykhailo's biography">more...</button>
+                </div>
+                <img src="images/mykhailo.jpg" class="portrait" alt="Portrait of Mykhailo Vytiahlovskyi" />
+                <div class="full-text biography-mykhailo">
                     <p>In 1982 he finished Wooden Art Department of Kosiv Technical College of Folk Crafts.</p>
                     <p>In 1990 he finished faculty “Interior and Equipment” of Lviv Institute of Applied and Decorative
                         Arts
                         (now – Lviv National Art Academy).</p>
-                </div>
-                <button class="show-more biography-mykhailo">more...</button>
-                <div class="full-text biography-mykhailo">
                     <p>He creates modern art projects, filed with deep philosophical sense. Mykhailo works as a
                         sculptor,
                         but also he creates many oil and acrylic paintings.</p>
@@ -121,6 +128,7 @@
         </section>
 
         <section class="works" id="works">
+            <h2 class="section-heading"><span>Works</span></h2>
             <div class="works-person tetiana">
                 <!--some containet for works with separate containers for each work-->
             </div>
@@ -131,21 +139,25 @@
         </section>
 
         <section class="achievements" id="achievements">
+            <h2 class="section-heading"><span>Achievements</span></h2>
             <div class="achievements-person tetiana">
-                <img src="achievements-tapestry.jpg" alt="Tapestry of Tetiana Vytiahlovska" />
+                <img src="images/achievements-tapestry.jpg" class="work-example" alt="Tapestry of Tetiana Vytiahlovska" />
                 <div class="short-text achievements-tetiana">
-                    <p>An active artistic life since the 1989: regional, Ukrainian and international exhibitions. As
+                    <p class="short-text-p"><span class="name-uppercase">Tetiana Vytiahlovska</span>
+                        lives an active artistic life since the 1989: regional, Ukrainian and
+                        international exhibitions. As
                         result
                         exhibitions:</p>
                     <ul>
                         <li>Personal exhibitions in Ternopil – in 1995 and 2000.</li>
-                        <li>Personal exhibition in Slavutych – in 1996.</li>
-                        <li>Personal exhibition in Kyiv – in 1997.</li>
                     </ul>
+                    <button class="show-more achievements-tetiana" aria-label="Tetiana's achievements">more...</button>
                 </div>
-                <button class="show-more achievements-tetiana">more...</button>
+
                 <div class="full-text achievements-tetiana">
                     <ul>
+                        <li>Personal exhibition in Slavutych – in 1996.</li>
+                        <li>Personal exhibition in Kyiv – in 1997.</li>
                         <li>Personal exhibition in Lviv – in 2004.</li>
                         <li>Personal exhibition in Zbarazh – in 2008.</li>
                         <li>Regional exhibition for 400th Anniversary of Berestechko's union. Ternopil, 1995. II place
@@ -183,19 +195,22 @@
             </div>
 
             <div class="achievements-person mykhailo">
-                <img src="achievements-sculpture.jpg" alt="Sculpture of Mykhailo Vytiahlovskyi" />
                 <div class="short-text achievements-mykhailo">
-                    <p>An active artistic life since the 1989: regional, Ukrainian and international exhibitions. As a
+                    <p class="short-text-p"><span class="name-uppercase">Mykhailo Vytiahlovskyi</span>
+                        lives an active artistic life since the 1989: regional, Ukrainian and international exhibitions. As a
                         result exhibitions:</p>
                     <ul>
                         <li>Personal exhibitions in Ternopil – in 1995 and 2000.</li>
-                        <li>Personal exhibition in Slavutych – in 1996.</li>
-                        <li>Personal exhibition in Kyiv – in 1997.</li>
                     </ul>
+                    <button class="show-more achievements-mykhailo"
+                        aria-label="Mykhailo's achievements">more...</button>
                 </div>
-                <button class="show-more achievements-mykhailo">more...</button>
+                <img src="images/achievements-sculpture.jpg" class="work-example" alt="Sculpture of Mykhailo Vytiahlovskyi" />
+
                 <div class="full-text achievements-mykhailo">
                     <ul>
+                        <li>Personal exhibition in Slavutych – in 1996.</li>
+                        <li>Personal exhibition in Kyiv – in 1997.</li>
                         <li>Personal exhibition in Lviv – in 2004.</li>
                         <li>Personal exhibition in Zbarazh – in 2008.</li>
                         <li>Modern Art Exhibition and Days of Ukrainian Culture in Munich “Ukraine – 1999”.</li>
@@ -224,13 +239,16 @@
         </section>
 
         <section class="contact" id="contact">
-            <div class="facebook">
-                <!--icon-->
-                <a href="https://www.facebook.com/profile.php?id=100000902379341">facebook.com/T_Vytiahlovska</a>
-            </div>
-            <div class="email">
-                <!--icon-->
-                <a href="gobelin@ukr.net">gobelin@ukr.net</a>
+            <h2 class="section-heading"><span>Contact</span></h2>
+            <div class="contact-info">
+                <div class="facebook">
+                    <!--icon-->
+                    <a href="https://www.facebook.com/profile.php?id=100000902379341">facebook.com/T_Vytiahlovska</a>
+                </div>
+                <div class="email">
+                    <!--icon-->
+                    <a href="gobelin@ukr.net">gobelin@ukr.net</a>
+                </div>
             </div>
         </section>
     </main>

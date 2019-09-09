@@ -1,7 +1,8 @@
 * {
     box-sizing: border-box;
     margin: 0;
-    font-family: 'Didact Gothic', sans-serif;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
 }
 
 body {
@@ -37,8 +38,7 @@ header {
 
 .first-screen-gallery {
     height: 92.5vh;
-    position: relative;
-    top: 7.5vh;
+    margin-top: 7.5vh;
 }
 
 .slide-show {
@@ -79,7 +79,7 @@ hamburger menu
 .hamburger-menu {
     border: none;
     padding: .5vh;
-    margin: 0 2vw 0 0;
+    margin: 0 5vw 0 0;
     height: 100%;
     cursor: pointer;
     background-color: transparent;
@@ -233,3 +233,90 @@ togling hamburger menu
     85% {transform: translate(.6em), scale(0);}
     100% {transform: scale(.8, 0);}
 }*/
+
+/*
+main content
+*/
+
+.section-heading {
+    background-color: #fff;
+    margin: 5vh 0;
+    height: 5vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    text-transform: uppercase;
+    color: #353030;
+    font: 300 2em/1em 'Martel Sans', sans-serif;
+}
+
+.full-text {
+    display: none;
+}
+
+.biography-person, 
+.works-person, 
+.achievements-person,
+.contact-info {
+    margin: 0 5vw 5vh 5vw;
+    display: flex;
+    align-content: flex-start;
+}
+
+/*
+biography section
+*/
+.portrait, .work-example {
+    width: 35%;
+    align-self: flex-start;
+}
+
+.portrait {
+    border-radius: 50%;
+    border: .2em solid #fff;
+}
+
+.tetiana .portrait, .tetiana .work-example {
+    margin-right: 3vw;
+}
+
+.mykhailo .portrait, .mykhailo .work-example {
+    margin-left: 3vw;
+}
+
+.short-text {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.tetiana .short-text {
+    justify-content: flex-end;
+}
+
+.mykhailo .short-text {
+    justify-content: flex-start;
+}
+
+.name-uppercase {
+    text-transform: uppercase;
+    font-weight: 500;
+}
+
+.tetiana .short-text-p {
+    text-align: end;
+}
+
+.mykhailo .short-text-p {
+    text-align: start;
+}
+
+.show-more {
+    border: none;
+    margin: 1vh 0;
+    background-color: #dd0000;
+    color: #fff;
+    font-size: 1.2em;
+    text-align: center;
+    cursor: pointer;
+}

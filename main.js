@@ -3,7 +3,7 @@ Traping tabKey incide open menu
 */
 const hamburgerMenu = document.querySelector('.hamburger-menu');
 const menu = document.querySelector('nav');
-const hideWhenMenuOpen = [...document.querySelectorAll('main a, main button, footer a, footer button, .hamburgerMenu')];
+const hideWhenMenuOpen = [...document.querySelectorAll('main a, main button, footer a, footer button')];
 
 const trapTabKey = () => {
     if (menu.getAttribute('aria-hidden') == 'true') {
