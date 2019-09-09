@@ -3,21 +3,24 @@ Traping tabKey incide open menu
 */
 const hamburgerMenu = document.querySelector('.hamburger-menu');
 const menu = document.querySelector('nav');
-const main = document.querySelector('main');
-const footer = document.querySelector('footer');
-const hideWhenMenuOpen = [main, footer, hamburgerMenu];
-let menuTogglingElements = menu.querySelectorAll('a');
-menuTogglingElements = Array.prototype.slice.call(menuTogglingElements);
-menuTogglingElements.push(hamburgerMenu);
+const hideWhenMenuOpen = [...document.querySelectorAll('main a, main button, footer a, footer button, .hamburgerMenu')];
 
 const trapTabKey = () => {
     if (menu.getAttribute('aria-hidden') == 'true') {
-        setTimeout(() => hideWhenMenuOpen.forEach(elem => elem.classList.add('hidden')), 1000);
+        hideWhenMenuOpen.forEach(elem => elem.setAttribute('tabindex', -1));
         menu.setAttribute('aria-hidden', 'false');
     } else {
-        hideWhenMenuOpen.forEach(elem => elem.classList.remove('hidden'));
+        hideWhenMenuOpen.forEach(elem => elem.setAttribute('tabindex', 0));
         menu.setAttribute('aria-hidden', 'true');
     }
 };
 
-menuTogglingElements.forEach(elem => elem.addEventListener('click', trapTabKey));
+const openCloseMenu = () => {
+    hamburgerMenu.classList.toggle('close');
+    menu.classList.toggle('active');
+    trapTabKey();
+}
+
+menu.addEventListener('click', openCloseMenu);
+hamburgerMenu.addEventListener('click', openCloseMenu);
+

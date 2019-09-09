@@ -12,38 +12,36 @@
 
 <body>
     <header>
-        <a href="#menu" class="hamburger-menu" id="hamburger-menu" aria-label="Open main menu">
-            <span class="sr-only">Open main menu</span>
-            <span class="bar"></span>
-            <span class="bar"></span>
-            <span class="bar"></span>
-        </a>
-
-        <nav class="menu" id="menu" aria-label="Main menu" aria-hidden=true>
-            <a href="#hamburger-menu" class="close-menu" id="close-menu" aria-label="Close main menu">
-                <span class="sr-only">Close main menu</span>
-                <div class="close-menu-x">
-                    <span class="bar close"></span>
-                    <span class="bar close"></span>
-                </div>
-            </a>
-
-            <ul>
-                <li><a href="#biography" class="nav-elem biography">Biography</a></li>
-                <li><hr></li>
-                <li><a href="#works" class="nav-elem works">Works</a></li>
-                <li><hr></li>
-                <li><a href="#achievements" class="nav-elem achievements">Achievements</a></li>
-                <li><hr></li>
-                <li><a href="#contact" class="nav-elem contact">Contact</a></li>
-            </ul>
-        </nav>
+        <button class="hamburger-menu" aria-label="Open main menu">
+            <p class="sr-only">Open main menu</p>
+            <div class="hamburger-box">
+                <span class="hamburger-bar"></span>
+            </div>
+        </button>
     </header>
+
+    <nav aria-label="Main menu" aria-hidden=true>
+        <ul class="menu">
+            <li><a href="#biography" class="nav-elem biography">Biography</a></li>
+            <li>
+                <hr>
+            </li>
+            <li><a href="#works" class="nav-elem works">Works</a></li>
+            <li>
+                <hr>
+            </li>
+            <li><a href="#achievements" class="nav-elem achievements">Achievements</a></li>
+            <li>
+                <hr>
+            </li>
+            <li><a href="#contact" class="nav-elem contact">Contact</a></li>
+        </ul>
+    </nav>
+
     <main>
         <section class="first-screen-gallery">
-            <div class="slide-show">
-                <img id="main-header" alt="Tetiana and Mykhailo Vytiahlovski" src="images/main-header.png" />
-            </div>
+            <div class="slide-show"></div>
+            <img id="main-header" alt="Tetiana and Mykhailo Vytiahlovski" src="images/main-header.png" />
         </section>
 
         <section class="biography" id="biography">
