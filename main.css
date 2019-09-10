@@ -131,8 +131,7 @@ nav {
     top: 7.5vh;
     width: 100vw;
     height: 92.5vh;
-    transform: translateX(100vw);
-    transition: transform 1s 1s ease-in;
+    overflow: hidden;
     z-index: 20;
 }
 
@@ -145,6 +144,8 @@ nav {
     display: flex;
     flex-flow: column;
     justify-content: space-around;
+    transform: translateX(100vw);
+    transition: transform 1s .9s ease-in;
 }
 
 .nav-elem {
@@ -195,9 +196,9 @@ nav {
 /*
 togling hamburger menu
 */
-.active {
+.active .menu {
     transform: translateX(0);
-    transition: transform 1s .3s ease-out;
+    transition: transform 1s .2s ease-out;
 }
 
 .active .nav-elem, .active hr  {
