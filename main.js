@@ -3,6 +3,7 @@ Traping tabKey incide open menu
 */
 const hamburgerMenu = document.querySelector('.hamburger-menu');
 const menu = document.querySelector('nav');
+const main = document.querySelector('main');
 const hideWhenMenuOpen = [...document.querySelectorAll('main a, main button, footer a, footer button')];
 
 const trapTabKey = () => {
@@ -15,11 +16,25 @@ const trapTabKey = () => {
     }
 };
 
-const openCloseMenu = () => {
+const scrollToSection = (e) => {
+    if (e.target.classList[1]) {
+        const scrollTargetClass = `#${e.target.classList[1]}`;
+        const scrollTarget = document.querySelector(scrollTargetClass);
+
+        scrollTarget.scrollIntoView({
+            block: 'center',
+            behavior: 'smooth'
+        });
+    }
+}
+
+const openCloseMenu = (e) => {
+    e.preventDefault();
     hamburgerMenu.classList.toggle('close');
     menu.classList.toggle('active');
     trapTabKey();
-}
+    scrollToSection(e);
+};
 
 menu.addEventListener('click', openCloseMenu);
 hamburgerMenu.addEventListener('click', openCloseMenu);
