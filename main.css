@@ -79,7 +79,7 @@ hamburger menu
 .hamburger-menu {
     border: none;
     padding: .5vh;
-    margin: 0 5vw 0 0;
+    margin: 0 3vw 0 0;
     height: 100%;
     cursor: pointer;
     background-color: transparent;
@@ -127,11 +127,13 @@ hamburger menu
 main menu
 */
 nav {
-    visibility: hidden;
     position: absolute;
     top: 7.5vh;
     width: 100vw;
     height: 92.5vh;
+    transform: translateX(100vw);
+    transition: transform 1s 1s ease-in;
+    z-index: 20;
 }
 
 .menu {
@@ -143,8 +145,6 @@ nav {
     display: flex;
     flex-flow: column;
     justify-content: space-around;
-    transform: translateX(100vw);
-    transition: all 1s;
 }
 
 .nav-elem {
@@ -164,45 +164,44 @@ nav {
 }
 
 .nav-elem, .menu hr {
-    display: block;
     transform: translateX(100vw);
-    transition: all 1s 0s ease-in-out;
+    transition: transform 1s .4s ease-in-out;
 }
 /*slide menu - folling each after each efect*/
 .menu hr:first-of-type {
-    transition-delay: .1s;
-}
-
-.works {
-    transition-delay: .2s;
-}
-
-.menu hr:nth-of-type(2) {
-    transition-delay: .3s;
-}
-
-.achievements {
-    transition-delay: .4s;
-}
-
-.menu hr:nth-of-type(3) {
     transition-delay: .5s;
 }
 
-.contact {
+.works {
     transition-delay: .6s;
+}
+
+.menu hr:nth-of-type(2) {
+    transition-delay: .7s;
+}
+
+.achievements {
+    transition-delay: .8s;
+}
+
+.menu hr:nth-of-type(3) {
+    transition-delay: .9s;
+}
+
+.contact {
+    transition-delay: 1s;
 }
 
 /*
 togling hamburger menu
 */
 .active {
-    visibility: visible;
-    z-index: 20;
+    transform: translateX(0);
+    transition: transform 1s .3s ease-out;
 }
 
-.active .menu, .active .nav-elem, .active hr  {
-    transform: translateX(0vw);
+.active .nav-elem, .active hr  {
+    transform: translateX(0);
 }
 
 .close .hamburger-bar {
@@ -217,22 +216,6 @@ togling hamburger menu
     transform: translateY(0) rotate(-45deg);
 }
 
-
-/*animating hamburger button
-
-.hamburger-menu:active .bar:first-of-type {
-    background-color: #fff;
-    animation-duration: 1s;
-    animation-name: hambugerUpperBar;
-}
-
-@keyframes hamburgerUpperBar {
-    0% {transform: translate(0em);}
-    40% {transform: translate(-.2em);}
-    50% {transform: translate(-.2em);}
-    85% {transform: translate(.6em), scale(0);}
-    100% {transform: scale(.8, 0);}
-}*/
 
 /*
 main content
@@ -259,30 +242,34 @@ main content
 .works-person, 
 .achievements-person,
 .contact-info {
-    margin: 0 5vw 5vh 5vw;
+    margin: 0 3vw 5vh 3vw;
     display: flex;
     align-content: flex-start;
 }
 
 /*
-biography section
+biography and achievements section
 */
 .portrait, .work-example {
-    width: 35%;
+    width: 40%;
+}
+
+.work-example {
     align-self: flex-start;
 }
 
 .portrait {
     border-radius: 50%;
     border: .2em solid #fff;
+    align-self: center;
 }
 
 .tetiana .portrait, .tetiana .work-example {
-    margin-right: 3vw;
+    margin-right: 1vw;
 }
 
 .mykhailo .portrait, .mykhailo .work-example {
-    margin-left: 3vw;
+    margin-left: 1vw;
 }
 
 .short-text {
@@ -313,10 +300,31 @@ biography section
 
 .show-more {
     border: none;
-    margin: 1vh 0;
+    margin: 2vh 0;
+    padding: .7vh 3vw;
     background-color: #dd0000;
     color: #fff;
-    font-size: 1.2em;
+    font-size: 1em;
     text-align: center;
     cursor: pointer;
+}
+
+/*
+footer
+*/
+footer {
+    background-color: #fff;
+    color: #353030;
+    font-size: .8em;
+    text-align: end;
+    padding: 5vw;
+}
+
+.author {
+    text-decoration: none;
+    color: #dd0000;
+}
+
+.author:hover {
+    text-decoration: underline;
 }
