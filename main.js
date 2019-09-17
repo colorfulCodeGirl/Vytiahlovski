@@ -1,5 +1,6 @@
+const Macy = require("macy");
 /*
-Traping tabKey incide open menu
+Trapping tabKey inside open menu
 */
 const hamburgerMenu = document.querySelector('.hamburger-menu');
 const menu = document.querySelector('nav');
@@ -26,7 +27,7 @@ const scrollToSection = (e) => {
             behavior: 'smooth'
         });
     }
-}
+};
 
 const openCloseMenu = (e) => {
     e.preventDefault();
@@ -39,3 +40,11 @@ const openCloseMenu = (e) => {
 menu.addEventListener('click', openCloseMenu);
 hamburgerMenu.addEventListener('click', openCloseMenu);
 
+/*
+Macy - making collage in work section
+*/
+const macyTetiana = Macy({
+    container: '#works-tetiana',
+    margin: 2,
+    columns: 3
+});
