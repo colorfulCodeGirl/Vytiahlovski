@@ -167,7 +167,6 @@ nav {
 }
 .menu>li {
     display: flex;
-    width: 100%;
     justify-content: center;
 }
 
@@ -266,11 +265,10 @@ main content
 .section-heading {
     background-color: #fff;
     margin: 5vh 0;
-    height: 5vh;
+    height: 7vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    text-align: center;
     text-transform: uppercase;
     color: #353030;
     font: 300 2em/1em 'Martel Sans', sans-serif;
@@ -296,14 +294,14 @@ biography and achievements section
     width: 40%;
 }
 
-.work-example {
-    align-self: flex-start;
-}
-
 .portrait {
     border-radius: 50%;
     border: .2em solid #fff;
     align-self: center;
+}
+
+.work-example {
+    align-self: flex-start;
 }
 
 .tetiana .portrait, .tetiana .work-example {
@@ -332,12 +330,12 @@ biography and achievements section
     font-weight: 500;
 }
 
-.tetiana .short-text-p {
-    text-align: end;
+.short-text-p {
+    margin: 0;
 }
 
-.mykhailo .short-text-p {
-    text-align: start;
+.tetiana .short-text-p {
+    text-align: end;
 }
 
 .show-more {
