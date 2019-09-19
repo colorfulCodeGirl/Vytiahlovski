@@ -1,0 +1,6 @@
+$ cat .gitignore
+*.[oa]
+*~
+node_modules/
+dist/
+.cache/
