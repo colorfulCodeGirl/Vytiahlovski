@@ -278,27 +278,86 @@ main content
     display: none;
 }
 
-.biography-person, 
-.works-person, 
-.achievements-person,
 .contact-info {
     margin: 0 3vw 5vh 3vw;
     display: flex;
-    align-content: flex-start;
+    /* align-content: flex-start; */
 }
 
+.show-more {
+    border: none;
+    padding: .7vh 3vw;
+    background-color: #dd0000;
+    color: #fff;
+    font-size: 1em;
+    text-align: center;
+    cursor: pointer;
+}
 /*
 biography and achievements section
 */
-.portrait, .work-example {
-    width: 40%;
+
+.biography-content, .achievements-content {
+    padding: 0 3vw 0 3vw;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(30%, 1fr));
+    grid-column-gap: 3vw;
+    grid-row-gap: 5vw;
+}
+
+.portrait.tetiana,  .work-example.tetiana {
+    grid-column: 1/2;
+    grid-row: 1/2;
+    width: 100%;
+    object-fit: cover;
+}
+
+.short-text.tetiana {
+    grid-column: 2/-1;
+    grid-row: 1/2;
+}
+
+.portrait.mykhailo, .work-example.mykhailo {
+    grid-column: 3/4;
+    grid-row: 2/3;
+    width: 100%;
+    object-fit: cover;
+}
+
+ .short-text.mykhailo {
+    grid-column: 1/3;
+    grid-row: 2/3;
 }
 
 .portrait {
     border-radius: 50%;
     border: .2em solid #fff;
+}
+
+.short-text {
+    display: grid;
+    grid-template-columns: 1;
+    grid-gap: 1vw;
+    justify-items: end;
+}
+
+.short-text.mykhailo {
+    justify-items: start;
+}
+
+.short-text ul {
+    margin: 3px;
+}
+
+.show-more {
     align-self: center;
 }
+
+/* .portrait, .work-example {
+    flex: 1 1 30%;
+}
+
 
 .work-example {
     align-self: flex-start;
@@ -313,6 +372,7 @@ biography and achievements section
 }
 
 .short-text {
+    flex: 1 1 70%;
     display: flex;
     flex-wrap: wrap;
 }
@@ -323,7 +383,7 @@ biography and achievements section
 
 .mykhailo .short-text {
     justify-content: flex-start;
-}
+} */
 
 .name-uppercase {
     text-transform: uppercase;
@@ -338,16 +398,6 @@ biography and achievements section
     text-align: end;
 }
 
-.show-more {
-    border: none;
-    margin: 2vh 0;
-    padding: .7vh 3vw;
-    background-color: #dd0000;
-    color: #fff;
-    font-size: 1em;
-    text-align: center;
-    cursor: pointer;
-}
 /*
 works section
 */
