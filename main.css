@@ -137,7 +137,7 @@ hamburger menu
 main menu
 */
 nav {
-    position: absolute;
+    position: fixed;
     top: 7.5vh;
     width: 100vw;
     height: 92.5vh;
@@ -185,7 +185,7 @@ slide menu - folling each after each efect
     transition-delay: .5s;
 }
 
-.works {
+.nav-elem.works {
     transition-delay: .6s;
 }
 
@@ -193,7 +193,7 @@ slide menu - folling each after each efect
     transition-delay: .7s;
 }
 
-.achievements {
+.nav-elem.achievements {
     transition-delay: .8s;
 }
 
@@ -201,7 +201,7 @@ slide menu - folling each after each efect
     transition-delay: .9s;
 }
 
-.contact {
+.nav-elem.contact {
     transition-delay: 1s;
 }
 
@@ -354,37 +354,6 @@ biography and achievements section
     align-self: center;
 }
 
-/* .portrait, .work-example {
-    flex: 1 1 30%;
-}
-
-
-.work-example {
-    align-self: flex-start;
-}
-
-.tetiana .portrait, .tetiana .work-example {
-    margin-right: 1vw;
-}
-
-.mykhailo .portrait, .mykhailo .work-example {
-    margin-left: 1vw;
-}
-
-.short-text {
-    flex: 1 1 70%;
-    display: flex;
-    flex-wrap: wrap;
-}
-
-.tetiana .short-text {
-    justify-content: flex-end;
-}
-
-.mykhailo .short-text {
-    justify-content: flex-start;
-} */
-
 .name-uppercase {
     text-transform: uppercase;
     font-weight: 500;
@@ -401,12 +370,54 @@ biography and achievements section
 /*
 works section
 */
-#works-tetiana {
-    margin: 0 3vw;
+.works-tetiana {
+    padding: 0 3vw;
+    width:100%;
+    display: grid;
+    grid-gap: 2px;
+    grid-template-columns: 2fr 2fr 3fr;
 }
 
-.show-more.tetiana-works {
-    margin: 0;
+.column1, .column2, .column3 {
+    height: 40vh;
+    display: grid;
+    overflow: hidden;
+    grid-gap: 2px;
+    grid-template-columns: 1;
+}
+
+.column1 {
+    grid-template-rows: 4vh 18vh 18vh;
+}
+
+.column2 {
+    grid-template-columns: 3fr 2fr;
+    grid-template-rows: 5fr 2fr 2fr;
+}
+
+.column2>img:first-child, .column2>img:last-child {
+    grid-column: 1 / -1;
+}
+
+.column2>img {
+    width: 100%;
+}
+
+.column3 {
+    grid-template-rows: 5fr 6fr;
+}
+
+.h100 {
+    height: 100%;
+}
+
+.w100 {
+    width: 100%;
+}
+
+.h100, .w100 {
+    object-fit: cover;
+    overflow: hidden;
 }
 
 /*

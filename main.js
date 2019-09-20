@@ -1,4 +1,4 @@
-const Macy = require("macy");
+// const Macy = require("macy");
 /*
 Trapping tabKey inside open menu
 */
@@ -42,9 +42,9 @@ hamburgerMenu.addEventListener('click', openCloseMenu);
 
 /*
 Macy - making collage in work section
-*/
-const macyTetiana = Macy({
-    container: '#works-tetiana',
-    margin: 2,
-    columns: 3
-});
+// */
+// const macyTetiana = Macy({
+//     container: '#works-tetiana',
+//     margin: 2,
+//     columns: 3
+// });
