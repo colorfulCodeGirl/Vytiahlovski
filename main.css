@@ -438,6 +438,45 @@ Mykhailo's works
 }
 
 /*
+Contact section
+*/
+.contact-info {
+    display: grid;
+    grid-template-columns: 1;
+    justify-items: center;
+    align-content: space-around;
+    grid-row-gap: 10px;
+}
+
+.contact-links {
+    text-decoration: none;
+    color: #fff;
+    font-size: 1.2em;
+}
+
+.contact-links:hover {
+    text-decoration: underline;
+}
+
+.contact-links:active {
+    color: #dd0000;
+}
+
+.contact-info i {
+    font-size: 1.5em;
+    font-weight: 600;
+    padding-right: .3em;
+}
+
+.fab {
+    color: #3B5998;
+}
+
+.fas {
+    color: #1DA1F2;
+}
+
+/*
 footer
 */
 footer {

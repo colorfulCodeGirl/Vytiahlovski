@@ -18,5 +18,8 @@
   "homepage": "https://github.com/Vanilna/Vytiahlovski#readme",
   "dependencies": {
     "macy": "^2.5.0"
+  },
+  "devDependencies": {
+    "@fortawesome/fontawesome-free": "^5.11.1"
   }
 }
