@@ -281,7 +281,6 @@ main content
 .contact-info {
     margin: 0 3vw 5vh 3vw;
     display: flex;
-    /* align-content: flex-start; */
 }
 
 .show-more {
@@ -370,7 +369,7 @@ biography and achievements section
 /*
 works section
 */
-.works-tetiana {
+.works-tetiana, .works-mykhailo {
     padding: 0 3vw;
     width:100%;
     display: grid;
@@ -386,33 +385,56 @@ works section
     grid-template-columns: 1;
 }
 
-.column1 {
-    grid-template-rows: 1fr 10fr 10fr;
-}
-
-.column2 {
-    grid-template-columns: 3fr 2fr;
-    grid-template-rows: 5fr 2fr 2fr;
-}
-
-.column2>img:first-child, .column2>img:last-child {
-    grid-column: 1 / -1;
-}
-
-.column2>img {
-    width: 100%;
-}
-
-.column3 {
-    grid-template-rows: 5fr 6fr;
-}
-
-
-.h100, .w100 {
+.works-tetiana img, .works-mykhailo img {
     width: 100%;
     height: 100%;
     object-fit: cover;
     overflow: hidden;
+}
+
+/*
+Tetiana's works
+*/
+.works-tetiana .column1 {
+    grid-template-rows: auto 1fr 1fr;
+}
+
+.works-tetiana .column2 {
+    grid-template-columns: 3fr 2fr;
+    grid-template-rows: 5fr 2fr 2fr;
+}
+
+.works-tetiana .column2>img:first-child, .works-tetiana .column2>img:last-child {
+    grid-column: 1 / -1;
+}
+
+.works-tetiana .column3 {
+    grid-template-rows: 5fr 6fr;
+}
+
+/*
+Mykhailo's works
+*/
+.works-mykhailo {
+    padding-top: 5vh;
+    grid-template-columns: 3fr 1fr 2fr;
+}
+
+.works-mykhailo .column1 {
+    grid-template-rows: 3fr 1fr 3fr;
+}
+
+.works-mykhailo .column2 {
+    grid-template-rows: 5fr 5fr 3fr;
+}
+
+.works-mykhailo .column3 {
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: auto 3fr 1fr;
+}
+
+.works-mykhailo .show-more, .works-mykhailo .column3>img:first-of-type {
+    grid-column: 1 / -1;
 }
 
 /*
