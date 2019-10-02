@@ -17,3 +17,5 @@ The biography, gallery of works and achievements should have their own pages for
 I will write this web using pure js. The grafic projest of this web You can find in project.studio file in the main directory.
 
 Wish me luck ;)
+
+Demo - https://vanilna.github.io/Vytiahlovski/
