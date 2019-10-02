@@ -17,11 +17,9 @@ const trapTabKey = () => {
     }
 };
 
-const scrollToSection = (e) => {
-    if (e.target.classList[1]) {
-        const scrollTargetClass = `#${e.target.classList[1]}`;
-        const scrollTarget = document.querySelector(scrollTargetClass);
-
+const scrollToSection = (e, targetedSectionId) => {
+    if (e.target.className === 'menu') {
+        const scrollTarget = document.querySelector(`#${targetedSectionId}`);
         scrollTarget.scrollIntoView({
             block: 'center',
             behavior: 'smooth'
@@ -34,7 +32,13 @@ const openCloseMenu = (e) => {
     hamburgerMenu.classList.toggle('close');
     menu.classList.toggle('active');
     trapTabKey();
-    scrollToSection(e);
+
+    const targetedSectionId = e.target.classList[1];
+    if (e.target.className.includes('nav-elem')) {
+        menu.addEventListener('transitionend', (e) => {
+            scrollToSection(e, targetedSectionId);
+        });
+    }
 };
 
 menu.addEventListener('click', openCloseMenu);

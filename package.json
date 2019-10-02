@@ -1,5 +1,5 @@
 {
-  "name": "y",
+  "name": "vytiahlovski-gallery",
   "version": "1.0.0",
   "description": "art-gallery",
   "main": "main.js",
@@ -16,9 +16,7 @@
     "url": "https://github.com/Vanilna/Vytiahlovski/issues"
   },
   "homepage": "https://github.com/Vanilna/Vytiahlovski#readme",
-  "dependencies": {
-    "macy": "^2.5.0"
-  },
+  "dependencies": {},
   "devDependencies": {
     "@fortawesome/fontawesome-free": "^5.11.1"
   }

@@ -122,7 +122,7 @@ hamburger menu
 main menu
 */
 nav {
-    position: absolute;
+    position: fixed;
     top: 7.5vh;
     width: 100vw;
     height: 92.5vh;
@@ -285,32 +285,32 @@ biography and achievements section
     padding: 0 3vw 0 3vw;
     width: 100%;
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(30%, 1fr));
+    grid-template-columns: repeat(5, 1fr);
     grid-column-gap: 3vw;
     grid-row-gap: 5vw;
 }
 
 .portrait.tetiana,  .work-example.tetiana {
-    grid-column: 1/2;
+    grid-column: 1/3;
     grid-row: 1/2;
     width: 100%;
     object-fit: cover;
 }
 
 .short-text.tetiana {
-    grid-column: 2/-1;
+    grid-column: 3/-1;
     grid-row: 1/2;
 }
 
 .portrait.mykhailo, .work-example.mykhailo {
-    grid-column: 3/4;
+    grid-column: 4/6;
     grid-row: 2/3;
     width: 100%;
     object-fit: cover;
 }
 
  .short-text.mykhailo {
-    grid-column: 1/3;
+    grid-column: 1/4;
     grid-row: 2/3;
 }
 
