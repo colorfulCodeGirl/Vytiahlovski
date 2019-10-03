@@ -1,4 +1,4 @@
-// const Macy = require("macy");
+
 /*
 Trapping tabKey inside open menu
 */
@@ -48,7 +48,8 @@ menu.addEventListener('click', openCloseMenu);
 hamburgerMenu.addEventListener('click', openCloseMenu);
 
 document.addEventListener('keyup', (e) => {
-    console.log(e.target)});
+    console.log(e.target)
+});
 
 
 

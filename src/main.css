@@ -44,7 +44,7 @@ body {
     font-weight: 300;
     height: 100vh;
     display: grid;
-    grid-template-columns: 1;
+    grid-template-columns: 1fr;
     grid-template-rows: auto 1fr;
     grid-template-areas: "header" "content";
 }
@@ -374,7 +374,7 @@ Main slide show
     display: none;
 }
 
-@media (min-width: 825px) and (orientation: landscape) {
+@media (min-width: 825px) and (min-aspect-ratio: 4/3) {
     /*make visible the top of the img*/
     .slide-show {
         align-items: flex-start;
@@ -634,7 +634,7 @@ footer>p {
 }
 
 
-/*TODO*/
+/* TODO */
 .ss-wrapper {
     overflow: hidden;
     width: 100%;
