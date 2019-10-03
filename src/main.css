@@ -1,11 +1,32 @@
-* {
+:root {
     box-sizing: border-box;
-    
+    font-size: 8px;
+    --grey: #353030;
+    --red: #dd0000;
+}
+
+@media (min-width: 600px) {
+    :root {
+        font-size: 10px;
+    }
+}
+
+@media (min-width: 1600px) {
+    :root {
+        font-size: 12px;
+    }
+}
+
+*,
+*::after,
+*::before {
+    box-sizing: inherit;
 }
 
 body {
-    background-color: #353030;
-    color: #fff;margin: 0;
+    background-color: var(--grey);
+    color: #fff;
+    margin: 0;
     font-family: 'Roboto', sans-serif;
     font-weight: 300;
 }
@@ -43,7 +64,7 @@ header {
     grid-area: header;
     height: 7.5vh;
     width: 100vw;
-    background-color: #353030;
+    background-color: var(--grey);
     z-index: 30;
     display: flex;
     justify-content: flex-end;
@@ -129,7 +150,7 @@ hamburger menu
     width: 100%;
     height: .8vh;
     left: 0;
-    background-color: #dd0000;
+    background-color: var(--red);
 }
 
 .hamburger-bar::before,
@@ -158,7 +179,7 @@ main menu
 .menu {
     position: fixed;
     padding: 17vh 0 20vh 0;
-    background-color: #353030;
+    background-color: var(--grey);
     width: 100%;
     height: 100%;
     margin: 0;
@@ -170,6 +191,8 @@ main menu
 
 .menu > ul {
     list-style: none;
+    margin: 0;
+    padding: 0;
     height: 100%;
     display: flex;
     flex-flow: column;
@@ -180,7 +203,7 @@ main menu
 .nav-elem {
     text-decoration: none;
     color: #fff;
-    font-size: 1.5em;
+    font-size: 2.7rem;
     text-transform: uppercase;
 }
 /* .menu>li {
@@ -282,14 +305,18 @@ main content
 
 .section-heading {
     background-color: #fff;
-    margin: 5vh 0;
-    height: 7vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    margin: 3rem 0;
+    padding: .7rem;
+    text-align: center;
     text-transform: uppercase;
-    color: #353030;
-    font: 300 2em/1em 'Martel Sans', sans-serif;
+    color: var(--grey);
+    font: 300 3rem/2rem 'Martel Sans', sans-serif;
+}
+
+@media (min-width: 900px) {
+    .section-heading {
+        margin: 5rem 0;
+    }
 }
 
 .full-text {
@@ -304,11 +331,17 @@ main content
 .show-more {
     border: none;
     padding: .7vh 3vw;
-    background-color: #dd0000;
+    background-color: var(--red);
     color: #fff;
-    font-size: 1em;
+    font-size: 1.8rem;
     text-align: center;
     cursor: pointer;
+}
+
+p, 
+.biography-content li,
+.achievements-content li {
+    font-size: 1.6rem;
 }
 /*
 biography and achievements section
@@ -349,7 +382,7 @@ biography and achievements section
 
 .portrait {
     border-radius: 50%;
-    border: .2em solid #fff;
+    border: .2rem solid #fff;
 }
 
 .short-text {
@@ -384,7 +417,7 @@ biography and achievements section
     text-align: end;
 }
 
-@media (min-width: 1200px) {
+@media (min-width: 900px) {
     .biography-content, .achievements-content {
         grid-template-columns: repeat(6, 1fr);
 }
@@ -475,7 +508,7 @@ Contact section
 .contact-links {
     text-decoration: none;
     color: #fff;
-    font-size: 1.2em;
+    font-size: 1.6rem;
 }
 
 .contact-links:hover {
@@ -483,13 +516,13 @@ Contact section
 }
 
 .contact-links:active {
-    color: #dd0000;
+    color: var(--red);
 }
 
 .contact-content i {
-    font-size: 1.5em;
+    font-size: 1.5rem;
     font-weight: 600;
-    padding-right: .3em;
+    padding-right: .3rem;
 }
 
 .fab {
@@ -505,15 +538,15 @@ footer
 */
 footer {
     background-color: #fff;
-    color: #353030;
-    font-size: .8em;
+    color: var(--grey);
+    font-size: .8rem;
     text-align: end;
     padding: 5vw;
 }
 
 .author {
     text-decoration: none;
-    color: #dd0000;
+    color: var(--red);
 }
 
 .author:hover {
