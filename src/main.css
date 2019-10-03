@@ -50,7 +50,6 @@ body {
 }
 
 .content {
-    /* overflow-y: scroll; */
     grid-area: content;
     overflow: hidden;
 }
@@ -462,7 +461,7 @@ biography and achievements section
 
 .short-text {
     display: grid;
-    grid-template-columns: 1;
+    grid-template-columns: 1fr;
     grid-gap: 1vw;
     justify-items: end;
 }
@@ -515,7 +514,7 @@ works section
     display: grid;
     overflow: hidden;
     grid-gap: 2px;
-    grid-template-columns: 1;
+    grid-template-columns: 1fr;
 }
 
 .works-tetiana img, .works-mykhailo img {
@@ -523,6 +522,22 @@ works section
     height: 100%;
     object-fit: cover;
     overflow: hidden;
+}
+
+@media (min-width: 450px) {
+    .column1, .column2, .column3 {
+        height: 65vh;
+    }
+}
+
+@media (orientation: landscape) {
+    .column1, .column2, .column3 {
+        height: 80vh;
+    }
+    /*prevent two sculptures from cutting-off heads*/
+    .cutting-heads {
+        object-position: top;
+    }
 }
 
 /*
@@ -578,7 +593,7 @@ Contact section
 
 .contact-content {
     display: grid;
-    grid-template-columns: 1;
+    grid-template-columns: 1fr;
     justify-items: center;
     align-content: space-around;
     grid-row-gap: 10px;

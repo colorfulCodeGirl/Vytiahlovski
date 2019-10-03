@@ -20,6 +20,6 @@
     "simple-scrollbar": "^0.4.0"
   },
   "devDependencies": {
-    "@fortawesome/fontawesome-free": "^5.11.1"
+    
   }
 }
