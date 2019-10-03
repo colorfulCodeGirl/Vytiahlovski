@@ -4,3 +4,4 @@ $ cat .gitignore
 node_modules/
 dist/
 .cache/
+mokaps/
