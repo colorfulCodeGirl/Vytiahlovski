@@ -24,13 +24,26 @@ body {
 /*
 first screen for mobile
 */
+body {
+    height: 100vh;
+    display: grid;
+    grid-template-columns: 1;
+    grid-template-rows: auto 1fr;
+    grid-template-areas: 
+             "header"
+             "content";
+}
+
+.content {
+    overflow-y: scroll;
+    grid-area: content;
+}
 
 header {
+    grid-area: header;
     height: 7.5vh;
     width: 100vw;
     background-color: #353030;
-    position: fixed;
-    top: 0;
     z-index: 30;
     display: flex;
     justify-content: flex-end;
@@ -39,36 +52,56 @@ header {
 .first-screen-gallery {
     height: 100%;
     width: 100%;
-    margin-top: 7.5vh;
     overflow: hidden;
+    display: grid;
+    grid-template-columns: 1;
+    grid-template-rows: 1;
+}
+
+.slide-show, 
+#main-header {
+    grid-column: 1 / -1;
+    grid-row: 1 / -1;
 }
 
 .slide-show {
-    height: 100%;
     width: 100%;
     display: flex;
+    height: 92.5vh;
     justify-content: center;
 }
 
 .slides {
     display: none;
-    height: 100%;
     width: auto;
+    height: 100%;
 }
 
 .slides.active-slide {
     display: block;
-    height: 90vh;
 }
 
 #main-header {
     height: 30vh;
-    position: absolute;
-    bottom: 0;
-    right: 0;
+    justify-self: end;
+    align-self: end;
     z-index: 2;
 }
 
+@media (min-width: 1200px) {
+    .slide-show {
+        align-items: flex-start;
+    }
+    .slides {
+        height: auto;
+        width: 100%;
+    }
+    .section-content {
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+}
 
 /*
 hamburger menu
@@ -121,27 +154,27 @@ hamburger menu
 /*
 main menu
 */
-nav {
-    position: fixed;
-    top: 7.5vh;
-    width: 100vw;
-    height: 92.5vh;
-    overflow: hidden;
-    z-index: 20;
-}
 
 .menu {
-    list-style: none;
+    position: fixed;
     padding: 17vh 0 20vh 0;
     background-color: #353030;
     width: 100%;
     height: 100%;
     margin: 0;
+    overflow: hidden;
+    z-index: 20;
+    transform: translateX(100vw);
+    transition: transform 1s .9s ease-in;
+}
+
+.menu > ul {
+    list-style: none;
+    height: 100%;
     display: flex;
     flex-flow: column;
     justify-content: space-around;
-    transform: translateX(100vw);
-    transition: transform 1s .9s ease-in;
+    align-items: center;
 }
 
 .nav-elem {
@@ -150,10 +183,10 @@ nav {
     font-size: 1.5em;
     text-transform: uppercase;
 }
-.menu>li {
+/* .menu>li {
     display: flex;
     justify-content: center;
-}
+} */
 
 .menu hr {
     width: 30vw;
@@ -166,7 +199,7 @@ nav {
 /*
 slide menu - folling each after each efect
 */
-.menu hr:first-of-type {
+.menu li:nth-child(2) hr {
     transition-delay: .5s;
 }
 
@@ -174,7 +207,7 @@ slide menu - folling each after each efect
     transition-delay: .6s;
 }
 
-.menu hr:nth-of-type(2) {
+.menu li:nth-child(4) hr  {
     transition-delay: .7s;
 }
 
@@ -182,7 +215,7 @@ slide menu - folling each after each efect
     transition-delay: .8s;
 }
 
-.menu hr:nth-of-type(3) {
+.menu li:nth-child(6) hr  {
     transition-delay: .9s;
 }
 
@@ -193,7 +226,7 @@ slide menu - folling each after each efect
 /*
 togling hamburger menu
 */
-.active .menu {
+.menu.active  {
     transform: translateX(0);
     transition: transform 1s .2s ease-out;
 }
@@ -263,7 +296,7 @@ main content
     display: none;
 }
 
-.contact-info {
+.contact-content {
     margin: 0 3vw 5vh 3vw;
     display: flex;
 }
@@ -303,14 +336,14 @@ biography and achievements section
 }
 
 .portrait.mykhailo, .work-example.mykhailo {
-    grid-column: 4/6;
+    grid-column: -3/-1;
     grid-row: 2/3;
     width: 100%;
     object-fit: cover;
 }
 
  .short-text.mykhailo {
-    grid-column: 1/4;
+    grid-column: 1/-3;
     grid-row: 2/3;
 }
 
@@ -349,6 +382,12 @@ biography and achievements section
 
 .tetiana .short-text-p {
     text-align: end;
+}
+
+@media (min-width: 1200px) {
+    .biography-content, .achievements-content {
+        grid-template-columns: repeat(6, 1fr);
+}
 }
 
 /*
@@ -425,7 +464,7 @@ Mykhailo's works
 /*
 Contact section
 */
-.contact-info {
+.contact-content {
     display: grid;
     grid-template-columns: 1;
     justify-items: center;
@@ -447,7 +486,7 @@ Contact section
     color: #dd0000;
 }
 
-.contact-info i {
+.contact-content i {
     font-size: 1.5em;
     font-weight: 600;
     padding-right: .3em;

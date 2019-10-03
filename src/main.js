@@ -3,7 +3,7 @@
 Trapping tabKey inside open menu
 */
 const hamburgerMenu = document.querySelector('.hamburger-menu');
-const menu = document.querySelector('nav');
+const menu = document.querySelector('.menu');
 const main = document.querySelector('main');
 const hideWhenMenuOpen = [...document.querySelectorAll('main a, main button, footer a, footer button')];
 
@@ -21,7 +21,7 @@ const scrollToSection = (e, targetedSectionId) => {
     if (e.target.className === 'menu') {
         const scrollTarget = document.querySelector(`#${targetedSectionId}`);
         scrollTarget.scrollIntoView({
-            block: 'center',
+            // block: 'center',
             behavior: 'smooth'
         });
     }
