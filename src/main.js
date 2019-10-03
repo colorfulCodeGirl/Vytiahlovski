@@ -4,16 +4,19 @@ Trapping tabKey inside open menu
 */
 const hamburgerMenu = document.querySelector('.hamburger-menu');
 const menu = document.querySelector('.menu');
-const main = document.querySelector('main');
-const hideWhenMenuOpen = [...document.querySelectorAll('main a, main button, footer a, footer button')];
+// const main = document.querySelector('main');
 
 const trapTabKey = () => {
+    const menuLinks = [...menu.querySelectorAll('a')];
+    const hideWhenMenuOpen = [...document.querySelectorAll('main a, main button, footer a, footer button')];
     if (menu.getAttribute('aria-hidden') == 'true') {
         hideWhenMenuOpen.forEach(elem => elem.setAttribute('tabindex', -1));
         menu.setAttribute('aria-hidden', 'false');
+        menuLinks.forEach(elem => elem.setAttribute('tabindex', 0));
     } else {
         hideWhenMenuOpen.forEach(elem => elem.setAttribute('tabindex', 0));
         menu.setAttribute('aria-hidden', 'true');
+        menuLinks.forEach(elem => elem.setAttribute('tabindex', -1));
     }
 };
 
@@ -44,11 +47,5 @@ const openCloseMenu = (e) => {
 menu.addEventListener('click', openCloseMenu);
 hamburgerMenu.addEventListener('click', openCloseMenu);
 
-/*
-Macy - making collage in work section
-// */
-// const macyTetiana = Macy({
-//     container: '#works-tetiana',
-//     margin: 2,
-//     columns: 3
-// });
+document.addEventListener('keyup', (e) => {
+    console.log(e.target)});
