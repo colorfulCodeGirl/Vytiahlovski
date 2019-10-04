@@ -5,8 +5,8 @@
   // const main = document.querySelector('main');
 
   const trapTabKey = () => {
-    const menuLinks = [...menu.querySelectorAll('a')];
-    const hideWhenMenuOpen = [...document.querySelectorAll('main a, main button, footer a, footer button')];
+    const menuLinks = Array.from(menu.querySelectorAll('a'));
+    const hideWhenMenuOpen = Array.from(document.querySelectorAll('main a, main button, footer a, footer button'));
     if (menu.getAttribute('aria-hidden') == 'true') {
       hideWhenMenuOpen.forEach(elem => elem.setAttribute('tabindex', -1));
       menu.setAttribute('aria-hidden', 'false');
@@ -45,6 +45,92 @@
   menu.addEventListener('click', openCloseMenu);
   hamburgerMenu.addEventListener('click', openCloseMenu);
 })();
+
+(function slideShow() {
+  const mobileNav = document.querySelectorAll('.arrow-block');
+  const desktopNav = document.querySelectorAll('.desctop.slideshow-button');
+  let prevSlideInd = parseInt(document.querySelector('.slide-show .active').dataset.index);
+
+
+  const handleDirection = (e) => {
+    if (e.target.classList[0] === 'mobile') {
+      return e.target.classList[2];
+    } else {
+      return (e.target.dataset.index > prevSlideInd) ? 'right' : 'left';
+    }
+  }
+
+  const chooseNewInd = (direction) => {
+    if (direction === "right") {
+      const newInd = (prevSlideInd !== 6) ? (prevSlideInd + 1) : 0;
+      return newInd;
+    } else {
+      const newInd = (prevSlideInd !== 0) ? (prevSlideInd - 1) : 6;
+      return newInd;
+    }
+  }
+
+  const rearangeIfLeftMove = (newSlide) => {
+    newSlide.classList.add('transition-off', 'left-move');
+    newSlide.classList.remove('transition-off');
+  }
+
+  const moveSlides = (prevSlide, newSlide, direction) => {
+     if (direction === 'right') {
+       prevSlide.classList.add('left-move');
+      prevSlide.classList.remove('active');
+      newSlide.classList.add('active');
+      //return prewious slide in start position
+      setTimeout(() => {
+          prevSlide.classList.add('transition-off');
+          prevSlide.classList.remove('left-move');
+          setTimeout(() => prevSlide.classList.remove('transition-off'), 100);
+      }, 800);
+    } else {
+      rearangeIfLeftMove(newSlide);
+      prevSlide.classList.remove('active');
+      newSlide.classList.add('active');
+      newSlide.classList.remove('left-move');
+    }
+  }
+
+  const handleDesctopNav = (newSlideInd) => {
+    desktopNav[prevSlideInd].classList.remove('active');
+    desktopNav[newSlideInd].classList.add('active');
+  }
+
+  const changeSlide = (e) => {
+    const slides = document.querySelectorAll('.slide');
+    const prevSlide = slides[prevSlideInd];
+    const direction = handleDirection(e);
+    const newSlideInd = chooseNewInd(direction)
+    const newSlide = slides[newSlideInd];
+    moveSlides(prevSlide, newSlide, direction);
+    if (e.target.nodeName === 'A') {
+      handleDesctopNav(e, newSlideInd);
+    }
+    prevSlideInd = parseInt(newSlide.dataset.index);
+  }
+
+  mobileNav.forEach(btn => btn.addEventListener('click', changeSlide));
+  desktopNav.forEach(btn => btn.addEventListener('click', changeSlide));
+  //setInterval(changeSlide, 3000);
+})();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 // Fake scrollbar -TODO - import normally after gulp instalation 
 (function (root, factory) {

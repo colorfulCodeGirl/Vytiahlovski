@@ -358,27 +358,26 @@ Main slide show
     justify-content: center;
 }
 
-.slides {
+.slide {
     grid-column: 1 / -1;
     grid-row: 1 / -1;
     transform: translateX(100%);
+    transition: transform .8s linear;
     /*make img overflow horisontaly but cover whole screen verticaly*/
     width: auto;
     height: 100%;
 }
 
-.slides.deactivating {
+.slide.left-move {
     transform: translateX(-100%);
 }
 
-.slides.active {
+.slide.active {
     transform: translateX(0);
 }
 
-/*disable desctop slide show nawigation*/
-
-.desctop-slideshow-nav {
-    display: none;
+.slide.transition-off {
+    transition: 0s;
 }
 
 @media (min-width: 825px) and (min-aspect-ratio: 4/3) {
@@ -387,7 +386,7 @@ Main slide show
         align-items: flex-start;
     }
     /*make img overflow verticaly but cover whole screen horisontaly*/
-    .slides {
+    .slide {
         height: auto;
         width: 100%;
     }
@@ -396,6 +395,9 @@ Main slide show
 /*
 Slideshow navigation
 */
+.desctop.slideshow-nav {
+    display: none;
+}
 
 .slide-show-nav {
     grid-column: 1 / -1;
@@ -413,6 +415,12 @@ Slideshow navigation
     display: flex;
     justify-content: center;
     align-items: center;
+    transform: scale(1);
+    transition: scale .7s ease-out;
+}
+
+.slide-show-nav .arrow-block:active {
+    transform: scale(.9);
 }
 
 .slide-show-nav .arrow {
@@ -427,7 +435,7 @@ Slideshow navigation
     .slide-show-nav {
         display: none;
     }
-    .desctop-slideshow-nav {
+    .desctop.slideshow-nav {
         grid-column: 2 / 3;
         grid-row: 7 / 8;
         display: flex;
@@ -438,20 +446,21 @@ Slideshow navigation
         padding: 0;
         z-index: 5;
     }
-    .desctop-slideshow-button {
+    .desctop.slideshow-button {
         display: block;
         width: .6rem;
         height: 4rem;
         background-color: #fff;
         border-radius: .6rem;
         box-shadow: .2rem .2rem .5rem var(--grey);
+        transition: scaleY .3s linear, translateY .3s linear;
     }
-    .desctop-slideshow-button>a {
+    .desctop.slideshow-button>a {
         display: block;
         width: 100%;
         height: 100%;
     }
-    .desctop-slideshow-button.active {
+    .desctop.slideshow-button.active {
         transform: scaleY(1.7) translateY(-20%);
     }
 }
