@@ -355,14 +355,15 @@ Main slide show
     grid-template-columns: 1fr;
     grid-template-rows: 1fr;
     /*images are overflowing horisontaly, so we need to center them*/
-    justify-content: center;
 }
 
 .slide {
     grid-column: 1 / -1;
     grid-row: 1 / -1;
+    overflow: hidden;
+    justify-self: center;
     transform: translateX(100%);
-    transition: transform .8s linear;
+    transition: transform 2s ease-out;
     /*make img overflow horisontaly but cover whole screen verticaly*/
     width: auto;
     height: 100%;

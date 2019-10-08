@@ -22,7 +22,6 @@
     if (e.target.className === 'menu') {
       const scrollTarget = document.querySelector(`#${targetedSectionId}`);
       scrollTarget.scrollIntoView({
-        // block: 'center',
         behavior: 'smooth'
       });
     }
@@ -60,7 +59,7 @@
     }
   }
 
-  const chooseNewInd = (direction) => {
+  const chooseNewIndex = (direction) => {
     if (direction === "right") {
       const newInd = (prevSlideInd !== 6) ? (prevSlideInd + 1) : 0;
       return newInd;
@@ -76,18 +75,15 @@
   }
 
   const moveSlides = (prevSlide, newSlide, direction) => {
-     if (direction === 'right') {
-       prevSlide.classList.add('left-move');
+    if (direction === 'right') {
+      if (newSlide.dataset.index === 6) {
+        newSlide.classList.remove('left-move');
+      }
+      prevSlide.classList.add('left-move');
       prevSlide.classList.remove('active');
       newSlide.classList.add('active');
-      //return prewious slide in start position
-      setTimeout(() => {
-          prevSlide.classList.add('transition-off');
-          prevSlide.classList.remove('left-move');
-          setTimeout(() => prevSlide.classList.remove('transition-off'), 100);
-      }, 800);
+
     } else {
-      rearangeIfLeftMove(newSlide);
       prevSlide.classList.remove('active');
       newSlide.classList.add('active');
       newSlide.classList.remove('left-move');
@@ -99,16 +95,36 @@
     desktopNav[newSlideInd].classList.add('active');
   }
 
+  const prepareSlides = (newSlideInd, slides) => {
+    const nextFromRightInd = (newSlideInd + 1) > 6 ? 0 : (newSlideInd + 1);
+    const nextFromLeftInd = (newSlideInd - 1) < 0 ? 6 : (newSlideInd - 1);
+    const nextFromRight = slides[nextFromRightInd];
+    const nextFromLeft = slides[nextFromLeftInd];
+
+    if (nextFromRight.classList[1]) {
+      nextFromRight.classList.add('transition-off');
+      nextFromRight.classList.remove('left-move');
+    }
+
+    if (nextFromLeft.classList[1] !== 'left-move') {
+      nextFromLeft.classList.add('transition-off');
+      nextFromLeft.classList.add('left-move');
+    }
+
+    setTimeout(() => {
+      nextFromRight.classList.remove('transition-off');
+      nextFromLeft.classList.remove('transition-off');
+    }, 1000);
+  }
+
   const changeSlide = (e) => {
     const slides = document.querySelectorAll('.slide');
     const prevSlide = slides[prevSlideInd];
     const direction = handleDirection(e);
-    const newSlideInd = chooseNewInd(direction)
+    const newSlideInd = chooseNewIndex(direction)
     const newSlide = slides[newSlideInd];
     moveSlides(prevSlide, newSlide, direction);
-    if (e.target.nodeName === 'A') {
-      handleDesctopNav(e, newSlideInd);
-    }
+    prepareSlides(newSlideInd, slides);
     prevSlideInd = parseInt(newSlide.dataset.index);
   }
 
