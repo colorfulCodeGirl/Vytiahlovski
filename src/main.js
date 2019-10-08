@@ -49,7 +49,8 @@
   const mobileNav = document.querySelectorAll('.arrow-block');
   const desktopNav = document.querySelectorAll('.desctop.slideshow-button');
   let prevSlideInd = parseInt(document.querySelector('.slide-show .active').dataset.index);
-
+  const displayType = window.matchMedia('(min-width: 825px) and (pointer: fine)');
+  const slides = document.querySelectorAll('.slide');
 
   const handleDirection = (e) => {
     if (e.target.classList[0] === 'mobile') {
@@ -69,16 +70,8 @@
     }
   }
 
-  const rearangeIfLeftMove = (newSlide) => {
-    newSlide.classList.add('transition-off', 'left-move');
-    newSlide.classList.remove('transition-off');
-  }
-
   const moveSlides = (prevSlide, newSlide, direction) => {
     if (direction === 'right') {
-      if (newSlide.dataset.index === 6) {
-        newSlide.classList.remove('left-move');
-      }
       prevSlide.classList.add('left-move');
       prevSlide.classList.remove('active');
       newSlide.classList.add('active');
@@ -90,22 +83,18 @@
     }
   }
 
-  const handleDesctopNav = (newSlideInd) => {
-    desktopNav[prevSlideInd].classList.remove('active');
-    desktopNav[newSlideInd].classList.add('active');
-  }
-
   const prepareSlides = (newSlideInd, slides) => {
     const nextFromRightInd = (newSlideInd + 1) > 6 ? 0 : (newSlideInd + 1);
     const nextFromLeftInd = (newSlideInd - 1) < 0 ? 6 : (newSlideInd - 1);
     const nextFromRight = slides[nextFromRightInd];
     const nextFromLeft = slides[nextFromLeftInd];
 
-    if (nextFromRight.classList[1]) {
+    //if next right slide is from the left - move it to right 
+    if (nextFromRight.classList[1] === 'left-move') {
       nextFromRight.classList.add('transition-off');
       nextFromRight.classList.remove('left-move');
     }
-
+    //if next left slide is from the right - move it to left
     if (nextFromLeft.classList[1] !== 'left-move') {
       nextFromLeft.classList.add('transition-off');
       nextFromLeft.classList.add('left-move');
@@ -118,19 +107,45 @@
   }
 
   const changeSlide = (e) => {
-    const slides = document.querySelectorAll('.slide');
     const prevSlide = slides[prevSlideInd];
     const direction = handleDirection(e);
-    const newSlideInd = chooseNewIndex(direction)
+    const newSlideInd = chooseNewIndex(direction);
     const newSlide = slides[newSlideInd];
     moveSlides(prevSlide, newSlide, direction);
     prepareSlides(newSlideInd, slides);
     prevSlideInd = parseInt(newSlide.dataset.index);
   }
 
-  mobileNav.forEach(btn => btn.addEventListener('click', changeSlide));
-  desktopNav.forEach(btn => btn.addEventListener('click', changeSlide));
-  //setInterval(changeSlide, 3000);
+  const handleDesctopNav = (newIndex) => {
+    desktopNav[prevSlideInd].classList.remove('active');
+    desktopNav[newIndex].classList.add('active');
+  }
+
+  const changeSlideDesctop = (e) => {
+    
+    const prevSlide = slides[prevSlideInd];
+    const newIndex = e.target.dataset.index;
+    const newSlide = slides[newIndex];
+    handleDesctopNav(newIndex);
+    moveSlides(prevSlide, newSlide, 'right');
+
+    setTimeout(() => {
+      prevSlide.classList.add('transition-off');
+      prevSlide.classList.remove('left-move');
+      setTimeout(() => prevSlide.classList.remove('transition-off'), 100);
+    }, 2000);
+    prevSlideInd = newIndex;
+  }
+
+  if (!displayType.matches) {
+    mobileNav.forEach(btn => btn.addEventListener('click', changeSlide));
+  } else {
+    //remove class preparation for mobile slide show
+    slides[6].classList.add('transition-off');
+    slides[6].classList.remove('left-move');
+    setTimeout(() => slides[6].classList.remove('transition-off'), 10);
+    desktopNav.forEach(btn => btn.addEventListener('click', changeSlideDesctop));
+  }
 })();
 
 

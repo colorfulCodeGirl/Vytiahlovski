@@ -43,6 +43,7 @@ body {
     font-family: 'Roboto', sans-serif;
     font-weight: 300;
     height: 100vh;
+    overflow-x: hidden;
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: auto 1fr;
@@ -454,7 +455,7 @@ Slideshow navigation
         background-color: #fff;
         border-radius: .6rem;
         box-shadow: .2rem .2rem .5rem var(--grey);
-        transition: scaleY .3s linear, translateY .3s linear;
+        transition: scaleY 2s linear, translateY 2s linear;
     }
     .desctop.slideshow-button>a {
         display: block;

@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta content="ie=edge">
     <title>Vytiahlovski art gallery</title>
     <link
         href="https://fonts.googleapis.com/css?family=Martel+Sans:200,300|Roboto:100,300,500&display=swap&subset=cyrillic,cyrillic-ext,latin-ext"
@@ -15,7 +15,7 @@
 <body>
 
     <header>
-        <button class="hamburger-menu" aria-label="Open main menu">
+        <button class="hamburger-menu" aria-label="Open main menu" type="button">
             <p class="sr-only">Open main menu</p>
             <div class="hamburger-box">
                 <span class="hamburger-bar"></span>
@@ -52,13 +52,13 @@
                     </div>
                 </div>
                 <ul class="desctop slideshow-nav">
-                    <li class="desctop slideshow-button active"><a href="#" data-index="0"></a></li>
-                    <li class="desctop slideshow-button"><a href="#" data-index="1"></a></li>
-                    <li class="desctop slideshow-button"><a href="#" data-index="2"></a></li>
-                    <li class="desctop slideshow-button"><a href="#" data-index="3"></a></li>
-                    <li class="desctop slideshow-button"><a href="#" data-index="4"></a></li>
-                    <li class="desctop slideshow-button"><a href="#" data-index="5"></a></li>
-                    <li class="desctop slideshow-button"><a href="#" data-index="6"></a></li>
+                    <li><a class="desctop slideshow-button active" href="#" data-index="0" aria-label="first slide"></a></li>
+                    <li><a class="desctop slideshow-button" href="#" data-index="1"aria-label="second slide"></a></li>
+                    <li><a class="desctop slideshow-button" href="#" data-index="2"aria-label="third slide"></a></li>
+                    <li><a class="desctop slideshow-button" href="#" data-index="3"aria-label="forth slide"></a></li>
+                    <li><a class="desctop slideshow-button" href="#" data-index="4"aria-label="fifth slide"></a></li>
+                    <li><a class="desctop slideshow-button" href="#" data-index="5"aria-label="sixth slide"></a></li>
+                    <li><a class="desctop slideshow-button" href="#" data-index="6"aria-label="seventh slide"></a></li>
                 </ul>
                 <div class="slide-show">
                     <img src="images/slide_1.jpg" class="slide active" alt="" data-index="0"/>
@@ -85,7 +85,7 @@
                             (Ternopil
                             region). From 1975 to 1978 Tetiana studied at Buchach Art
                             School for children.</p>
-                        <button class="show-more biography-tetiana" aria-label="Tetniana's biography">more...</button>
+                        <button class="show-more biography-tetiana" aria-label="Tetniana's biography" type="button">more...</button>
                     </div>
                     <div class="full-text biography-tetiana">
                         <p>In 1983 she finished Art Weaving Department of Vyzhnytsya College of Applied and Decorative
@@ -141,7 +141,7 @@
                             Ternopil region in 1963. From 1974 to 1978 Mykhailo studied at Buchach Art School for
                             children.
                         </p>
-                        <button class="show-more biography-mykhailo" aria-label="Mykhailo's biography">more...</button>
+                        <button class="show-more biography-mykhailo" aria-label="Mykhailo's biography" type="button">more...</button>
                     </div>
                     <img src="images/mykhailo.jpg" class="portrait mykhailo" alt="Portrait of Mykhailo Vytiahlovskyi" />
 
@@ -176,7 +176,7 @@
                 <div class="section-content">
                     <div class="works-tetiana">
                         <div class="column1">
-                            <button class="show-more tetiana-works">TETIANA</button>
+                            <button class="show-more tetiana-works" type="button">TETIANA</button>
                             <img src="images/works-tetiana/1.jpg" alt="">
                             <img src="images/works-tetiana/2.jpg" alt="">
                         </div>
@@ -204,7 +204,7 @@
                             <img src="images/works-mykhailo/6.jpg" alt="">
                         </div>
                         <div class="column3">
-                            <button class="show-more tetiana-works">MYKHAILO</button>
+                            <button class="show-more tetiana-works" type="button">MYKHAILO</button>
                             <img src="images/works-mykhailo/7.jpg" alt="">
                             <img src="images/works-mykhailo/8.jpg" alt="">
                             <img src="images/works-mykhailo/9.jpg" alt="">
@@ -230,7 +230,7 @@
                             <li>Personal exhibitions in Ternopil – in 1995 and 2000.</li>
                         </ul>
                         <button class="show-more achievements-tetiana"
-                            aria-label="Tetiana's achievements">more...</button>
+                            aria-label="Tetiana's achievements" type="button">more...</button>
                     </div>
 
                     <div class="full-text achievements-tetiana">
@@ -288,7 +288,7 @@
                             <li>Personal exhibitions in Ternopil – in 1995 and 2000.</li>
                         </ul>
                         <button class="show-more achievements-mykhailo"
-                            aria-label="Mykhailo's achievements">more...</button>
+                            aria-label="Mykhailo's achievements" type="button">more...</button>
                     </div>
                     <img src="images/achievements-sculpture.jpg" class="work-example mykhailo"
                         alt="Sculpture of Mykhailo Vytiahlovskyi" />
