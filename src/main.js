@@ -45,13 +45,18 @@
   hamburgerMenu.addEventListener('click', openCloseMenu);
 })();
 
+
+
 (function slideShow() {
   const mobileNav = document.querySelectorAll('.arrow-block');
   const desktopNav = document.querySelectorAll('.desctop.slideshow-button');
   let prevSlideInd = parseInt(document.querySelector('.slide-show .active').dataset.index);
   const displayType = window.matchMedia('(min-width: 825px) and (pointer: fine)');
   const slides = document.querySelectorAll('.slide');
+  let userClickedAt = 0;
 
+
+  /*----------Mobile version-----------*/
   const handleDirection = (e) => {
     if (e.target.classList[0] === 'mobile') {
       return e.target.classList[2];
@@ -67,19 +72,6 @@
     } else {
       const newInd = (prevSlideInd !== 0) ? (prevSlideInd - 1) : 6;
       return newInd;
-    }
-  }
-
-  const moveSlides = (prevSlide, newSlide, direction) => {
-    if (direction === 'right') {
-      prevSlide.classList.add('left-move');
-      prevSlide.classList.remove('active');
-      newSlide.classList.add('active');
-
-    } else {
-      prevSlide.classList.remove('active');
-      newSlide.classList.add('active');
-      newSlide.classList.remove('left-move');
     }
   }
 
@@ -106,7 +98,22 @@
     }, 1000);
   }
 
-  const changeSlide = (e) => {
+  /*---------------Common for bouth -----------------*/
+  const moveSlides = (prevSlide, newSlide, direction) => {
+    if (direction === 'right') {
+      prevSlide.classList.add('left-move');
+      prevSlide.classList.remove('active');
+      newSlide.classList.add('active');
+
+    } else {
+      prevSlide.classList.remove('active');
+      newSlide.classList.add('active');
+      newSlide.classList.remove('left-move');
+    }
+  }
+
+  /*---------------Main Mobile function-------------*/
+  const changeSlideMobile = (e) => {
     const prevSlide = slides[prevSlideInd];
     const direction = handleDirection(e);
     const newSlideInd = chooseNewIndex(direction);
@@ -114,31 +121,37 @@
     moveSlides(prevSlide, newSlide, direction);
     prepareSlides(newSlideInd, slides);
     prevSlideInd = parseInt(newSlide.dataset.index);
+    userClickedAt = new Date().getTime();
+
   }
 
+  /*------------------Desctop version---------------------*/
   const handleDesctopNav = (newIndex) => {
     desktopNav[prevSlideInd].classList.remove('active');
     desktopNav[newIndex].classList.add('active');
   }
 
+  const prepareSlidesDescktop = (prevSlide) => {
+    prevSlide.classList.add('transition-off');
+    prevSlide.classList.remove('left-move');
+    setTimeout(() => prevSlide.classList.remove('transition-off'), 100);
+  }
+
+  /*------------------Main Desctop function---------------*/
   const changeSlideDesctop = (e) => {
-    
     const prevSlide = slides[prevSlideInd];
-    const newIndex = e.target.dataset.index;
+    const newIndex = parseInt(e.target.dataset.index);
     const newSlide = slides[newIndex];
     handleDesctopNav(newIndex);
     moveSlides(prevSlide, newSlide, 'right');
-
-    setTimeout(() => {
-      prevSlide.classList.add('transition-off');
-      prevSlide.classList.remove('left-move');
-      setTimeout(() => prevSlide.classList.remove('transition-off'), 100);
-    }, 2000);
+    setTimeout(() => prepareSlidesDescktop(prevSlide), 2000);
     prevSlideInd = newIndex;
+    userClickedAt = new Date().getTime();
   }
 
+  /*----------------Setting EventListeners-----------------*/
   if (!displayType.matches) {
-    mobileNav.forEach(btn => btn.addEventListener('click', changeSlide));
+    mobileNav.forEach(btn => btn.addEventListener('click', changeSlideMobile));
   } else {
     //remove class preparation for mobile slide show
     slides[6].classList.add('transition-off');
@@ -146,6 +159,43 @@
     setTimeout(() => slides[6].classList.remove('transition-off'), 10);
     desktopNav.forEach(btn => btn.addEventListener('click', changeSlideDesctop));
   }
+
+  /*------------------Automated slideshow--------------*/
+  const changeSlideAutomated = () => {
+    const prevSlide = slides[prevSlideInd]
+    const prevSlideRect = prevSlide.getBoundingClientRect();
+    const navBottom = window.innerHeight - prevSlideRect.height;
+    if (prevSlideRect.bottom < navBottom) { return }
+
+    const currentTime = new Date().getTime();
+    const timePassed = currentTime - userClickedAt;
+    if (timePassed >= 4000) {
+      const newIndex = (prevSlideInd !== 6) ? (prevSlideInd + 1) : 0;
+      const newSlide = slides[newIndex];
+      moveSlides(prevSlide, newSlide, 'right');
+      //if we are on descktop handle navigation animation
+      if (displayType.matches) {
+        handleDesctopNav(newIndex);
+      }
+      setTimeout(() => prepareSlidesDescktop(prevSlide), 2000);
+      prevSlideInd = newIndex;
+    }
+  }
+
+  const autoChange = setInterval(changeSlideAutomated, 4000);
+
+  //if slideshow is out of the viewport - stop autoChange
+  const checkOptions = { threshold: 1.0 };
+  function checkIfSlideIsVisible(entries, observer) {
+entries.forEach(entry => console.log(entry));
+    
+    // if (!) {
+    //   clearInterval(autoChange);
+    // }
+  }
+  const observer = new IntersectionObserver(checkIfSlideIsVisible, checkOptions);
+  const target = document.querySelector('#main-header');
+  observer.observe(target);
 })();
 
 

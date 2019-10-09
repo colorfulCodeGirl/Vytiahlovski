@@ -480,6 +480,7 @@ Slideshow navigation
     
     .desctop.slideshow-button.active {
         transform: scaleY(1.7) translateY(-20%);
+        background-color: var(--red);
     }
 }
 
@@ -660,7 +661,6 @@ Contact section
 .contact-content {
     display: grid;
     grid-template-columns: 1fr;
-    justify-items: center;
     align-content: space-around;
     grid-row-gap: 10px;
 }
@@ -668,29 +668,21 @@ Contact section
 .contact-links {
     text-decoration: none;
     color: #fff;
-    font-size: 1.6rem;
+    font-size: 1.8rem;
+    font-weight: 500;
+    padding: 1rem 0;
+    display: flex;
+    align-items: center;
 }
 
-.contact-links:hover {
+.contact-links:active, .contact-links:hover {
+    color: var(--red);
     text-decoration: underline;
 }
 
-.contact-links:active {
-    color: var(--red);
-}
-
-.contact-content i {
-    font-size: 1.5rem;
-    font-weight: 600;
-    padding-right: .3rem;
-}
-
-.fab {
-    color: #3B5998;
-}
-
-.fas {
-    color: #1DA1F2;
+.icon {
+    padding: 0 1rem;
+   height: 4rem;
 }
 
 /*
