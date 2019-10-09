@@ -349,6 +349,13 @@ Main slide show
     z-index: 2;
 }
 
+@media (max-aspect-ratio: 4/7) {
+    #main-header {
+        /*prevent logo img from cutting on a very thin vertical screens*/
+        height: 25vh;
+    }
+}
+
 .slide-show {
     width: 100vw;
     height: 92.5vh;
