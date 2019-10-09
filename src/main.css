@@ -448,12 +448,18 @@ Slideshow navigation
         grid-column: 2 / 3;
         grid-row: 7 / 8;
         display: flex;
-        justify-content: space-evenly;
+        justify-content: stretch;
         align-items: flex-end;
         list-style: none;
         margin: 0;
         padding: 0;
         z-index: 5;
+    }
+    .desctop.slideshow-nav > li {
+        display: block;
+        flex: 1;
+        display: flex;
+        justify-content: center;
     }
     .desctop.slideshow-button {
         display: block;
@@ -464,11 +470,14 @@ Slideshow navigation
         box-shadow: .2rem .2rem .5rem var(--grey);
         transition: scaleY 2s linear, translateY 2s linear;
     }
-    .desctop.slideshow-button>a {
+
+    .desctop.slideshow-button::before {
         display: block;
-        width: 100%;
+        content: '';
+        width: 300%;
         height: 100%;
     }
+    
     .desctop.slideshow-button.active {
         transform: scaleY(1.7) translateY(-20%);
     }
