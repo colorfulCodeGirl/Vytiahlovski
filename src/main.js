@@ -184,21 +184,21 @@
 
   const autoChange = setInterval(changeSlideAutomated, 4000);
 
-  //if slideshow is out of the viewport - stop autoChange
-  const checkOptions = { threshold: 1.0 };
-  function checkIfSlideIsVisible(entries, observer) {
-entries.forEach(entry => console.log(entry));
-    
-    // if (!) {
-    //   clearInterval(autoChange);
-    // }
-  }
-  const observer = new IntersectionObserver(checkIfSlideIsVisible, checkOptions);
-  const target = document.querySelector('#main-header');
-  observer.observe(target);
+  //   //if slideshow is out of the viewport - stop autoChange
+  //   const checkOptions = { threshold: 1.0 };
+  //   function checkIfSlideIsVisible(entries, observer) {
+  // entries.forEach(entry => console.log(entry));
+
+  //     // if (!) {
+  //     //   clearInterval(autoChange);
+  //     // }
+  //   }
+  //   const observer = new IntersectionObserver(checkIfSlideIsVisible, checkOptions);
+  //   const target = document.querySelector('#main-header');
+  //   observer.observe(target);
 })();
 
-(function openMenuFormMobile() {  
+(function openMenuFormMobile() {
   if (window.innerWidth < 600) {
     const btn = document.querySelector('.button.email-mobile');
     const emailForm = document.querySelector('.email');
@@ -212,13 +212,48 @@ entries.forEach(entry => console.log(entry));
       overley.classList.toggle('active');
     }
 
-    btn.addEventListener( 'click', openCloseForm);
+    btn.addEventListener('click', openCloseForm);
     header.addEventListener('click', openCloseForm);
     closeBtn.addEventListener('click', openCloseForm);
     submitBtn.addEventListener('click', openCloseForm);
   }
 })();
 
+(function addPTagsOnWideScreen() {
+  if (window.innerWidth < 400) return;
+
+  const shortText = document.querySelectorAll('.short-text');
+  const fullText = document.querySelectorAll('.full-text');
+  const buttons = document.querySelectorAll('.short-text .button');
+
+  const appendP = () => {
+    let parentPrev;
+    let parentNew;
+    for (let i = 0; i < shortText.length; i++) {
+      if (i >= 2) {
+        parentPrev = fullText[i].children[0];
+        const children = Array.from(parentPrev.children).slice(0, 3);
+        parentNew = shortText[i].children[1];
+        children.forEach( child => parentNew.appendChild(child));
+      } else {
+        parentPrev = fullText[i];
+        const child = Array.from(parentPrev.children).shift();
+        parentNew = shortText[i];
+        const place = buttons[i];
+        parentNew.insertBefore(child, place);
+      }
+    }
+  }
+  if (window.innerWidth > 400) {
+    appendP();
+  }
+  if (window.innerWidth > 650) {
+    appendP();
+  }
+  if (window.innerWidth > 1020) {
+    appendP();
+  }
+})();
 
 
 
