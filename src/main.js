@@ -198,6 +198,26 @@ entries.forEach(entry => console.log(entry));
   observer.observe(target);
 })();
 
+(function openMenuFormMobile() {  
+  if (window.innerWidth < 600) {
+    const btn = document.querySelector('.button.email-mobile');
+    const emailForm = document.querySelector('.email');
+    const overley = document.querySelector('.form-overley');
+    const header = document.querySelector('header');
+    const closeBtn = document.querySelector('.email .close');
+    const submitBtn = document.querySelector('.email .submit');
+
+    const openCloseForm = () => {
+      emailForm.classList.toggle('active');
+      overley.classList.toggle('active');
+    }
+
+    btn.addEventListener( 'click', openCloseForm);
+    header.addEventListener('click', openCloseForm);
+    closeBtn.addEventListener('click', openCloseForm);
+    submitBtn.addEventListener('click', openCloseForm);
+  }
+})();
 
 
 
