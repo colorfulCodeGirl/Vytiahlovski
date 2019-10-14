@@ -203,11 +203,14 @@
     const btn = document.querySelector('.button.email-mobile');
     const emailForm = document.querySelector('.email');
     const overley = document.querySelector('.form-overley');
-    const header = document.querySelector('header');
+    const header = document.querySelector('.hamburger-menu');
     const closeBtn = document.querySelector('.email .close');
     const submitBtn = document.querySelector('.email .submit');
 
-    const openCloseForm = () => {
+    const openCloseForm = (e) => {
+      if (e.target.className.includes('hamburger') &&
+        emailForm.classList.length === 1) return;
+
       emailForm.classList.toggle('active');
       overley.classList.toggle('active');
     }
@@ -219,7 +222,7 @@
   }
 })();
 
-(function addPTagsOnWideScreen() {
+(function addContentOnWideScreen() {
   if (window.innerWidth < 400) return;
 
   const shortText = document.querySelectorAll('.short-text');
@@ -234,7 +237,7 @@
         parentPrev = fullText[i].children[0];
         const children = Array.from(parentPrev.children).slice(0, 3);
         parentNew = shortText[i].children[1];
-        children.forEach( child => parentNew.appendChild(child));
+        children.forEach(child => parentNew.appendChild(child));
       } else {
         parentPrev = fullText[i];
         const child = Array.from(parentPrev.children).shift();
@@ -255,6 +258,28 @@
   }
 })();
 
+(function showWholeContent() {
+  const buttons = document.querySelectorAll('.biography button, .achievements .button');
+
+  const showMore = (e) => {
+    const section = e.target.classList[1];
+    const person = e.target.classList[2];
+    const fullText = document.querySelector(`.${section} .${person} .full-text`);
+    const fullTextClasses = Array.from(fullText.classList);
+    const currentButton = e.target;
+    fullText.classList.toggle('active');
+
+    if (fullTextClasses.find( el => el === 'active')) {
+      currentButton.innerHTML = 'more...';
+      currentButton.setAttribute('aria-label', 'Whole Tetniana\'s biography');
+    } else {
+      currentButton.innerHTML = 'less...';
+      currentButton.setAttribute('aria-label', 'Hide whole Tetniana\'s biography');
+    }
+  }
+
+  buttons.forEach(btn => btn.addEventListener('click', showMore));
+})();
 
 
 

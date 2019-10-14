@@ -1,19 +1,19 @@
 :root {
     box-sizing: border-box;
-    font-size: 8px;
+    font-size: 10px;
     --grey: #353030;
     --red: #dd0000;
 }
 
 @media (min-width: 600px) {
     :root {
-        font-size: 10px;
+        font-size: 12px;
     }
 }
 
 @media (min-width: 1600px) {
     :root {
-        font-size: 12px;
+        font-size: 14px;
     }
 }
 
@@ -283,21 +283,19 @@ main, footer {
 .section-heading {
     background-color: #fff;
     margin: 3rem 0;
-    padding: .7rem;
     text-align: center;
     text-transform: uppercase;
     color: var(--grey);
-    font: 300 3rem/2rem 'Martel Sans', sans-serif;
+    font-weight: 300; 
+    font-size: 3rem;
+    line-height: 1.5;
+    font-family: 'Martel Sans', serif;
 }
 
 @media (min-width: 825px) {
     .section-heading {
         margin: 5rem 0;
     }
-}
-
-.full-text {
-    display: none;
 }
 
 .contact-content {
@@ -494,17 +492,34 @@ biography and achievements section
 .biography-content, .achievements-content {
     padding: 0 3vw 0 3vw;
     width: 100%;
+}
+
+.person {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
-    grid-column-gap: 3vw;
-    grid-row-gap: 5vw;
+    column-gap: 3vw;
+    row-gap: 5vw;
+    margin-bottom: 5vw;
+}
+
+.portrait, .work-example {
+    max-width: 100%;
+    object-fit: cover;
+    grid-row: 1/2;
+}
+
+.portrait {
+    border-radius: 50%;
+    border: .2rem solid #fff;
+    max-height: 40vh;
+}
+
+.work-example {
+    max-height: 60vh;
 }
 
 .portrait.tetiana, .work-example.tetiana {
     grid-column: 1/3;
-    grid-row: 1/2;
-    width: 100%;
-    object-fit: cover;
 }
 
 .short-text.tetiana {
@@ -515,19 +530,7 @@ biography and achievements section
 
 .portrait.mykhailo, .work-example.mykhailo {
     grid-column: -3/-1;
-    grid-row: 2/3;
-    width: 100%;
-    object-fit: cover;
-}
-
-.short-text.mykhailo {
-    grid-column: 1/-3;
-    grid-row: 2/3;
-}
-
-.portrait {
-    border-radius: 50%;
-    border: .2rem solid #fff;
+    justify-self: end;
 }
 
 .short-text {
@@ -541,12 +544,26 @@ biography and achievements section
     margin: 0;
 }
 
+.short-text ul {
+    margin: 3px;
+}
+
 .short-text.mykhailo {
+    grid-column: 1/-3;
+    grid-row: 1/2;
     justify-items: start;
 }
 
-.short-text ul {
-    margin: 3px;
+.full-text {
+    display: none;
+    transform: scaleY(0);
+    transition: scaleY 2s ease-out;
+    grid-column: 1 / -1;
+}
+
+.full-text.active {
+    display: block;
+    transform: scaleY(1);
 }
 
 .button {
@@ -558,18 +575,18 @@ biography and achievements section
     font-weight: 500;
 }
 
-.achievements-content .tetiana ul {
+.achievements-content .tetiana .short-text ul {
     list-style: none;
 }
 
-.achievements-content .tetiana li {
+.achievements-content .tetiana .short-text li {
     display: grid;
     grid-template-columns: repeat(2, auto);
     align-items: start;
     justify-content: end;
 }
 
-.achievements-content .tetiana li::after {
+.achievements-content .tetiana .short-text li::after {
     display: block;
     content: "";
     border-radius: 0.375rem;
@@ -729,6 +746,7 @@ Contact section
 }
 
 .form-overley.active {
+    display: block;
     position: fixed;
     top: 0;
     left: 0;
