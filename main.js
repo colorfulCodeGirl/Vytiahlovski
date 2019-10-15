@@ -130,7 +130,7 @@
   const prepareSlidesDesktop = (prevSlide) => {
     prevSlide.classList.add('transition-off');
     prevSlide.classList.remove('left-move');
-    setTimeout(() => prevSlide.classList.remove('transition-off'), 10);
+    setTimeout(() => prevSlide.classList.remove('transition-off'), 100);
   }
 
   /* ------------------Main Desktop function--------------- */

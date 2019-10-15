@@ -539,8 +539,8 @@ Slideshow navigation
     .desktop.slideshow-nav>li {
         display: block;
         flex: 1;
-        display: flex;
-        justify-content: center;
+        /* display: flex;
+        justify-content: center; */
     }
     .desktop.slideshow-button {
         display: block;
@@ -549,7 +549,8 @@ Slideshow navigation
         background-color: var(--white);
         border-radius: .6rem;
         box-shadow: .2rem .2rem .5rem var(--grey);
-        transition: scaleY 2s linear, translateY 2s linear;
+        transform: scaleY(1) translateY(0);
+        transition: transform .7s linear;
     }
     .desktop.slideshow-button::before {
         display: block;
