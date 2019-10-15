@@ -77,6 +77,7 @@ hamburger menu
     height: 100%;
     cursor: pointer;
     background-color: transparent;
+    overflow: hidden;
 }
 
 .hamburger-box {
@@ -330,6 +331,7 @@ main, footer {
     align-self: center;
     line-height: 1.5;
     letter-spacing: .2rem;
+    overflow: hidden;
 }
 
 .button.right-side {

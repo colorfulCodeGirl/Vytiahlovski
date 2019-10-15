@@ -1,6 +1,6 @@
 /* eslint-disable semi */
 
-(function handlingMenu () {
+(function handlingMenu() {
   const hamburgerMenu = document.querySelector('.hamburger-menu');
   const menu = document.querySelector('.menu');
   // const main = document.querySelector('main');
@@ -46,7 +46,7 @@
   hamburgerMenu.addEventListener('click', openCloseMenu);
 })();
 
-(function slideShow () {
+(function slideShow() {
   const mobileNav = document.querySelectorAll('.arrow-block');
   const desktopNav = document.querySelectorAll('.desktop.slideshow-button');
   let prevSlideInd = parseInt(document.querySelector('.slide-show .active').dataset.index);
@@ -156,6 +156,7 @@
 
   /* ------------------Automated slideshow-------------- */
   const changeSlideAutomated = () => {
+    console.log('bla');
     const prevSlide = slides[prevSlideInd];
     const currentTime = new Date().getTime();
     const timePassed = currentTime - userClickedAt;
@@ -177,20 +178,27 @@
     }
   }
 
-  const autoChange = setInterval(changeSlideAutomated, 4000);
+  
+  /* ------------------Stop offscreen animation-------------- */
+  const intersectOptions = {
+    root: document.querySelector('.ss-container'),
+    threshold: 0.3
+  };
+  let autoChange;
+  let isAnimating = false;
 
-  //   //if slideshow is out of the viewport - stop autoChange
-  //   const checkOptions = { threshold: 1.0 };
-  //   function checkIfSlideIsVisible(entries, observer) {
-  // entries.forEach(entry => console.log(entry));
+  function enableDisableSlideAnimation () {
+    if (isAnimating) {
+      clearInterval(autoChange);
+    } else {
+      autoChange = setInterval(changeSlideAutomated, 4000);
+    }
+    isAnimating = !isAnimating;
+  }
 
-  //     // if (!) {
-  //     //   clearInterval(autoChange);
-  //     // }
-  //   }
-  //   const observer = new IntersectionObserver(checkIfSlideIsVisible, checkOptions);
-  //   const target = document.querySelector('#main-header');
-  //   observer.observe(target);
+  const observer = new IntersectionObserver(enableDisableSlideAnimation, intersectOptions);
+  const target = document.querySelector('.first-screen-gallery');
+  observer.observe(target);
 })();
 
 (function openMenuFormMobile () {
@@ -219,7 +227,7 @@
   }
 })();
 
-(function addContentOnWideScreen () {
+(function addContentOnWideScreen() {
   if (window.innerWidth < 400) return;
 
   const shortText = document.querySelectorAll('.short-text');
@@ -252,7 +260,7 @@
   }
 })();
 
-(function showWholeContent () {
+(function showWholeContent() {
   const buttons = document.querySelectorAll('.biography button, .achievements .button');
 
   const showMore = (e) => {
@@ -285,13 +293,13 @@
 })(this, function (w, d) {
   var raf = w.requestAnimationFrame || w.setImmediate || function (c) { return setTimeout(c, 0); };
 
-  function initEl (el) {
+  function initEl(el) {
     if (Object.prototype.hasOwnProperty.call(el, 'data-simple-scrollbar')) return;
     Object.defineProperty(el, 'data-simple-scrollbar', { value: new SimpleScrollbar(el) });
   }
 
   // Mouse drag handler
-  function dragDealer (el, context) {
+  function dragDealer(el, context) {
     var lastPageY;
 
     el.addEventListener('mousedown', function (e) {
@@ -305,7 +313,7 @@
       return false;
     });
 
-    function drag (e) {
+    function drag(e) {
       var delta = e.pageY - lastPageY;
       lastPageY = e.pageY;
 
@@ -314,7 +322,7 @@
       });
     }
 
-    function stop () {
+    function stop() {
       el.classList.remove('ss-grabbed');
       d.body.classList.remove('ss-grabbed');
       d.removeEventListener('mousemove', drag);
@@ -323,7 +331,7 @@
   }
 
   // Constructor
-  function ss (el) {
+  function ss(el) {
     this.target = el;
 
     this.direction = w.getComputedStyle(this.target).direction;
@@ -391,7 +399,7 @@
     }
   }
 
-  function initAll () {
+  function initAll() {
     var nodes = d.querySelectorAll('*[ss-container]');
 
     for (var i = 0; i < nodes.length; i++) {
