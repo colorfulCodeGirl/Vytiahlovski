@@ -14,7 +14,7 @@ The home page should be a landing page containing shortcuts of all these element
 
 The biography, gallery of works and achievements should have their own pages for both artists.
 
-I will write this web using pure js. The grafic projest of this web You can find in project.studio file in the main directory.
+I will write this web using pure js. The project of this web You can find in project.studio file in the main directory.
 
 Wish me luck ;)
 

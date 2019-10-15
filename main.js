@@ -360,6 +360,7 @@
     this.target.classList.add('ss-container');
 
     var css = w.getComputedStyle(el);
+    // eslint-disable-next-line dot-notation
     if (css['height'] === '0px' && css['max-height'] !== '0px') {
       el.style.height = css['max-height'];
     }
@@ -374,9 +375,9 @@
       this.scrollRatio = ownHeight / totalHeight;
 
       var isRtl = _this.direction === 'rtl';
-      var right = isRtl ?
-        (_this.target.clientWidth - _this.bar.clientWidth + 18) :
-        (_this.target.clientWidth - _this.bar.clientWidth) * -1;
+      var right = isRtl
+        ? (_this.target.clientWidth - _this.bar.clientWidth + 18)
+        : (_this.target.clientWidth - _this.bar.clientWidth) * -1;
 
       raf(function () {
         // Hide scrollbar if no scrolling is possible
