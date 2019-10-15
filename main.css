@@ -3,6 +3,7 @@
     font-size: 10px;
     --grey: #353030;
     --red: #dd0000;
+    --white: #ffffff;
 }
 
 @media (min-width: 600px) {
@@ -44,7 +45,7 @@ main page layout
 
 body {
     background-color: var(--grey);
-    color: #fff;
+    color: var(--white);
     margin: 0;
     font-family: 'Roboto', sans-serif;
     font-weight: 300;
@@ -147,8 +148,9 @@ Navigation
 }
 
 .nav-elem {
+    display: block;
     text-decoration: none;
-    color: #fff;
+    color: var(--white);
     font-size: 2.7rem;
     text-transform: uppercase;
 }
@@ -157,7 +159,7 @@ Navigation
     width: 30vw;
 }
 
-.nav-elem, .menu hr {
+.menu a, .menu hr {
     transform: translateX(100vw);
     transition: transform 1s .4s ease-in-out;
 }
@@ -287,7 +289,7 @@ main, footer {
 }
 
 .section-heading {
-    background-color: #fff;
+    background-color: var(--white);
     margin: 3rem 0;
     text-align: center;
     text-transform: uppercase;
@@ -330,7 +332,7 @@ main, footer {
     text-align: center;
     cursor: pointer;
     background-color: var(--red);
-    color: #fff;
+    color: var(--white);
     text-transform: lowercase;
 }
 
@@ -358,7 +360,7 @@ main, footer {
 }
 
 .button:hover {
-    border-color: #fff;
+    border-color: var(--white);
 }
 
 .works .button {
@@ -544,7 +546,7 @@ Slideshow navigation
         display: block;
         width: .6rem;
         height: 4rem;
-        background-color: #fff;
+        background-color: var(--white);
         border-radius: .6rem;
         box-shadow: .2rem .2rem .5rem var(--grey);
         transition: scaleY 2s linear, translateY 2s linear;
@@ -586,7 +588,7 @@ biography and achievements section
 
 .portrait {
     border-radius: 50%;
-    border: .2rem solid #fff;
+    border: .2rem solid var(--white);
     max-height: 40vh;
 }
 
@@ -666,7 +668,7 @@ biography and achievements section
     width: 0.5rem;
     margin-right: 0.5rem;
     margin: .75rem 1rem;
-    background-color: #fff;
+    background-color: var(--white);
 }
 
 @media (min-width: 825px) {
@@ -846,7 +848,7 @@ Contact section
 
 .contact-links {
     text-decoration: none;
-    color: #fff;
+    color: var(--white);
     font-size: 1.6rem;
     font-weight: 500;
     padding: 1rem 0;
@@ -930,7 +932,7 @@ footer
 */
 
 footer>p {
-    background-color: #fff;
+    background-color: var(--white);
     color: var(--grey);
     font-size: 1.4rem;
     text-align: end;
