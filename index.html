@@ -51,15 +51,17 @@
                         <p class="mobile arrow right">&#8250;</p>
                     </div>
                 </div>
-                <ul class="desctop slideshow-nav">
-                    <li><a class="desctop slideshow-button active" href="#" data-index="0" aria-label="first slide"></a>
+                <ul class="desktop slideshow-nav">
+                    <li><a class="desktop slideshow-button active" href="#" data-index="0"
+                            aria-label="first slide"></a>
                     </li>
-                    <li><a class="desctop slideshow-button" href="#" data-index="1" aria-label="second slide"></a></li>
-                    <li><a class="desctop slideshow-button" href="#" data-index="2" aria-label="third slide"></a></li>
-                    <li><a class="desctop slideshow-button" href="#" data-index="3" aria-label="forth slide"></a></li>
-                    <li><a class="desctop slideshow-button" href="#" data-index="4" aria-label="fifth slide"></a></li>
-                    <li><a class="desctop slideshow-button" href="#" data-index="5" aria-label="sixth slide"></a></li>
-                    <li><a class="desctop slideshow-button" href="#" data-index="6" aria-label="seventh slide"></a></li>
+                    <li><a class="desktop slideshow-button" href="#" data-index="1" aria-label="second slide"></a></li>
+                    <li><a class="desktop slideshow-button" href="#" data-index="2" aria-label="third slide"></a></li>
+                    <li><a class="desktop slideshow-button" href="#" data-index="3" aria-label="forth slide"></a></li>
+                    <li><a class="desktop slideshow-button" href="#" data-index="4" aria-label="fifth slide"></a></li>
+                    <li><a class="desktop slideshow-button" href="#" data-index="5" aria-label="sixth slide"></a></li>
+                    <li><a class="desktop slideshow-button" href="#" data-index="6" aria-label="seventh slide"></a>
+                    </li>
                 </ul>
                 <div class="slide-show">
                     <img src="images/slide_1.jpg" class="slide active" alt="" data-index="0" />
@@ -68,7 +70,7 @@
                     <img src="images/slide_4.jpg" class="slide" alt="" data-index="3" />
                     <img src="images/slide_5.jpg" class="slide" alt="" data-index="4" />
                     <img src="images/slide_6.jpg" class="slide" alt="" data-index="5" />
-                    <img src="images/slide_7.jpg" class="slide left-move" alt="" data-index="6" />
+                    <img src="images/slide_7.jpg" class="slide" alt="" data-index="6" />
                 </div>
                 <h1 class="sr-only">Tetiana and Mykhailo Vytiahlovski</h1>
                 <img id="main-header" alt="Tetiana and Mykhailo Vytiahlovski" src="images/main-header.png" />
@@ -277,7 +279,7 @@
                                 <li>Ukrainian Art Exhibition “Picturesque Ukraine”. Ternopil, 2007.</li>
                                 <li>11th International Exhibition: Lviv Autumn Salon “High Castle 2007”.</li>
                                 <li>12th International Exhibition: Lviv Autumn Salon “High Castle 2008”.</li>
-                                <li>3rd Art En plein air “Artists about Ternopil region”. 2009.</li>
+                                <li>3rd Art In plain air “Artists about Ternopil region”. 2009.</li>
                                 <li>13th International Exhibition: Lviv Autumn Salon “High Castle 2009”.</li>
                                 <li>14th International Exhibition: Lviv Autumn Salon “High Castle 2010”.</li>
                                 <li>Collective Exhibition “Ternopil Artists in Lviv Art Palace”. 2012, 2013.</li>
@@ -361,17 +363,21 @@
                             <img class="icon" src="images/instagram.png" alt=""></a>
                     </div>
                     <button class="button email-mobile" type="button">Send us email</button>
-                    <div class="form-overley"></div>
-                    <form aria-label="email" class="email" action="mailto:lesyalp@gmail.com" method="post"
-                        enctype="text/plain">
-                        <button class="button close" type="button">&times;</button>
-                        <h3 class="contact-links">Send us email:</h3>
-                        <label for="email-address" class="sr-only">email address:</label>
-                        <input type="email" id="email-address" class="email-address" placeholder="your@email.com">
-                        <label for="email-text" class="sr-only">email text:</label>
-                        <textarea id="email-text" class="email-text" placeholder="Enter Your email..."></textarea>
-                        <input type="submit" value="Send" class="button submit">
-                    </form>
+                    <div class="form-overlay"></div>
+                    <div class="email">
+                        <div class="line"></div>
+                        <form aria-label="email" class="email-wrapper" action="mailto:lesyalp@gmail.com" method="post"
+                            enctype="text/plain">
+                            <button class="button close" type="button">&times;</button>
+                            <h3 class="contact-links">Send us email:</h3>
+                            <label for="email-address" class="sr-only">email address:</label>
+                            <input type="email" id="email-address" class="email-address" placeholder="your@email.com">
+                            <label for="email-text" class="sr-only">email text:</label>
+                            <textarea id="email-text" class="email-text" placeholder="Enter Your email..."></textarea>
+                            <input type="submit" value="Send" class="button submit">
+                        </form>
+                        <div class="line"></div>
+                    </div>
                 </div>
             </section>
         </main>

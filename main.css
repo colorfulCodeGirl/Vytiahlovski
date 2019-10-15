@@ -157,7 +157,7 @@ Navigation
 }
 
 /*
-slide menu - folling each after each efect
+slide menu - falling each after each effect
 */
 
 .menu li:nth-child(2) hr {
@@ -292,6 +292,15 @@ main, footer {
     font-family: 'Martel Sans', serif;
 }
 
+.section-heading::after {
+    display: block;
+    content: '';
+    width: 60%;
+    height: .2rem;
+    background-color: var(--red);
+    margin-left: 40%;
+}
+
 @media (min-width: 825px) {
     .section-heading {
         margin: 5rem 0;
@@ -311,6 +320,7 @@ main, footer {
     font-size: 1.8rem;
     text-align: center;
     cursor: pointer;
+    align-self: center;
 }
 
 p, .biography-content li, .achievements-content li {
@@ -364,7 +374,7 @@ Main slide show
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: 1fr;
-    /*images are overflowing horisontaly, so we need to center them*/
+    /*images are overflowing horizontally, so we need to center them*/
 }
 
 .slide {
@@ -374,7 +384,7 @@ Main slide show
     justify-self: center;
     transform: translateX(100%);
     transition: transform 2s ease-out;
-    /*make img overflow horisontaly but cover whole screen verticaly*/
+    /*make img overflow horizontally but cover whole screen vertically*/
     width: auto;
     height: 100%;
 }
@@ -396,7 +406,7 @@ Main slide show
     .slide-show {
         align-items: flex-start;
     }
-    /*make img overflow verticaly but cover whole screen horisontaly*/
+    /*make img overflow vertically but cover whole screen horizontally*/
     .slide {
         height: auto;
         width: 100%;
@@ -407,7 +417,7 @@ Main slide show
 Slideshow navigation
 */
 
-.desctop.slideshow-nav {
+.desktop.slideshow-nav {
     display: none;
 }
 
@@ -441,13 +451,13 @@ Slideshow navigation
     font-size: 5rem;
 }
 
-/*desctop slide show nawigation avaiable only for mouse users*/
+/*desktop slide show navigation available only for mouse users*/
 
 @media (min-width: 825px) and (pointer: fine) {
     .slide-show-nav {
         display: none;
     }
-    .desctop.slideshow-nav {
+    .desktop.slideshow-nav {
         grid-column: 2 / 3;
         grid-row: 7 / 8;
         display: flex;
@@ -458,13 +468,13 @@ Slideshow navigation
         padding: 0;
         z-index: 5;
     }
-    .desctop.slideshow-nav>li {
+    .desktop.slideshow-nav>li {
         display: block;
         flex: 1;
         display: flex;
         justify-content: center;
     }
-    .desctop.slideshow-button {
+    .desktop.slideshow-button {
         display: block;
         width: .6rem;
         height: 4rem;
@@ -473,13 +483,13 @@ Slideshow navigation
         box-shadow: .2rem .2rem .5rem var(--grey);
         transition: scaleY 2s linear, translateY 2s linear;
     }
-    .desctop.slideshow-button::before {
+    .desktop.slideshow-button::before {
         display: block;
         content: '';
         width: 300%;
         height: 100%;
     }
-    .desctop.slideshow-button.active {
+    .desktop.slideshow-button.active {
         transform: scaleY(1.7) translateY(-20%);
         background-color: var(--red);
     }
@@ -499,7 +509,7 @@ biography and achievements section
     grid-template-columns: repeat(5, 1fr);
     column-gap: 3vw;
     row-gap: 5vw;
-    margin-bottom: 5vw;
+    margin-bottom: 5vh;
 }
 
 .portrait, .work-example {
@@ -566,10 +576,6 @@ biography and achievements section
     transform: scaleY(1);
 }
 
-.button {
-    align-self: center;
-}
-
 .name-uppercase {
     text-transform: uppercase;
     font-weight: 500;
@@ -595,6 +601,19 @@ biography and achievements section
     margin-right: 0.5rem;
     margin: .75rem 1rem;
     background-color: #fff;
+}
+
+.biography-content .button, .achievements-content .button {
+    margin: 3vh 0;
+    background-color: var(--grey);
+    border: .2rem solid var(--red);
+    color: var(--red);
+    box-shadow: 0.2rem 0.2rem 0.5rem rgba(0,0,0,0.1); 
+}
+
+.biography-content .button:hover, .achievements-content .button:hover {
+    border-color: #fff;
+    color: #fff;
 }
 
 @media (min-width: 825px) {
@@ -726,14 +745,22 @@ Contact section
     top: 10vh;
     left: 10vw;
     margin: 0 auto;
-    padding: 2rem;
-    border: .5rem solid var(--red);
     background-color: var(--grey);
     flex-direction: column;
-    justify-content: space-around;
+    justify-content: space-between;
     transform: scale(.1);
     transition: scale 1s ease-out;
     z-index: 999;
+}
+
+.line {
+    height: .2rem;
+    width: 75%;
+    background-color: var(--red);
+}
+
+.line:last-of-type {
+    margin-left: 25%;
 }
 
 .email.active {
@@ -741,19 +768,27 @@ Contact section
     transform: scale(1);
 }
 
-.form-overley {
+.form-overlay {
     display: none;
 }
 
-.form-overley.active {
+.form-overlay.active {
     display: block;
     position: fixed;
     top: 0;
     left: 0;
     width: 100vw;
     height: 100vh;
-    background-color: rgba(53, 48, 48, .9);
+    background-color: rgba(255, 255, 255, .1);
     z-index: 998;
+}
+
+.email-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    padding: 2rem;
+    height: 100%;
 }
 
 .contact-links {
@@ -785,9 +820,13 @@ h3.contact-links {
 
 .button.close {
     align-self: flex-end;
-    padding: .3rem 1rem;
+    padding: 0;
     font-size: 3rem;
     font-weight: 500;
+    font-family: sans-serif;
+    line-height: 0;
+    width: 2.5rem;
+    height: 2.5rem;
 }
 
 .email-address, .email-text {
@@ -818,7 +857,7 @@ h3.contact-links {
         position: static;
         margin: 0;
         padding: 0;
-        border: none;
+        /* border: none; */
         flex-direction: column;
         justify-content: space-around;
         transform: scale(1);

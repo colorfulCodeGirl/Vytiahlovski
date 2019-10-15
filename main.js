@@ -1,5 +1,6 @@
+/* eslint-disable semi */
 
-(function handlingMenu() {
+(function handlingMenu () {
   const hamburgerMenu = document.querySelector('.hamburger-menu');
   const menu = document.querySelector('.menu');
   // const main = document.querySelector('main');
@@ -7,7 +8,7 @@
   const trapTabKey = () => {
     const menuLinks = Array.from(menu.querySelectorAll('a'));
     const hideWhenMenuOpen = Array.from(document.querySelectorAll('main a, main button, footer a, footer button'));
-    if (menu.getAttribute('aria-hidden') == 'true') {
+    if (menu.getAttribute('aria-hidden') === 'true') {
       hideWhenMenuOpen.forEach(elem => elem.setAttribute('tabindex', -1));
       menu.setAttribute('aria-hidden', 'false');
       menuLinks.forEach(elem => elem.setAttribute('tabindex', 0));
@@ -45,9 +46,7 @@
   hamburgerMenu.addEventListener('click', openCloseMenu);
 })();
 
-
-
-(function slideShow() {
+(function slideShow () {
   const mobileNav = document.querySelectorAll('.arrow-block');
   const desktopNav = document.querySelectorAll('.desctop.slideshow-button');
   let prevSlideInd = parseInt(document.querySelector('.slide-show .active').dataset.index);
@@ -55,8 +54,7 @@
   const slides = document.querySelectorAll('.slide');
   let userClickedAt = 0;
 
-
-  /*----------Mobile version-----------*/
+  /* ----------Mobile version----------- */
   const handleDirection = (e) => {
     if (e.target.classList[0] === 'mobile') {
       return e.target.classList[2];
@@ -66,7 +64,7 @@
   }
 
   const chooseNewIndex = (direction) => {
-    if (direction === "right") {
+    if (direction === 'right') {
       const newInd = (prevSlideInd !== 6) ? (prevSlideInd + 1) : 0;
       return newInd;
     } else {
@@ -81,12 +79,12 @@
     const nextFromRight = slides[nextFromRightInd];
     const nextFromLeft = slides[nextFromLeftInd];
 
-    //if next right slide is from the left - move it to right 
+    // if next right slide is from the left - move it to right
     if (nextFromRight.classList[1] === 'left-move') {
       nextFromRight.classList.add('transition-off');
       nextFromRight.classList.remove('left-move');
     }
-    //if next left slide is from the right - move it to left
+    // if next left slide is from the right - move it to left
     if (nextFromLeft.classList[1] !== 'left-move') {
       nextFromLeft.classList.add('transition-off');
       nextFromLeft.classList.add('left-move');
@@ -98,13 +96,12 @@
     }, 1000);
   }
 
-  /*---------------Common for bouth -----------------*/
+  /* ---------------Common for bouth ----------------- */
   const moveSlides = (prevSlide, newSlide, direction) => {
     if (direction === 'right') {
       prevSlide.classList.add('left-move');
       prevSlide.classList.remove('active');
       newSlide.classList.add('active');
-
     } else {
       prevSlide.classList.remove('active');
       newSlide.classList.add('active');
@@ -112,7 +109,7 @@
     }
   }
 
-  /*---------------Main Mobile function-------------*/
+  /* ---------------Main Mobile function------------- */
   const changeSlideMobile = (e) => {
     const prevSlide = slides[prevSlideInd];
     const direction = handleDirection(e);
@@ -122,47 +119,46 @@
     prepareSlides(newSlideInd, slides);
     prevSlideInd = parseInt(newSlide.dataset.index);
     userClickedAt = new Date().getTime();
-
   }
 
-  /*------------------Desctop version---------------------*/
-  const handleDesctopNav = (newIndex) => {
+  /* ------------------Desktop version--------------------- */
+  const handleDesktopNav = (newIndex) => {
     desktopNav[prevSlideInd].classList.remove('active');
     desktopNav[newIndex].classList.add('active');
   }
 
-  const prepareSlidesDescktop = (prevSlide) => {
+  const prepareSlidesDesktop = (prevSlide) => {
     prevSlide.classList.add('transition-off');
     prevSlide.classList.remove('left-move');
     setTimeout(() => prevSlide.classList.remove('transition-off'), 100);
   }
 
-  /*------------------Main Desctop function---------------*/
-  const changeSlideDesctop = (e) => {
+  /* ------------------Main Desktop function--------------- */
+  const changeSlideDesktop = (e) => {
     const prevSlide = slides[prevSlideInd];
     const newIndex = parseInt(e.target.dataset.index);
     const newSlide = slides[newIndex];
-    handleDesctopNav(newIndex);
+    handleDesktopNav(newIndex);
     moveSlides(prevSlide, newSlide, 'right');
-    setTimeout(() => prepareSlidesDescktop(prevSlide), 2000);
+    setTimeout(() => prepareSlidesDesktop(prevSlide), 2000);
     prevSlideInd = newIndex;
     userClickedAt = new Date().getTime();
   }
 
-  /*----------------Setting EventListeners-----------------*/
+  /* ----------------Setting EventListeners----------------- */
   if (!displayType.matches) {
     mobileNav.forEach(btn => btn.addEventListener('click', changeSlideMobile));
   } else {
-    //remove class preparation for mobile slide show
+    // remove class preparation for mobile slide show
     slides[6].classList.add('transition-off');
     slides[6].classList.remove('left-move');
     setTimeout(() => slides[6].classList.remove('transition-off'), 10);
-    desktopNav.forEach(btn => btn.addEventListener('click', changeSlideDesctop));
+    desktopNav.forEach(btn => btn.addEventListener('click', changeSlideDesktop));
   }
 
-  /*------------------Automated slideshow--------------*/
+  /* ------------------Automated slideshow-------------- */
   const changeSlideAutomated = () => {
-    const prevSlide = slides[prevSlideInd]
+    const prevSlide = slides[prevSlideInd];
     const prevSlideRect = prevSlide.getBoundingClientRect();
     const navBottom = window.innerHeight - prevSlideRect.height;
     if (prevSlideRect.bottom < navBottom) { return }
@@ -173,11 +169,11 @@
       const newIndex = (prevSlideInd !== 6) ? (prevSlideInd + 1) : 0;
       const newSlide = slides[newIndex];
       moveSlides(prevSlide, newSlide, 'right');
-      //if we are on descktop handle navigation animation
+      // if we are on desktop handle navigation animation
       if (displayType.matches) {
-        handleDesctopNav(newIndex);
+        handleDesktopNav(newIndex);
       }
-      setTimeout(() => prepareSlidesDescktop(prevSlide), 2000);
+      setTimeout(() => prepareSlidesDesktop(prevSlide), 2000);
       prevSlideInd = newIndex;
     }
   }
@@ -198,21 +194,23 @@
   //   observer.observe(target);
 })();
 
-(function openMenuFormMobile() {
+(function openMenuFormMobile () {
   if (window.innerWidth < 600) {
     const btn = document.querySelector('.button.email-mobile');
     const emailForm = document.querySelector('.email');
-    const overley = document.querySelector('.form-overley');
+    const overlay = document.querySelector('.form-overlay');
     const header = document.querySelector('.hamburger-menu');
     const closeBtn = document.querySelector('.email .close');
     const submitBtn = document.querySelector('.email .submit');
 
     const openCloseForm = (e) => {
-      if (e.target.className.includes('hamburger') &&
+      const isHamburger = e.target.className.includes('hamburger');
+
+      if (isHamburger &&
         emailForm.classList.length === 1) return;
 
       emailForm.classList.toggle('active');
-      overley.classList.toggle('active');
+      overlay.classList.toggle('active');
     }
 
     btn.addEventListener('click', openCloseForm);
@@ -222,7 +220,7 @@
   }
 })();
 
-(function addContentOnWideScreen() {
+(function addContentOnWideScreen () {
   if (window.innerWidth < 400) return;
 
   const shortText = document.querySelectorAll('.short-text');
@@ -253,12 +251,9 @@
   if (window.innerWidth > 650) {
     appendP();
   }
-  if (window.innerWidth > 1020) {
-    appendP();
-  }
 })();
 
-(function showWholeContent() {
+(function showWholeContent () {
   const buttons = document.querySelectorAll('.biography button, .achievements .button');
 
   const showMore = (e) => {
@@ -267,33 +262,21 @@
     const fullText = document.querySelector(`.${section} .${person} .full-text`);
     const fullTextClasses = Array.from(fullText.classList);
     const currentButton = e.target;
-    fullText.classList.toggle('active');
-
-    if (fullTextClasses.find( el => el === 'active')) {
+    const isActive = fullTextClasses.find(el => el === 'active');
+    if (isActive) {
       currentButton.innerHTML = 'more...';
       currentButton.setAttribute('aria-label', 'Whole Tetniana\'s biography');
     } else {
       currentButton.innerHTML = 'less...';
       currentButton.setAttribute('aria-label', 'Hide whole Tetniana\'s biography');
     }
+    fullText.classList.toggle('active');
   }
 
   buttons.forEach(btn => btn.addEventListener('click', showMore));
 })();
 
-
-
-
-
-
-
-
-
-
-
-
-
-// Fake scrollbar -TODO - import normally after gulp instalation 
+// Fake scrollbar -TODO - import normally after gulp installation.
 (function (root, factory) {
   if (typeof exports === 'object') {
     module.exports = factory(window, document)
@@ -303,13 +286,13 @@
 })(this, function (w, d) {
   var raf = w.requestAnimationFrame || w.setImmediate || function (c) { return setTimeout(c, 0); };
 
-  function initEl(el) {
+  function initEl (el) {
     if (Object.prototype.hasOwnProperty.call(el, 'data-simple-scrollbar')) return;
     Object.defineProperty(el, 'data-simple-scrollbar', { value: new SimpleScrollbar(el) });
   }
 
   // Mouse drag handler
-  function dragDealer(el, context) {
+  function dragDealer (el, context) {
     var lastPageY;
 
     el.addEventListener('mousedown', function (e) {
@@ -323,7 +306,7 @@
       return false;
     });
 
-    function drag(e) {
+    function drag (e) {
       var delta = e.pageY - lastPageY;
       lastPageY = e.pageY;
 
@@ -332,7 +315,7 @@
       });
     }
 
-    function stop() {
+    function stop () {
       el.classList.remove('ss-grabbed');
       d.body.classList.remove('ss-grabbed');
       d.removeEventListener('mousemove', drag);
@@ -341,7 +324,7 @@
   }
 
   // Constructor
-  function ss(el) {
+  function ss (el) {
     this.target = el;
 
     this.direction = w.getComputedStyle(this.target).direction;
@@ -385,9 +368,9 @@
 
   ss.prototype = {
     moveBar: function (e) {
-      var totalHeight = this.el.scrollHeight,
-        ownHeight = this.el.clientHeight,
-        _this = this;
+      var totalHeight = this.el.scrollHeight;
+      var ownHeight = this.el.clientHeight;
+      var _this = this;
 
       this.scrollRatio = ownHeight / totalHeight;
 
@@ -408,7 +391,7 @@
     }
   }
 
-  function initAll() {
+  function initAll () {
     var nodes = d.querySelectorAll('*[ss-container]');
 
     for (var i = 0; i < nodes.length; i++) {
