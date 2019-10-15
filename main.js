@@ -48,7 +48,7 @@
 
 (function slideShow () {
   const mobileNav = document.querySelectorAll('.arrow-block');
-  const desktopNav = document.querySelectorAll('.desctop.slideshow-button');
+  const desktopNav = document.querySelectorAll('.desktop.slideshow-button');
   let prevSlideInd = parseInt(document.querySelector('.slide-show .active').dataset.index);
   const displayType = window.matchMedia('(min-width: 825px) and (pointer: fine)');
   const slides = document.querySelectorAll('.slide');
@@ -130,7 +130,7 @@
   const prepareSlidesDesktop = (prevSlide) => {
     prevSlide.classList.add('transition-off');
     prevSlide.classList.remove('left-move');
-    setTimeout(() => prevSlide.classList.remove('transition-off'), 100);
+    setTimeout(() => prevSlide.classList.remove('transition-off'), 10);
   }
 
   /* ------------------Main Desktop function--------------- */
@@ -150,30 +150,29 @@
     mobileNav.forEach(btn => btn.addEventListener('click', changeSlideMobile));
   } else {
     // remove class preparation for mobile slide show
-    slides[6].classList.add('transition-off');
-    slides[6].classList.remove('left-move');
-    setTimeout(() => slides[6].classList.remove('transition-off'), 10);
+    prepareSlidesDesktop(slides[slides.length - 1]);
     desktopNav.forEach(btn => btn.addEventListener('click', changeSlideDesktop));
   }
 
   /* ------------------Automated slideshow-------------- */
   const changeSlideAutomated = () => {
     const prevSlide = slides[prevSlideInd];
-    const prevSlideRect = prevSlide.getBoundingClientRect();
-    const navBottom = window.innerHeight - prevSlideRect.height;
-    if (prevSlideRect.bottom < navBottom) { return }
-
     const currentTime = new Date().getTime();
     const timePassed = currentTime - userClickedAt;
     if (timePassed >= 4000) {
       const newIndex = (prevSlideInd !== 6) ? (prevSlideInd + 1) : 0;
       const newSlide = slides[newIndex];
+      if (newIndex === (slides.length - 2) && !displayType.matches) {
+        prepareSlidesDesktop(slides[slides.length - 1]);
+      }
       moveSlides(prevSlide, newSlide, 'right');
       // if we are on desktop handle navigation animation
       if (displayType.matches) {
         handleDesktopNav(newIndex);
+        setTimeout(() => prepareSlidesDesktop(prevSlide), 2000);
+      } else {
+        prepareSlides(newIndex, slides);
       }
-      setTimeout(() => prepareSlidesDesktop(prevSlide), 2000);
       prevSlideInd = newIndex;
     }
   }
