@@ -225,7 +225,7 @@
 
   const shortText = document.querySelectorAll('.short-text');
   const fullText = document.querySelectorAll('.full-text');
-  const buttons = document.querySelectorAll('.short-text .button');
+  const buttons = document.querySelectorAll('.short-text .button-wrapper');
 
   const appendP = () => {
     let parentPrev;

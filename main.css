@@ -17,6 +17,12 @@
     }
 }
 
+@media (min-width: 1000px) and (orientation: portrait) {
+    :root {
+        font-size: 16px;
+    }
+}
+
 *, *::after, *::before {
     box-sizing: inherit;
 }
@@ -313,15 +319,75 @@ main, footer {
 }
 
 .button {
+    grid-area: 1 / 1 / -1 / -1;
     border: none;
-    padding: .7vh 3vw;
-    background-color: var(--red);
-    color: #fff;
+    padding: 0;
     font-size: 1.8rem;
+    font-family: 'Martel Sans', sans-serif;
+    font-weight: 300;
+    line-height: 1.5;
+    letter-spacing: .2rem;
     text-align: center;
     cursor: pointer;
+    background-color: var(--red);
+    color: #fff;
+    text-transform: lowercase;
+}
+
+.button-wrapper {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+    background-color: var(--red);
+    box-shadow: 0.3rem 0.3rem 0 rgba(0,0,0,0.1); 
+    padding: 0 .5rem;
+    margin: 3vh 0;
     align-self: center;
 }
+
+.button-overlay {
+    grid-area: 1 / 1 / -1 / -1;
+    justify-self: center;
+    align-self: end;
+    display: block;
+    content: '';
+    width: 100%;
+    height: 2rem;
+    margin: 0 auto;
+    background: linear-gradient(transparent, rgba(53, 48, 48, .1));
+}
+
+.button:hover {
+    border-color: #fff;
+}
+
+.works .button {
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 0;
+}
+
+@media (min-width: 350px) {
+    .works .button {
+        letter-spacing: .07rem;
+    }
+}
+@media (min-width: 400px) {
+    .works .button {
+        letter-spacing: .2rem;
+    }
+}
+@media (min-width: 500px) {
+    .works .button {
+        letter-spacing: .5rem;
+    }
+}
+
+.works .button-wrapper {
+    margin: 0;
+    padding: 0;
+}
+
 
 p, .biography-content li, .achievements-content li {
     font-size: 1.6rem;
@@ -603,19 +669,6 @@ biography and achievements section
     background-color: #fff;
 }
 
-.biography-content .button, .achievements-content .button {
-    margin: 3vh 0;
-    background-color: var(--grey);
-    border: .2rem solid var(--red);
-    color: var(--red);
-    box-shadow: 0.2rem 0.2rem 0.5rem rgba(0,0,0,0.1); 
-}
-
-.biography-content .button:hover, .achievements-content .button:hover {
-    border-color: #fff;
-    color: #fff;
-}
-
 @media (min-width: 825px) {
     .biography-content, .achievements-content {
         grid-template-columns: repeat(6, 1fr);
@@ -708,7 +761,7 @@ Mykhailo's works
     grid-template-rows: auto 3fr 1fr;
 }
 
-.works-mykhailo .button, .works-mykhailo .column3>img:first-of-type {
+.works-mykhailo .button-wrapper, .works-mykhailo .column3>img:first-of-type {
     grid-column: 1 / -1;
 }
 
@@ -732,7 +785,7 @@ Contact section
     grid-area: instagram;
 }
 
-.button.email-mobile {
+.button-wrapper.mobile {
     grid-area: button;
     justify-self: center;
 }
@@ -825,8 +878,9 @@ h3.contact-links {
     font-weight: 500;
     font-family: sans-serif;
     line-height: 0;
-    width: 2.5rem;
-    height: 2.5rem;
+    width: 3rem;
+    height: 3rem;
+    margin: 0;
 }
 
 .email-address, .email-text {
@@ -863,7 +917,7 @@ h3.contact-links {
         transform: scale(1);
         z-index: 1;
     }
-    .button.email-mobile, .button.close {
+    .button-wrapper.mobile, .button-wrapper.close {
         display: none;
     }
     .instagram .contact-links {

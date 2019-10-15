@@ -52,8 +52,7 @@
                     </div>
                 </div>
                 <ul class="desktop slideshow-nav">
-                    <li><a class="desktop slideshow-button active" href="#" data-index="0"
-                            aria-label="first slide"></a>
+                    <li><a class="desktop slideshow-button active" href="#" data-index="0" aria-label="first slide"></a>
                     </li>
                     <li><a class="desktop slideshow-button" href="#" data-index="1" aria-label="second slide"></a></li>
                     <li><a class="desktop slideshow-button" href="#" data-index="2" aria-label="third slide"></a></li>
@@ -89,8 +88,13 @@
                                 (Ternopil
                                 region). From 1975 to 1978 Tetiana studied at Buchach Art
                                 School for children.</p>
-                            <button class="button biography tetiana" aria-label="Whole Tetniana's biography"
-                                type="button">more...</button>
+                            <div class="button-wrapper">
+                                <button class="button biography tetiana" aria-label="Whole Tetniana's biography"
+                                    type="button">more...</button>
+                                <div class="button-overlay"></div>
+                            </div>
+
+
                         </div>
                         <div class="full-text biography-tetiana">
                             <p>In 1983 she finished Art Weaving Department of Vyzhnytsya College of Applied and
@@ -154,8 +158,11 @@
                                 Ternopil region in 1963. From 1974 to 1978 Mykhailo studied at Buchach Art School for
                                 children.
                             </p>
-                            <button class="button biography mykhailo" aria-label="Whole Mykhailo's biography"
-                                type="button">more...</button>
+                            <div class="button-wrapper">
+                                <button class="button biography mykhailo" aria-label="Whole Mykhailo's biography"
+                                    type="button">more...</button>
+                                <div class="button-overlay"></div>
+                            </div>
                         </div>
                         <img src="images/mykhailo.jpg" class="portrait mykhailo"
                             alt="Portrait of Mykhailo Vytiahlovskyi" />
@@ -194,7 +201,10 @@
                 <div class="section-content">
                     <div class="works-tetiana">
                         <div class="column1">
-                            <button class="button tetiana-works" type="button">TETIANA</button>
+                            <div class="button-wrapper">
+                                <a class="button tetiana-works" href="gallery.html">TETIANA</a>
+                                <div class="button-overlay"></div>
+                            </div>
                             <img src="images/works-tetiana/1.jpg" alt="">
                             <img src="images/works-tetiana/2.jpg" alt="">
                         </div>
@@ -222,7 +232,10 @@
                             <img src="images/works-mykhailo/6.jpg" alt="">
                         </div>
                         <div class="column3">
-                            <button class="button tetiana-works" type="button">MYKHAILO</button>
+                            <div class="button-wrapper">
+                                <a class="button tetiana-works" href="#">MYKHAILO</a>
+                                <div class="button-overlay"></div>
+                            </div>
                             <img src="images/works-mykhailo/7.jpg" alt="">
                             <img src="images/works-mykhailo/8.jpg" alt="">
                             <img src="images/works-mykhailo/9.jpg" alt="">
@@ -247,8 +260,11 @@
                             <ul>
                                 <li>Personal exhibitions in Ternopil – in 1995 and 2000.</li>
                             </ul>
-                            <button class="button achievements tetiana" aria-label="Tetiana's achievements"
-                                type="button">more...</button>
+                            <div class="button-wrapper">
+                                <button class="button achievements tetiana" aria-label="Tetiana's achievements"
+                                    type="button">more...</button>
+                                <div class="button-overlay"></div>
+                            </div>
                         </div>
 
                         <div class="full-text">
@@ -308,8 +324,11 @@
                             <ul>
                                 <li>Personal exhibitions in Ternopil – in 1995 and 2000.</li>
                             </ul>
-                            <button class="button achievements mykhailo" aria-label="Mykhailo's achievements"
-                                type="button">more...</button>
+                            <div class="button-wrapper">
+                                <button class="button achievements mykhailo" aria-label="Mykhailo's achievements"
+                                    type="button">more...</button>
+                                <div class="button-overlay"></div>
+                            </div>
                         </div>
                         <img src="images/achievements-sculpture.jpg" class="work-example mykhailo"
                             alt="Sculpture of Mykhailo Vytiahlovskyi" />
@@ -362,19 +381,28 @@
                             aria-label="Find Tetiana on Instagram">Find Tetiana on
                             <img class="icon" src="images/instagram.png" alt=""></a>
                     </div>
-                    <button class="button email-mobile" type="button">Send us email</button>
+                    <div class="button-wrapper mobile">
+                        <button class="button email-mobile" type="button">Send us email</button>
+                        <div class="button-overlay"></div>
+                    </div>
                     <div class="form-overlay"></div>
                     <div class="email">
                         <div class="line"></div>
                         <form aria-label="email" class="email-wrapper" action="mailto:lesyalp@gmail.com" method="post"
                             enctype="text/plain">
-                            <button class="button close" type="button">&times;</button>
+                            <div class="button-wrapper close">
+                                <button class="button close" type="button">&times;</button>
+                                <div class="button-overlay"></div>
+                            </div>
                             <h3 class="contact-links">Send us email:</h3>
                             <label for="email-address" class="sr-only">email address:</label>
                             <input type="email" id="email-address" class="email-address" placeholder="your@email.com">
                             <label for="email-text" class="sr-only">email text:</label>
                             <textarea id="email-text" class="email-text" placeholder="Enter Your email..."></textarea>
-                            <input type="submit" value="Send" class="button submit">
+                            <div class="button-wrapper">
+                                <input type="submit" value="Send" class="button submit">
+                                <div class="button-overlay"></div>
+                            </div>
                         </form>
                         <div class="line"></div>
                     </div>
