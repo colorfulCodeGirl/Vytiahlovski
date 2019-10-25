@@ -4,7 +4,8 @@
   "description": "art-gallery",
   "main": "main.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "browser-sync start --server --files '**/*.css, **/*.html, **/*.js, !node_modules/**/*' --directory --port 7777 --browser \"C:\\Program Files\\Firefox Developer Edition\\firefox.exe\""
   },
   "repository": {
     "type": "git",
@@ -16,15 +17,9 @@
     "url": "https://github.com/Vanilna/Vytiahlovski/issues"
   },
   "homepage": "https://github.com/Vanilna/Vytiahlovski#readme",
-  "dependencies": {
-    "simple-scrollbar": "^0.4.0"
-  },
+  "dependencies": {},
   "devDependencies": {
-    "eslint": "^6.5.1",
-    "eslint-config-standard": "^14.1.0",
-    "eslint-plugin-import": "^2.18.2",
-    "eslint-plugin-node": "^10.0.0",
-    "eslint-plugin-promise": "^4.2.1",
-    "eslint-plugin-standard": "^4.0.1"
+    "browser-sync": "^2.26.7",
+    "simple-scrollbar": "^0.4.0"
   }
 }

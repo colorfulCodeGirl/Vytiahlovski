@@ -2,12 +2,12 @@
 /* eslint-disable space-before-function-paren */
 import handleMenu from './handleMenu';
 import openMailFormMobile from './emailForm';
-import SimpleScrollbar from 'simple-scrollbar';
+// import SimpleScrollbar from 'simple-scrollbar';
 
 handleMenu();
 openMailFormMobile();
-const scrollbarContainer = document.querySelector('.ss-container');
-SimpleScrollbar.init(scrollbarContainer);
+// const scrollbarContainer = document.querySelector('.ss-container');
+// SimpleScrollbar.init(scrollbarContainer);
 
 const url = 'images/gallery-tetiana/';
 const gallery = document.querySelector('.gallery-content');
