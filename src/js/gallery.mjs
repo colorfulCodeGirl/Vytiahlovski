@@ -1,20 +1,49 @@
-/* eslint-disable semi */
-/* eslint-disable space-before-function-paren */
-import handleMenu from './handleMenu';
-import openMailFormMobile from './emailForm';
-// import SimpleScrollbar from 'simple-scrollbar';
+const buttons = document.querySelectorAll('.works .button');
 
-handleMenu();
-openMailFormMobile();
-// const scrollbarContainer = document.querySelector('.ss-container');
-// SimpleScrollbar.init(scrollbarContainer);
+const hideOtherSections = (currentPerson) => {
+    const otherSelectors = 'section.first-screen-gallery, section.biography, section.achievements, .works .section-heading';
+    const otherSections = Array.from(document.querySelectorAll(otherSelectors));
 
-const url = 'images/gallery-tetiana/';
-const gallery = document.querySelector('.gallery-content');
+    //find out who's gallery should be hidden and return it's container class selector
+    const findPersonToHide = () => {
+        if (currentPerson == 'tetiana') {
+            return '.works-mykhailo';
+        } else {
+            return '.works-tetiana';
+        }
+    }
+    const personToHide = findPersonToHide();
+    const otherGallery = document.querySelector(personToHide);
 
-for (let i = 1; i < 15; i++) {
-  const image = new Image();
-  image.onload = () => gallery.appendChild(image);
-  image.src = `${url}${i}.jpg`;
-  console.dir(image);
+    otherSections.push(otherGallery);
+    //hide sections
+    otherSections.forEach(sect => {
+        sect.style.display = 'none';
+    });
 }
+
+const makeTransitionToFull = (currentPerson) => {
+    const gallery = document.querySelector(`.works-${currentPerson}`);
+    gallery.classList.add('full');
+    //make it scroll to top 
+    gallery.scrollIntoView({
+        behavior: 'smooth'
+      });
+    gallery.addEventListener( 'transitionend', (e) => {
+        if (e.propertyName == 'height') {
+            hideOtherSections(currentPerson);
+            gallery.scrollIntoView();
+        }
+    })
+}
+
+const openGallery = (e) => {
+    const currentPerson = e.target.dataset.name;
+    makeTransitionToFull(currentPerson);
+}
+
+function initFullGallery() {
+    buttons.forEach(btn => btn.addEventListener('click', openGallery));
+}
+
+export default initFullGallery;
