@@ -1,0 +1,94 @@
+{
+    "pictures": [
+        {
+            "url": "../../images/gallery-tetiana/1.jpg",
+            "name": "Lorem, ipsum dolor sit amet",
+            "year": 2016,
+            "material": "Lorem, ipsum dolor sit amet"
+        },
+        {
+            "url": "../../images/gallery-tetiana/2.jpg",
+            "name": "Lorem, ipsum dolor sit amet",
+            "year": 2016,
+            "material": "Lorem, ipsum dolor sit amet"
+        },
+        {
+            "url": "../../images/gallery-tetiana/3.jpg",
+            "name": "Lorem, ipsum dolor sit amet",
+            "year": 2016,
+            "material": "Lorem, ipsum dolor sit amet"
+        },
+        {
+            "url": "../../images/gallery-tetiana/4.jpg",
+            "name": "Lorem, ipsum dolor sit amet",
+            "year": 2016,
+            "material": "Lorem, ipsum dolor sit amet"
+        },
+        {
+            "url": "../../images/gallery-tetiana/5.jpg",
+            "name": "Lorem, ipsum dolor sit amet",
+            "year": 2016,
+            "material": "Lorem, ipsum dolor sit amet"
+        },
+        {
+            "url": "../../images/gallery-tetiana/6.jpg",
+            "name": "Lorem, ipsum dolor sit amet",
+            "year": 2016,
+            "material": "Lorem, ipsum dolor sit amet"
+        },
+        {
+            "url": "../../images/gallery-tetiana/7.jpg",
+            "name": "Lorem, ipsum dolor sit amet",
+            "year": 2016,
+            "material": "Lorem, ipsum dolor sit amet"
+        },
+        {
+            "url": "../../images/gallery-tetiana/8.jpg",
+            "name": "Lorem, ipsum dolor sit amet",
+            "year": 2016,
+            "material": "Lorem, ipsum dolor sit amet"
+        },
+        {
+            "url": "../../images/gallery-tetiana/9.jpg",
+            "name": "Lorem, ipsum dolor sit amet",
+            "year": 2016,
+            "material": "Lorem, ipsum dolor sit amet"
+        },
+        {
+            "url": "../../images/gallery-tetiana/10.jpg",
+            "name": "Lorem, ipsum dolor sit amet",
+            "year": 2016,
+            "material": "Lorem, ipsum dolor sit amet"
+        },
+        {
+            "url": "../../images/gallery-tetiana/11.jpg",
+            "name": "Lorem, ipsum dolor sit amet",
+            "year": 2016,
+            "material": "Lorem, ipsum dolor sit amet"
+        },
+        {
+            "url": "../../images/gallery-tetiana/12.jpg",
+            "name": "Lorem, ipsum dolor sit amet",
+            "year": 2016,
+            "material": "Lorem, ipsum dolor sit amet"
+        },
+        {
+            "url": "../../images/gallery-tetiana/13.jpg",
+            "name": "Lorem, ipsum dolor sit amet",
+            "year": 2016,
+            "material": "Lorem, ipsum dolor sit amet"
+        },
+        {
+            "url": "../../images/gallery-tetiana/14.jpg",
+            "name": "Lorem, ipsum dolor sit amet",
+            "year": 2016,
+            "material": "Lorem, ipsum dolor sit amet"
+        },
+        {
+            "url": "../../images/gallery-tetiana/15.jpg",
+            "name": "Lorem, ipsum dolor sit amet",
+            "year": 2016,
+            "material": "Lorem, ipsum dolor sit amet"
+        }
+    ]
+}

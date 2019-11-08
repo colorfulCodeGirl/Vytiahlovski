@@ -10,6 +10,8 @@
         href="https://fonts.googleapis.com/css?family=Martel+Sans:200,300|Roboto:100,300,500&display=swap&subset=cyrillic,cyrillic-ext,latin-ext"
         rel="stylesheet">
     <link href="src/css/main.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/simple-scrollbar@latest/simple-scrollbar.css">
+    <script src="https://cdn.jsdelivr.net/npm/simple-scrollbar@latest/simple-scrollbar.min.js"></script>
 </head>
 
 <body>
@@ -39,7 +41,7 @@
             <li><a href="#contact" tabindex="-1" class="nav-elem contact">Contact</a></li>
         </ul>
     </nav>
-    <div class="content">
+    <div class="content" ss-container>
 
         <main>
             <section class="first-screen-gallery">
@@ -229,7 +231,6 @@
                         </div>
                     </div>
                 </div>
-                <div class="full-gallery"></div>
             </section>
 
             <section class="achievements" id="achievements">
@@ -386,6 +387,7 @@
                     class="author">Oleksandra Vytiahlovska</a></p>
         </footer>
     </div>
+    <div class="full-gallery" ss-container></div>
     <script type="module" src="src/js/main.mjs"></script>
 </body>
 

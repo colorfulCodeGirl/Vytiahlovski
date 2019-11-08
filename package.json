@@ -1,26 +1,41 @@
 {
   "name": "vytiahlovski-gallery",
   "version": "1.0.0",
-  "description": "art-gallery",
+  "description": "Art gallery of Vytiahlovski family, artists from Ukraine",
   "main": "main.mjs",
   "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "browser-sync start --server --files '**/*.css, **/*.html, **/*.js, !node_modules/**/*' --directory --port 7777 --browser \"C:\\Program Files\\Firefox Developer Edition\\firefox.exe\""
+    "start": "browser-sync start --server --files '**/*.css, **/*.html, **/*.js, !node_modules/**/*' --directory --port 7777 --browser \"C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe\""
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Vanilna/Vytiahlovski.git"
   },
-  "author": "O_Vytiahlovska",
+  "author": "Oleksandra Vytiahlovska",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/Vanilna/Vytiahlovski/issues"
   },
   "homepage": "https://github.com/Vanilna/Vytiahlovski#readme",
-  "dependencies": {},
+  "prettier": {
+    "trailingComma": "all",
+    "tabWidth": 2,
+    "semi": true,
+    "singleQuote": true,
+    "arrowParens": "always"
+  },
+  "dependencies": {
+    "simple-scrollbar": "^0.4.0"
+  },
   "devDependencies": {
     "browser-sync": "^2.26.7",
-    "simple-scrollbar": "^0.4.0"
+    "eslint": "^6.1.0",
+    "eslint-config-airbnb": "^18.0.1",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-react": "^7.16.0",
+    "eslint-plugin-react-hooks": "^1.7.0",
+    "prettier": "^1.18.2"
   }
 }
