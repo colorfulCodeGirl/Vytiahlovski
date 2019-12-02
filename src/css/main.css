@@ -86,10 +86,10 @@ header {
 }
 
 /*
-hamburger menu
+toggler menu
 */
 
-.hamburger-menu {
+.menu-toggler {
     border: none;
     padding: .5vh;
     margin: 0 3vw 0 0;
@@ -99,14 +99,14 @@ hamburger menu
     overflow: hidden;
 }
 
-.hamburger-box {
+.toggler-box {
     width: 6.2vh;
     height: 100%;
     position: relative;
     display: inline-block;
 }
 
-.hamburger-bar, .hamburger-bar::before, .hamburger-bar::after {
+.toggler-bar, .toggler-bar::before, .toggler-bar::after {
     display: inline-block;
     position: absolute;
     width: 100%;
@@ -115,21 +115,21 @@ hamburger menu
     background-color: var(--red);
 }
 
-.hamburger-bar::before, .hamburger-bar::after {
+.toggler-bar::before, .toggler-bar::after {
     content: "";
 }
 
-.hamburger-bar {
+.toggler-bar {
     top: 50%;
     transform: translateY(-50%);
     transition: background-color 0.5s 1.225s;
 }
 
-.hamburger-bar::before {
+.toggler-bar::before {
     transform: translateY(-2vh);
 }
 
-.hamburger-bar::after {
+.toggler-bar::after {
     transform: translateY(2vh);
 }
 
@@ -219,17 +219,17 @@ Menu animation
     transform: translateX(0);
 }
 
-.close .hamburger-bar {
+.close .toggler-bar {
     background-color: transparent;
     animation: main-bar 1.5s 1.5s;
 }
 
-.close .hamburger-bar::before {
+.close .toggler-bar::before {
     animation: before 3.5s;
     transform: translateY(0) rotate(45deg);
 }
 
-.close .hamburger-bar::after {
+.close .toggler-bar::after {
     animation: after 3.5s;
     transform: translateY(0) rotate(-45deg);
 }

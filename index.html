@@ -10,35 +10,41 @@
         href="https://fonts.googleapis.com/css?family=Martel+Sans:200,300|Roboto:100,300,500&display=swap&subset=cyrillic,cyrillic-ext,latin-ext"
         rel="stylesheet">
     <link href="src/css/main.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/simple-scrollbar@latest/simple-scrollbar.css">
-    <script src="https://cdn.jsdelivr.net/npm/simple-scrollbar@latest/simple-scrollbar.min.js"></script>
+    <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/simple-scrollbar@latest/simple-scrollbar.css">
+    <script
+        src="https://cdn.jsdelivr.net/npm/simple-scrollbar@latest/simple-scrollbar.min.js"></script>
 </head>
 
 <body>
 
     <header>
-        <button class="hamburger-menu" aria-label="Open main menu" type="button">
+        <button class="menu-toggler" aria-label="Open main menu" type="button">
             <p class="sr-only">Open main menu</p>
-            <div class="hamburger-box">
-                <span class="hamburger-bar"></span>
+            <div class="toggler-box">
+                <span class="toggler-bar"></span>
             </div>
         </button>
     </header>
     <nav aria-label="Main menu" class="menu" aria-hidden=true>
         <ul>
-            <li><a href="#" tabindex="-1" class="nav-elem biography">Biography</a></li>
+            <li><a href="#" tabindex="-1"
+                    class="nav-elem biography">Biography</a></li>
             <li>
                 <hr>
             </li>
-            <li><a href="#works" tabindex="-1" class="nav-elem works">Works</a></li>
+            <li><a href="#works" tabindex="-1" class="nav-elem works">Works</a>
+            </li>
             <li>
                 <hr>
             </li>
-            <li><a href="#achievements" tabindex="-1" class="nav-elem achievements">Achievements</a></li>
+            <li><a href="#achievements" tabindex="-1"
+                    class="nav-elem achievements">Achievements</a></li>
             <li>
                 <hr>
             </li>
-            <li><a href="#contact" tabindex="-1" class="nav-elem contact">Contact</a></li>
+            <li><a href="#contact" tabindex="-1"
+                    class="nav-elem contact">Contact</a></li>
         </ul>
     </nav>
     <div class="content" ss-container>
@@ -54,89 +60,122 @@
                     </div>
                 </div>
                 <ul class="desktop slideshow-nav">
-                    <li><a class="desktop slideshow-button active" href="#" data-index="0" aria-label="first slide"></a>
+                    <li><a class="desktop slideshow-button active" href="#"
+                            data-index="0" aria-label="first slide"></a>
                     </li>
-                    <li><a class="desktop slideshow-button" href="#" data-index="1" aria-label="second slide"></a></li>
-                    <li><a class="desktop slideshow-button" href="#" data-index="2" aria-label="third slide"></a></li>
-                    <li><a class="desktop slideshow-button" href="#" data-index="3" aria-label="forth slide"></a></li>
-                    <li><a class="desktop slideshow-button" href="#" data-index="4" aria-label="fifth slide"></a></li>
-                    <li><a class="desktop slideshow-button" href="#" data-index="5" aria-label="sixth slide"></a></li>
-                    <li><a class="desktop slideshow-button" href="#" data-index="6" aria-label="seventh slide"></a>
+                    <li><a class="desktop slideshow-button" href="#"
+                            data-index="1" aria-label="second slide"></a></li>
+                    <li><a class="desktop slideshow-button" href="#"
+                            data-index="2" aria-label="third slide"></a></li>
+                    <li><a class="desktop slideshow-button" href="#"
+                            data-index="3" aria-label="forth slide"></a></li>
+                    <li><a class="desktop slideshow-button" href="#"
+                            data-index="4" aria-label="fifth slide"></a></li>
+                    <li><a class="desktop slideshow-button" href="#"
+                            data-index="5" aria-label="sixth slide"></a></li>
+                    <li><a class="desktop slideshow-button" href="#"
+                            data-index="6" aria-label="seventh slide"></a>
                     </li>
                 </ul>
                 <div class="slide-show">
-                    <img src="images/slide_1.jpg" class="slide active" alt="" data-index="0" />
-                    <img src="images/slide_2.jpg" class="slide" alt="" data-index="1" />
-                    <img src="images/slide_3.jpg" class="slide" alt="" data-index="2" />
-                    <img src="images/slide_4.jpg" class="slide" alt="" data-index="3" />
-                    <img src="images/slide_5.jpg" class="slide" alt="" data-index="4" />
-                    <img src="images/slide_6.jpg" class="slide" alt="" data-index="5" />
-                    <img src="images/slide_7.jpg" class="slide left-move" alt="" data-index="6" />
+                    <img src="images/slide_1.jpg" class="slide active" alt=""
+                        data-index="0" />
+                    <img src="images/slide_2.jpg" class="slide" alt=""
+                        data-index="1" />
+                    <img src="images/slide_3.jpg" class="slide" alt=""
+                        data-index="2" />
+                    <img src="images/slide_4.jpg" class="slide" alt=""
+                        data-index="3" />
+                    <img src="images/slide_5.jpg" class="slide" alt=""
+                        data-index="4" />
+                    <img src="images/slide_6.jpg" class="slide" alt=""
+                        data-index="5" />
+                    <img src="images/slide_7.jpg" class="slide left-move" alt=""
+                        data-index="6" />
                 </div>
                 <h1 class="sr-only">Tetiana and Mykhailo Vytiahlovski</h1>
-                <img id="main-header" alt="Tetiana and Mykhailo Vytiahlovski" src="images/main-header.png" />
+                <img id="main-header" alt="Tetiana and Mykhailo Vytiahlovski"
+                    src="images/main-header.png" />
             </section>
 
             <section class="biography" id="biography">
                 <h2 class="section-heading">Biography</h2>
                 <div class="biography-content section-content">
                     <div class="person tetiana">
-                        <img src="images/tetiana.jpg" class="portrait tetiana" alt="Portrait of Tetiana Vytiahlovska" />
+                        <img src="images/tetiana.jpg" class="portrait tetiana"
+                            alt="Portrait of Tetiana Vytiahlovska" />
                         <div class="short-text tetiana">
-                            <p class="short-text-p"><span class="name-uppercase">Tetiana Vytiahlovska</span> - she was
+                            <p class="short-text-p"><span
+                                    class="name-uppercase">Tetiana
+                                    Vytiahlovska</span> - she was
                                 born
                                 in
                                 Buchach in 1964
                                 (Ternopil
-                                region). From 1975 to 1978 Tetiana studied at Buchach Art
+                                region). From 1975 to 1978 Tetiana studied at
+                                Buchach Art
                                 School for children.</p>
-                            <button class="button biography tetiana right-side" aria-label="Whole Tetniana's biography"
+                            <button class="button biography tetiana right-side"
+                                aria-label="Whole Tetniana's biography"
                                 type="button">more...</button>
                         </div>
                         <div class="full-text biography-tetiana">
-                            <p>In 1983 she finished Art Weaving Department of Vyzhnytsya College of Applied and
+                            <p>In 1983 she finished Art Weaving Department of
+                                Vyzhnytsya College of Applied and
                                 Decorative
                                 Arts.
                             </p>
-                            <p>In 1989 Tetiana finished Art Weaving Department of Lviv Institute of Applied and
+                            <p>In 1989 Tetiana finished Art Weaving Department
+                                of Lviv Institute of Applied and
                                 Decorative
                                 Arts
                                 (now
                                 – Lviv National Art Academy).</p>
-                            <p>She had personal exhibitions – in Ternopil, Kyiv, Slavutych, Lviv. Since 1995 she has
+                            <p>She had personal exhibitions – in Ternopil, Kyiv,
+                                Slavutych, Lviv. Since 1995 she has
                                 been a
                                 member
                                 of the National Union of Artists of Ukraine.</p>
                             <ul>
-                                <li>Laureate of the exhibition dedicated to 400-th anniversary of the Union of Brest
+                                <li>Laureate of the exhibition dedicated to
+                                    400-th anniversary of the Union of Brest
                                     (Ternopil,
                                     1995);</li>
-                                <li>Laureate of the first prize in the International exhibition 6-th Lviv Autumn Salon
+                                <li>Laureate of the first prize in the
+                                    International exhibition 6-th Lviv Autumn
+                                    Salon
                                     "High
                                     Castle
                                     2002";</li>
-                                <li>Laureate of regional Culture Award in the category “Visual Art named after Mykhailo
+                                <li>Laureate of regional Culture Award in the
+                                    category “Visual Art named after Mykhailo
                                     Boychuk”
                                     for
-                                    art project "Holiday of heaven and earth" (2015, co-authored);</li>
-                                <li>Diploma in the category “For expressive language of textile" at the 1st Ukrainian
+                                    art project "Holiday of heaven and earth"
+                                    (2015, co-authored);</li>
+                                <li>Diploma in the category “For expressive
+                                    language of textile" at the 1st Ukrainian
                                     Triennial
                                     of
                                     Artistic Textile (Kiev, 2004);</li>
-                                <li>Magazine “Child’s World” award at the International exhibition 10-th Lviv Autumn
+                                <li>Magazine “Child’s World” award at the
+                                    International exhibition 10-th Lviv Autumn
                                     Salon
                                     “High
                                     Castle 2006”;</li>
-                                <li>Certificates of honor and valuable prizes from Minister of Culture and Arts (2008,
+                                <li>Certificates of honor and valuable prizes
+                                    from Minister of Culture and Arts (2008,
                                     2009,
                                     2010,
-                                    2011, 2015, 2016 р.р.) for significant contribution to the creation of spiritual
+                                    2011, 2015, 2016 р.р.) for significant
+                                    contribution to the creation of spiritual
                                     values
                                     and
                                     high
                                     professional excellence.</li>
                             </ul>
-                            <p>Tetiana lives and works in Zavodske town, Chortkiv district, Ternopil region (she works
+                            <p>Tetiana lives and works in Zavodske town,
+                                Chortkiv district, Ternopil region (she works
                                 as a
                                 head
                                 of
@@ -147,44 +186,57 @@
 
                     <div class="person mykhailo">
                         <div class="short-text mykhailo">
-                            <p class="short-text-p"><span class="name-uppercase">Mykhailo Vytiahlovskyi</span> - he was
+                            <p class="short-text-p"><span
+                                    class="name-uppercase">Mykhailo
+                                    Vytiahlovskyi</span> - he was
                                 born
                                 in
                                 Soroky, Buchach
                                 district,
-                                Ternopil region in 1963. From 1974 to 1978 Mykhailo studied at Buchach Art School for
+                                Ternopil region in 1963. From 1974 to 1978
+                                Mykhailo studied at Buchach Art School for
                                 children.
                             </p>
-                            <button class="button biography mykhailo left-side" aria-label="Whole Mykhailo's biography"
+                            <button class="button biography mykhailo left-side"
+                                aria-label="Whole Mykhailo's biography"
                                 type="button">more...</button>
                         </div>
                         <img src="images/mykhailo.jpg" class="portrait mykhailo"
                             alt="Portrait of Mykhailo Vytiahlovskyi" />
 
                         <div class="full-text biography-mykhailo">
-                            <p>In 1982 he finished Wooden Art Department of Kosiv Technical College of Folk Crafts.</p>
-                            <p>In 1990 he finished faculty “Interior and Equipment” of Lviv Institute of Applied and
+                            <p>In 1982 he finished Wooden Art Department of
+                                Kosiv Technical College of Folk Crafts.</p>
+                            <p>In 1990 he finished faculty “Interior and
+                                Equipment” of Lviv Institute of Applied and
                                 Decorative
                                 Arts
                                 (now – Lviv National Art Academy).</p>
-                            <p>He creates modern art projects, filed with deep philosophical sense. Mykhailo works as a
+                            <p>He creates modern art projects, filed with deep
+                                philosophical sense. Mykhailo works as a
                                 sculptor,
-                                but also he creates many oil and acrylic paintings.</p>
-                            <p>He was a participant of many regional, national and international exhibitions. He also
+                                but also he creates many oil and acrylic
+                                paintings.</p>
+                            <p>He was a participant of many regional, national
+                                and international exhibitions. He also
                                 had
                                 his
                                 personal
-                                exhibitions in Ternopil, Kyiv, Slavutych, Lviv.</p>
-                            <p>Since 1995 he has been a member of the National Union of Artists of Ukraine. Mykhailo is
+                                exhibitions in Ternopil, Kyiv, Slavutych, Lviv.
+                            </p>
+                            <p>Since 1995 he has been a member of the National
+                                Union of Artists of Ukraine. Mykhailo is
                                 a
                                 winner
                                 of
                                 Lviv autumn salon “High castle 2013”.</p>
-                            <p>Laureate of regional Culture Award in the category “Visual Art named after Mykhailo
+                            <p>Laureate of regional Culture Award in the
+                                category “Visual Art named after Mykhailo
                                 Boychuk”
                                 for
                                 art
-                                project "Defects of the civilization" (2015, co-authored).</p>
+                                project "Defects of the civilization" (2015,
+                                co-authored).</p>
                         </div>
                     </div>
                 </div>
@@ -195,7 +247,8 @@
                 <div class="section-content">
                     <div class="works-tetiana">
                         <div class="column1">
-                            <button class="button tetiana" type="button" data-name="tetiana">TETIANA</button>
+                            <button class="button tetiana" type="button"
+                                data-name="tetiana">TETIANA</button>
                             <img src="images/works-tetiana/1.jpg" alt="">
                             <img src="images/works-tetiana/2.jpg" alt="">
                         </div>
@@ -213,17 +266,20 @@
 
                     <div class="works-mykhailo">
                         <div class="column1">
-                            <img src="images/works-mykhailo/1.jpg" class="cutting-heads" alt="">
+                            <img src="images/works-mykhailo/1.jpg"
+                                class="cutting-heads" alt="">
                             <img src="images/works-mykhailo/2.jpg" alt="">
                             <img src="images/works-mykhailo/3.jpg" alt="">
                         </div>
                         <div class="column2">
-                            <img src="images/works-mykhailo/4.jpg" class="cutting-heads" alt="">
+                            <img src="images/works-mykhailo/4.jpg"
+                                class="cutting-heads" alt="">
                             <img src="images/works-mykhailo/5.jpg" alt="">
                             <img src="images/works-mykhailo/6.jpg" alt="">
                         </div>
                         <div class="column3">
-                            <button class="button mykhailo" type="button" data-name="mykhailo">MYKHAILO</button>
+                            <button class="button mykhailo" type="button"
+                                data-name="mykhailo">MYKHAILO</button>
                             <img src="images/works-mykhailo/7.jpg" alt="">
                             <img src="images/works-mykhailo/8.jpg" alt="">
                             <img src="images/works-mykhailo/9.jpg" alt="">
@@ -237,113 +293,175 @@
                 <h2 class="section-heading">Achievements</h2>
                 <div class="achievements-content section-content">
                     <div class="person tetiana">
-                        <img src="images/achievements-tapestry.jpg" class="work-example tetiana"
+                        <img src="images/achievements-tapestry.jpg"
+                            class="work-example tetiana"
                             alt="Tapestry of Tetiana Vytiahlovska" />
                         <div class="short-text tetiana">
-                            <p class="short-text-p"><span class="name-uppercase">Tetiana Vytiahlovska</span>
-                                lives an active artistic life since the 1989: regional, Ukrainian and
+                            <p class="short-text-p"><span
+                                    class="name-uppercase">Tetiana
+                                    Vytiahlovska</span>
+                                lives an active artistic life since the 1989:
+                                regional, Ukrainian and
                                 international exhibitions. As
                                 result
                                 exhibitions:</p>
                             <ul>
-                                <li>Personal exhibitions in Ternopil – in 1995 and 2000.</li>
+                                <li>Personal exhibitions in Ternopil – in 1995
+                                    and 2000.</li>
                             </ul>
-                            <button class="button achievements tetiana right-side" aria-label="Tetiana's achievements"
+                            <button
+                                class="button achievements tetiana right-side"
+                                aria-label="Tetiana's achievements"
                                 type="button">more...</button>
                         </div>
 
                         <div class="full-text">
                             <ul>
-                                <li>Personal exhibition in Slavutych – in 1996.</li>
+                                <li>Personal exhibition in Slavutych – in 1996.
+                                </li>
                                 <li>Personal exhibition in Kyiv – in 1997.</li>
                                 <li>Personal exhibition in Lviv – in 2004.</li>
-                                <li>Personal exhibition in Zbarazh – in 2008.</li>
-                                <li>Regional exhibition for 400th Anniversary of Berestechko's union. Ternopil, 1995. II
+                                <li>Personal exhibition in Zbarazh – in 2008.
+                                </li>
+                                <li>Regional exhibition for 400th Anniversary of
+                                    Berestechko's union. Ternopil, 1995. II
                                     place
                                     (the
                                     first one wasn’t selected).</li>
-                                <li>Modern Art Exhibition and Days of Ukrainian Culture in Munich “Ukraine – 1999”.</li>
-                                <li>6th International Exhibition: Lviv Autumn Salon “High Castle 2002”. First place for
+                                <li>Modern Art Exhibition and Days of Ukrainian
+                                    Culture in Munich “Ukraine – 1999”.</li>
+                                <li>6th International Exhibition: Lviv Autumn
+                                    Salon “High Castle 2002”. First place for
                                     work
-                                    “Exidental witnesses of somebody’s love”.</li>
-                                <li>4th Ukrainian Exhibition of Modern Art. Ternopil, 2002.</li>
-                                <li>7th International Exhibition: Lviv Autumn Salon “High Castle 2003”. </li>
-                                <li>Participation in annual regional exhibitions.</li>
-                                <li>1st Ukrainian Triennial of Artistic Textile. Kiev, 2004. Diploma "For expressive
+                                    “Exidental witnesses of somebody’s love”.
+                                </li>
+                                <li>4th Ukrainian Exhibition of Modern Art.
+                                    Ternopil, 2002.</li>
+                                <li>7th International Exhibition: Lviv Autumn
+                                    Salon “High Castle 2003”. </li>
+                                <li>Participation in annual regional
+                                    exhibitions.</li>
+                                <li>1st Ukrainian Triennial of Artistic Textile.
+                                    Kiev, 2004. Diploma "For expressive
                                     language of
-                                    textile" for tapestry "Night still life".</li>
-                                <li>10th International Exhibition: Lviv Autumn Salon “High Castle 2006”. Magazine
+                                    textile" for tapestry "Night still life".
+                                </li>
+                                <li>10th International Exhibition: Lviv Autumn
+                                    Salon “High Castle 2006”. Magazine
                                     “Child’s
                                     World”
                                     award.</li>
-                                <li>2nd Ukrainian Triennial of Artistic Textile. Kiev, 2007.</li>
-                                <li>Ukrainian Art Exhibition “Picturesque Ukraine”. Ternopil, 2007.</li>
-                                <li>11th International Exhibition: Lviv Autumn Salon “High Castle 2007”.</li>
-                                <li>12th International Exhibition: Lviv Autumn Salon “High Castle 2008”.</li>
-                                <li>3rd Art In plain air “Artists about Ternopil region”. 2009.</li>
-                                <li>13th International Exhibition: Lviv Autumn Salon “High Castle 2009”.</li>
-                                <li>14th International Exhibition: Lviv Autumn Salon “High Castle 2010”.</li>
-                                <li>Collective Exhibition “Ternopil Artists in Lviv Art Palace”. 2012, 2013.</li>
-                                <li>16th International Exhibition: Lviv Autumn Salon “High Castle 2012”.</li>
-                                <li>Ukrainian Exhibition of Arts and Crafts “God’s World as an Easter Day”. Ternopil,
+                                <li>2nd Ukrainian Triennial of Artistic Textile.
+                                    Kiev, 2007.</li>
+                                <li>Ukrainian Art Exhibition “Picturesque
+                                    Ukraine”. Ternopil, 2007.</li>
+                                <li>11th International Exhibition: Lviv Autumn
+                                    Salon “High Castle 2007”.</li>
+                                <li>12th International Exhibition: Lviv Autumn
+                                    Salon “High Castle 2008”.</li>
+                                <li>3rd Art In plain air “Artists about Ternopil
+                                    region”. 2009.</li>
+                                <li>13th International Exhibition: Lviv Autumn
+                                    Salon “High Castle 2009”.</li>
+                                <li>14th International Exhibition: Lviv Autumn
+                                    Salon “High Castle 2010”.</li>
+                                <li>Collective Exhibition “Ternopil Artists in
+                                    Lviv Art Palace”. 2012, 2013.</li>
+                                <li>16th International Exhibition: Lviv Autumn
+                                    Salon “High Castle 2012”.</li>
+                                <li>Ukrainian Exhibition of Arts and Crafts
+                                    “God’s World as an Easter Day”. Ternopil,
                                     2013.
                                 </li>
-                                <li>2nd Ukrainian Triennial “Ukrainian Folk Modern 2012”. Chernivtsi.</li>
-                                <li>3rd Ukrainian Triennial “Ukrainian Folk Modern 2015”. Chernivtsi.</li>
-                                <li>19th International Exhibition: Lviv Autumn Salon “High Castle 2015”.</li>
-                                <li>Regional “Christmas” exhibition. Ternopil.</li>
-                                <li>Personal exhibition in Ternopil – in 2016.</li>
-                                <li>Personal exhibition in Chicago – in 2017.</li>
+                                <li>2nd Ukrainian Triennial “Ukrainian Folk
+                                    Modern 2012”. Chernivtsi.</li>
+                                <li>3rd Ukrainian Triennial “Ukrainian Folk
+                                    Modern 2015”. Chernivtsi.</li>
+                                <li>19th International Exhibition: Lviv Autumn
+                                    Salon “High Castle 2015”.</li>
+                                <li>Regional “Christmas” exhibition. Ternopil.
+                                </li>
+                                <li>Personal exhibition in Ternopil – in 2016.
+                                </li>
+                                <li>Personal exhibition in Chicago – in 2017.
+                                </li>
                             </ul>
                         </div>
                     </div>
 
                     <div class="person mykhailo">
                         <div class="short-text mykhailo">
-                            <p class="short-text-p"><span class="name-uppercase">Mykhailo Vytiahlovskyi</span>
-                                lives an active artistic life since the 1989: regional, Ukrainian and international
+                            <p class="short-text-p"><span
+                                    class="name-uppercase">Mykhailo
+                                    Vytiahlovskyi</span>
+                                lives an active artistic life since the 1989:
+                                regional, Ukrainian and international
                                 exhibitions.
                                 As
                                 a
                                 result exhibitions:</p>
                             <ul>
-                                <li>Personal exhibitions in Ternopil – in 1995 and 2000.</li>
+                                <li>Personal exhibitions in Ternopil – in 1995
+                                    and 2000.</li>
                             </ul>
-                            <button class="button achievements mykhailo left-side" aria-label="Mykhailo's achievements"
+                            <button
+                                class="button achievements mykhailo left-side"
+                                aria-label="Mykhailo's achievements"
                                 type="button">more...</button>
                         </div>
-                        <img src="images/achievements-sculpture.jpg" class="work-example mykhailo"
+                        <img src="images/achievements-sculpture.jpg"
+                            class="work-example mykhailo"
                             alt="Sculpture of Mykhailo Vytiahlovskyi" />
 
                         <div class="full-text mykhailo">
                             <ul>
-                                <li>Personal exhibition in Slavutych – in 1996.</li>
+                                <li>Personal exhibition in Slavutych – in 1996.
+                                </li>
                                 <li>Personal exhibition in Kyiv – in 1997.</li>
                                 <li>Personal exhibition in Lviv – in 2004.</li>
-                                <li>Personal exhibition in Zbarazh – in 2008.</li>
-                                <li>Modern Art Exhibition and Days of Ukrainian Culture in Munich “Ukraine – 1999”.</li>
-                                <li>4th Ukrainian Exhibition of Modern Art. Ternopil, 2002.</li>
-                                <li>6th International Exhibition: Lviv Autumn Salon “High Castle 2002”. </li>
-                                <li>Participation in annual regional and Ukrainian exhibitions.</li>
-                                <li>7th International Exhibition: Lviv Autumn Salon “High Castle 2003”. </li>
-                                <li>11th International Exhibition: Lviv Autumn Salon “High Castle 2007”.</li>
-                                <li>Ukrainian Art Exhibition “Picturesque Ukraine”. Ternopil, 2007. </li>
-                                <li>7th Ukrainian Exhibition of Modern Art. Ternopil, 2008.</li>
-                                <li>12th International Exhibition: Lviv Autumn Salon “High Castle 2008”.</li>
-                                <li>3rd Art In plain air “Artists about Ternopil region”. 2009.</li>
-                                <li>Collective Exhibition “Ternopil Artists in Lviv Art Palace”. 2012, 2013.</li>
-                                <li>Ukrainian Exhibition of Arts and Crafts “God’s world as an Easter day”. Ternopil,
+                                <li>Personal exhibition in Zbarazh – in 2008.
+                                </li>
+                                <li>Modern Art Exhibition and Days of Ukrainian
+                                    Culture in Munich “Ukraine – 1999”.</li>
+                                <li>4th Ukrainian Exhibition of Modern Art.
+                                    Ternopil, 2002.</li>
+                                <li>6th International Exhibition: Lviv Autumn
+                                    Salon “High Castle 2002”. </li>
+                                <li>Participation in annual regional and
+                                    Ukrainian exhibitions.</li>
+                                <li>7th International Exhibition: Lviv Autumn
+                                    Salon “High Castle 2003”. </li>
+                                <li>11th International Exhibition: Lviv Autumn
+                                    Salon “High Castle 2007”.</li>
+                                <li>Ukrainian Art Exhibition “Picturesque
+                                    Ukraine”. Ternopil, 2007. </li>
+                                <li>7th Ukrainian Exhibition of Modern Art.
+                                    Ternopil, 2008.</li>
+                                <li>12th International Exhibition: Lviv Autumn
+                                    Salon “High Castle 2008”.</li>
+                                <li>3rd Art In plain air “Artists about Ternopil
+                                    region”. 2009.</li>
+                                <li>Collective Exhibition “Ternopil Artists in
+                                    Lviv Art Palace”. 2012, 2013.</li>
+                                <li>Ukrainian Exhibition of Arts and Crafts
+                                    “God’s world as an Easter day”. Ternopil,
                                     2013.
                                 </li>
-                                <li>13th International Exhibition: Lviv Autumn Salon “High Castle 2009”. Diploma for
+                                <li>13th International Exhibition: Lviv Autumn
+                                    Salon “High Castle 2009”. Diploma for
                                     work “A
                                     young
                                     miss and her old blanket”. </li>
-                                <li>10th Ukrainian Exhibition of Modern Art. Ternopil, 2014.</li>
-                                <li>19th International Exhibition: Lviv Autumn Salon “High Castle 2015”.</li>
-                                <li>Regional “Christmas” exhibition. Ternopil. </li>
-                                <li>Personal exhibition in Ternopil – in 2016.</li>
-                                <li>Personal exhibition in Chicago – in 2017.</li>
+                                <li>10th Ukrainian Exhibition of Modern Art.
+                                    Ternopil, 2014.</li>
+                                <li>19th International Exhibition: Lviv Autumn
+                                    Salon “High Castle 2015”.</li>
+                                <li>Regional “Christmas” exhibition. Ternopil.
+                                </li>
+                                <li>Personal exhibition in Ternopil – in 2016.
+                                </li>
+                                <li>Personal exhibition in Chicago – in 2017.
+                                </li>
                             </ul>
                         </div>
                     </div>
@@ -354,28 +472,43 @@
                 <h2 class="section-heading">Contact</h2>
                 <div class="contact-content section-content">
                     <div class="facebook">
-                        <a href="https://www.facebook.com/profile.php?id=100000902379341" class="contact-links"
-                            aria-label="Find Tetiana on Facebook">Find Tetiana on
-                            <img class="icon" src="images/f_logo_RGB-Blue_58.png" alt=""></a>
+                        <a href="https://www.facebook.com/profile.php?id=100000902379341"
+                            class="contact-links"
+                            aria-label="Find Tetiana on Facebook">Find Tetiana
+                            on
+                            <img class="icon"
+                                src="images/f_logo_RGB-Blue_58.png" alt=""></a>
                     </div>
                     <div class="instagram">
-                        <a href="https://www.instagram.com/tetiana.vytiaglovska/" class="contact-links"
-                            aria-label="Find Tetiana on Instagram">Find Tetiana on
-                            <img class="icon" src="images/instagram.png" alt=""></a>
+                        <a href="https://www.instagram.com/tetiana.vytiaglovska/"
+                            class="contact-links"
+                            aria-label="Find Tetiana on Instagram">Find Tetiana
+                            on
+                            <img class="icon" src="images/instagram.png"
+                                alt=""></a>
                     </div>
-                    <button class="button email-mobile right-side" type="button">Send us email</button>
+                    <button class="button email-mobile right-side"
+                        type="button">Send us email</button>
                     <div class="form-overlay"></div>
                     <div class="email">
                         <div class="line"></div>
-                        <form aria-label="email" class="email-wrapper" action="mailto:lesyalp@gmail.com" method="post"
+                        <form aria-label="email" class="email-wrapper"
+                            action="mailto:lesyalp@gmail.com" method="post"
                             enctype="text/plain">
-                            <button class="button close right-side" type="button">&times;</button>
+                            <button class="button close right-side"
+                                type="button">&times;</button>
                             <h3 class="contact-links">Send us email:</h3>
-                            <label for="email-address" class="sr-only">email address:</label>
-                            <input type="email" id="email-address" class="email-address" placeholder="your@email.com">
-                            <label for="email-text" class="sr-only">email text:</label>
-                            <textarea id="email-text" class="email-text" placeholder="Enter Your email..."></textarea>
-                            <input type="submit" value="Send" class="button submit left-side">
+                            <label for="email-address" class="sr-only">email
+                                address:</label>
+                            <input type="email" id="email-address"
+                                class="email-address"
+                                placeholder="your@email.com">
+                            <label for="email-text" class="sr-only">email
+                                text:</label>
+                            <textarea id="email-text" class="email-text"
+                                placeholder="Enter Your email..."></textarea>
+                            <input type="submit" value="Send"
+                                class="button submit left-side">
                         </form>
                         <div class="line"></div>
                     </div>
@@ -383,8 +516,9 @@
             </section>
         </main>
         <footer>
-            <p>© Vytiaglovski Gallery all rights reserved. Created by <a href="https://github.com/Vanilna"
-                    class="author">Oleksandra Vytiahlovska</a></p>
+            <p>© Vytiaglovski Gallery all rights reserved. Created by <a
+                    href="https://github.com/Vanilna" class="author">Oleksandra
+                    Vytiahlovska</a></p>
         </footer>
     </div>
     <div class="full-gallery" ss-container></div>
