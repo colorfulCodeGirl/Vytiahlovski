@@ -1,27 +1,36 @@
-/* eslint-disable semi */
-/* eslint-disable space-before-function-paren */
+class EmailForm {
+  constructor(selector) {
+    this.section = document.querySelector(selector);
+  }
 
-export default function openMailFormMobile() {
-  if (window.innerWidth < 600) {
-    const btn = document.querySelector('.button.email-mobile');
-    const emailForm = document.querySelector('.email');
-    const overlay = document.querySelector('.form-overlay');
-    const header = document.querySelector('.hamburger-menu');
-    const closeBtn = document.querySelector('.email .close');
-    const submitBtn = document.querySelector('.email .submit');
+  openMailForm() {
+    const btn = this.section.querySelector('.email-form-toggler');
+    const emailForm = this.section.querySelector('.email');
+    const overlay = this.section.querySelector('.form-overlay');
+    const header = document.querySelector('.menu-toggler');
+    const closeBtn = emailForm.querySelector('.close');
+    const submitBtn = emailForm.querySelector('.submit');
 
-    const openCloseForm = (e) => {
-      const isHamburger = e.target.className.includes('hamburger');
+    const toggleForm = (e) => {
+      const isMenu = e.target.className.includes('menu');
 
-      if (isHamburger && emailForm.classList.length === 1) return;
+      /* don't open email form when clicking on menu toggler */
+      if (isMenu && !emailForm.className.includes('active')) return;
 
       emailForm.classList.toggle('active');
       overlay.classList.toggle('active');
     };
 
-    btn.addEventListener('click', openCloseForm);
-    header.addEventListener('click', openCloseForm);
-    closeBtn.addEventListener('click', openCloseForm);
-    submitBtn.addEventListener('click', openCloseForm);
+    [btn, header, closeBtn, submitBtn].forEach((element) => {
+      element.addEventListener('click', toggleForm);
+    });
+  }
+
+  init() {
+    if (document.body.clientWidth < 600) {
+      this.openMailForm();
+    }
   }
 }
+
+export default EmailForm;

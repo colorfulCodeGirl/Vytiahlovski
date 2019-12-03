@@ -1,7 +1,7 @@
 import Menu from './Menu.mjs';
 import slideShow from './slideShow.mjs';
 import TextSection from './TextSection.mjs';
-import openMailFormMobile from './emailForm.mjs';
+import EmailForm from './EmailForm.mjs';
 import initFullGallery from './gallery.mjs';
 // import SimpleScrollbar from 'simple-scrollbar';
 
@@ -14,7 +14,9 @@ biography.init();
 const achievements = new TextSection('section.achievements');
 achievements.init();
 
-openMailFormMobile();
+const emailForm = new EmailForm('section.contact');
+emailForm.init();
+
 initFullGallery();
 // const scrollbarContainer = document.querySelector('.content');
 // SimpleScrollbar.init(scrollbarContainer);
