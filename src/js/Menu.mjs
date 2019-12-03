@@ -6,26 +6,24 @@ class Menu {
 
   trapTabKey() {
     const menuLinks = this.menu.querySelectorAll('a');
-    const bodyLinks = document.querySelectorAll(
-      'main a, main button, footer a, footer button',
-    );
-    if (this.menu.getAttribute('aria-hidden') === 'true') {
-      bodyLinks.forEach((elem) => elem.setAttribute('tabindex', -1));
-      this.menu.setAttribute('aria-hidden', 'false');
-      menuLinks.forEach((elem) => elem.setAttribute('tabindex', 0));
-    } else {
-      bodyLinks.forEach((elem) => elem.setAttribute('tabindex', 0));
-      this.menu.setAttribute('aria-hidden', 'true');
-      menuLinks.forEach((elem) => elem.setAttribute('tabindex', -1));
-    }
-  }
+    const content = document.querySelector('.content');
+    const bodyLinks = content.querySelectorAll('a, button, input');
+    const isMenuHidden = this.menu.getAttribute('aria-hidden');
 
-  scrollToSection(e, targetedSectionId) {
-    if (e.target.className === this.menu.className) {
-      const scrollTarget = document.querySelector(`#${targetedSectionId}`);
-      scrollTarget.scrollIntoView({
-        behavior: 'smooth',
+    const setTabindex = (list, value) => {
+      list.forEach((elem) => {
+        elem.setAttribute('tabindex', value);
       });
+    };
+
+    if (isMenuHidden === 'true') {
+      setTabindex(bodyLinks, -1);
+      this.menu.setAttribute('aria-hidden', 'false');
+      setTabindex(menuLinks, 0);
+    } else {
+      setTabindex(bodyLinks, 0);
+      this.menu.setAttribute('aria-hidden', 'true');
+      setTabindex(menuLinks, -1);
     }
   }
 
@@ -35,10 +33,19 @@ class Menu {
     this.menu.classList.toggle('active');
     this.trapTabKey();
 
-    const targetedSectionId = e.target.classList[1];
-    if (e.target.className.includes('nav-elem')) {
-      this.menu.addEventListener('transitionend', (ev) => {
-        this.scrollToSection(ev, targetedSectionId);
+    const targetedSectionId = e.target.dataset.target;
+    const isNavElement = e.target.dataset.type === 'nav';
+
+    const scrollToSection = (id) => {
+      const scrollTarget = document.querySelector(`#${id}`);
+      scrollTarget.scrollIntoView({
+        behavior: 'smooth',
+      });
+    };
+
+    if (isNavElement) {
+      this.menu.addEventListener('transitionend', () => {
+        scrollToSection(targetedSectionId);
       });
     }
   }
