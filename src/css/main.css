@@ -761,35 +761,66 @@ Mykhailo's works
 }
 
 /*
-Contact section
+---CONTACT---
 */
-.contact-content {
-  margin: 0 3vw 5vh 3vw;
-  display: flex;
-}
-
-.contact-content {
+.section-content--contact {
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-areas: 'facebook instagram' 'button button';
   grid-gap: 3vw;
   justify-content: space-between;
+  margin: 0 3vw 5vh 3vw;
 }
 
-.facebook {
+/*
+Media
+*/
+
+.contact__media--facebook {
   grid-area: facebook;
 }
 
-.instagram {
+.contact__media--instagram {
   grid-area: instagram;
 }
 
-.button.email-form-toggler {
+.contact__link {
+  text-decoration: none;
+}
+
+.contact__link,
+.email-form__header {
+  color: var(--white);
+  font-size: 1.6rem;
+  font-weight: 500;
+  padding: 1rem 0;
+  display: flex;
+  align-items: center;
+}
+
+.contact__media--instagram .contact__link {
+  justify-content: flex-end;
+}
+
+.contact__link:active,
+.contact__link:hover {
+  color: var(--red);
+}
+
+.contact__icon {
+  padding: 0 1rem;
+  height: 4rem;
+}
+
+/*
+Email form
+*/
+.button--email-toggler {
   grid-area: button;
   justify-self: center;
 }
 
-.email {
+.email-form {
   display: none;
   width: 80vw;
   height: 80vh;
@@ -805,26 +836,38 @@ Contact section
   z-index: 999;
 }
 
-.line {
+.email-form--active {
+  display: flex;
+  transform: scale(1);
+}
+
+.email-form__wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  padding: 2rem;
+  height: 100%;
+}
+
+.email-form__header {
+  margin: 0;
+}
+
+.email-form__line {
   height: 0.2rem;
   width: 75%;
   background-color: var(--red);
 }
 
-.line:last-of-type {
+.email-form__line--last {
   margin-left: 25%;
 }
 
-.email.active {
-  display: flex;
-  transform: scale(1);
-}
-
-.form-overlay {
+.overlay {
   display: none;
 }
 
-.form-overlay.active {
+.overlay--active {
   display: block;
   position: fixed;
   top: 0;
@@ -835,43 +878,7 @@ Contact section
   z-index: 998;
 }
 
-.email-wrapper {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  padding: 2rem;
-  height: 100%;
-}
-
-.contact-links {
-  text-decoration: none;
-  color: var(--white);
-  font-size: 1.6rem;
-  font-weight: 500;
-  padding: 1rem 0;
-  display: flex;
-  align-items: center;
-}
-
-.instagram .contact-links {
-  justify-content: flex-end;
-}
-
-a.contact-links:active,
-a.contact-links:hover {
-  color: var(--red);
-}
-
-.icon {
-  padding: 0 1rem;
-  height: 4rem;
-}
-
-h3.contact-links {
-  margin: 0;
-}
-
-.button.close {
+.button--close {
   align-self: flex-end;
   padding: 0;
   font-size: 3rem;
@@ -882,28 +889,28 @@ h3.contact-links {
   height: 2.5rem;
 }
 
-.email-address,
-.email-text {
+.email-form__address,
+.email-form__text {
   padding: 1rem;
   font-family: 'Roboto', sans-serif;
   font-weight: 300;
   color: var(--grey);
 }
 
-.email-text {
+.email-form__text {
   resize: none;
   height: 60%;
 }
 
 @media (min-width: 600px) {
-  .contact-content {
+  .section-content--contact {
     grid-template-columns: 2fr 3fr;
     grid-template-areas: 'facebook email' 'instagram email' '. email';
   }
-  .contact-links {
+  .contact__link {
     font-size: 2rem;
   }
-  .email {
+  .email-form {
     grid-area: email;
     display: flex;
     width: 100%;
@@ -917,11 +924,11 @@ h3.contact-links {
     transform: scale(1);
     z-index: 1;
   }
-  .button.email-form-toggler,
-  .button.close {
+  .button--email-toggler,
+  .button--close {
     display: none;
   }
-  .instagram .contact-links {
+  .contact__media--instagram .contact__link {
     justify-content: stretch;
   }
 }

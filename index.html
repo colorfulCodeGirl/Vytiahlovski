@@ -569,48 +569,51 @@
             </section>
 
             <section class="section section--contact" id="contact">
-                <h2 class="section-heading">Contact</h2>
-                <div class="contact-content section-content">
-                    <div class="facebook">
-                        <a href="https://www.facebook.com/profile.php?id=100000902379341"
-                            class="contact-links"
+                <h2 class="section__heading">Contact</h2>
+                <div class="section-content section-content--contact">
+                    <div class="contact__media contact__media--facebook">
+                        <a href="https://www.facebook.com/vytiaglovska/"
+                            class="contact__link"
                             aria-label="Find Tetiana on Facebook">Find Tetiana
                             on
-                            <img class="icon"
+                            <img class="contact__icon"
                                 src="images/f_logo_RGB-Blue_58.png" alt=""></a>
                     </div>
-                    <div class="instagram">
+                    <div class="contact__media contact__media--instagram">
                         <a href="https://www.instagram.com/tetiana.vytiaglovska/"
-                            class="contact-links"
+                            class="contact__link"
                             aria-label="Find Tetiana on Instagram">Find Tetiana
                             on
-                            <img class="icon" src="images/instagram.png"
-                                alt=""></a>
+                            <img class="contact__icon"
+                                src="images/instagram.png" alt=""></a>
                     </div>
-                    <button class="button email-form-toggler button--right-side"
+                    <button
+                        class="button button--email-toggler button--right-side"
                         type="button">Send us email</button>
-                    <div class="form-overlay"></div>
-                    <div class="email">
-                        <div class="line"></div>
-                        <form aria-label="email" class="email-wrapper"
+                    <div class="overlay"></div>
+                    <div class="email-form">
+                        <div class="email-form__line"></div>
+                        <form aria-label="email" class="email-form__wrapper"
                             action="mailto:lesyalp@gmail.com" method="post"
                             enctype="text/plain">
-                            <button class="button close button--right-side"
+                            <button
+                                class="button button--close button--right-side"
                                 type="button">&times;</button>
-                            <h3 class="contact-links">Send us email:</h3>
+                            <h3 class="email-form__header">Send us email:</h3>
                             <label for="email-address" class="sr-only">email
                                 address:</label>
                             <input type="email" id="email-address"
-                                class="email-address"
+                                class="email-form__address"
                                 placeholder="your@email.com">
                             <label for="email-text" class="sr-only">email
                                 text:</label>
-                            <textarea id="email-text" class="email-text"
+                            <textarea id="email-text" class="email-form__text"
                                 placeholder="Enter Your email..."></textarea>
                             <input type="submit" value="Send"
-                                class="button submit button--left-side">
+                                class="button button--submit button--left-side">
                         </form>
-                        <div class="line"></div>
+                        <div class="email-form__line email-form__line--last">
+                        </div>
                     </div>
                 </div>
             </section>
