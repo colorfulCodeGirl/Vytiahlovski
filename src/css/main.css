@@ -560,13 +560,13 @@ Slideshow frame
 /*
 TEXT (Biography and Achievements)
 */
-.section__content--text {
+.text-section {
   padding: 0 3vw 0 3vw;
   width: 100%;
   font-size: 1.6rem;
 }
 
-.section__person {
+.text-section__person {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   column-gap: 3vw;
@@ -574,75 +574,75 @@ TEXT (Biography and Achievements)
   margin-bottom: 5vh;
 }
 
-.section__img {
+.text-section__img {
   max-width: 100%;
   object-fit: cover;
   grid-row: 1/2;
 }
 
-.section__img--portrait {
+.text-section__img--portrait {
   border-radius: 50%;
   border: 0.2rem solid var(--white);
   max-height: 40vh;
 }
 
-.section__img--work {
+.text-section__img--work {
   max-height: 60vh;
 }
 
-.section__img--left {
+.text-section__img--left {
   grid-column: 1/3;
 }
 
-.section__img--right {
+.text-section__img--right {
   grid-column: -3/-1;
   justify-self: end;
 }
 
-.section__lead {
+.text-section__lead {
   display: grid;
   grid-template-columns: 1fr;
   grid-gap: 1vw;
   justify-items: end;
 }
 
-.section__lead--right {
+.text-section__lead--right {
   grid-column: 3/-1;
   grid-row: 1/2;
   text-align: end;
 }
 
-.section__lead--left {
+.text-section__lead--left {
   grid-column: 1/-3;
   grid-row: 1/2;
   justify-items: start;
 }
 
-.section__paragraph {
+.text-section__paragraph {
   margin: 0;
 }
 
-.section__list {
+.text-section__list {
   margin: 3px;
 }
 
-.section__full-text {
+.text-section__full-text {
   display: none;
   transform: scaleY(0);
   transition: scaleY 2s ease-out;
   grid-column: 1 / -1;
 }
 
-.section__full-text--active {
+.text-section__full-text--active {
   display: block;
   transform: scaleY(1);
 }
 
-.section__list--right {
+.text-section__list--right {
   list-style: none;
 }
 
-.section__list-item--right {
+.text-section__list-item--right {
   display: grid;
   grid-template-columns: repeat(2, auto);
   align-items: start;
@@ -652,7 +652,7 @@ TEXT (Biography and Achievements)
 /*
 custom list bullets from the right side
 */
-.section__list-item--right::after {
+.text-section__list-item--right::after {
   display: block;
   content: '';
   border-radius: 0.375rem;
@@ -664,7 +664,7 @@ custom list bullets from the right side
 }
 
 @media (min-width: 825px) {
-  .section__content--text {
+  .text-section {
     grid-template-columns: repeat(6, 1fr);
   }
 }
@@ -763,7 +763,7 @@ Mykhailo's works
 /*
 ---CONTACT---
 */
-.section-content--contact {
+.contact {
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-areas: 'facebook instagram' 'button button';
@@ -903,7 +903,7 @@ Email form
 }
 
 @media (min-width: 600px) {
-  .section-content--contact {
+  .contact {
     grid-template-columns: 2fr 3fr;
     grid-template-areas: 'facebook email' 'instagram email' '. email';
   }
