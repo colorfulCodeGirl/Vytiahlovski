@@ -1,6 +1,3 @@
-/* eslint-disable semi */
-/* eslint-disable space-before-function-paren */
-
 const mobileNav = document.querySelectorAll('.arrow-block');
 const desktopNav = document.querySelectorAll('.desktop.slideshow-button');
 let prevSlideInd = parseInt(
@@ -85,8 +82,7 @@ const handleDesktopNav = (newIndex) => {
 const prepareSlidesDesktop = (prevSlide) => {
   prevSlide.classList.add('transition-off');
   prevSlide.classList.remove('left-move');
-  setTimeout(() =>
-    prevSlide.classList.remove('transition-off'), 100);
+  setTimeout(() => prevSlide.classList.remove('transition-off'), 100);
 };
 
 /* ------------------Main Desktop function--------------- */
@@ -96,8 +92,7 @@ const changeSlideDesktop = (e) => {
   const newSlide = slides[newIndex];
   handleDesktopNav(newIndex);
   moveSlides(prevSlide, newSlide, 'right');
-  setTimeout(() =>
-    prepareSlidesDesktop(prevSlide), 2000);
+  setTimeout(() => prepareSlidesDesktop(prevSlide), 2000);
   prevSlideInd = newIndex;
   userClickedAt = new Date().getTime();
 };
@@ -117,8 +112,7 @@ const changeSlideAutomated = () => {
     // if we are on desktop handle navigation animation
     if (displayType.matches) {
       handleDesktopNav(newIndex);
-      setTimeout(() =>
-        prepareSlidesDesktop(prevSlide), 2000);
+      setTimeout(() => prepareSlidesDesktop(prevSlide), 2000);
     } else {
       prepareSlides(newIndex, slides);
     }
@@ -156,15 +150,15 @@ export default function slideShow() {
   /* ----------------Setting EventListeners----------------- */
   if (!displayType.matches) {
     mobileNav.forEach((btn) =>
-      btn.addEventListener('click', (e) =>
-        changeSlideMobile(e)));
+      btn.addEventListener('click', (e) => changeSlideMobile(e)),
+    );
   } else {
     // remove class preparation for mobile slide show
     const prepSlide = slides[slides.length - 1];
     prepareSlidesDesktop(prepSlide);
     desktopNav.forEach((btn) =>
-      btn.addEventListener('click', (e) =>
-        changeSlideDesktop(e)));
+      btn.addEventListener('click', (e) => changeSlideDesktop(e)),
+    );
   }
 
   /* ------------------Automated slideshow-------------- */

@@ -1,3 +1,6 @@
+/*
+---INITIALIZE---
+*/
 :root {
   box-sizing: border-box;
   font-size: 10px;
@@ -36,10 +39,10 @@
 }
 
 /*
-main page layout
+---LAYOUT---
 */
 
-body {
+.l-body {
   background-color: var(--grey);
   color: var(--white);
   margin: 0;
@@ -53,30 +56,14 @@ body {
   grid-template-areas: 'header' 'content';
 }
 
-.content {
+.l-content {
   grid-area: content;
-  /* min-height: 100vh; */
   transform: translateX(0);
   transition: transform 0.5s linear;
   overflow: hidden;
 }
 
-.full-gallery {
-  transform: translateX(110%);
-  grid-area: content;
-  transition: transform 0.5s linear;
-  overflow: hidden;
-}
-
-.full-gallery.active {
-  transform: translateX(0);
-}
-
-.content.not-active {
-  transform: translateX(-100%);
-}
-
-header {
+.l-header {
   grid-area: header;
   height: 7.5vh;
   width: 100vw;
@@ -88,9 +75,12 @@ header {
 }
 
 /*
-toggler menu
+---NAVIGATION---
 */
 
+/*
+menu toggler 
+*/
 .menu-toggler {
   border: none;
   padding: 0.5vh;
@@ -101,16 +91,16 @@ toggler menu
   overflow: hidden;
 }
 
-.menu-toggler-box {
+.menu-toggler__box {
   width: 6.2vh;
   height: 100%;
   position: relative;
   display: inline-block;
 }
 
-.menu-toggler-bar,
-.menu-toggler-bar::before,
-.menu-toggler-bar::after {
+.menu-toggler__bar,
+.menu-toggler__bar::before,
+.menu-toggler__bar::after {
   display: inline-block;
   position: absolute;
   width: 100%;
@@ -119,29 +109,28 @@ toggler menu
   background-color: var(--red);
 }
 
-.menu-toggler-bar::before,
-.menu-toggler-bar::after {
+.menu-toggler__bar::before,
+.menu-toggler__bar::after {
   content: '';
 }
 
-.menu-toggler-bar {
+.menu-toggler__bar {
   top: 50%;
   transform: translateY(-50%);
   transition: background-color 0.5s 1.225s;
 }
 
-.menu-toggler-bar::before {
+.menu-toggler__bar::before {
   transform: translateY(-2vh);
 }
 
-.menu-toggler-bar::after {
+.menu-toggler__bar::after {
   transform: translateY(2vh);
 }
 
 /*
-Navigation
+Menu
 */
-
 .menu {
   position: fixed;
   padding: 17vh 0 20vh 0;
@@ -155,7 +144,7 @@ Navigation
   transition: transform 1s 0.9s ease-in;
 }
 
-.menu > ul {
+.menu__list {
   list-style: none;
   margin: 0;
   padding: 0;
@@ -166,7 +155,7 @@ Navigation
   align-items: center;
 }
 
-.nav-elem {
+.menu__link {
   display: block;
   text-decoration: none;
   color: var(--white);
@@ -174,41 +163,41 @@ Navigation
   text-transform: uppercase;
 }
 
-.menu hr {
+.menu__line {
   width: 30vw;
 }
 
-.menu a,
-.menu hr {
+.menu__link,
+.menu__line {
   transform: translateX(100vw);
   transition: transform 1s 0.4s ease-in-out;
 }
 
 /*
-slide menu - falling each after each effect
+slide-in each item with delay
 */
 
-.menu li:nth-child(2) hr {
+.menu__line--first {
   transition-delay: 0.5s;
 }
 
-.nav-elem.works {
+.menu__link--second {
   transition-delay: 0.6s;
 }
 
-.menu li:nth-child(4) hr {
+.menu__line--second {
   transition-delay: 0.7s;
 }
 
-.nav-elem.achievements {
+.menu__link--third {
   transition-delay: 0.8s;
 }
 
-.menu li:nth-child(6) hr {
+.menu__line--third {
   transition-delay: 0.9s;
 }
 
-.nav-elem.contact {
+.menu__link--forth {
   transition-delay: 1s;
 }
 
@@ -216,32 +205,32 @@ slide menu - falling each after each effect
 Menu animation
 */
 
-.menu.active {
+.menu--active {
   transform: translateX(0);
   transition: transform 1s 0.2s ease-out;
 }
 
-.active .nav-elem,
-.active hr {
+.menu--active .menu__link,
+.menu--active .menu__line {
   transform: translateX(0);
 }
 
-.close .menu-toggler-bar {
+.menu-toggler--close .menu-toggler__bar {
   background-color: transparent;
-  animation: main-bar 1.5s 1.5s;
+  animation: menu-toggler-bars 1.5s 1.5s;
 }
 
-.close .menu-toggler-bar::before {
-  animation: before 3.5s;
+.menu-toggler--close .menu-toggler__bar::before {
+  animation: menu-toggler-before 3.5s;
   transform: translateY(0) rotate(45deg);
 }
 
-.close .menu-toggler-bar::after {
-  animation: after 3.5s;
+.menu-toggler--close .menu-toggler__bar::after {
+  animation: menu-toggler-after 3.5s;
   transform: translateY(0) rotate(-45deg);
 }
 
-@keyframes main-bar {
+@keyframes menu-toggler-main-bar {
   0% {
     transform: scaleX(1);
   }
@@ -259,7 +248,7 @@ Menu animation
   }
 }
 
-@keyframes before {
+@keyframes menu-toggler-before {
   0% {
     transform: translateY(-2vh);
   }
@@ -280,7 +269,7 @@ Menu animation
   }
 }
 
-@keyframes after {
+@keyframes menu-toggler-after {
   0% {
     transform: translateY(2vh);
   }

@@ -6,7 +6,7 @@ class Menu {
 
   trapTabKey() {
     const menuLinks = this.menu.querySelectorAll('a');
-    const content = document.querySelector('.content');
+    const content = document.querySelector('.l-content');
     const bodyLinks = content.querySelectorAll('a, button, input');
     const isMenuHidden = this.menu.getAttribute('aria-hidden');
 
@@ -29,8 +29,8 @@ class Menu {
 
   toggleMenu(e) {
     e.preventDefault();
-    this.toggler.classList.toggle('close');
-    this.menu.classList.toggle('active');
+    this.toggler.classList.toggle('menu-toggler--close');
+    this.menu.classList.toggle('menu--active');
     this.trapTabKey();
 
     const targetedSectionId = e.target.dataset.target;

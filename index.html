@@ -16,40 +16,43 @@
         src="https://cdn.jsdelivr.net/npm/simple-scrollbar@latest/simple-scrollbar.min.js"></script>
 </head>
 
-<body>
+<body class="l-body">
 
-    <header>
+    <header class="l-header">
         <button class="menu-toggler" aria-label="Open main menu" type="button">
             <p class="sr-only">Open main menu</p>
-            <div class="menu-toggler-box">
-                <span class="menu-toggler-bar"></span>
+            <div class="menu-toggler__box">
+                <span class="menu-toggler__bar"></span>
             </div>
         </button>
     </header>
     <nav aria-label="Main menu" class="menu" aria-hidden=true>
-        <ul>
-            <li><a href="#" tabindex="-1" class="nav-elem biography"
+        <ul class="menu__list">
+            <li><a href="#" tabindex="-1" class="menu__link menu__link--first"
                     data-target="biography" data-type="nav">Biography</a></li>
             <li>
-                <hr>
+                <hr class="menu__line menu__line--first">
             </li>
-            <li><a href="#works" tabindex="-1" class="nav-elem works"
-                    data-target="works" data-type="nav">Works</a>
+            <li><a href="#works" tabindex="-1"
+                    class="menu__link menu__link--second" data-target="works"
+                    data-type="nav">Works</a>
             </li>
             <li>
-                <hr>
+                <hr class="menu__line menu__line--second">
             </li>
             <li><a href="#achievements" tabindex="-1"
-                    class="nav-elem achievements" data-target="achievements"
-                    data-type="nav">Achievements</a></li>
-            <li>
-                <hr>
+                    class="menu__link menu__link--third"
+                    data-target="achievements" data-type="nav">Achievements</a>
             </li>
-            <li><a href="#contact" tabindex="-1" class="nav-elem contact"
-                    data-target="contact" data-type="nav">Contact</a></li>
+            <li>
+                <hr class="menu__line menu__line--third">
+            </li>
+            <li><a href="#contact" tabindex="-1"
+                    class="menu__link menu__link--forth" data-target="contact"
+                    data-type="nav">Contact</a></li>
         </ul>
     </nav>
-    <div class="content" ss-container>
+    <div class="l-content" ss-container>
 
         <main>
             <section class="first-screen-gallery">
@@ -527,7 +530,6 @@
                     Vytiahlovska</a></p>
         </footer>
     </div>
-    <div class="full-gallery" ss-container></div>
     <script type="module" src="src/js/main.mjs"></script>
 </body>
 
