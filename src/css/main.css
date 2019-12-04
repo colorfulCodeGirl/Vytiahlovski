@@ -934,10 +934,10 @@ Email form
 }
 
 /*
-footer
+---FOOTER---
 */
 
-footer > p {
+.footer__paragraph {
   background-color: var(--white);
   color: var(--grey);
   font-size: 1.4rem;
@@ -946,12 +946,12 @@ footer > p {
   margin: 0;
 }
 
-.author {
+.footer__page-author {
   text-decoration: none;
   color: var(--red);
 }
 
-.author:hover {
+.footer__page-author:hover {
   text-decoration: underline;
 }
 
@@ -959,141 +959,4 @@ footer > p {
 
 .ss-scroll {
   background: rgba(21, 19, 19, 0.7);
-}
-
-/*
-Full gallery
-*/
-
-.home {
-  max-height: 90%;
-  padding: 0.5vh;
-  margin-left: 3vw;
-}
-
-header.open-gallery {
-  justify-content: space-between;
-}
-
-.hidden {
-  display: none;
-}
-
-.full-gallery {
-  margin: 5vw;
-  display: grid;
-  grid-template-columns: repeat(
-    20,
-    calc((100vw - 10vw - 19vw) / 20)
-  ); /* 10vw = (margin * 2) */
-  grid-auto-rows: calc((100vw - 10vw - 19vw) / 20);
-  grid-auto-flow: dense;
-  gap: 1vw;
-}
-
-.art-piece,
-.filler {
-  overflow: hidden;
-  transform: translateX(500%);
-  transition: transform 1s linear;
-}
-
-.show-img .art-piece,
-.show-img .filler {
-  transform: translateX(0);
-}
-
-.filler {
-  background-color: var(--white);
-  width: 100%;
-  height: 100%;
-  border-radius: 5px;
-}
-
-.art-piece img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  overflow: hidden;
-  border-radius: 10px;
-}
-
-.art-piece.w1 {
-  grid-column: span 1;
-}
-
-.art-piece.w2 {
-  grid-column: span 2;
-}
-
-.art-piece.w3 {
-  grid-column: span 3;
-}
-
-.art-piece.w4 {
-  grid-column: span 4;
-}
-
-.art-piece.w5 {
-  grid-column: span 5;
-}
-
-.art-piece.w6 {
-  grid-column: span 6;
-}
-
-.art-piece.w7 {
-  grid-column: span 7;
-}
-
-.art-piece.w8 {
-  grid-column: span 8;
-}
-
-.art-piece.w9 {
-  grid-column: span 9;
-}
-
-.art-piece.w10 {
-  grid-column: span 10;
-}
-
-.art-piece.h1 {
-  grid-row: span 1;
-}
-
-.art-piece.h2 {
-  grid-row: span 2;
-}
-
-.art-piece.h3 {
-  grid-row: span 3;
-}
-
-.art-piece.h4 {
-  grid-row: span 4;
-}
-
-.art-piece.h5 {
-  grid-row: span 5;
-}
-
-.art-piece.h6 {
-  grid-row: span 6;
-}
-
-.art-piece.h7 {
-  grid-row: span 7;
-}
-
-.art-piece.h8 {
-  grid-row: span 8;
-}
-
-.art-piece.h9 {
-  grid-row: span 9;
-}
-
-.art-piece.h10 {
-  grid-row: span 10;
 }
