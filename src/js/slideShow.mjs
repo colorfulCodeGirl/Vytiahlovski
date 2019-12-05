@@ -1,166 +1,169 @@
-const mobileNav = document.querySelectorAll('.arrow-block');
-const desktopNav = document.querySelectorAll('.desktop.slideshow-button');
-let prevSlideInd = parseInt(
-  document.querySelector('.slide-show .active').dataset.index,
-  10,
-);
-const displayType = window.matchMedia('(min-width: 825px) and (pointer: fine)');
-const slides = document.querySelectorAll('.slide');
-let userClickedAt = 0;
-
-/* ----------Mobile version----------- */
-const handleDirection = (e) => {
-  if (e.target.classList[0] === 'mobile') {
-    return e.target.classList[2];
-  }
-  return e.target.dataset.index > prevSlideInd ? 'right' : 'left';
-};
-
-const chooseNewIndex = (direction) => {
-  if (direction === 'right') {
-    const newInd = prevSlideInd !== 6 ? prevSlideInd + 1 : 0;
-    return newInd;
-  }
-  const newInd = prevSlideInd !== 0 ? prevSlideInd - 1 : 6;
-  return newInd;
-};
-
-const prepareSlides = (newSlideInd) => {
-  const nextFromRightInd = newSlideInd + 1 > 6 ? 0 : newSlideInd + 1;
-  const nextFromLeftInd = newSlideInd - 1 < 0 ? 6 : newSlideInd - 1;
-  const nextFromRight = slides[nextFromRightInd];
-  const nextFromLeft = slides[nextFromLeftInd];
-
-  // if next right slide is from the left - move it to right
-  if (nextFromRight.classList[1] === 'left-move') {
-    nextFromRight.classList.add('transition-off');
-    nextFromRight.classList.remove('left-move');
-  }
-  // if next left slide is from the right - move it to left
-  if (nextFromLeft.classList[1] !== 'left-move') {
-    nextFromLeft.classList.add('transition-off');
-    nextFromLeft.classList.add('left-move');
-  }
-
-  setTimeout(() => {
-    nextFromRight.classList.remove('transition-off');
-    nextFromLeft.classList.remove('transition-off');
-  }, 1000);
-};
-
-/* ---------------Common for both ----------------- */
-const moveSlides = (prevSlide, newSlide, direction) => {
-  if (direction === 'right') {
-    prevSlide.classList.add('left-move');
-    prevSlide.classList.remove('active');
-    newSlide.classList.add('active');
-  } else {
-    prevSlide.classList.remove('active');
-    newSlide.classList.add('active');
-    newSlide.classList.remove('left-move');
-  }
-};
-
-/* ---------------Main Mobile function------------- */
-const changeSlideMobile = (e) => {
-  const prevSlide = slides[prevSlideInd];
-  const direction = handleDirection(e);
-  const newSlideInd = chooseNewIndex(direction);
-  const newSlide = slides[newSlideInd];
-  moveSlides(prevSlide, newSlide, direction);
-  prepareSlides(newSlideInd, slides);
-  prevSlideInd = parseInt(newSlide.dataset.index, 10);
-  userClickedAt = new Date().getTime();
-};
-
-/* ------------------Desktop version--------------------- */
-const handleDesktopNav = (newIndex) => {
-  desktopNav[prevSlideInd].classList.remove('active');
-  desktopNav[newIndex].classList.add('active');
-};
-
-const prepareSlidesDesktop = (prevSlide) => {
-  prevSlide.classList.add('transition-off');
-  prevSlide.classList.remove('left-move');
-  setTimeout(() => prevSlide.classList.remove('transition-off'), 100);
-};
-
-/* ------------------Main Desktop function--------------- */
-const changeSlideDesktop = (e) => {
-  const prevSlide = slides[prevSlideInd];
-  const newIndex = parseInt(e.target.dataset.index, 10);
-  const newSlide = slides[newIndex];
-  handleDesktopNav(newIndex);
-  moveSlides(prevSlide, newSlide, 'right');
-  setTimeout(() => prepareSlidesDesktop(prevSlide), 2000);
-  prevSlideInd = newIndex;
-  userClickedAt = new Date().getTime();
-};
-
-/* ------------------Automated slideshow main function-------------- */
-const changeSlideAutomated = () => {
-  const prevSlide = slides[prevSlideInd];
-  const currentTime = new Date().getTime();
-  const timePassed = currentTime - userClickedAt;
-  if (timePassed >= 4000) {
-    const newIndex = prevSlideInd !== 6 ? prevSlideInd + 1 : 0;
-    const newSlide = slides[newIndex];
-    if (newIndex === slides.length - 2 && !displayType.matches) {
-      prepareSlidesDesktop(slides[slides.length - 1]);
-    }
-    moveSlides(prevSlide, newSlide, 'right');
-    // if we are on desktop handle navigation animation
-    if (displayType.matches) {
-      handleDesktopNav(newIndex);
-      setTimeout(() => prepareSlidesDesktop(prevSlide), 2000);
-    } else {
-      prepareSlides(newIndex, slides);
-    }
-    prevSlideInd = newIndex;
-  }
-};
-
-/* ------------------Init auto play and stop offscreen animation-------------- */
-const initAutoPlay = () => {
-  const intersectOptions = {
-    root: document.querySelector('.ss-container'),
-    threshold: 0.3,
-  };
-  let autoChange;
-  let isAnimating = false;
-
-  function enableDisableSlideAnimation() {
-    if (isAnimating) {
-      clearInterval(autoChange);
-    } else {
-      autoChange = setInterval(changeSlideAutomated, 4000);
-    }
-    isAnimating = !isAnimating;
-  }
-
-  const observer = new IntersectionObserver(
-    enableDisableSlideAnimation,
-    intersectOptions,
-  );
-  const target = document.querySelector('.first-screen-gallery');
-  observer.observe(target);
-};
-
-export default function slideShow() {
-  /* ----------------Setting EventListeners----------------- */
-  if (!displayType.matches) {
-    mobileNav.forEach((btn) =>
-      btn.addEventListener('click', (e) => changeSlideMobile(e)),
+class SlideShow {
+  constructor(slideShowSelector, mobileNavSelector, desktopNavSelector) {
+    this.slideShow = document.querySelector(slideShowSelector);
+    this.mobileNav = document.querySelectorAll(mobileNavSelector);
+    this.desktopNav = document.querySelectorAll(desktopNavSelector);
+    this.slides = this.slideShow.querySelectorAll(
+      `${slideShowSelector}__slide`,
     );
-  } else {
-    // remove class preparation for mobile slide show
-    const prepSlide = slides[slides.length - 1];
-    prepareSlidesDesktop(prepSlide);
-    desktopNav.forEach((btn) =>
-      btn.addEventListener('click', (e) => changeSlideDesktop(e)),
+    this.previousSlide = this.slideShow.querySelector(
+      `${slideShowSelector}__slide--active`,
+    );
+    this.previousIndex = parseFloat(this.previousSlide.dataset.index);
+    this.biggestIndex = this.slides.length - 1;
+    this.isDesktop = window.matchMedia(
+      '(min-width: 825px) and (pointer: fine)',
+    );
+    this.userClickedAt = 0;
+  }
+
+  prepareSlidesMobile(nextIndex) {
+    const nextFromRightIndex =
+      nextIndex + 1 > this.biggestIndex ? 0 : nextIndex + 1;
+    const nextFromLeftIndex =
+      nextIndex - 1 < 0 ? this.biggestIndex : nextIndex - 1;
+    const nextFromRight = this.slides[nextFromRightIndex];
+    const nextFromLeft = this.slides[nextFromLeftIndex];
+
+    // if next from right is positioned left - move it to the right
+    if (nextFromRight.className.includes('js-position-left')) {
+      nextFromRight.classList.add('js-transition-off');
+      nextFromRight.classList.remove('js-position-left');
+    }
+    // if next from left is positioned right - move it to the left
+    if (!nextFromLeft.className.includes('js-position-left')) {
+      nextFromLeft.classList.add('js-transition-off');
+      nextFromLeft.classList.add('js-position-left');
+    }
+
+    setTimeout(() => {
+      nextFromRight.classList.remove('js-transition-off');
+      nextFromLeft.classList.remove('js-transition-off');
+    }, 1000);
+  }
+
+  prepareSlidesDesktop(slide) {
+    if (!slide) {
+      slide = this.previousSlide;
+    }
+    slide.classList.add('js-transition-off');
+    slide.classList.remove('js-position-left');
+    setTimeout(() => {
+      slide.classList.remove('js-transition-off');
+    }, 100);
+  }
+
+  animateDesktopNav(nextIndex) {
+    this.desktopNav[this.previousIndex].classList.remove(
+      'slideshow-nav-desktop__link--active',
+    );
+    this.desktopNav[nextIndex].classList.add(
+      'slideshow-nav-desktop__link--active',
     );
   }
 
-  /* ------------------Automated slideshow-------------- */
-  initAutoPlay();
+  chooseNextIndex(direction) {
+    let nextIndex;
+    if (direction === 'right') {
+      nextIndex =
+        this.previousIndex !== this.biggestIndex ? this.previousIndex + 1 : 0;
+    } else {
+      nextIndex = this.previousIndex !== 0 ? this.previousIndex - 1 : 6;
+    }
+    return nextIndex;
+  }
+
+  moveSlide(newSlide, direction) {
+    if (direction === 'right') {
+      this.previousSlide.classList.add('js-position-left');
+      this.previousSlide.classList.remove('slideshow__slide--active');
+      newSlide.classList.add('slideshow__slide--active');
+    } else {
+      this.previousSlide.classList.remove('slideshow__slide--active');
+      newSlide.classList.add('slideshow__slide--active');
+      newSlide.classList.remove('js-position-left');
+    }
+  }
+
+  /* CLICK HANDLERS */
+  changeSlideMobile(e) {
+    const direction = e ? e.target.dataset.direction : 'right';
+    const nextIndex = this.chooseNextIndex(direction);
+    const nextSlide = this.slides[nextIndex];
+    this.moveSlide(nextSlide, direction);
+    this.prepareSlidesMobile(nextIndex);
+    this.previousIndex = parseFloat(nextSlide.dataset.index);
+    this.previousSlide = nextSlide;
+    this.userClickedAt = e ? new Date().getTime() : 0;
+  }
+
+  changeSlideDesktop(e) {
+    const nextIndex = e
+      ? parseFloat(e.target.dataset.index)
+      : this.chooseNextIndex('right');
+    const nextSlide = this.slides[nextIndex];
+    this.animateDesktopNav(nextIndex);
+    this.moveSlide(nextSlide, 'right');
+    setTimeout(this.prepareSlidesDesktop.bind(this, this.previousSlide), 2000);
+    this.previousIndex = nextIndex;
+    this.previousSlide = nextSlide;
+    this.userClickedAt = e ? new Date().getTime() : 0;
+  }
+
+  /* SLIDE ANIMATION */
+  /* when page is idle (user didn't click) */
+
+  // autoChangeSlide() {
+  //   const currentTime = new Date().getTime();
+  //   const timePassed = currentTime - this.userClickedAt;
+  //   if (timePassed >= 4000) {
+  //     if (!this.isDesktop) {
+  //       this.changeSlideMobile();
+  //     } else {
+  //       this.changeSlideDesktop();
+  //     }
+  //   }
+  // }
+
+  // initAutoPlay() {
+  //   /* check if slideshow is visible (IntersectionObserver) and init animation if so */
+  //   const target = this.slideShow;
+  //   let currentAnimation;
+  //   let isAnimating = false;
+  //   const intersectOptions = {
+  //     root: document.querySelector('.l-content'),
+  //     threshold: 0.3,
+  //   };
+  //   const toggleSlideAnimation = () => {
+  //     if (isAnimating) {
+  //       clearInterval(currentAnimation);
+  //     } else {
+  //       currentAnimation = setInterval(this.autoChangeSlide, 4000);
+  //     }
+  //     isAnimating = !isAnimating;
+  //   };
+  //   const observer = new IntersectionObserver(
+  //     toggleSlideAnimation,
+  //     intersectOptions,
+  //   );
+  //   observer.observe(target);
+  // }
+
+  init() {
+    if (!this.isDesktop) {
+      this.mobileNav.forEach((arrow) =>
+        arrow.addEventListener('click', this.changeSlideMobile.bind(this)),
+      );
+    } else {
+      // remove class prepared in html for mobile slideshow
+      const preparedSlide = this.slides[this.biggestIndex];
+      this.prepareSlidesDesktop(preparedSlide);
+      this.desktopNav.forEach((btn) =>
+        btn.addEventListener('click', this.changeSlideDesktop.bind(this)),
+      );
+    }
+    // this.initAutoPlay();
+  }
 }
+
+export default SlideShow;

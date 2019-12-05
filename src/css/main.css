@@ -495,7 +495,7 @@ Slideshow frame
   height: 100%;
 }
 
-.slideshow__slide--position-left {
+.js-position-left {
   transform: translateX(-100%);
 }
 
@@ -503,7 +503,7 @@ Slideshow frame
   transform: translateX(0);
 }
 
-.slideshow__slide--transition-off {
+.js-transition-off {
   transition: 0s;
 }
 
