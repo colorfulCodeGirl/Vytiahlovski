@@ -1,8 +1,9 @@
-import Menu from './Menu.mjs';
-import SlideShow from './slideShow.mjs';
-import TextSection from './TextSection.mjs';
-import EmailForm from './EmailForm.mjs';
-// import SimpleScrollbar from 'simple-scrollbar';
+import SimpleScrollbar from 'simple-scrollbar';
+import Menu from './Menu';
+import SlideShow from './SlideShow';
+import TextSection from './TextSection';
+import EmailForm from './EmailForm';
+import '../css/main.css';
 
 const menu = new Menu('.menu', '.menu-toggler');
 menu.init();
@@ -23,5 +24,6 @@ achievements.init();
 
 const emailForm = new EmailForm('.section--contact');
 emailForm.init();
-// const scrollbarContainer = document.querySelector('.content');
-// SimpleScrollbar.init(scrollbarContainer);
+
+const scrollbarContainer = document.querySelector('.content');
+SimpleScrollbar.init(scrollbarContainer);

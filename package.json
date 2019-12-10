@@ -6,7 +6,8 @@
   "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "browser-sync start --server --files '**/*.css, **/*.html, **/*.js, !node_modules/**/*' --directory --port 7777 --browser \"C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe\""
+    "start": "webpack-dev-server --env development",
+    "build": "webpack --env production"
   },
   "repository": {
     "type": "git",
@@ -30,13 +31,20 @@
     "simple-scrollbar": "^0.4.0"
   },
   "devDependencies": {
-    "browser-sync": "^2.26.7",
+    "css-loader": "^3.3.0",
     "eslint": "^6.1.0",
     "eslint-config-airbnb": "^18.0.1",
     "eslint-plugin-import": "^2.18.2",
     "eslint-plugin-jsx-a11y": "^6.2.3",
     "eslint-plugin-react": "^7.16.0",
     "eslint-plugin-react-hooks": "^1.7.0",
-    "prettier": "^1.18.2"
+    "html-webpack-plugin": "^3.2.0",
+    "mini-css-extract-plugin": "^0.8.0",
+    "prettier": "^1.18.2",
+    "style-loader": "^1.0.1",
+    "webpack": "^4.41.2",
+    "webpack-cli": "^3.3.10",
+    "webpack-dev-server": "^3.9.0",
+    "webpack-merge": "^4.2.2"
   }
 }

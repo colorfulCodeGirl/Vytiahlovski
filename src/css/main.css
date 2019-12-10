@@ -4,9 +4,11 @@
 :root {
   box-sizing: border-box;
   font-size: 10px;
-  --grey: #353030;
-  --red: #dd0000;
-  --white: #ffffff;
+  --background-color: #353030;
+  --accents: #dd0000;
+  --light-additional: #ffffff;
+  --text-color: #353030;
+  --text-invert-color: #ffffff;
 }
 
 @media (min-width: 600px) {
@@ -47,8 +49,8 @@
 */
 
 .l-body {
-  background-color: var(--grey);
-  color: var(--white);
+  background-color: var(--background-color);
+  color: var(--text-invert-color);
   margin: 0;
   font-family: 'Roboto', sans-serif;
   font-weight: 300;
@@ -70,7 +72,7 @@
   grid-area: header;
   height: 7.5vh;
   width: 100vw;
-  background-color: var(--grey);
+  background-color: var(--background-color);
   z-index: 30;
   display: flex;
   justify-content: flex-end;
@@ -109,7 +111,7 @@ menu toggler
   width: 100%;
   height: 0.8vh;
   left: 0;
-  background-color: var(--red);
+  background-color: var(--accents);
 }
 
 .menu-toggler__bar::before,
@@ -137,7 +139,7 @@ Menu
 .menu {
   position: fixed;
   padding: 17vh 0 20vh 0;
-  background-color: var(--grey);
+  background-color: var(--background-color);
   width: 100%;
   height: 100%;
   margin: 0;
@@ -161,7 +163,7 @@ Menu
 .menu__link {
   display: block;
   text-decoration: none;
-  color: var(--white);
+  color: var(--text-invert-color);
   font-size: 2.7rem;
   text-transform: uppercase;
 }
@@ -305,10 +307,10 @@ Menu animation
   font-size: 1.8rem;
   text-align: center;
   cursor: pointer;
-  color: var(--white);
+  color: var(--text-invert-color);
   font-family: 'Martel Sans', serif;
   text-transform: lowercase;
-  background: var(--red);
+  background: var(--accents);
   box-shadow: 0.3rem 0.3rem 0 rgba(0, 0, 0, 0.1);
   padding: 0 2rem;
   margin: 3vh 0;
@@ -319,7 +321,7 @@ Menu animation
 }
 
 .button:hover {
-  border-color: var(--white);
+  border-color: var(--light-additional);
 }
 
 .button--right-side {
@@ -433,9 +435,9 @@ desktop slideshow navigation available only for mouse users
     display: block;
     width: 0.6rem;
     height: 4rem;
-    background-color: var(--white);
+    background-color: var(--light-additional);
     border-radius: 0.6rem;
-    box-shadow: 0.2rem 0.2rem 0.5rem var(--grey);
+    box-shadow: 0.2rem 0.2rem 0.5rem var(--background-color);
     transform: scaleY(1) translateY(0);
     transition: transform 0.7s linear;
   }
@@ -447,7 +449,7 @@ desktop slideshow navigation available only for mouse users
   }
   .slideshow-nav-desktop__link--active {
     transform: scaleY(1.7) translateY(-20%);
-    background-color: var(--red);
+    background-color: var(--accents);
   }
 }
 
@@ -531,11 +533,11 @@ Slideshow frame
 }
 
 .section__heading {
-  background-color: var(--white);
+  background-color: var(--light-additional);
   margin: 3rem 0;
   text-align: center;
   text-transform: uppercase;
-  color: var(--grey);
+  color: var(--text-color);
   font-weight: 300;
   font-size: 3rem;
   line-height: 1.5;
@@ -547,7 +549,7 @@ Slideshow frame
   content: '';
   width: 60%;
   height: 0.2rem;
-  background-color: var(--red);
+  background-color: var(--accents);
   margin-left: 40%;
 }
 
@@ -582,7 +584,7 @@ TEXT (Biography and Achievements)
 
 .text-section__img--portrait {
   border-radius: 50%;
-  border: 0.2rem solid var(--white);
+  border: 0.2rem solid var(--light-additional);
   max-height: 40vh;
 }
 
@@ -660,7 +662,7 @@ custom list bullets from the right side
   width: 0.5rem;
   margin-right: 0.5rem;
   margin: 0.75rem 1rem;
-  background-color: var(--white);
+  background-color: var(--light-additional);
 }
 
 @media (min-width: 825px) {
@@ -790,7 +792,7 @@ Media
 
 .contact__link,
 .email-form__header {
-  color: var(--white);
+  color: var(--text-invert-color);
   font-size: 1.6rem;
   font-weight: 500;
   padding: 1rem 0;
@@ -804,7 +806,7 @@ Media
 
 .contact__link:active,
 .contact__link:hover {
-  color: var(--red);
+  color: var(--accents);
 }
 
 .contact__icon {
@@ -828,7 +830,7 @@ Email form
   top: 10vh;
   left: 10vw;
   margin: 0 auto;
-  background-color: var(--grey);
+  background-color: var(--background-color);
   flex-direction: column;
   justify-content: space-between;
   transform: scale(0.1);
@@ -856,7 +858,7 @@ Email form
 .email-form__line {
   height: 0.2rem;
   width: 75%;
-  background-color: var(--red);
+  background-color: var(--accents);
 }
 
 .email-form__line--last {
@@ -894,7 +896,7 @@ Email form
   padding: 1rem;
   font-family: 'Roboto', sans-serif;
   font-weight: 300;
-  color: var(--grey);
+  color: var(--text-color);
 }
 
 .email-form__text {
@@ -938,8 +940,8 @@ Email form
 */
 
 .footer__paragraph {
-  background-color: var(--white);
-  color: var(--grey);
+  background-color: var(--light-additional);
+  color: var(--text-color);
   font-size: 1.4rem;
   text-align: end;
   padding: 2rem;
@@ -948,7 +950,7 @@ Email form
 
 .footer__page-author {
   text-decoration: none;
-  color: var(--red);
+  color: var(--accents);
 }
 
 .footer__page-author:hover {
