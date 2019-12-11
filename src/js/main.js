@@ -4,6 +4,7 @@ import SlideShow from './SlideShow';
 import TextSection from './TextSection';
 import EmailForm from './EmailForm';
 import '../css/main.css';
+import 'simple-scrollbar/simple-scrollbar.css';
 
 const menu = new Menu('.menu', '.menu-toggler');
 menu.init();
@@ -25,5 +26,5 @@ achievements.init();
 const emailForm = new EmailForm('.section--contact');
 emailForm.init();
 
-const scrollbarContainer = document.querySelector('.content');
-SimpleScrollbar.init(scrollbarContainer);
+const scrollbarContainer = document.querySelector('.l-content');
+SimpleScrollbar.initEl(scrollbarContainer);
