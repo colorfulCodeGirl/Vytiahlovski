@@ -80,8 +80,13 @@
 }
 
 .home-page {
-  transform: translateY(0);
+  transform: scaleY(1);
   transition: transform 1.5s 0s ease-out;
+}
+
+.gallery {
+  max-width: 1000px;
+  margin: 0 auto;
 }
 
 /*

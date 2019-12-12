@@ -12,18 +12,6 @@ class Gallery {
     this.imageCount = 1;
   }
 
-  openGallery() {
-    this.homePage.classList.add('js-hide');
-    this.homePage.addEventListener(
-      'transitionend',
-      () => {
-        this.homePage.classList.add('js-zero-height');
-        this.populateWithImg();
-      },
-      { once: true },
-    );
-  }
-
   populateWithImg() {
     const imgTagList = [];
     for (let i = this.imageCount; i < this.imageCount + 10; i++) {
@@ -34,8 +22,46 @@ class Gallery {
     this.gallery.innerHTML = imgTagList.join('');
   }
 
+  // eslint-disable-next-line class-methods-use-this
+  createMasonryLayout() {
+    // eslint-disable-next-line no-unused-vars
+    const macyInstance = new Macy({
+      container: '.gallery',
+      trueOrder: true,
+      waitForImages: false,
+      margin: 5,
+      columns: 4,
+      breakAt: {
+        1200: 4,
+        940: 3,
+        520: 2,
+        400: 1,
+      },
+    });
+  }
+
+  createGallery() {
+    this.populateWithImg();
+    this.createMasonryLayout();
+  }
+
+  initGallery(e) {
+    e.preventDefault();
+    this.createGallery();
+    const scrollTarget = this.gallery;
+    setTimeout(() => {
+      scrollTarget.scrollIntoView({
+        behavior: 'smooth',
+      });
+    }, 500);
+
+    setTimeout(() => {
+      this.homePage.style.display = 'none';
+    }, 2700);
+  }
+
   init() {
-    this.trigger.addEventListener('click', this.openGallery.bind(this));
+    this.trigger.addEventListener('click', this.initGallery.bind(this));
   }
 }
 

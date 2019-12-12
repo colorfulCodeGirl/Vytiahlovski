@@ -1,5 +1,5 @@
 .home-page.js-hide {
-  transform: translateY(-100%);
+  transform: scale(0);
   overflow: hidden;
 }
 
