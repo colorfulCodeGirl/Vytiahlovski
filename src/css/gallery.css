@@ -1,0 +1,8 @@
+.home-page.js-hide {
+  transform: translateY(-100%);
+  overflow: hidden;
+}
+
+.home-page.js-zero-height {
+  height: 0;
+}

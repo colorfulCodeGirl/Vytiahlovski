@@ -3,6 +3,7 @@ import Menu from './Menu';
 import SlideShow from './SlideShow';
 import TextSection from './TextSection';
 import EmailForm from './EmailForm';
+import Gallery from './Gallery';
 import '../css/main.css';
 import 'simple-scrollbar/simple-scrollbar.css';
 
@@ -28,3 +29,6 @@ emailForm.init();
 
 const scrollbarContainer = document.querySelector('.l-content');
 SimpleScrollbar.initEl(scrollbarContainer);
+
+const tetianaGallery = new Gallery('.js-tetiana-gallery');
+tetianaGallery.init();

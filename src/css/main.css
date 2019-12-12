@@ -79,6 +79,11 @@
   align-items: center;
 }
 
+.home-page {
+  transform: translateY(0);
+  transition: transform 1.5s 0s ease-out;
+}
+
 /*
 ---NAVIGATION---
 */

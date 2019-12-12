@@ -28,6 +28,8 @@
     "printWidth": 100
   },
   "dependencies": {
+    "cloudinary-core": "^2.8.0",
+    "macy": "^2.5.0",
     "simple-scrollbar": "^0.4.0"
   },
   "devDependencies": {
