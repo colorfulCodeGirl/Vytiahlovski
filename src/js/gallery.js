@@ -1,12 +1,16 @@
 import Macy from 'macy';
-import '../css/gallery.css';
 import cloudinary from 'cloudinary-core';
+import SimpleScrollbar from 'simple-scrollbar';
+import 'simple-scrollbar/simple-scrollbar.css';
+import Swup from 'swup';
+import Menu from './Menu';
+import EmailForm from './EmailForm';
+import '../css/main.css';
+import '../css/gallery.css';
 
 class Gallery {
-  constructor(triggerSelector) {
-    this.trigger = document.querySelector(triggerSelector);
-    this.person = this.trigger.dataset.name;
-    this.homePage = document.querySelector('.home-page');
+  constructor(person) {
+    this.person = person;
     this.gallery = document.querySelector('.gallery');
     this.claud = new cloudinary.Cloudinary({ cloud_name: 'vanilna', secure: true });
     this.imageCount = 1;
@@ -14,12 +18,16 @@ class Gallery {
 
   populateWithImg() {
     const imgTagList = [];
-    for (let i = this.imageCount; i < this.imageCount + 10; i++) {
-      const img = this.claud.imageTag(`${this.person}/${i}`, { crop: 'scale', width: 400 });
+    for (let i = this.imageCount; i < this.imageCount + 20; i++) {
+      const img = this.claud.imageTag(`${this.person}/${i}`, {
+        transformation: ['gallery_prevue_desktop'],
+        fetchFormat: 'auto',
+      });
       const htmlTag = img.toHtml();
       imgTagList.push(htmlTag);
     }
     this.gallery.innerHTML = imgTagList.join('');
+    this.imageCount = this.imageCount + 20;
   }
 
   // eslint-disable-next-line class-methods-use-this
@@ -40,29 +48,22 @@ class Gallery {
     });
   }
 
-  createGallery() {
+  init() {
     this.populateWithImg();
     this.createMasonryLayout();
   }
-
-  initGallery(e) {
-    e.preventDefault();
-    this.createGallery();
-    const scrollTarget = this.gallery;
-    setTimeout(() => {
-      scrollTarget.scrollIntoView({
-        behavior: 'smooth',
-      });
-    }, 500);
-
-    setTimeout(() => {
-      this.homePage.style.display = 'none';
-    }, 2700);
-  }
-
-  init() {
-    this.trigger.addEventListener('click', this.initGallery.bind(this));
-  }
 }
 
-export default Gallery;
+const tetianaGallery = new Gallery('tetiana');
+tetianaGallery.init();
+
+const menu = new Menu('.menu', '.menu-toggler');
+menu.init();
+
+const emailForm = new EmailForm('.section--contact');
+emailForm.init();
+
+const scrollbarContainer = document.querySelector('.l-content');
+SimpleScrollbar.initEl(scrollbarContainer);
+
+const swup = new Swup();

@@ -30,7 +30,8 @@
   "dependencies": {
     "cloudinary-core": "^2.8.0",
     "macy": "^2.5.0",
-    "simple-scrollbar": "^0.4.0"
+    "simple-scrollbar": "^0.4.0",
+    "swup": "^2.0.8"
   },
   "devDependencies": {
     "css-loader": "^3.3.0",

@@ -1,6 +1,16 @@
 /*
 ---INITIALIZE---
 */
+html {
+  scroll-behavior: smooth;
+}
+.transition-fade {
+  transition: 0.4s;
+  opacity: 1;
+}
+html.is-animating .transition-fade {
+  opacity: 0;
+}
 :root {
   box-sizing: border-box;
   font-size: 10px;
@@ -77,11 +87,6 @@
   display: flex;
   justify-content: flex-end;
   align-items: center;
-}
-
-.home-page {
-  transform: scaleY(1);
-  transition: transform 1.5s 0s ease-out;
 }
 
 .gallery {

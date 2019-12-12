@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta content="ie=edge">
+    <title>Vytiahlovski art gallery</title>
+    <link
+        href="https://fonts.googleapis.com/css?family=Martel+Sans:200,300|Roboto:100,300,500&display=swap&subset=cyrillic,cyrillic-ext,latin-ext"
+        rel="stylesheet">
+</head>
+
+<body class="l-body">
+
+    <header class="l-header">
+        <a class="button" href="/index.html">Home</a>
+        <button class="menu-toggler" aria-label="Open main menu" type="button">
+            <p class="sr-only">Open main menu</p>
+            <div class="menu-toggler__box">
+                <span class="menu-toggler__bar"></span>
+            </div>
+        </button>
+    </header>
+
+    <nav aria-label="Main menu" class="menu" aria-hidden=true>
+        <ul class="menu__list">
+            <li><a href="#" tabindex="-1" class="menu__link menu__link--first"
+                    data-target="biography" data-type="nav">Biography</a></li>
+            <li>
+                <hr class="menu__line menu__line--first">
+            </li>
+            <li><a href="#works" tabindex="-1"
+                    class="menu__link menu__link--second" data-target="works"
+                    data-type="nav">Works</a>
+            </li>
+            <li>
+                <hr class="menu__line menu__line--second">
+            </li>
+            <li><a href="#achievements" tabindex="-1"
+                    class="menu__link menu__link--third"
+                    data-target="achievements" data-type="nav">Achievements</a>
+            </li>
+            <li>
+                <hr class="menu__line menu__line--third">
+            </li>
+            <li><a href="#contact" tabindex="-1"
+                    class="menu__link menu__link--forth" data-target="contact"
+                    data-type="nav">Contact</a></li>
+        </ul>
+    </nav>
+
+    <div class="l-content">
+        <main class="gallery-page transition-fade">
+            <section class="gallery"></section>
+
+            <section class="section section--contact" id="contact">
+                <h2 class="section__heading">Contact</h2>
+                <div class="section__content contact">
+                    <div class="contact__media contact__media--facebook">
+                        <a href="https://www.facebook.com/vytiaglovska/"
+                            class="contact__link"
+                            aria-label="Find Tetiana on Facebook">Find Tetiana
+                            on
+                            <img class="contact__icon"
+                                src="images/f_logo_RGB-Blue_58.png" alt=""></a>
+                    </div>
+                    <div class="contact__media contact__media--instagram">
+                        <a href="https://www.instagram.com/tetiana.vytiaglovska/"
+                            class="contact__link"
+                            aria-label="Find Tetiana on Instagram">Find Tetiana
+                            on
+                            <img class="contact__icon"
+                                src="images/instagram.png" alt=""></a>
+                    </div>
+                    <button
+                        class="button button--email-toggler button--right-side"
+                        type="button">Send us email</button>
+                    <div class="overlay"></div>
+                    <div class="email-form">
+                        <div class="email-form__line"></div>
+                        <form aria-label="email" class="email-form__wrapper"
+                            action="mailto:lesyalp@gmail.com" method="post"
+                            enctype="text/plain">
+                            <button
+                                class="button button--close button--right-side"
+                                type="button">&times;</button>
+                            <h3 class="email-form__header">Send us email:</h3>
+                            <label for="email-address" class="sr-only">email
+                                address:</label>
+                            <input type="email" id="email-address"
+                                class="email-form__address"
+                                placeholder="your@email.com">
+                            <label for="email-text" class="sr-only">email
+                                text:</label>
+                            <textarea id="email-text" class="email-form__text"
+                                placeholder="Enter Your email..."></textarea>
+                            <input type="submit" value="Send"
+                                class="button button--submit button--left-side">
+                        </form>
+                        <div class="email-form__line email-form__line--last">
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+        <section class="gallery" id="gallery"></section>
+        <footer class="footer">
+            <p class="footer__paragraph">© Vytiaglovski Gallery all rights
+                reserved. Created by <a href="https://github.com/Vanilna"
+                    class="footer__page-author">Oleksandra
+                    Vytiahlovska</a></p>
+        </footer>
+    </div>
+</body>
+
+</html>

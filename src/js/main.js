@@ -1,11 +1,11 @@
 import SimpleScrollbar from 'simple-scrollbar';
+import 'simple-scrollbar/simple-scrollbar.css';
+import Swup from 'swup';
 import Menu from './Menu';
 import SlideShow from './SlideShow';
 import TextSection from './TextSection';
 import EmailForm from './EmailForm';
-import Gallery from './Gallery';
 import '../css/main.css';
-import 'simple-scrollbar/simple-scrollbar.css';
 
 const menu = new Menu('.menu', '.menu-toggler');
 menu.init();
@@ -30,5 +30,4 @@ emailForm.init();
 const scrollbarContainer = document.querySelector('.l-content');
 SimpleScrollbar.initEl(scrollbarContainer);
 
-const tetianaGallery = new Gallery('.js-tetiana-gallery');
-tetianaGallery.init();
+const swup = new Swup();

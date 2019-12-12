@@ -6,10 +6,22 @@ const parts = require('./webpack.parts');
 
 const commonConfig = merge([
   {
-    entry: './src/js/main.js',
+    entry: {
+      index: './src/js/main.js',
+      gallery: './src/js/gallery.js',
+    },
     plugins: [
       new HtmlWebpackPlugin({
         template: './src/index.html',
+        inject: true,
+        chunks: ['index'],
+        filename: 'index.html',
+      }),
+      new HtmlWebpackPlugin({
+        template: './src/gallery.html',
+        inject: true,
+        chunks: ['gallery'],
+        filename: 'gallery.html',
       }),
     ],
   },
