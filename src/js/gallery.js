@@ -5,6 +5,7 @@ import 'simple-scrollbar/simple-scrollbar.css';
 import Swup from 'swup';
 import Menu from './Menu';
 import EmailForm from './EmailForm';
+import tapestryInfo from '../assets/tapestry';
 import '../css/main.css';
 import '../css/gallery.css';
 

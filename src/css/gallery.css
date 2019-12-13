@@ -10,10 +10,12 @@
   margin: 3rem 0;
 }
 
-.gallery {
-  max-width: 1000px;
-  margin: 0 auto;
-  min-height: 100vh;
+@media (min-width: 1200px) {
+  .gallery {
+    max-width: 1200px;
+    margin: 0 auto;
+    min-height: 100vh;
+  }
 }
 
 .l-header--gallery {

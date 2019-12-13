@@ -2,7 +2,7 @@ $ cat .gitignore
 *.[oa]
 *~
 node_modules/
-assets/
+image_web/
 .cache/
 mokaps/
 .eslintrc.json
