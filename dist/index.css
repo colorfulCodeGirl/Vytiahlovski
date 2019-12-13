@@ -50,19 +50,18 @@
   user-select: none;
 }
 
-/*
----INITIALIZE---
-*/
-html {
-  scroll-behavior: smooth;
-}
 .transition-fade {
-  transition: 0.4s;
-  opacity: 1;
+  transition: 2s;
+  transform: translateY(0);
 }
 html.is-animating .transition-fade {
   opacity: 0;
+  transform: translateY(-100%);
 }
+/*
+---INITIALIZE---
+*/
+
 :root {
   box-sizing: border-box;
   font-size: 10px;
@@ -72,7 +71,7 @@ html.is-animating .transition-fade {
   --text-color: #353030;
   --text-invert-color: #ffffff;
 }
-
+/* 
 @media (min-width: 600px) {
   :root {
     font-size: 12px;
@@ -83,7 +82,7 @@ html.is-animating .transition-fade {
   :root {
     font-size: 14px;
   }
-}
+} */
 
 *,
 *::after,
@@ -137,13 +136,9 @@ html.is-animating .transition-fade {
   background-color: var(--background-color);
   z-index: 30;
   display: flex;
+  flex-wrap: wrap;
   justify-content: flex-end;
   align-items: center;
-}
-
-.gallery {
-  max-width: 1000px;
-  margin: 0 auto;
 }
 
 /*
@@ -397,6 +392,14 @@ Menu animation
 
 .button--left-side {
   border-top-right-radius: 1rem;
+}
+
+.button--home {
+  margin: 0 0 0 3vw;
+  text-decoration: none;
+  background-color: transparent;
+  border-radius: 1rem;
+  border: 0.2rem solid var(--light-additional);
 }
 
 .button--works {
@@ -671,8 +674,8 @@ TEXT (Biography and Achievements)
 .text-section__lead {
   display: grid;
   grid-template-columns: 1fr;
-  grid-gap: 1vw;
   justify-items: end;
+  align-content: flex-start;
 }
 
 .text-section__lead--right {

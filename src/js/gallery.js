@@ -5,9 +5,10 @@ import 'simple-scrollbar/simple-scrollbar.css';
 import Swup from 'swup';
 import Menu from './Menu';
 import EmailForm from './EmailForm';
-import tapestryInfo from '../assets/tapestry';
 import '../css/main.css';
 import '../css/gallery.css';
+
+import data from '../assets/tapestry.json';
 
 class Gallery {
   constructor(person) {
@@ -15,6 +16,12 @@ class Gallery {
     this.gallery = document.querySelector('.gallery');
     this.claud = new cloudinary.Cloudinary({ cloud_name: 'vanilna', secure: true });
     this.imageCount = 1;
+    this.data = null;
+  }
+
+  fetchData() {
+    const myJSON = JSON.stringify(data);
+    this.data = JSON.parse(myJSON);
   }
 
   populateWithImg() {
@@ -25,7 +32,15 @@ class Gallery {
         fetchFormat: 'auto',
       });
       const htmlTag = img.toHtml();
-      imgTagList.push(htmlTag);
+      const htmlBlock = `
+            <div class="image-block">
+                ${htmlTag}
+                <div class="image-block__popup">
+                  <p class="image-block__text">${this.data[i].name}</p>
+                </div>
+            </div>
+      `;
+      imgTagList.push(htmlBlock);
     }
     this.gallery.innerHTML = imgTagList.join('');
     this.imageCount = this.imageCount + 20;
@@ -50,6 +65,7 @@ class Gallery {
   }
 
   init() {
+    this.fetchData();
     this.populateWithImg();
     this.createMasonryLayout();
   }
