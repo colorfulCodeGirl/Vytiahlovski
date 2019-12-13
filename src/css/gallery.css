@@ -1,8 +1,31 @@
-.home-page.js-hide {
-  transform: scale(0);
-  overflow: hidden;
+:root {
+  --background-color: #353030;
+  --accents: #dd0000;
+  --light-additional: #ffffff;
+  --text-color: #353030;
+  --text-invert-color: #ffffff;
 }
 
-.home-page.js-zero-height {
-  height: 0;
+.gallery-page {
+  margin: 3rem 0;
+}
+
+.gallery {
+  max-width: 1000px;
+  margin: 0 auto;
+  min-height: 100vh;
+}
+
+.l-header--gallery {
+  justify-content: space-between;
+}
+
+.l-header::after {
+  display: block;
+  content: '';
+  width: 60%;
+  height: 0.1rem;
+  margin-top: -0.1rem;
+  background-color: var(--light-additional);
+  margin-right: 40%;
 }

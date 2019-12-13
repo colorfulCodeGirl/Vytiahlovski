@@ -18,7 +18,7 @@ class Gallery {
 
   populateWithImg() {
     const imgTagList = [];
-    for (let i = this.imageCount; i < this.imageCount + 20; i++) {
+    for (let i = this.imageCount; i < this.imageCount + 10; i++) {
       const img = this.claud.imageTag(`${this.person}/${i}`, {
         transformation: ['gallery_prevue_desktop'],
         fetchFormat: 'auto',
@@ -37,7 +37,7 @@ class Gallery {
       container: '.gallery',
       trueOrder: true,
       waitForImages: false,
-      margin: 5,
+      margin: 7,
       columns: 4,
       breakAt: {
         1200: 4,
@@ -66,4 +66,8 @@ emailForm.init();
 const scrollbarContainer = document.querySelector('.l-content');
 SimpleScrollbar.initEl(scrollbarContainer);
 
-const swup = new Swup();
+const options = {
+  linkSelector: `a[href^="${window.location.origin}"]:not([data-no-swup]), a[href^="./"]:not([data-no-swup]), a[href^="#"]:not([data-no-swup])`,
+};
+
+const swup = new Swup(options);

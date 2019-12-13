@@ -10,9 +10,7 @@ class TextSection {
     const showMore = (e) => {
       const btn = e.target;
       const { person } = btn.dataset;
-      const fullText = this.section.querySelector(
-        `.text-section__full-text--${person}`,
-      );
+      const fullText = this.section.querySelector(`.text-section__full-text--${person}`);
 
       const isActive = fullText.className.includes('active');
 
@@ -43,9 +41,7 @@ class TextSection {
       because it contains a list divided between short text and full text */
       if (this.className.includes('achievements')) {
         textLeads.forEach((textLead, i) => {
-          const fullTextList = fullTexts[i].querySelector(
-            '.text-section__list',
-          );
+          const fullTextList = fullTexts[i].querySelector('.text-section__list');
           const listItems = Array.from(fullTextList.children).slice(0, 3);
           const textLeadList = textLead.querySelector('.text-section__list');
           listItems.forEach((item) => {
@@ -64,6 +60,9 @@ class TextSection {
       appendText();
     }
     if (window.innerWidth > 650) {
+      appendText();
+    }
+    if (window.innerWidth > 900) {
       appendText();
     }
   }

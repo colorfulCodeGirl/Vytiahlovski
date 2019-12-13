@@ -30,4 +30,8 @@ emailForm.init();
 const scrollbarContainer = document.querySelector('.l-content');
 SimpleScrollbar.initEl(scrollbarContainer);
 
-const swup = new Swup();
+const options = {
+  linkSelector: `a[href^="${window.location.origin}"]:not([data-no-swup]), a[href^="./"]:not([data-no-swup]), a[href^="#"]:not([data-no-swup])`,
+};
+
+const swup = new Swup(options);
