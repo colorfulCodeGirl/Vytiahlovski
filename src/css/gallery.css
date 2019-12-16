@@ -111,22 +111,28 @@ Full image
   left: 0;
   width: 100vw;
   display: grid;
-  z-index: 999;
+  grid-template-rows: auto 1fr;
+  z-index: 10000;
 }
 
 .full-image__controls--stroke {
   stroke: var(--light-additional);
 }
 
+.full-image__close-block {
+  justify-self: end;
+  align-self: start;
+  height: 7rem;
+}
 .full-image__close {
   width: 5rem;
   height: 5rem;
-  justify-self: end;
 }
 
 .full-image__arrows {
   width: 100vw;
   display: flex;
+  align-self: center;
   justify-content: space-between;
 }
 

@@ -18,6 +18,9 @@ class Gallery {
     this.claud = new cloudinary.Cloudinary({ cloud_name: 'vanilna', secure: true });
     this.imageCount = 1;
     this.data = null;
+    this.fullImageBlock = document.querySelector('.full-image');
+    this.fullImage = null;
+    this.openImageIndex = null;
   }
 
   fetchData() {
@@ -42,7 +45,6 @@ class Gallery {
       div.classList.add('image-block');
       div.setAttribute('data-index', i);
       this.gallery.appendChild(div);
-      // div.addEventListener('click', () => this.openFullImage.bind(this));
     }
     this.imageCount = this.imageCount + 20;
   }
@@ -65,39 +67,71 @@ class Gallery {
     });
   }
 
-  openFullImage(e) {
-    const { index } = e.target.parentElement.dataset;
-    const fullImageBlock = document.querySelector('.full-image');
-    const overlay = fullImageBlock.querySelector('.overlay--active');
-    const info = fullImageBlock.querySelector('.full-image__info');
-    const controls = fullImageBlock.querySelector('.full-image__controls');
+  openFullImage(e, nextIndex) {
+    // check if user clicked on gaps between photos (target == gallery)
+    // if e = null than function was called after click on arrow button (openNextFullImage)
+    if (e && e.target == this.gallery) return;
+
+    this.openImageIndex = !nextIndex ? e.target.parentElement.dataset.index : nextIndex;
+    const overlay = this.fullImageBlock.querySelector('.overlay--active');
+    const info = this.fullImageBlock.querySelector('.full-image__info');
+    const controls = this.fullImageBlock.querySelector('.full-image__controls');
+
     const height = window.innerHeight;
-    fullImageBlock.style.display = 'grid';
-    fullImageBlock.style.height = `${height}px`;
+    this.fullImageBlock.style.display = 'grid';
+    this.fullImageBlock.style.height = `${height}px`;
     overlay.style.height = `${height}px`;
     controls.style.height = `${height}px`;
 
-    const image = new Image();
-    image.src = this.claud.url(`${this.person}/${index}`, {
+    this.fullImage = new Image();
+    this.fullImage.src = this.claud.url(`${this.person}/${this.openImageIndex}`, {
       height: height.toFixed(0),
       quality: 'auto:good',
       crop: 'scale',
       fetchFormat: 'auto',
     });
 
-    image.addEventListener('load', () => {
-      info.style.height = `${image.height}px`;
-      info.style.width = `${image.width + 250}px`;
-    });
-    image.classList.add('full-image__image');
-    fullImageBlock.insertBefore(image, info);
+    this.fullImage.classList.add('full-image__image');
+    this.fullImageBlock.insertBefore(this.fullImage, info);
 
     const text = `
-    <p class='full-image__text'>${this.data[index].name}</p>
-    <p class='full-image__text'>${this.data[index].material},</p>
-    <p class='full-image__text'>${this.data[index].size}cm, ${this.data[index].year}</p>
+    <p class='full-image__text'>${this.data[this.openImageIndex].name}</p>
+    <p class='full-image__text'>${this.data[this.openImageIndex].material},</p>
+    <p class='full-image__text'>${this.data[this.openImageIndex].size}cm, ${this.data[this.openImageIndex].year}</p>
     `;
     info.innerHTML = text;
+
+    controls.addEventListener('click', this.handleControlsEvents.bind(this), { once: true });
+    this.fullImage.addEventListener(
+      'load',
+      () => {
+        info.style.height = `${this.fullImage.height}px`;
+        info.style.width = `${this.fullImage.width + 250}px`;
+      },
+      { once: true },
+    );
+  }
+
+  handleControlsEvents(e) {
+    const targetType = e.target.dataset.type;
+    this.closeFullImage();
+
+    if (targetType === 'arrows') {
+      const { direction } = e.target.dataset;
+      if (this.openImageIndex == 1 && direction === 'left') return;
+      this.openNextFullImage(direction);
+    }
+  }
+
+  closeFullImage() {
+    this.fullImageBlock.style.display = 'none';
+    this.fullImageBlock.removeChild(this.fullImage);
+  }
+
+  openNextFullImage(direction) {
+    const numberIndex = parseFloat(this.openImageIndex);
+    const nextIndex = direction === 'right' ? numberIndex + 1 : numberIndex - 1;
+    this.openFullImage(null, nextIndex);
   }
 
   init() {
