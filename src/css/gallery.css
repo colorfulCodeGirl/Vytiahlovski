@@ -101,6 +101,35 @@ Full image
   max-width: 250px;
 }
 
-.full-image .overlay {
+.full-image .overlay--active {
   background-color: rgba(53, 48, 48, 0.9);
+}
+
+.full-image__controls {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  display: grid;
+  z-index: 999;
+}
+
+.full-image__controls--stroke {
+  stroke: var(--light-additional);
+}
+
+.full-image__close {
+  width: 5rem;
+  height: 5rem;
+  justify-self: end;
+}
+
+.full-image__arrows {
+  width: 100vw;
+  display: flex;
+  justify-content: space-between;
+}
+
+.full-image__arrow {
+  height: 10rem;
 }

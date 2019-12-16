@@ -68,12 +68,14 @@ class Gallery {
   openFullImage(e) {
     const { index } = e.target.parentElement.dataset;
     const fullImageBlock = document.querySelector('.full-image');
-    const overlay = fullImageBlock.querySelector('.overlay');
+    const overlay = fullImageBlock.querySelector('.overlay--active');
     const info = fullImageBlock.querySelector('.full-image__info');
+    const controls = fullImageBlock.querySelector('.full-image__controls');
     const height = window.innerHeight;
     fullImageBlock.style.display = 'grid';
     fullImageBlock.style.height = `${height}px`;
     overlay.style.height = `${height}px`;
+    controls.style.height = `${height}px`;
 
     const image = new Image();
     image.src = this.claud.url(`${this.person}/${index}`, {
@@ -87,14 +89,13 @@ class Gallery {
       info.style.height = `${image.height}px`;
       info.style.width = `${image.width + 250}px`;
     });
-    overlay.classList.add('overlay--active');
     image.classList.add('full-image__image');
     fullImageBlock.insertBefore(image, info);
 
     const text = `
     <p class='full-image__text'>${this.data[index].name}</p>
     <p class='full-image__text'>${this.data[index].material},</p>
-    <p class='full-image__text'>${this.data[index].size}, ${this.data[index].year}</p>
+    <p class='full-image__text'>${this.data[index].size}cm, ${this.data[index].year}</p>
     `;
     info.innerHTML = text;
   }
