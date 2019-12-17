@@ -15,7 +15,7 @@ class Gallery {
   constructor(person) {
     this.person = person;
     this.gallery = document.querySelector('.gallery');
-    this.claud = new cloudinary.Cloudinary({ cloud_name: 'vanilna', secure: true });
+    this.cloud = new cloudinary.Cloudinary({ cloud_name: 'vanilna', secure: true });
     this.imageCount = 1;
     this.data = null;
     this.fullImageBlock = document.querySelector('.full-image');
@@ -30,7 +30,7 @@ class Gallery {
 
   populateWithImg() {
     for (let i = this.imageCount; i < this.imageCount + 10; i++) {
-      const img = this.claud.imageTag(`${this.person}/${i}`, {
+      const img = this.cloud.imageTag(`${this.person}/${i}`, {
         transformation: ['gallery_prevue_desktop'],
         fetchFormat: 'auto',
       });
@@ -84,7 +84,7 @@ class Gallery {
     controls.style.height = `${height}px`;
 
     this.fullImage = new Image();
-    this.fullImage.src = this.claud.url(`${this.person}/${this.openImageIndex}`, {
+    this.fullImage.src = this.cloud.url(`${this.person}/${this.openImageIndex}`, {
       height: height.toFixed(0),
       quality: 'auto:good',
       crop: 'scale',

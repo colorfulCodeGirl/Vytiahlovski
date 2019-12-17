@@ -513,6 +513,17 @@ Slideshow frame
   /*make img overflow horizontally but cover whole screen vertically*/
   width: auto;
   height: 100%;
+  z-index: 1;
+}
+
+.slideshow__slide--placeholder {
+  z-index: 3;
+  opacity: 1;
+  transition: opacity 0.3s 0s linear;
+}
+
+.slideshow__slide--placeholder-hidden {
+  opacity: 0;
 }
 
 .js-position-left {

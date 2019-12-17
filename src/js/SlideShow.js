@@ -1,3 +1,5 @@
+import cloudinary from 'cloudinary-core';
+
 class SlideShow {
   constructor(slideShowSelector, mobileNavSelector, desktopNavSelector) {
     this.slideShow = document.querySelector(slideShowSelector);
@@ -9,6 +11,7 @@ class SlideShow {
     this.biggestIndex = this.slides.length - 1;
     this.isDesktop = window.matchMedia('(min-width: 825px) and (pointer: fine)').matches;
     this.userClickedAt = 0;
+    this.claud = new cloudinary.Cloudinary({ cloud_name: 'vanilna', secure: true });
   }
 
   prepareSlidesMobile(nextIndex) {
@@ -148,7 +151,29 @@ class SlideShow {
     observer.observe(target);
   }
 
+  prepareImage(selector) {
+    const image = this.slideShow.querySelector(selector);
+
+    const fullImage = new Image();
+    fullImage.src = this.claud.url('tetiana/53.jpg', {
+      dpr: 'auto',
+      quality: 'auto:good',
+      width: 900,
+      crop: 'scale',
+      fetchFormat: 'auto',
+    });
+    fullImage.classList.add('slideshow__slide', 'slideshow__slide--active');
+    fullImage.setAttribute('alt', '');
+    fullImage.setAttribute('data-index', '0');
+    this.slideShow.appendChild(fullImage);
+
+    fullImage.addEventListener('load', () => {
+      image.classList.add('slideshow__slide--placeholder-hidden');
+    });
+  }
+
   init() {
+    this.prepareImage('.slideshow__slide--placeholder');
     if (!this.isDesktop) {
       this.mobileNav.forEach((arrow) => {
         arrow.addEventListener('click', this.changeSlideMobile.bind(this));
@@ -161,7 +186,7 @@ class SlideShow {
         btn.addEventListener('click', this.changeSlideDesktop.bind(this));
       });
     }
-    this.initAutoPlay();
+    // this.initAutoPlay();
   }
 }
 
