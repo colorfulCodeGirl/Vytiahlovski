@@ -89,6 +89,12 @@ html.is-animating .transition-fade {
   align-items: center;
 }
 
+@media (max-width: 1200px) {
+  .home-page {
+    width: calc(100% - 18px);
+  }
+}
+
 /*
 ---NAVIGATION---
 */
@@ -938,6 +944,7 @@ Email form
     grid-template-columns: 2fr 3fr;
     grid-template-areas: 'facebook email' 'instagram email' '. email';
     margin: 0 auto;
+    padding: 0 3vw 0 3vw;
   }
   .contact__link {
     font-size: 2rem;
@@ -950,7 +957,6 @@ Email form
     position: static;
     margin: 0;
     padding: 0;
-    /* border: none; */
     flex-direction: column;
     justify-content: space-around;
     transform: scale(1);
