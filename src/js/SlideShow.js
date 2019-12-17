@@ -152,23 +152,31 @@ class SlideShow {
   }
 
   prepareImage(selector) {
+    const slideFrame = this.slideShow.querySelector('.slideshow__frame');
     const image = this.slideShow.querySelector(selector);
 
     const fullImage = new Image();
     fullImage.src = this.claud.url('tetiana/53.jpg', {
-      dpr: 'auto',
-      quality: 'auto:good',
-      width: 900,
-      crop: 'scale',
       fetchFormat: 'auto',
+      crop: 'scale',
+      width: 1200,
+      quality: 'auto:good',
+      dpr: 'auto',
     });
     fullImage.classList.add('slideshow__slide', 'slideshow__slide--active');
     fullImage.setAttribute('alt', '');
     fullImage.setAttribute('data-index', '0');
-    this.slideShow.appendChild(fullImage);
+    slideFrame.appendChild(fullImage);
 
     fullImage.addEventListener('load', () => {
       image.classList.add('slideshow__slide--placeholder-hidden');
+      image.addEventListener(
+        'transitionend',
+        () => {
+          slideFrame.removeChild(image);
+        },
+        { once: true },
+      );
     });
   }
 

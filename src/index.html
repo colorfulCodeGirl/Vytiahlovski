@@ -122,9 +122,16 @@
                 <h2 class="section__heading">Biography</h2>
                 <div class="section__content text-section">
                     <div class="text-section__person">
-                        <img src="images/tetiana.jpg"
-                            class="text-section__img text-section__img--portrait text-section__img--left"
-                            alt="Portrait of Tetiana Vytiahlovska" />
+                        <picture
+                            class="text-section__img text-section__img--left">
+                            <source
+                                srcset="https://res.cloudinary.com/vanilna/image/upload/c_scale,f_auto,q_auto,r_max,w_300/main-page/tetiana"
+                                media="(min-width: 600px)">
+                            <img src="https://res.cloudinary.com/vanilna/image/upload/c_scale,f_auto,q_auto,r_max,w_200/main-page/tetiana"
+                                class="text-section__img--portrait"
+                                alt="Portrait of Tetiana Vytiahlovska" />
+                        </picture>
+
                         <div
                             class="text-section__lead text-section__lead--right">
                             <p class="text-section__paragraph"><span
@@ -227,9 +234,15 @@
                                 aria-label="Whole Mykhailo's biography"
                                 type="button">more...</button>
                         </div>
-                        <img src="images/mykhailo.jpg"
-                            class="text-section__img text-section__img--portrait text-section__img--right"
-                            alt="Portrait of Mykhailo Vytiahlovskyi" />
+                        <picture
+                            class="text-section__img text-section__img--right">
+                            <source
+                                srcset="https://res.cloudinary.com/vanilna/image/upload/c_scale,f_auto,q_auto,r_max,w_300/main-page/mykhailo"
+                                media="(min-width: 600px)">
+                            <img src="https://res.cloudinary.com/vanilna/image/upload/c_scale,f_auto,q_auto,r_max,w_200/main-page/mykhailo"
+                                class="text-section__img--portrait"
+                                alt="Portrait of Mykhailo Vytiahlovskyi" />
+                        </picture>
 
                         <div
                             class="text-section__full-text text-section__full-text--mykhailo">
@@ -269,7 +282,7 @@
                     </div>
                 </div>
             </section>
-            <!-- 
+
             <section class="section section--works" id="works">
                 <h2 class="section__heading">Works</h2>
                 <div class="section__content works">
@@ -278,58 +291,151 @@
                             <a class="button button--works js-tetiana-gallery"
                                 href="./gallery.html"
                                 data-name="tetiana">TETIANA</a>
-                            <img src="images/works-tetiana/1.jpg"
-                                class="work__img" alt="">
-                            <img src="images/works-tetiana/2.jpg"
-                                class="work__img" alt="">
+                            <picture class="work__img-block">
+                                <source
+                                    srcset="https://res.cloudinary.com/vanilna/image/upload/c_scale,f_auto,q_auto,w_380/main-page/works-tetiana/1"
+                                    media="(min-width: 600px)">
+                                <img src="https://res.cloudinary.com/vanilna/image/upload/c_scale,f_auto,q_auto,w_280/main-page/works-tetiana/1"
+                                    class="work__img" alt="" />
+                            </picture>
+                            <picture class="work__img-block">
+                                <source
+                                    srcset="https://res.cloudinary.com/vanilna/image/upload/c_scale,f_auto,q_auto,w_380/main-page/works-tetiana/2"
+                                    media="(min-width: 600px)">
+                                <img src="https://res.cloudinary.com/vanilna/image/upload/c_scale,f_auto,q_auto,w_220/main-page/works-tetiana/2"
+                                    class="work__img" alt="" />
+                            </picture>
                         </div>
                         <div class="works__column works__column--2">
-                            <img src="images/works-tetiana/3.jpg"
-                                class="work__img work__img--full-width" alt="">
-                            <img src="images/works-tetiana/4.jpg"
-                                class="work__img" alt="">
-                            <img src="images/works-tetiana/5.jpg"
-                                class="work__img" alt="">
-                            <img src="images/works-tetiana/6.jpg"
-                                class="work__img work__img--full-width" alt="">
+                            <picture
+                                class="work__img-block work__img--full-width">
+                                <source
+                                    srcset="https://res.cloudinary.com/vanilna/image/upload/c_scale,f_auto,q_auto,w_380/main-page/works-tetiana/3"
+                                    media="(min-width: 600px)">
+                                <img src="https://res.cloudinary.com/vanilna/image/upload/c_scale,f_auto,q_auto,w_220/main-page/works-tetiana/3"
+                                    class="work__img" alt="" />
+                            </picture>
+                            <picture class="work__img-block">
+                                <source
+                                    srcset="https://res.cloudinary.com/vanilna/image/upload/c_scale,f_auto,q_auto,w_250/main-page/works-tetiana/4"
+                                    media="(min-width: 600px)">
+                                <img src="https://res.cloudinary.com/vanilna/image/upload/c_scale,f_auto,q_auto,w_150/main-page/works-tetiana/4"
+                                    class="work__img" alt="" />
+                            </picture>
+                            <picture class="work__img-block">
+                                <source
+                                    srcset="https://res.cloudinary.com/vanilna/image/upload/c_scale,f_auto,q_auto,w_250/main-page/works-tetiana/5"
+                                    media="(min-width: 600px)">
+                                <img src="https://res.cloudinary.com/vanilna/image/upload/c_scale,f_auto,q_auto,w_150/main-page/works-tetiana/5"
+                                    class="work__img" alt="" />
+                            </picture>
+                            <picture
+                                class="work__img-block work__img--full-width">
+                                <source
+                                    srcset="https://res.cloudinary.com/vanilna/image/upload/c_scale,f_auto,q_auto,w_380/main-page/works-tetiana/6"
+                                    media="(min-width: 600px)">
+                                <img src="https://res.cloudinary.com/vanilna/image/upload/c_scale,f_auto,q_auto,w_220/main-page/works-tetiana/6"
+                                    class="work__img" alt="" />
+                            </picture>
                         </div>
                         <div class="works__column works__column--3">
-                            <img src="images/works-tetiana/7.jpg"
-                                class="work__img" alt="">
-                            <img src="images/works-tetiana/8.jpg"
-                                class="work__img" alt="">
+                            <picture class="work__img-block">
+                                <source
+                                    srcset="https://res.cloudinary.com/vanilna/image/upload/c_scale,f_auto,q_auto,w_600/main-page/works-tetiana/7"
+                                    media="(min-width: 600px)">
+                                <img src="https://res.cloudinary.com/vanilna/image/upload/c_scale,f_auto,q_auto,w_400/main-page/works-tetiana/7"
+                                    class="work__img" alt="" />
+                            </picture>
+                            <picture class="work__img-block">
+                                <source
+                                    srcset="https://res.cloudinary.com/vanilna/image/upload/c_scale,f_auto,q_auto,w_600/main-page/works-tetiana/8"
+                                    media="(min-width: 600px)">
+                                <img src="https://res.cloudinary.com/vanilna/image/upload/c_scale,f_auto,q_auto,w_400/main-page/works-tetiana/8"
+                                    class="work__img" alt="" />
+                            </picture>
                         </div>
                     </div>
 
                     <div class="works__person works__person--mykhailo">
                         <div class="works__column works__column--1">
-                            <img src="images/works-mykhailo/1.jpg"
-                                class="work__img cutting-heads" alt="">
-                            <img src="images/works-mykhailo/2.jpg"
-                                class="work__img" alt="">
-                            <img src="images/works-mykhailo/3.jpg"
-                                class="work__img" alt="">
+                            <picture class="work__img-block">
+                                <source
+                                    srcset="https://res.cloudinary.com/vanilna/image/upload/c_scale,f_auto,q_auto,w_600/main-page/works-mykhailo/1"
+                                    media="(min-width: 600px)">
+                                <img src="https://res.cloudinary.com/vanilna/image/upload/c_scale,f_auto,q_auto,w_400/main-page/works-mykhailo/1"
+                                    class="work__img cutting-heads" alt="" />
+                            </picture>
+                            <picture class="work__img-block">
+                                <source
+                                    srcset="https://res.cloudinary.com/vanilna/image/upload/c_scale,f_auto,q_auto,w_600/main-page/works-mykhailo/2"
+                                    media="(min-width: 600px)">
+                                <img src="https://res.cloudinary.com/vanilna/image/upload/c_scale,f_auto,q_auto,w_400/main-page/works-mykhailo/2"
+                                    class="work__img" alt="" />
+                            </picture>
+                            <picture class="work__img-block">
+                                <source
+                                    srcset="https://res.cloudinary.com/vanilna/image/upload/c_scale,f_auto,q_auto,w_600/main-page/works-mykhailo/3"
+                                    media="(min-width: 600px)">
+                                <img src="https://res.cloudinary.com/vanilna/image/upload/c_scale,f_auto,q_auto,w_400/main-page/works-mykhailo/3"
+                                    class="work__img" alt="" />
+                            </picture>
                         </div>
                         <div class="works__column works__column--2">
-                            <img src="images/works-mykhailo/4.jpg"
-                                class="work__img cutting-heads" alt="">
-                            <img src="images/works-mykhailo/5.jpg"
-                                class="work__img" alt="">
-                            <img src="images/works-mykhailo/6.jpg"
-                                class="work__img" alt="">
+                            <picture class="work__img-block">
+                                <source
+                                    srcset="https://res.cloudinary.com/vanilna/image/upload/c_scale,f_auto,q_auto,w_200/main-page/works-mykhailo/4"
+                                    media="(min-width: 600px)">
+                                <img src="https://res.cloudinary.com/vanilna/image/upload/c_scale,f_auto,q_auto,w_150/main-page/works-mykhailo/4"
+                                    class="work__img  cutting-heads" alt="" />
+                            </picture>
+                            <picture class="work__img-block">
+                                <source
+                                    srcset="https://res.cloudinary.com/vanilna/image/upload/c_scale,f_auto,q_auto,w_200/main-page/works-mykhailo/5"
+                                    media="(min-width: 600px)">
+                                <img src="https://res.cloudinary.com/vanilna/image/upload/c_scale,f_auto,q_auto,w_150/main-page/works-mykhailo/5"
+                                    class="work__img" alt="" />
+                            </picture>
+                            <picture class="work__img-block">
+                                <source
+                                    srcset="https://res.cloudinary.com/vanilna/image/upload/c_scale,f_auto,q_auto,w_200/main-page/works-mykhailo/6"
+                                    media="(min-width: 600px)">
+                                <img src="https://res.cloudinary.com/vanilna/image/upload/c_scale,f_auto,q_auto,w_150/main-page/works-mykhailo/6"
+                                    class="work__img" alt="" />
+                            </picture>
                         </div>
                         <div class="works__column works__column--3">
                             <a class="button button--works js-mykhailo-gallery"
                                 href="#gallery"
                                 data-name="mykhailo">MYKHAILO</a>
-                            <img src="images/works-mykhailo/7.jpg"
-                                class="work__img work__img--full-width" alt="">
-                            <img src="images/works-mykhailo/8.jpg"
-                                class="work__img" alt="">
-                            <img src="images/works-mykhailo/9.jpg"
-                                class="work__img" alt="">
-                            <img src="images/works-mykhailo/10.jpg"
-                                class="work__img" alt="">
+                            <picture
+                                class="work__img-block work__img--full-width">
+                                <source
+                                    srcset="https://res.cloudinary.com/vanilna/image/upload/c_scale,f_auto,q_auto,w_600/main-page/works-mykhailo/7"
+                                    media="(min-width: 600px)">
+                                <img src="https://res.cloudinary.com/vanilna/image/upload/c_scale,f_auto,q_auto,w_400/main-page/works-mykhailo/7"
+                                    class="work__img" alt="" />
+                            </picture>
+                            <picture class="work__img-block">
+                                <source
+                                    srcset="https://res.cloudinary.com/vanilna/image/upload/c_scale,f_auto,q_auto,w_200/main-page/works-mykhailo/8"
+                                    media="(min-width: 600px)">
+                                <img src="https://res.cloudinary.com/vanilna/image/upload/c_scale,f_auto,q_auto,w_150/main-page/works-mykhailo/8"
+                                    class="work__img" alt="" />
+                            </picture>
+                            <picture class="work__img-block">
+                                <source
+                                    srcset="https://res.cloudinary.com/vanilna/image/upload/c_scale,f_auto,q_auto,w_200/main-page/works-mykhailo/9"
+                                    media="(min-width: 600px)">
+                                <img src="https://res.cloudinary.com/vanilna/image/upload/c_scale,f_auto,q_auto,w_150/main-page/works-mykhailo/9"
+                                    class="work__img" alt="" />
+                            </picture>
+                            <picture class="work__img-block">
+                                <source
+                                    srcset="https://res.cloudinary.com/vanilna/image/upload/c_scale,f_auto,q_auto,w_200/main-page/works-mykhailo/10"
+                                    media="(min-width: 600px)">
+                                <img src="https://res.cloudinary.com/vanilna/image/upload/c_scale,f_auto,q_auto,w_150/main-page/works-mykhailo/10"
+                                    class="work__img" alt="" />
+                            </picture>
                         </div>
                     </div>
                 </div>
@@ -339,9 +445,16 @@
                 <h2 class="section__heading">Achievements</h2>
                 <div class="section__content text-section">
                     <div class="text-section__person">
-                        <img src="images/achievements-tapestry.jpg"
-                            class="text-section__img text-section__img--work text-section__img--left"
-                            alt="Tapestry of Tetiana Vytiahlovska" />
+                        <picture
+                            class="text-section__img text-section__img--left">
+                            <source
+                                srcset="https://res.cloudinary.com/vanilna/image/upload/c_scale,f_auto,q_auto,w_220/main-page/achievements-tapestry"
+                                media="(min-width: 600px)">
+                            <img src="https://res.cloudinary.com/vanilna/image/upload/c_scale,f_auto,q_auto,w_170/main-page/achievements-tapestry"
+                                class="text-section__img--work"
+                                alt="Tapestry of Tetiana Vytiahlovska" />
+                        </picture>
+
                         <div
                             class="text-section__lead text-section__lead--right">
                             <p class="text-section__paragraph"><span
@@ -518,9 +631,15 @@
                                 aria-label="Mykhailo's achievements"
                                 type="button">more...</button>
                         </div>
-                        <img src="images/achievements-sculpture.jpg"
-                            class="text-section__img text-section__img--work text-section__img--right"
-                            alt="Sculpture of Mykhailo Vytiahlovskyi" />
+                        <picture
+                            class="text-section__img text-section__img--right">
+                            <source
+                                srcset="https://res.cloudinary.com/vanilna/image/upload/c_scale,f_auto,q_auto,w_220/main-page/achievements-sculpture"
+                                media="(min-width: 600px)">
+                            <img src="https://res.cloudinary.com/vanilna/image/upload/c_scale,f_auto,q_auto,w_170/main-page/achievements-sculpture"
+                                class="text-section__img--work"
+                                alt="Sculpture of Mykhailo Vytiahlovskyi" />
+                        </picture>
 
                         <div
                             class="text-section__full-text text-section__full-text--mykhailo">
@@ -626,7 +745,7 @@
                         </div>
                     </div>
                 </div>
-            </section> -->
+            </section>
         </main>
         <footer class="footer">
             <p class="footer__paragraph">© Vytiaglovski Gallery all rights
