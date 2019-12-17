@@ -155,11 +155,23 @@ class SlideShow {
     const slideFrame = this.slideShow.querySelector('.slideshow__frame');
     const image = this.slideShow.querySelector(selector);
 
+    let imageWidth;
+    let imageHeight;
+    const isPortrait = window.matchMedia('(orientation: portrait)').matches;
+    if (isPortrait) {
+      imageWidth = '';
+      imageHeight = window.innerHeight;
+    } else {
+      imageWidth = window.innerWidth;
+      imageHeight = '';
+    }
+
     const fullImage = new Image();
     fullImage.src = this.claud.url('tetiana/53.jpg', {
       fetchFormat: 'auto',
       crop: 'scale',
-      width: 1200,
+      width: imageWidth,
+      height: imageHeight,
       quality: 'auto:good',
       dpr: 'auto',
     });
