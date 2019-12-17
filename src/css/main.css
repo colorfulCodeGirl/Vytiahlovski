@@ -522,13 +522,13 @@ Slideshow frame
   z-index: 1;
 }
 
-.slideshow__slide--placeholder {
+.placeholder {
   z-index: 3;
   opacity: 1;
   transition: opacity 0.3s 0s linear;
 }
 
-.slideshow__slide--placeholder-hidden {
+.placeholder-hidden {
   opacity: 0;
 }
 

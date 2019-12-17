@@ -1,4 +1,4 @@
-import cloudinary from 'cloudinary-core';
+import handleIMagePlaceholder from './imagePlaceholder';
 
 class SlideShow {
   constructor(slideShowSelector, mobileNavSelector, desktopNavSelector) {
@@ -11,7 +11,6 @@ class SlideShow {
     this.biggestIndex = this.slides.length - 1;
     this.isDesktop = window.matchMedia('(min-width: 825px) and (pointer: fine)').matches;
     this.userClickedAt = 0;
-    this.claud = new cloudinary.Cloudinary({ cloud_name: 'vanilna', secure: true });
   }
 
   prepareSlidesMobile(nextIndex) {
@@ -151,49 +150,32 @@ class SlideShow {
     observer.observe(target);
   }
 
-  prepareImage(selector) {
-    const slideFrame = this.slideShow.querySelector('.slideshow__frame');
-    const image = this.slideShow.querySelector(selector);
-
-    let imageWidth;
-    let imageHeight;
+  // eslint-disable-next-line class-methods-use-this
+  prepareSlideImage() {
     const isPortrait = window.matchMedia('(orientation: portrait)').matches;
+    let slideHeight = '';
+    let slideWidth = '';
     if (isPortrait) {
-      imageWidth = '';
-      imageHeight = window.innerHeight;
+      slideHeight = window.innerHeight;
     } else {
-      imageWidth = window.innerWidth;
-      imageHeight = '';
+      slideWidth = window.innerWidth;
     }
-
-    const fullImage = new Image();
-    fullImage.src = this.claud.url('tetiana/53.jpg', {
-      fetchFormat: 'auto',
-      crop: 'scale',
-      width: imageWidth,
-      height: imageHeight,
-      quality: 'auto:good',
-      dpr: 'auto',
-    });
-    fullImage.classList.add('slideshow__slide', 'slideshow__slide--active');
-    fullImage.setAttribute('alt', '');
-    fullImage.setAttribute('data-index', '0');
-    slideFrame.appendChild(fullImage);
-
-    fullImage.addEventListener('load', () => {
-      image.classList.add('slideshow__slide--placeholder-hidden');
-      image.addEventListener(
-        'transitionend',
-        () => {
-          slideFrame.removeChild(image);
-        },
-        { once: true },
-      );
+    handleIMagePlaceholder({
+      selector: '.slideshow__slide.placeholder',
+      width: slideWidth,
+      height: slideHeight,
+      imageName: 'tetiana/53.jpg',
+      attributeArray: [
+        { class: 'slideshow__slide' },
+        { class: 'slideshow__slide--active' },
+        { alt: '' },
+        { 'data-index': 0 },
+      ],
     });
   }
 
   init() {
-    this.prepareImage('.slideshow__slide--placeholder');
+    this.prepareSlideImage();
     if (!this.isDesktop) {
       this.mobileNav.forEach((arrow) => {
         arrow.addEventListener('click', this.changeSlideMobile.bind(this));

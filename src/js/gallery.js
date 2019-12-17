@@ -5,6 +5,7 @@ import 'simple-scrollbar/simple-scrollbar.css';
 import Swup from 'swup';
 import Menu from './Menu';
 import EmailForm from './EmailForm';
+import handleIMagePlaceholder from './imagePlaceholder';
 import '../css/main.css';
 import '../css/gallery.css';
 
@@ -28,11 +29,18 @@ class Gallery {
     this.data = JSON.parse(myJSON);
   }
 
-  populateWithImg() {
-    for (let i = this.imageCount; i < this.imageCount + 10; i++) {
+  populateWithPlaceholders() {
+    const startIndex = this.imageCount;
+    for (let i = startIndex; i < startIndex + 10; i++) {
       const img = this.cloud.imageTag(`${this.person}/${i}`, {
-        transformation: ['gallery_prevue_desktop'],
+        dpr: 'auto',
+        effect: 'blur:1000',
+        quality: 10,
+        width: 300,
+        crop: 'scale',
         fetchFormat: 'auto',
+        class: 'placeholder',
+        'data-index': i,
       });
 
       const div = document.createElement('div');
@@ -45,7 +53,13 @@ class Gallery {
       div.classList.add('image-block');
       div.setAttribute('data-index', i);
       this.gallery.appendChild(div);
+      handleIMagePlaceholder({
+        selector: `.placeholder[data-index="${i}"]`,
+        width: 300,
+        imageName: `${this.person}/${i}`,
+      });
     }
+
     this.imageCount = this.imageCount + 20;
   }
 
@@ -136,7 +150,7 @@ class Gallery {
 
   init() {
     this.fetchData();
-    this.populateWithImg();
+    this.populateWithPlaceholders();
     this.createMasonryLayout();
     this.gallery.addEventListener('click', this.openFullImage.bind(this));
   }
