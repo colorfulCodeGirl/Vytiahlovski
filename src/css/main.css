@@ -544,7 +544,7 @@ Slideshow frame
   transition: 0s;
 }
 
-@media (min-width: 825px) and (min-aspect-ratio: 4/3) {
+@media (orientation: landscape) {
   /*make visible the top of the img*/
   .slideshow__frame {
     align-items: flex-start;
@@ -552,6 +552,11 @@ Slideshow frame
   /*make img overflow vertically but cover whole screen horizontally*/
   .slideshow__slide {
     height: auto;
+  }
+}
+
+@media (min-width: 1200px) {
+  .slideshow__slide {
     width: 100%;
   }
 }
@@ -625,6 +630,8 @@ TEXT (Biography and Achievements)
 
 .text-section__img--work {
   max-height: 60vh;
+  max-width: 100%;
+  object-fit: cover;
 }
 
 .text-section__img--left {
