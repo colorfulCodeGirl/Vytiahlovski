@@ -141,6 +141,13 @@ html.is-animating .transition-fade {
   align-items: center;
 }
 
+@media not all and (pointer: fine) {
+  .home-page,
+  .gallery-page {
+    width: calc(100% - 18px);
+  }
+}
+
 /*
 ---NAVIGATION---
 */
@@ -565,6 +572,17 @@ Slideshow frame
   /*make img overflow horizontally but cover whole screen vertically*/
   width: auto;
   height: 100%;
+  z-index: 1;
+}
+
+.placeholder {
+  z-index: 3;
+  opacity: 1;
+  transition: opacity 0.3s 0s linear;
+}
+
+.placeholder-hidden {
+  opacity: 0;
 }
 
 .js-position-left {
@@ -579,7 +597,7 @@ Slideshow frame
   transition: 0s;
 }
 
-@media (min-width: 825px) and (min-aspect-ratio: 4/3) {
+@media (orientation: landscape) {
   /*make visible the top of the img*/
   .slideshow__frame {
     align-items: flex-start;
@@ -587,6 +605,11 @@ Slideshow frame
   /*make img overflow vertically but cover whole screen horizontally*/
   .slideshow__slide {
     height: auto;
+  }
+}
+
+@media (min-width: 1200px) {
+  .slideshow__slide {
     width: 100%;
   }
 }
@@ -647,12 +670,12 @@ TEXT (Biography and Achievements)
 }
 
 .text-section__img {
-  max-width: 100%;
-  object-fit: cover;
   grid-row: 1/2;
 }
 
 .text-section__img--portrait {
+  max-width: 100%;
+  object-fit: cover;
   border-radius: 50%;
   border: 0.2rem solid var(--light-additional);
   max-height: 40vh;
@@ -660,6 +683,8 @@ TEXT (Biography and Achievements)
 
 .text-section__img--work {
   max-height: 60vh;
+  max-width: 100%;
+  object-fit: cover;
 }
 
 .text-section__img--left {
@@ -762,11 +787,14 @@ WORK
   grid-template-columns: 1fr;
 }
 
+.work__img-block {
+  overflow: hidden;
+}
+
 .work__img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  overflow: hidden;
 }
 
 @media (min-width: 450px) {
@@ -978,6 +1006,8 @@ Email form
   .contact {
     grid-template-columns: 2fr 3fr;
     grid-template-areas: 'facebook email' 'instagram email' '. email';
+    margin: 0 auto;
+    padding: 0 3vw 0 3vw;
   }
   .contact__link {
     font-size: 2rem;
@@ -990,7 +1020,6 @@ Email form
     position: static;
     margin: 0;
     padding: 0;
-    /* border: none; */
     flex-direction: column;
     justify-content: space-around;
     transform: scale(1);

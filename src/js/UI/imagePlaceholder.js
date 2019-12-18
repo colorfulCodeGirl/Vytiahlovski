@@ -1,3 +1,4 @@
+/* eslint-disable object-curly-newline */
 import cloudinary from 'cloudinary-core';
 
 const fetchFullImage = ({ selector, width = '', height = '', imageName, attributeArray = [] }) => {
