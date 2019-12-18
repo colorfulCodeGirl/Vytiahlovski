@@ -5,7 +5,7 @@ import 'simple-scrollbar/simple-scrollbar.css';
 import Swup from 'swup';
 import Menu from './Menu';
 import EmailForm from './EmailForm';
-import handleIMagePlaceholder from './imagePlaceholder';
+import fetchFullImage from './imagePlaceholder';
 import '../css/main.css';
 import '../css/gallery.css';
 
@@ -34,13 +34,10 @@ class Gallery {
     for (let i = startIndex; i < startIndex + 10; i++) {
       const img = this.cloud.imageTag(`${this.person}/${i}`, {
         dpr: 'auto',
-        effect: 'blur:1000',
-        quality: 10,
+        quality: 'auto',
         width: 300,
         crop: 'scale',
         fetchFormat: 'auto',
-        class: 'placeholder',
-        'data-index': i,
       });
 
       const div = document.createElement('div');
@@ -53,14 +50,18 @@ class Gallery {
       div.classList.add('image-block');
       div.setAttribute('data-index', i);
       this.gallery.appendChild(div);
-      handleIMagePlaceholder({
+    }
+    this.imageCount = this.imageCount + 10;
+  }
+
+  populateWithImages(startIndex) {
+    for (let i = startIndex; i < startIndex + 10; i++) {
+      fetchFullImage({
         selector: `.placeholder[data-index="${i}"]`,
         width: 300,
         imageName: `${this.person}/${i}`,
       });
     }
-
-    this.imageCount = this.imageCount + 20;
   }
 
   // eslint-disable-next-line class-methods-use-this
@@ -81,46 +82,63 @@ class Gallery {
     });
   }
 
+  addImageDescription() {
+    const text = `
+    <p class='full-image__text'>${this.data[this.openImageIndex].name}</p>
+    <p class='full-image__text'>${this.data[this.openImageIndex].material},</p>
+    <p class='full-image__text'>${this.data[this.openImageIndex].size}cm, ${this.data[this.openImageIndex].year}</p>
+    `;
+    return text;
+  }
+
+  handleFullImageBlock() {
+    const overlay = this.fullImageBlock.querySelector('.overlay--active');
+    const info = this.fullImageBlock.querySelector('.full-image__info');
+    const controls = this.fullImageBlock.querySelector('.full-image__controls');
+    const height = window.innerHeight;
+    this.fullImageBlock.style.display = 'grid';
+    this.fullImageBlock.style.height = `${height}px`;
+    overlay.style.height = `${height}px`;
+    controls.style.height = `${height}px`;
+    info.style.height = `${this.fullImage.height}px`;
+    info.style.width = `${this.fullImage.width + 250}px`;
+    info.innerHTML = this.addImageDescription();
+    controls.addEventListener('click', this.handleControlsEvents.bind(this), { once: true });
+  }
+
   openFullImage(e, nextIndex) {
     // check if user clicked on gaps between photos (target == gallery)
     // if e = null than function was called after click on arrow button (openNextFullImage)
     if (e && e.target == this.gallery) return;
 
     this.openImageIndex = !nextIndex ? e.target.parentElement.dataset.index : nextIndex;
-    const overlay = this.fullImageBlock.querySelector('.overlay--active');
-    const info = this.fullImageBlock.querySelector('.full-image__info');
-    const controls = this.fullImageBlock.querySelector('.full-image__controls');
-
-    const height = window.innerHeight;
-    this.fullImageBlock.style.display = 'grid';
-    this.fullImageBlock.style.height = `${height}px`;
-    overlay.style.height = `${height}px`;
-    controls.style.height = `${height}px`;
+    const imageHeight = (window.innerHeight * 0.95).toFixed(0);
 
     this.fullImage = new Image();
     this.fullImage.src = this.cloud.url(`${this.person}/${this.openImageIndex}`, {
-      height: height.toFixed(0),
-      quality: 'auto:good',
+      height: imageHeight,
+      quality: '10',
+      effect: 'blur:1400',
       crop: 'scale',
       fetchFormat: 'auto',
     });
 
-    this.fullImage.classList.add('full-image__image');
-    this.fullImageBlock.insertBefore(this.fullImage, info);
+    this.fullImage.classList.add('placeholder', 'full-image__image');
+    this.fullImage.setAttribute('data-index', this.openImageIndex);
+    this.fullImage.removeAttribute('height');
+    this.fullImageBlock.prepend(this.fullImage);
 
-    const text = `
-    <p class='full-image__text'>${this.data[this.openImageIndex].name}</p>
-    <p class='full-image__text'>${this.data[this.openImageIndex].material},</p>
-    <p class='full-image__text'>${this.data[this.openImageIndex].size}cm, ${this.data[this.openImageIndex].year}</p>
-    `;
-    info.innerHTML = text;
-
-    controls.addEventListener('click', this.handleControlsEvents.bind(this), { once: true });
     this.fullImage.addEventListener(
       'load',
       () => {
-        info.style.height = `${this.fullImage.height}px`;
-        info.style.width = `${this.fullImage.width + 250}px`;
+        this.handleFullImageBlock();
+        const fetchedImage = fetchFullImage({
+          selector: `.full-image__image[data-index="${this.openImageIndex}"]`,
+          height: imageHeight,
+          imageName: `${this.person}/${this.openImageIndex}`,
+          attributeArray: [['class', 'full-image__image']],
+        });
+        this.fullImage = fetchedImage;
       },
       { once: true },
     );

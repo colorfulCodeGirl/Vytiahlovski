@@ -1,4 +1,4 @@
-import handleIMagePlaceholder from './imagePlaceholder';
+import fetchFullImage from './imagePlaceholder';
 
 class SlideShow {
   constructor(slideShowSelector, mobileNavSelector, desktopNavSelector) {
@@ -160,7 +160,7 @@ class SlideShow {
     } else {
       slideWidth = window.innerWidth;
     }
-    handleIMagePlaceholder({
+    fetchFullImage({
       selector: '.slideshow__slide.placeholder',
       width: slideWidth,
       height: slideHeight,

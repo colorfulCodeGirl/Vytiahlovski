@@ -1,31 +1,26 @@
 import cloudinary from 'cloudinary-core';
 
-async function handleIMagePlaceholder({
-  selector,
-  width = '',
-  height = '',
-  imageName,
-  attributeArray = [],
-}) {
+const fetchFullImage = ({ selector, width = '', height = '', imageName, attributeArray = [] }) => {
   const placeholder = document.querySelector(selector);
   const parent = placeholder.parentNode;
   const claud = new cloudinary.Cloudinary({ cloud_name: 'vanilna', secure: true });
 
   const fullImage = new Image();
-  fullImage.src = await claud.url(imageName, {
+  fullImage.src = claud.url(imageName, {
     fetchFormat: 'auto',
     crop: 'scale',
     width,
     height,
     quality: 'auto:good',
     dpr: 'auto',
+    ...attributeArray,
   });
 
   attributeArray.forEach((attribute) => {
-    fullImage.setAttribute(attribute.key, attribute.value);
+    fullImage.setAttribute(attribute[0], attribute[1]);
   });
 
-  parent.appendChild(fullImage);
+  parent.prepend(fullImage);
 
   fullImage.addEventListener('load', () => {
     placeholder.classList.add('placeholder-hidden');
@@ -37,6 +32,7 @@ async function handleIMagePlaceholder({
       { once: true },
     );
   });
-}
+  return fullImage;
+};
 
-export default handleIMagePlaceholder;
+export default fetchFullImage;
