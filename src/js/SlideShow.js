@@ -171,17 +171,16 @@ class SlideShow {
       height: slideHeight,
       imageName: 'tetiana/53.jpg',
       attributeArray: [
-        { class: 'slideshow__slide' },
-        { class: 'slideshow__slide--active' },
-        { alt: '' },
-        { 'data-index': 0 },
+        ['class', 'slideshow__slide slideshow__slide--active'],
+        ['alt', ' '],
+        ['data-index', 0],
       ],
     });
   }
 
   init() {
     this.resizeSlideShowFrame();
-    window.addEventListener('resize', this.resizeSlideShowFrame);
+    window.addEventListener('resize', this.resizeSlideShowFrame.bind(this));
     this.prepareSlideImage();
     if (!this.isDesktop) {
       this.mobileNav.forEach((arrow) => {
