@@ -1,4 +1,4 @@
-import fetchFullImage from './UI/imagePlaceholder';
+import fetchFullImage from '../UI/imagePlaceholder';
 
 class SlideShow {
   constructor(slideShowSelector, mobileNavSelector, desktopNavSelector) {

@@ -1,16 +1,8 @@
 import Macy from 'macy';
 import cloudinary from 'cloudinary-core';
-import SimpleScrollbar from 'simple-scrollbar';
-import 'simple-scrollbar/simple-scrollbar.css';
-import Swup from 'swup';
-import Menu from './Menu';
-import EmailForm from './EmailForm';
-import Spinner from './UI/Spinner/Spinner';
-import '../css/main.css';
-import '../css/gallery.css';
-
+import Spinner from '../UI/Spinner/Spinner';
 // eslint-disable-next-line import/extensions
-import data from '../assets/tapestry.json';
+import data from '../../assets/tapestry.json';
 
 class Gallery {
   constructor(person) {
@@ -23,10 +15,10 @@ class Gallery {
     this.fullImage = null;
     this.openImageIndex = null;
     this.fullImageBlock = this.fullImageSection.querySelector('.full-image__info');
-    this.description = null;
+    this.fullDescription = null;
   }
 
-  fetchData() {
+  convertData() {
     const myJSON = JSON.stringify(data);
     this.data = JSON.parse(myJSON);
   }
@@ -63,7 +55,7 @@ class Gallery {
     return prevueWidth;
   }
 
-  populateWithImages() {
+  generatePrevue() {
     const startIndex = this.imageCount;
     const prevueWidth = this.findPrevueImgWidth().toFixed(0);
     for (let i = startIndex; i < startIndex + 12; i++) {
@@ -89,7 +81,7 @@ class Gallery {
     this.imageCount = this.imageCount + 12;
   }
 
-  addImageDescription() {
+  getFullDescription() {
     const text = `
     <p>${this.data[this.openImageIndex].name}</p>
     <p>${this.data[this.openImageIndex].material},</p>
@@ -136,8 +128,8 @@ class Gallery {
     this.fullImage.addEventListener(
       'load',
       () => {
-        this.description = this.addImageDescription();
-        this.fullImageBlock.prepend(this.description);
+        this.fullDescription = this.getFullDescription();
+        this.fullImageBlock.prepend(this.fullDescription);
         this.fullImageBlock.appendChild(this.fullImage);
         this.fullImageBlock.removeChild(spinner);
       },
@@ -159,7 +151,7 @@ class Gallery {
   closeFullImage() {
     this.fullImageSection.style.display = 'none';
     this.fullImageBlock.removeChild(this.fullImage);
-    this.fullImageBlock.removeChild(this.description);
+    this.fullImageBlock.removeChild(this.fullDescription);
   }
 
   openNextFullImage(direction) {
@@ -169,28 +161,11 @@ class Gallery {
   }
 
   init() {
-    this.fetchData();
-    this.populateWithImages();
+    this.convertData();
+    this.generatePrevue();
     this.createMasonryLayout();
     this.gallery.addEventListener('click', this.openFullImage.bind(this));
   }
 }
 
-const tetianaGallery = new Gallery('tetiana');
-tetianaGallery.init();
-
-const menu = new Menu('.menu', '.menu-toggler');
-menu.init();
-
-const emailForm = new EmailForm('.section--contact');
-emailForm.init();
-
-const scrollbarContainer = document.querySelector('.l-content');
-SimpleScrollbar.initEl(scrollbarContainer);
-
-const options = {
-  linkSelector: `a[href^="${window.location.origin}"]:not([data-no-swup]), a[href^="./"]:not([data-no-swup]), a[href^="#"]:not([data-no-swup])`,
-};
-
-// eslint-disable-next-line no-unused-vars
-const swup = new Swup(options);
+export default Gallery;

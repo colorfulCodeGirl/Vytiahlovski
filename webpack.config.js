@@ -7,8 +7,8 @@ const parts = require('./webpack.parts');
 const commonConfig = merge([
   {
     entry: {
-      index: './src/js/main.js',
-      gallery: './src/js/gallery.js',
+      index: './src/js/mainPage/main.js',
+      gallery: './src/js/galleryPage/galleryMain.js',
     },
     plugins: [
       new HtmlWebpackPlugin({

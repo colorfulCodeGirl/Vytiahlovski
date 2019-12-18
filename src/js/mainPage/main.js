@@ -1,11 +1,11 @@
 import SimpleScrollbar from 'simple-scrollbar';
 import 'simple-scrollbar/simple-scrollbar.css';
 import Swup from 'swup';
-import Menu from './Menu';
+import Menu from '../commonComponents/Menu';
+import EmailForm from '../commonComponents/EmailForm';
 import SlideShow from './SlideShow';
 import TextSection from './TextSection';
-import EmailForm from './EmailForm';
-import '../css/main.css';
+import '../../css/main.css';
 
 const menu = new Menu('.menu', '.menu-toggler');
 menu.init();
@@ -34,4 +34,5 @@ const options = {
   linkSelector: `a[href^="${window.location.origin}"]:not([data-no-swup]), a[href^="./"]:not([data-no-swup]), a[href^="#"]:not([data-no-swup])`,
 };
 
+// eslint-disable-next-line no-unused-vars
 const swup = new Swup(options);
