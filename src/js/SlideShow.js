@@ -13,6 +13,11 @@ class SlideShow {
     this.userClickedAt = 0;
   }
 
+  resizeSlideShowFrame() {
+    const slideFame = this.slideShow.querySelector('.slideshow__frame');
+    slideFame.style.height = `${window.innerHeight * 0.925}px`;
+  }
+
   prepareSlidesMobile(nextIndex) {
     const nextRightIndex = nextIndex + 1 > this.biggestIndex ? 0 : nextIndex + 1;
     const nextLeftIndex = nextIndex - 1 < 0 ? this.biggestIndex : nextIndex - 1;
@@ -175,6 +180,8 @@ class SlideShow {
   }
 
   init() {
+    this.resizeSlideShowFrame();
+    window.addEventListener('resize', this.resizeSlideShowFrame);
     this.prepareSlideImage();
     if (!this.isDesktop) {
       this.mobileNav.forEach((arrow) => {
