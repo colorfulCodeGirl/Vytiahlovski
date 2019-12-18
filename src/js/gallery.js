@@ -5,7 +5,7 @@ import 'simple-scrollbar/simple-scrollbar.css';
 import Swup from 'swup';
 import Menu from './Menu';
 import EmailForm from './EmailForm';
-import fetchFullImage from './imagePlaceholder';
+import Spinner from './UI/Spinner/Spinner';
 import '../css/main.css';
 import '../css/gallery.css';
 
@@ -54,16 +54,6 @@ class Gallery {
     this.imageCount = this.imageCount + 10;
   }
 
-  populateWithImages(startIndex) {
-    for (let i = startIndex; i < startIndex + 10; i++) {
-      fetchFullImage({
-        selector: `.placeholder[data-index="${i}"]`,
-        width: 300,
-        imageName: `${this.person}/${i}`,
-      });
-    }
-  }
-
   // eslint-disable-next-line class-methods-use-this
   createMasonryLayout() {
     // eslint-disable-next-line no-unused-vars
@@ -84,26 +74,23 @@ class Gallery {
 
   addImageDescription() {
     const text = `
-    <p class='full-image__text'>${this.data[this.openImageIndex].name}</p>
-    <p class='full-image__text'>${this.data[this.openImageIndex].material},</p>
-    <p class='full-image__text'>${this.data[this.openImageIndex].size}cm, ${this.data[this.openImageIndex].year}</p>
+    <p>${this.data[this.openImageIndex].name}</p>
+    <p>${this.data[this.openImageIndex].material},</p>
+    <p>${this.data[this.openImageIndex].size}cm, ${this.data[this.openImageIndex].year}</p>
     `;
-    return text;
+    const div = document.createElement('div');
+    div.classList.add('full-image__text');
+    div.innerHTML = text;
+    return div;
   }
 
   handleFullImageBlock() {
-    const overlay = this.fullImageBlock.querySelector('.overlay--active');
-    const info = this.fullImageBlock.querySelector('.full-image__info');
     const controls = this.fullImageBlock.querySelector('.full-image__controls');
+    const info = this.fullImageBlock.querySelector('.full-image__info');
     const height = window.innerHeight;
     this.fullImageBlock.style.display = 'grid';
     this.fullImageBlock.style.height = `${height}px`;
-    overlay.style.height = `${height}px`;
-    controls.style.height = `${height}px`;
-    info.style.height = `${this.fullImage.height}px`;
-    info.style.width = `${this.fullImage.width + 250}px`;
-    info.innerHTML = this.addImageDescription();
-    controls.addEventListener('click', this.handleControlsEvents.bind(this), { once: true });
+    controls.addEventListener('click', this.handleControlsEvents.bind(this, info), { once: true });
   }
 
   openFullImage(e, nextIndex) {
@@ -111,42 +98,41 @@ class Gallery {
     // if e = null than function was called after click on arrow button (openNextFullImage)
     if (e && e.target == this.gallery) return;
 
+    const info = this.fullImageBlock.querySelector('.full-image__info');
+    this.handleFullImageBlock();
+    const spinner = Spinner('#353030');
+    info.prepend(spinner);
+
     this.openImageIndex = !nextIndex ? e.target.parentElement.dataset.index : nextIndex;
     const imageHeight = (window.innerHeight * 0.95).toFixed(0);
 
     this.fullImage = new Image();
     this.fullImage.src = this.cloud.url(`${this.person}/${this.openImageIndex}`, {
       height: imageHeight,
-      quality: '10',
-      effect: 'blur:1400',
+      quality: 'auto',
       crop: 'scale',
       fetchFormat: 'auto',
     });
 
-    this.fullImage.classList.add('placeholder', 'full-image__image');
+    this.fullImage.classList.add('full-image__image');
     this.fullImage.setAttribute('data-index', this.openImageIndex);
     this.fullImage.removeAttribute('height');
-    this.fullImageBlock.prepend(this.fullImage);
 
     this.fullImage.addEventListener(
       'load',
       () => {
-        this.handleFullImageBlock();
-        const fetchedImage = fetchFullImage({
-          selector: `.full-image__image[data-index="${this.openImageIndex}"]`,
-          height: imageHeight,
-          imageName: `${this.person}/${this.openImageIndex}`,
-          attributeArray: [['class', 'full-image__image']],
-        });
-        this.fullImage = fetchedImage;
+        const description = this.addImageDescription();
+        info.prepend(description);
+        info.appendChild(this.fullImage);
+        info.removeChild(spinner);
       },
       { once: true },
     );
   }
 
-  handleControlsEvents(e) {
+  handleControlsEvents(e, info) {
     const targetType = e.target.dataset.type;
-    this.closeFullImage();
+    this.closeFullImage(info);
 
     if (targetType === 'arrows') {
       const { direction } = e.target.dataset;

@@ -520,6 +520,7 @@ Slideshow frame
   width: auto;
   height: 100%;
   z-index: 1;
+  border-top-right-radius: ;
 }
 
 .placeholder {

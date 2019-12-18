@@ -24,6 +24,15 @@
   margin-right: 40%;
 }
 
+@keyframes scale {
+  from {
+    transform: scale(0.1);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
 /*------IMAGE BLOCK----------*/
 .image-block {
   display: grid;
@@ -62,57 +71,72 @@
 Full image 
 */
 .full-image {
-  width: 100%;
+  width: 100vw;
   display: none;
   position: absolute;
   top: 0;
-  justify-content: center;
+  background-color: rgba(53, 48, 48, 0.9);
+  padding: 2rem;
   z-index: 9997;
-  padding-bottom: 1rem;
 }
 
-.full-image__info,
-.full-image__image {
+.full-image__controls,
+.full-image__info {
   grid-column: 1 / -1;
   grid-row: 1 / -1;
 }
 
-.full-image__image {
-  max-height: 95%;
-  margin-top: 2rem;
-  justify-self: end;
-  align-self: start;
-  z-index: 9999;
-}
-
 .full-image__info {
+  animation-name: scale;
+  animation-duration: 0.5s;
   background-color: var(--light-additional);
   max-width: 95%;
   max-height: 97%;
   align-self: end;
-  z-index: 9998;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
+  justify-self: center;
+  z-index: 9999;
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-template-rows: 1fr;
+  gap: 3rem;
+  align-items: end;
   padding: 0 0 5rem 2rem;
 }
 
 .full-image__text {
+  animation-name: scale;
+  animation-duration: 0.5s;
+  min-width: 200px;
   max-width: 250px;
+  grid-column: 1 / 2;
+  grid-row: 1 / -1;
 }
 
-.full-image .overlay--active {
-  background-color: rgba(53, 48, 48, 0.9);
+.full-image__image,
+.spinner-container {
+  grid-column: 2 / -1;
+  grid-row: 1 / -1;
+}
+
+.full-image__image {
+  animation-name: scale;
+  animation-duration: 0.5s;
+  max-height: calc(95vh - 4rem);
+  margin-top: 2rem;
+  justify-self: end;
+  align-self: start;
+  margin: -2rem -2rem 0 0;
 }
 
 .full-image__controls {
-  position: fixed;
+  position: absolute;
   top: 0;
   left: 0;
-  width: 100vw;
+  width: 100%;
+  height: calc(100% - 4rem);
   display: grid;
   grid-template-rows: auto 1fr;
-  z-index: 10000;
+  z-index: 9998;
 }
 
 .full-image__controls--stroke {
@@ -122,15 +146,16 @@ Full image
 .full-image__close-block {
   justify-self: end;
   align-self: start;
-  height: 7rem;
 }
+
 .full-image__close {
   width: 5rem;
   height: 5rem;
+  padding: 1rem;
 }
 
 .full-image__arrows {
-  width: 100vw;
+  width: 100%;
   display: flex;
   align-self: center;
   justify-content: space-between;
@@ -138,4 +163,5 @@ Full image
 
 .full-image__arrow {
   height: 10rem;
+  width: 5rem;
 }
