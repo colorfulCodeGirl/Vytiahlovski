@@ -2,11 +2,15 @@
   padding: 3rem 0;
 }
 
+.gallery {
+  max-width: 96%;
+  margin: 0 auto;
+  min-height: 100vh;
+}
+
 @media (min-width: 1200px) {
   .gallery {
     max-width: 1200px;
-    margin: 0 auto;
-    min-height: 100vh;
   }
 }
 
@@ -133,14 +137,18 @@ Full image
   top: 0;
   left: 0;
   width: 100%;
-  height: calc(100% - 4rem);
+  height: 100%;
   display: grid;
   grid-template-rows: auto 1fr;
-  z-index: 9998;
+  z-index: 10000;
 }
 
 .full-image__controls--stroke {
   stroke: var(--light-additional);
+}
+
+.full-image__controls--stroke > * {
+  border: 0.3rem solid var(--background-color);
 }
 
 .full-image__close-block {

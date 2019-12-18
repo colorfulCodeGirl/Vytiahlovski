@@ -90,7 +90,8 @@ html.is-animating .transition-fade {
 }
 
 @media not all and (pointer: fine) {
-  .home-page {
+  .home-page,
+  .gallery-page {
     width: calc(100% - 18px);
   }
 }
@@ -520,7 +521,6 @@ Slideshow frame
   width: auto;
   height: 100%;
   z-index: 1;
-  border-top-right-radius: ;
 }
 
 .placeholder {

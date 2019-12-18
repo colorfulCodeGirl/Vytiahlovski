@@ -19,9 +19,11 @@ class Gallery {
     this.cloud = new cloudinary.Cloudinary({ cloud_name: 'vanilna', secure: true });
     this.imageCount = 1;
     this.data = null;
-    this.fullImageBlock = document.querySelector('.full-image');
+    this.fullImageSection = document.querySelector('.full-image');
     this.fullImage = null;
     this.openImageIndex = null;
+    this.fullImageBlock = this.fullImageSection.querySelector('.full-image__info');
+    this.description = null;
   }
 
   fetchData() {
@@ -29,13 +31,46 @@ class Gallery {
     this.data = JSON.parse(myJSON);
   }
 
-  populateWithPlaceholders() {
+  // eslint-disable-next-line class-methods-use-this
+  createMasonryLayout() {
+    // eslint-disable-next-line no-unused-vars
+    const macyInstance = new Macy({
+      container: '.gallery',
+      trueOrder: true,
+      waitForImages: false,
+      margin: 7,
+      columns: 4,
+      breakAt: {
+        1050: 3,
+        600: 2,
+      },
+    });
+  }
+
+  // eslint-disable-next-line class-methods-use-this
+  findPrevueImgWidth() {
+    const windowWidth = window.innerWidth;
+    let prevueWidth;
+    if (windowWidth <= 600) {
+      prevueWidth = windowWidth / 2;
+    } else if (windowWidth > 600 && windowWidth <= 1050) {
+      prevueWidth = windowWidth / 3;
+    } else if (windowWidth > 1050 && windowWidth <= 1200) {
+      prevueWidth = windowWidth / 4;
+    } else {
+      prevueWidth = 300;
+    }
+    return prevueWidth;
+  }
+
+  populateWithImages() {
     const startIndex = this.imageCount;
-    for (let i = startIndex; i < startIndex + 10; i++) {
+    const prevueWidth = this.findPrevueImgWidth().toFixed(0);
+    for (let i = startIndex; i < startIndex + 12; i++) {
       const img = this.cloud.imageTag(`${this.person}/${i}`, {
         dpr: 'auto',
         quality: 'auto',
-        width: 300,
+        width: prevueWidth,
         crop: 'scale',
         fetchFormat: 'auto',
       });
@@ -51,25 +86,7 @@ class Gallery {
       div.setAttribute('data-index', i);
       this.gallery.appendChild(div);
     }
-    this.imageCount = this.imageCount + 10;
-  }
-
-  // eslint-disable-next-line class-methods-use-this
-  createMasonryLayout() {
-    // eslint-disable-next-line no-unused-vars
-    const macyInstance = new Macy({
-      container: '.gallery',
-      trueOrder: true,
-      waitForImages: false,
-      margin: 7,
-      columns: 4,
-      breakAt: {
-        1200: 4,
-        940: 3,
-        520: 2,
-        400: 1,
-      },
-    });
+    this.imageCount = this.imageCount + 12;
   }
 
   addImageDescription() {
@@ -84,13 +101,12 @@ class Gallery {
     return div;
   }
 
-  handleFullImageBlock() {
-    const controls = this.fullImageBlock.querySelector('.full-image__controls');
-    const info = this.fullImageBlock.querySelector('.full-image__info');
+  handleFullImageSection() {
+    const controls = this.fullImageSection.querySelector('.full-image__controls');
     const height = window.innerHeight;
-    this.fullImageBlock.style.display = 'grid';
-    this.fullImageBlock.style.height = `${height}px`;
-    controls.addEventListener('click', this.handleControlsEvents.bind(this, info), { once: true });
+    this.fullImageSection.style.display = 'grid';
+    this.fullImageSection.style.height = `${height}px`;
+    controls.addEventListener('click', this.handleControlsEvents.bind(this), { once: true });
   }
 
   openFullImage(e, nextIndex) {
@@ -98,10 +114,9 @@ class Gallery {
     // if e = null than function was called after click on arrow button (openNextFullImage)
     if (e && e.target == this.gallery) return;
 
-    const info = this.fullImageBlock.querySelector('.full-image__info');
-    this.handleFullImageBlock();
+    this.handleFullImageSection();
     const spinner = Spinner('#353030');
-    info.prepend(spinner);
+    this.fullImageBlock.prepend(spinner);
 
     this.openImageIndex = !nextIndex ? e.target.parentElement.dataset.index : nextIndex;
     const imageHeight = (window.innerHeight * 0.95).toFixed(0);
@@ -121,18 +136,18 @@ class Gallery {
     this.fullImage.addEventListener(
       'load',
       () => {
-        const description = this.addImageDescription();
-        info.prepend(description);
-        info.appendChild(this.fullImage);
-        info.removeChild(spinner);
+        this.description = this.addImageDescription();
+        this.fullImageBlock.prepend(this.description);
+        this.fullImageBlock.appendChild(this.fullImage);
+        this.fullImageBlock.removeChild(spinner);
       },
       { once: true },
     );
   }
 
-  handleControlsEvents(e, info) {
+  handleControlsEvents(e) {
     const targetType = e.target.dataset.type;
-    this.closeFullImage(info);
+    this.closeFullImage();
 
     if (targetType === 'arrows') {
       const { direction } = e.target.dataset;
@@ -142,8 +157,9 @@ class Gallery {
   }
 
   closeFullImage() {
-    this.fullImageBlock.style.display = 'none';
+    this.fullImageSection.style.display = 'none';
     this.fullImageBlock.removeChild(this.fullImage);
+    this.fullImageBlock.removeChild(this.description);
   }
 
   openNextFullImage(direction) {
@@ -154,7 +170,7 @@ class Gallery {
 
   init() {
     this.fetchData();
-    this.populateWithPlaceholders();
+    this.populateWithImages();
     this.createMasonryLayout();
     this.gallery.addEventListener('click', this.openFullImage.bind(this));
   }
