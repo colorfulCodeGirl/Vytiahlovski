@@ -11,11 +11,11 @@ class Gallery {
     this.cloud = new cloudinary.Cloudinary({ cloud_name: 'vanilna', secure: true });
     this.imageCount = 1;
     this.data = null;
-    this.fullImageSection = document.querySelector('.full-image');
+    this.fullImageSection = document.querySelector('section.full-image');
+    this.fullImageContainer = this.fullImageSection.querySelector('.full-image__container');
     this.fullImage = null;
-    this.openImageIndex = null;
-    this.fullImageBlock = this.fullImageSection.querySelector('.full-image__info');
     this.fullDescription = null;
+    this.openImageIndex = null;
   }
 
   convertData() {
@@ -94,11 +94,15 @@ class Gallery {
   }
 
   handleFullImageSection() {
-    const controls = this.fullImageSection.querySelector('.full-image__controls');
+    const close = this.fullImageSection.querySelector('.full-image__close');
+    const arrows = this.fullImageSection.querySelectorAll('.full-image__arrow');
     const height = window.innerHeight;
     this.fullImageSection.style.display = 'grid';
     this.fullImageSection.style.height = `${height}px`;
-    controls.addEventListener('click', this.handleControlsEvents.bind(this), { once: true });
+    close.addEventListener('click', this.closeFullImage.bind(this), { once: true });
+    arrows.forEach((arrow) => {
+      arrow.addEventListener('click', this.openNextFullImage.bind(this), { once: true });
+    });
   }
 
   openFullImage(e, nextIndex) {
@@ -108,7 +112,7 @@ class Gallery {
 
     this.handleFullImageSection();
     const spinner = Spinner('#353030');
-    this.fullImageBlock.prepend(spinner);
+    this.fullImageContainer.prepend(spinner);
 
     this.openImageIndex = !nextIndex ? e.target.parentElement.dataset.index : nextIndex;
     const imageHeight = (window.innerHeight * 0.95).toFixed(0);
@@ -125,38 +129,31 @@ class Gallery {
     this.fullImage.setAttribute('data-index', this.openImageIndex);
     this.fullImage.removeAttribute('height');
 
+    this.fullDescription = this.getFullDescription();
+    this.fullImageContainer.prepend(this.fullDescription);
+
     this.fullImage.addEventListener(
       'load',
       () => {
-        this.fullDescription = this.getFullDescription();
-        this.fullImageBlock.prepend(this.fullDescription);
-        this.fullImageBlock.appendChild(this.fullImage);
-        this.fullImageBlock.removeChild(spinner);
+        this.fullImageContainer.appendChild(this.fullImage);
+        this.fullImageContainer.removeChild(spinner);
       },
       { once: true },
     );
   }
 
-  handleControlsEvents(e) {
-    const targetType = e.target.dataset.type;
-    this.closeFullImage();
-
-    if (targetType === 'arrows') {
-      const { direction } = e.target.dataset;
-      if (this.openImageIndex == 1 && direction === 'left') return;
-      this.openNextFullImage(direction);
-    }
-  }
-
   closeFullImage() {
     this.fullImageSection.style.display = 'none';
-    this.fullImageBlock.removeChild(this.fullImage);
-    this.fullImageBlock.removeChild(this.fullDescription);
+    this.fullImageContainer.removeChild(this.fullImage);
+    this.fullImageContainer.removeChild(this.fullDescription);
   }
 
-  openNextFullImage(direction) {
-    const numberIndex = parseFloat(this.openImageIndex);
-    const nextIndex = direction === 'right' ? numberIndex + 1 : numberIndex - 1;
+  openNextFullImage(e) {
+    this.closeFullImage();
+    const { direction } = e.target.dataset;
+    if (this.openImageIndex == 1 && direction === 'left') return;
+
+    const nextIndex = direction === 'right' ? +this.openImageIndex + 1 : this.openImageIndex - 1;
     this.openFullImage(null, nextIndex);
   }
 
