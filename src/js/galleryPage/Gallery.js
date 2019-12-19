@@ -16,6 +16,7 @@ class Gallery {
     this.fullImage = null;
     this.fullDescription = null;
     this.openImageIndex = null;
+    this.spinner = Spinner('#353030');
   }
 
   convertData() {
@@ -111,8 +112,8 @@ class Gallery {
     if (e && e.target == this.gallery) return;
 
     this.handleFullImageSection();
-    const spinner = Spinner('#353030');
-    this.fullImageContainer.prepend(spinner);
+
+    this.fullImageContainer.prepend(this.spinner);
 
     this.openImageIndex = !nextIndex ? e.target.parentElement.dataset.index : nextIndex;
     const imageHeight = (window.innerHeight * 0.95).toFixed(0);
@@ -132,20 +133,28 @@ class Gallery {
     this.fullDescription = this.getFullDescription();
     this.fullImageContainer.prepend(this.fullDescription);
 
-    this.fullImage.addEventListener(
-      'load',
-      () => {
-        this.fullImageContainer.appendChild(this.fullImage);
-        this.fullImageContainer.removeChild(spinner);
-      },
-      { once: true },
-    );
+    this.fullImage.addEventListener('load', this.loadHandler.bind(this), { once: true });
+  }
+
+  loadHandler() {
+    if (this.spinner.parentNode === this.fullImageContainer) {
+      this.fullImageContainer.appendChild(this.fullImage);
+      this.fullImageContainer.removeChild(this.spinner);
+    }
   }
 
   closeFullImage() {
     this.fullImageSection.style.display = 'none';
-    this.fullImageContainer.removeChild(this.fullImage);
-    this.fullImageContainer.removeChild(this.fullDescription);
+    this.fullImage.removeEventListener('load', this.loadHandler.bind(this), { once: true });
+    if (this.fullImage.parentNode == this.fullImageContainer) {
+      this.fullImageContainer.removeChild(this.fullImage);
+    }
+    if (this.fullDescription.parentNode == this.fullImageContainer) {
+      this.fullImageContainer.removeChild(this.fullDescription);
+    }
+    if (this.spinner.parentNode === this.fullImageContainer) {
+      this.fullImageContainer.removeChild(this.spinner);
+    }
   }
 
   openNextFullImage(e) {
