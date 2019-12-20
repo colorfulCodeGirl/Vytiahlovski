@@ -7,7 +7,11 @@ import EmailForm from '../commonComponents/EmailForm';
 import '../../css/main.css';
 import '../../css/gallery.css';
 
-const tetianaGallery = new Gallery('tetiana');
+const location = window.location.href;
+const personStartIndex = location.indexOf('#') + 1;
+const person = location.slice(personStartIndex);
+
+const tetianaGallery = new Gallery(person);
 tetianaGallery.init();
 
 const menu = new Menu('.menu', '.menu-toggler');
@@ -23,8 +27,9 @@ if (isDesktop) {
 }
 
 // const options = {
-//   linkSelector: `a[href^="${window.location.origin}"]:not([data-no-swup]), a[href^="./"]:not([data-no-swup]), a[href^="#"]:not([data-no-swup])`,
-// };
+/*   linkSelector: `a[href^="${window.location.origin}"]:not([data-no-swup]),
+a[href^="./"]:not([data-no-swup]), a[href^="#"]:not([data-no-swup])`,
+}; */
 
 // // eslint-disable-next-line no-unused-vars
 // const swup = new Swup(options);

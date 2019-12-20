@@ -1,3 +1,4 @@
+/* eslint-disable eqeqeq */
 import Macy from 'macy';
 import cloudinary from 'cloudinary-core';
 import Spinner from '../UI/Spinner/Spinner';
@@ -175,7 +176,7 @@ class Gallery {
   openNextFullImage(e) {
     this.closeFullImage();
     const { direction } = e.target.dataset;
-    if (this.openImageIndex === 1 && direction === 'left') return;
+    if (this.openImageIndex == 1 && direction === 'left') return;
 
     const nextIndex = direction === 'right' ? +this.openImageIndex + 1 : this.openImageIndex - 1;
     this.openFullImage(null, nextIndex);
