@@ -1,6 +1,7 @@
 import Macy from 'macy';
 import cloudinary from 'cloudinary-core';
 import Spinner from '../UI/Spinner/Spinner';
+import fetchFullImage from '../UI/fetchFullImage';
 // eslint-disable-next-line import/extensions
 import data from '../../assets/tapestry.json';
 
@@ -58,14 +59,19 @@ class Gallery {
 
   generatePrevue() {
     const startIndex = this.imageCount;
+    const isDesktop = window.matchMedia('(min-width: 825px) and (pointer: fine)').matches;
+    const endIndex = isDesktop ? startIndex + 10 : startIndex + 6;
     const prevueWidth = this.findPrevueImgWidth().toFixed(0);
-    for (let i = startIndex; i < startIndex + 12; i++) {
+    for (let i = startIndex; i < endIndex; i++) {
       const img = this.cloud.imageTag(`${this.person}/${i}`, {
         dpr: 'auto',
-        quality: 'auto',
+        effect: 'blur:1500',
+        quality: 1,
         width: prevueWidth,
         crop: 'scale',
         fetchFormat: 'auto',
+        class: 'placeholder',
+        'data-index': i,
       });
 
       const div = document.createElement('div');
@@ -79,7 +85,16 @@ class Gallery {
       div.setAttribute('data-index', i);
       this.gallery.appendChild(div);
     }
-    this.imageCount = this.imageCount + 12;
+
+    for (let i = startIndex; i < endIndex; i++) {
+      fetchFullImage({
+        placeholderSelector: `[data-index="${i}"] > img`,
+        width: prevueWidth,
+        imageName: `${this.person}/${i}`,
+      });
+    }
+
+    this.imageCount = endIndex;
   }
 
   getFullDescription() {
