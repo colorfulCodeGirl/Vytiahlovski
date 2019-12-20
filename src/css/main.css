@@ -6,6 +6,9 @@ html.is-animating .transition-fade {
   opacity: 0;
   transform: translateY(-100%);
 }
+html {
+  scroll-behavior: smooth;
+}
 /*
 ---INITIALIZE---
 */
@@ -73,7 +76,7 @@ html.is-animating .transition-fade {
 
 .l-content {
   grid-area: content;
-  /* overflow: hidden; */
+  overflow: hidden;
   width: 100vw;
 }
 
@@ -87,6 +90,13 @@ html.is-animating .transition-fade {
   flex-wrap: wrap;
   justify-content: flex-end;
   align-items: center;
+}
+
+@media not all and (pointer: fine) {
+  .home-page,
+  .gallery-page {
+    width: calc(100% - 18px);
+  }
 }
 
 /*

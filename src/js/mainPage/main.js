@@ -27,7 +27,7 @@ achievements.init();
 const emailForm = new EmailForm('.section--contact');
 emailForm.init();
 
-const isDesktop = window.matchMedia('(min-width: 825px) and (pointer: fine)').matches;
+const isDesktop = window.matchMedia('(pointer: fine)').matches;
 if (isDesktop) {
   const scrollbarContainer = document.querySelector('.l-content');
   SimpleScrollbar.initEl(scrollbarContainer);

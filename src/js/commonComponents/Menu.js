@@ -2,6 +2,7 @@ class Menu {
   constructor(menuSelector, togglerSelector) {
     this.menu = document.querySelector(menuSelector);
     this.toggler = document.querySelector(togglerSelector);
+    this.canScrollToId = false;
   }
 
   trapTabKey() {
@@ -28,25 +29,24 @@ class Menu {
   }
 
   toggleMenu(e) {
-    e.preventDefault();
-    this.toggler.classList.toggle('menu-toggler--close');
-    this.menu.classList.toggle('menu--active');
-    this.trapTabKey();
-
-    const targetedSectionId = e.target.dataset.target;
-    const isNavElement = e.target.dataset.type === 'nav';
-
-    const scrollToSection = (id) => {
-      const scrollTarget = document.querySelector(`#${id}`);
-      scrollTarget.scrollIntoView({
-        behavior: 'smooth',
-      });
-    };
-
-    if (isNavElement) {
-      this.menu.addEventListener('transitionend', () => {
-        scrollToSection(targetedSectionId);
-      });
+    if (!this.canScrollToId) {
+      e.preventDefault();
+      this.toggler.classList.toggle('menu-toggler--close');
+      this.menu.classList.toggle('menu--active');
+      this.trapTabKey();
+      const isNavElement = e.target.dataset.type === 'nav';
+      if (isNavElement) {
+        this.canScrollToId = true;
+        this.menu.addEventListener(
+          'transitionend',
+          () => {
+            e.target.click();
+          },
+          { once: true },
+        );
+      }
+    } else {
+      this.canScrollToId = false;
     }
   }
 
