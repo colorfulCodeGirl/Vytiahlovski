@@ -109,7 +109,7 @@ class Gallery {
   openFullImage(e, nextIndex) {
     // check if user clicked on gaps between photos (target == gallery)
     // if e = null than function was called after click on arrow button (openNextFullImage)
-    if (e && e.target == this.gallery) return;
+    if (e && e.target === this.gallery) return;
 
     this.handleFullImageSection();
 
@@ -146,10 +146,10 @@ class Gallery {
   closeFullImage() {
     this.fullImageSection.style.display = 'none';
     this.fullImage.removeEventListener('load', this.loadHandler.bind(this), { once: true });
-    if (this.fullImage.parentNode == this.fullImageContainer) {
+    if (this.fullImage.parentNode === this.fullImageContainer) {
       this.fullImageContainer.removeChild(this.fullImage);
     }
-    if (this.fullDescription.parentNode == this.fullImageContainer) {
+    if (this.fullDescription.parentNode === this.fullImageContainer) {
       this.fullImageContainer.removeChild(this.fullDescription);
     }
     if (this.spinner.parentNode === this.fullImageContainer) {
@@ -160,7 +160,7 @@ class Gallery {
   openNextFullImage(e) {
     this.closeFullImage();
     const { direction } = e.target.dataset;
-    if (this.openImageIndex == 1 && direction === 'left') return;
+    if (this.openImageIndex === 1 && direction === 'left') return;
 
     const nextIndex = direction === 'right' ? +this.openImageIndex + 1 : this.openImageIndex - 1;
     this.openFullImage(null, nextIndex);

@@ -1,4 +1,4 @@
-import fetchFullImage from '../UI/imagePlaceholder';
+import fetchFullImage from '../UI/fetchFullImage';
 
 class SlideShow {
   constructor(slideShowSelector, mobileNavSelector, desktopNavSelector) {
@@ -158,23 +158,20 @@ class SlideShow {
   // eslint-disable-next-line class-methods-use-this
   prepareSlideImage() {
     const isPortrait = window.matchMedia('(orientation: portrait)').matches;
-    let slideHeight = '';
-    let slideWidth = '';
+    let height = '';
+    let width = '';
     if (isPortrait) {
-      slideHeight = window.innerHeight;
+      height = window.innerHeight;
     } else {
-      slideWidth = window.innerWidth;
+      width = window.innerWidth;
     }
     fetchFullImage({
-      selector: '.slideshow__slide.placeholder',
-      width: slideWidth,
-      height: slideHeight,
+      placeholderSelector: '.slideshow__slide.placeholder',
+      containerSelector: 'slideshow__slide--container',
+      width,
+      height,
       imageName: 'tetiana/53.jpg',
-      attributeArray: [
-        ['class', 'slideshow__slide slideshow__slide--active'],
-        ['alt', ' '],
-        ['data-index', 0],
-      ],
+      attributeArray: [['alt', ' '], ['data-index', 0]],
     });
   }
 

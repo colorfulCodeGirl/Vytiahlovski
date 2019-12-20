@@ -28,9 +28,8 @@ class EmailForm {
   }
 
   init() {
-    if (document.body.clientWidth < 600) {
-      this.openMailForm();
-    }
+    if (window.innerWidth > 600) return;
+    this.openMailForm();
   }
 }
 
