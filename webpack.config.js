@@ -1,52 +1,9 @@
+/* eslint-disable import/no-dynamic-require */
 /* eslint-disable linebreak-style */
 const merge = require('webpack-merge');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
+const commonConfig = require('./build-utils/webpack.common');
 
-const parts = require('./webpack.parts');
-
-const commonConfig = merge([
-  {
-    entry: {
-      index: './src/js/mainPage/main.js',
-      gallery: './src/js/galleryPage/galleryMain.js',
-    },
-    plugins: [
-      new HtmlWebpackPlugin({
-        template: './src/index.html',
-        inject: true,
-        chunks: ['index'],
-        filename: 'index.html',
-      }),
-      new HtmlWebpackPlugin({
-        template: './src/gallery.html',
-        inject: true,
-        chunks: ['gallery'],
-        filename: 'gallery.html',
-      }),
-    ],
-  },
-]);
-
-const productionConfig = merge([
-  parts.extractCSS({
-    use: 'css-loader',
-  }),
-]);
-
-const developmentConfig = merge([
-  parts.devServer({
-    host: process.env.HOST,
-    port: process.env.PORT,
-  }),
-  parts.extractCSS({
-    use: 'css-loader',
-  }),
-]);
-
-module.exports = (mode) => {
-  if (mode === 'production') {
-    return merge(commonConfig, productionConfig, { mode });
-  }
-
-  return merge(commonConfig, developmentConfig, { mode });
+module.exports = (env) => {
+  const envConfig = require(`./build-utils/webpack.${env.mode}`);
+  return merge({ mode: env.mode }, commonConfig, envConfig);
 };

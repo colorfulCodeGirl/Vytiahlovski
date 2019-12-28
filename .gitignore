@@ -3,6 +3,7 @@ $ cat .gitignore
 *~
 node_modules/
 image_web/
+images/
 .cache/
 mokaps/
 .eslintrc.json

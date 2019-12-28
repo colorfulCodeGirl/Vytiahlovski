@@ -110,25 +110,16 @@
                     </picture>
                     <img
                         class='slideshow__slide slideshow__slide--active slideshow__slide--container'>
-
-                    <!-- <img src="images/slide_2.jpg" class="slideshow__slide"
-                        alt="" data-index="1" />
-                    <img src="images/slide_3.jpg" class="slideshow__slide"
-                        alt="" data-index="2" />
-                    <img src="images/slide_4.jpg" class="slideshow__slide"
-                        alt="" data-index="3" />
-                    <img src="images/slide_5.jpg" class="slideshow__slide"
-                        alt="" data-index="4" />
-                    <img src="images/slide_6.jpg" class="slideshow__slide"
-                        alt="" data-index="5" />
-                    <img src="images/slide_7.jpg"
-                        class="slideshow__slide js-position-left" alt=""
-                        data-index="6" /> -->
                 </div>
                 <h1 class="sr-only">Tetiana and Mykhailo Vytiahlovski</h1>
-                <img class="slideshow__logo"
-                    alt="Tetiana and Mykhailo Vytiahlovski"
-                    src="images/main-header.png" />
+                <picture class="slideshow__logo">
+                    <source
+                        srcset="https://res.cloudinary.com/vanilna/image/upload/c_scale,q_auto,w_1000/main-page/main-header.png"
+                        media="(min-width: 600px)">
+                    <img class="slideshow__logo"
+                        src="https://res.cloudinary.com/vanilna/image/upload/c_scale,q_auto,w_500/main-page/main-header.png"
+                        alt="Tetiana and Mykhailo Vytiahlovski" />
+                </picture>
             </section>
 
             <section class="section section--biography" id="biography">
@@ -718,16 +709,42 @@
                             class="contact__link"
                             aria-label="Find Tetiana on Facebook">Find Tetiana
                             on
-                            <img class="contact__icon"
-                                src="images/f_logo_RGB-Blue_58.png" alt=""></a>
+                            <svg class="contact__icon"
+                                xmlns="http://www.w3.org/2000/svg"
+                                shape-rendering="geometricPrecision"
+                                text-rendering="geometricPrecision"
+                                image-rendering="optimizeQuality"
+                                viewBox="0 0 150 150">
+                                <path
+                                    d="M136.1 73.6c0-32.2-26.1-58.2-58.2-58.2-32.1 0-58.2 26.1-58.2 58.2 0 29.1 21.3 53.1 49.1 57.5l0-40.7-14.8 0 0-16.8 14.8 0 0-12.8c0-14.6 8.7-22.6 22-22.6 6.4 0 13 1.1 13 1.1l0 14.3-7.3 0c-7.2 0-9.5 4.5-9.5 9.1l0 10.9 16.1 0-2.6 16.8-13.6 0 0 40.7c27.8-4.4 49.1-28.4 49.1-57.5z"
+                                    fill="#FEFEFE" /></svg></a>
                     </div>
                     <div class="contact__media contact__media--instagram">
                         <a href="https://www.instagram.com/tetiana.vytiaglovska/"
                             class="contact__link"
                             aria-label="Find Tetiana on Instagram">Find Tetiana
                             on
-                            <img class="contact__icon"
-                                src="images/instagram.png" alt=""></a>
+                            <svg class="contact__icon"
+                                xmlns="http://www.w3.org/2000/svg"
+                                shape-rendering="geometricPrecision"
+                                text-rendering="geometricPrecision"
+                                image-rendering="optimizeQuality"
+                                viewBox="0 0 150 150">
+                                <style>
+                                    .a {
+                                        fill: #FEFEFE;
+                                    }
+                                </style>
+                                <path
+                                    d="M76.8 12.2c-16.6 0-18.7 0.1-25.2 0.4-6.5 0.3-10.9 1.3-14.8 2.8-4 1.6-7.4 3.7-10.8 7.1-3.4 3.4-5.5 6.8-7 10.8-1.5 3.9-2.5 8.3-2.8 14.8-0.3 6.5-0.4 8.6-0.4 25.2 0 16.6 0.1 18.7 0.4 25.2 0.3 6.5 1.3 11 2.8 14.8 1.6 4 3.7 7.4 7.1 10.8 3.4 3.4 6.8 5.5 10.8 7.1 3.9 1.5 8.3 2.6 14.8 2.8 6.5 0.3 8.6 0.4 25.2 0.4 16.6 0 18.7-0.1 25.2-0.4 6.5-0.3 11-1.3 14.8-2.8 4-1.6 7.4-3.6 10.8-7 3.4-3.4 5.5-6.8 7.1-10.8 1.5-3.9 2.5-8.3 2.8-14.8 0.3-6.5 0.4-8.6 0.4-25.2 0-16.6-0.1-18.7-0.4-25.2-0.3-6.5-1.3-10.9-2.8-14.8-1.6-4-3.7-7.4-7-10.8-3.4-3.4-6.8-5.5-10.8-7-3.9-1.5-8.3-2.5-14.8-2.8-6.5-0.3-8.6-0.4-25.2-0.4l0 0zm0 11c16.3 0 18.3 0.1 24.7 0.4 6 0.3 9.2 1.3 11.4 2.1 2.9 1.1 4.9 2.4 7 4.6 2.1 2.1 3.5 4.2 4.6 7 0.8 2.2 1.8 5.4 2.1 11.4 0.3 6.4 0.4 8.4 0.4 24.7 0 16.3-0.1 18.3-0.3 24.7-0.3 6-1.3 9.2-2.1 11.3-1.1 2.9-2.4 4.9-4.6 7-2.1 2.1-4.2 3.5-7 4.6-2.2 0.8-5.4 1.8-11.3 2.1-6.4 0.3-8.4 0.4-24.7 0.4-16.3 0-18.2-0.1-24.7-0.4-6-0.3-9.2-1.3-11.3-2.1-2.9-1.1-4.9-2.4-7-4.6-2.1-2.1-3.5-4.2-4.6-7-0.8-2.1-1.8-5.4-2.1-11.3-0.3-6.4-0.4-8.4-0.4-24.7 0-16.3 0.1-18.2 0.4-24.7 0.3-6 1.3-9.2 2.1-11.3 1.1-2.8 2.4-4.9 4.6-7 2.1-2.1 4.2-3.5 7-4.6 2.2-0.8 5.4-1.8 11.3-2.1 6.4-0.3 8.4-0.3 24.7-0.3z"
+                                    class="a" />
+                                <path
+                                    d="M76.8 93.6c-11.2 0-20.4-9.1-20.4-20.4 0-11.2 9.1-20.4 20.4-20.4 11.3 0 20.4 9.1 20.4 20.4 0 11.3-9.1 20.4-20.4 20.4zm0-51.7c-17.3 0-31.4 14.1-31.4 31.4 0 17.3 14 31.4 31.4 31.4 17.3 0 31.4-14 31.4-31.4 0-17.3-14-31.4-31.4-31.4z"
+                                    class="a" />
+                                <path
+                                    d="M116.7 40.6c0 4.1-3.3 7.3-7.3 7.3-4 0-7.3-3.3-7.3-7.3 0-4 3.3-7.3 7.3-7.3 4.1 0 7.3 3.3 7.3 7.3z"
+                                    class="a" />
+                            </svg></a>
                     </div>
                     <button
                         class="button button--email-toggler button--right-side"
