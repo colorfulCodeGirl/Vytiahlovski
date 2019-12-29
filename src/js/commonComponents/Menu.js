@@ -1,7 +1,8 @@
 const menu = document.querySelector('.menu');
 const toggler = document.querySelector('.menu-toggler');
-let canScrollToId = false;
+let navigateToSection = false;
 
+// trap tab key inside menu when open or block it from going to menu items when closed
 const trapTabKey = () => {
   const menuLinks = menu.querySelectorAll('a');
   const content = document.querySelector('.l-content');
@@ -26,14 +27,18 @@ const trapTabKey = () => {
 };
 
 const toggleMenu = (e) => {
-  if (!canScrollToId) {
+  // when menu toggler or background was clicked
+  // prevent default behaviour and close/open menu
+  // when nav element was clicked, also prevent default and close menu
+  // and then generate click event and navigate to section by default
+  if (!navigateToSection) {
     e.preventDefault();
     toggler.classList.toggle('menu-toggler--close');
     menu.classList.toggle('menu--active');
     trapTabKey();
     const isNavElement = e.target.dataset.type === 'nav';
     if (isNavElement) {
-      canScrollToId = true;
+      navigateToSection = true;
       menu.addEventListener(
         'transitionend',
         () => {
@@ -43,11 +48,11 @@ const toggleMenu = (e) => {
       );
     }
   } else {
-    canScrollToId = false;
+    navigateToSection = false;
   }
 };
 
 export default function initMenu() {
-  menu.addEventListener('click', toggleMenu.bind(this));
-  toggler.addEventListener('click', toggleMenu.bind(this));
+  menu.addEventListener('click', toggleMenu);
+  toggler.addEventListener('click', toggleMenu);
 }
