@@ -1,41 +1,46 @@
-import SimpleScrollbar from 'simple-scrollbar';
-import 'simple-scrollbar/simple-scrollbar.css';
-// import Swup from 'swup';
-import Menu from '../commonComponents/Menu';
+const getInitMenu = () => import('../commonComponents/Menu');
+const SimpleScrollbar = () => import('simple-scrollbar');
 import EmailForm from '../commonComponents/EmailForm';
 import SlideShow from './SlideShow';
 import TextSection from './TextSection';
 import '../../css/main.css';
 
-const menu = new Menu('.menu', '.menu-toggler');
-menu.init();
-
-const slideShow = new SlideShow(
-  '.slideshow',
-  '.slideshow-nav-mobile__arrow-block',
-  '.slideshow-nav-desktop__link',
+const menuToggler = document.querySelector('.menu-toggler');
+menuToggler.addEventListener(
+  'click',
+  () => {
+    getInitMenu().then((module) => {
+      module.default(); /* init menu */
+      menuToggler.click();
+    });
+  },
+  { once: true },
 );
 
-slideShow.init();
+// const slideShow = new SlideShow(
+//   '.slideshow',
+//   '.slideshow-nav-mobile__arrow-block',
+//   '.slideshow-nav-desktop__link',
+// );
 
-const biography = new TextSection('.section--biography');
-biography.init();
+// slideShow.init();
 
-const achievements = new TextSection('.section--achievements');
-achievements.init();
+// const biography = new TextSection('.section--biography');
+// biography.init();
 
-const emailForm = new EmailForm('.section--contact');
-emailForm.init();
+// const achievements = new TextSection('.section--achievements');
+// achievements.init();
 
-const isDesktop = window.matchMedia('(pointer: fine)').matches;
-if (isDesktop) {
-  const scrollbarContainer = document.querySelector('.l-content');
-  SimpleScrollbar.initEl(scrollbarContainer);
-}
+// const emailForm = new EmailForm('.section--contact');
+// emailForm.init();
 
-// const options = {
-//   linkSelector: `a[href^="${window.location.origin}"]:not([data-no-swup]), a[href^="./"]:not([data-no-swup]), a[href^="#"]:not([data-no-swup])`,
-// };
-
-// // eslint-disable-next-line no-unused-vars
-// const swup = new Swup(options);
+window.onload = () => {
+  const isDesktop = window.matchMedia('(pointer: fine)').matches;
+  if (isDesktop) {
+    import('simple-scrollbar/simple-scrollbar.css');
+    const scrollbarContainer = document.querySelector('.l-content');
+    SimpleScrollbar().then((scrollBar) => {
+      scrollBar.default.initEl(scrollbarContainer);
+    });
+  }
+};

@@ -1,6 +1,5 @@
 import SimpleScrollbar from 'simple-scrollbar';
 import 'simple-scrollbar/simple-scrollbar.css';
-// import Swup from 'swup';
 import Gallery from './Gallery';
 import Menu from '../commonComponents/Menu';
 import EmailForm from '../commonComponents/EmailForm';
@@ -25,11 +24,3 @@ if (isDesktop) {
   const scrollbarContainer = document.querySelector('.l-content');
   SimpleScrollbar.initEl(scrollbarContainer);
 }
-
-// const options = {
-/*   linkSelector: `a[href^="${window.location.origin}"]:not([data-no-swup]),
-a[href^="./"]:not([data-no-swup]), a[href^="#"]:not([data-no-swup])`,
-}; */
-
-// // eslint-disable-next-line no-unused-vars
-// const swup = new Swup(options);

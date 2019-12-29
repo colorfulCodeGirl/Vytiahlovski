@@ -31,8 +31,7 @@
   "dependencies": {
     "cloudinary-core": "^2.8.0",
     "macy": "^2.5.0",
-    "simple-scrollbar": "^0.4.0",
-    "swup": "^2.0.8"
+    "simple-scrollbar": "^0.4.0"
   },
   "devDependencies": {
     "clean-webpack-plugin": "^3.0.0",
