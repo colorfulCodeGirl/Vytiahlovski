@@ -1,7 +1,7 @@
-import SimpleScrollbar from 'simple-scrollbar';
-import 'simple-scrollbar/simple-scrollbar.css';
+const getInitMenu = () => import('../commonComponents/Menu');
+const SimpleScrollbar = () => import('simple-scrollbar');
+
 import Gallery from './Gallery';
-import Menu from '../commonComponents/Menu';
 import EmailForm from '../commonComponents/EmailForm';
 import '../../css/main.css';
 import '../../css/gallery.css';
@@ -13,14 +13,28 @@ const person = location.slice(personStartIndex);
 const tetianaGallery = new Gallery(person);
 tetianaGallery.init();
 
-const menu = new Menu('.menu', '.menu-toggler');
-menu.init();
+const menuToggler = document.querySelector('.menu-toggler');
+menuToggler.addEventListener(
+  'click',
+  () => {
+    getInitMenu().then((module) => {
+      module.default(); /* init menu */
+      menuToggler.click();
+    });
+  },
+  { once: true },
+);
 
 const emailForm = new EmailForm('.section--contact');
 emailForm.init();
 
-const isDesktop = window.matchMedia('(min-width: 825px) and (pointer: fine)').matches;
-if (isDesktop) {
-  const scrollbarContainer = document.querySelector('.l-content');
-  SimpleScrollbar.initEl(scrollbarContainer);
-}
+window.onload = () => {
+  const isDesktop = window.matchMedia('(pointer: fine)').matches;
+  if (isDesktop) {
+    import('simple-scrollbar/simple-scrollbar.css');
+    const scrollbarContainer = document.querySelector('.l-content');
+    SimpleScrollbar().then((scrollBar) => {
+      scrollBar.default.initEl(scrollbarContainer);
+    });
+  }
+};

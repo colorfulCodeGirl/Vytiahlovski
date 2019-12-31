@@ -15,7 +15,11 @@ const fetchFullImage = ({
 
   const imageLoader = new Image();
   attributeArray.forEach((attribute) => {
-    imageLoader.setAttribute(attribute[0], attribute[1]);
+    if (container) {
+      container.setAttribute(attribute[0], attribute[1]);
+    } else {
+      placeholder.setAttribute(attribute[0], attribute[1]);
+    }
   });
   imageLoader.addEventListener('load', () => {
     if (container === null) {
@@ -24,13 +28,9 @@ const fetchFullImage = ({
       container.classList.remove(containerSelector);
       container.src = imageLoader.src;
       placeholder.classList.add('placeholder-hidden');
-      placeholder.addEventListener(
-        'transitionend',
-        () => {
-          parent.removeChild(placeholder);
-        },
-        { once: true },
-      );
+      setTimeout(() => {
+        parent.removeChild(placeholder);
+      }, 0);
     }
   });
 

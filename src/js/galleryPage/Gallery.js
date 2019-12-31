@@ -1,4 +1,3 @@
-/* eslint-disable eqeqeq */
 import Macy from 'macy';
 import cloudinary from 'cloudinary-core';
 import Spinner from '../UI/Spinner/Spinner';
