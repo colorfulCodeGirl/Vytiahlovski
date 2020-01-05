@@ -1,5 +1,5 @@
 const getInitMenu = () => import('../commonComponents/Menu');
-const SimpleScrollbar = () => import('simple-scrollbar');
+const getSimpleScrollbar = () => import('simple-scrollbar');
 const getEmailForm = () => import('../commonComponents/EmailForm');
 
 import Gallery from './Gallery';
@@ -27,15 +27,18 @@ menuToggler.addEventListener(
 );
 
 //lazy load rest of the code
+const lazyLoadScrollBar = () => {
+  import('simple-scrollbar/simple-scrollbar.css');
+  const scrollbarContainer = document.querySelector('.l-content');
+  getSimpleScrollbar().then((scrollBar) => scrollBar.default.initEl(scrollbarContainer));
+};
+
+//lazy load rest of the code
 window.onload = () => {
   const isDesktop = window.matchMedia('(pointer: fine)').matches;
-  if (isDesktop) {
-    import('simple-scrollbar/simple-scrollbar.css');
-    const scrollbarContainer = document.querySelector('.l-content');
-    SimpleScrollbar().then((scrollBar) => {
-      scrollBar.default.initEl(scrollbarContainer);
-    });
-  }
+
+  lazyLoadScrollBar();
+
   if (window.innerWidth <= 600) {
     getEmailForm().then((module) => {
       const emailForm = new module.default('.section--contact');

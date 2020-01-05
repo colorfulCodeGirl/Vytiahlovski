@@ -42,10 +42,9 @@ window.onload = () => {
   let userClickedAt = { time: 0 };
 
   lazyLoadSlides();
+  lazyLoadScrollBar();
 
   if (isDesktop) {
-    lazyLoadScrollBar();
-
     //lazy load code and set event Listeners for desktop slideshow and autoplay
     getChangeSlideDesktop().then((changeSlideDesktop) => {
       const desktopNav = document.querySelectorAll('.slideshow-nav-desktop__link');

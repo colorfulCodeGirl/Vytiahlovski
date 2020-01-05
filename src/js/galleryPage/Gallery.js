@@ -23,7 +23,6 @@ class Gallery {
     const getData = await import(`../../assets/${this.person}.json`).then(
       (response) => (data = response.default),
     );
-    // data = JSON.parse(data);
     return data;
   }
 
@@ -98,32 +97,6 @@ class Gallery {
 
     this.imageCount = endIndex;
   }
-
-  // setIntersectionObserver() {
-  //   this.observerTarget = this.gallery.querySelector(`[data-index=${endIndex - 1}]`);
-  //   const imageObserver = new IntersectionObserver((entry, observer) => {
-  //     if(entry)
-  //   });
-
-  //   // if ('IntersectionObserver' in window) {
-  //   //   let lazyImageObserver = new IntersectionObserver(function(entries, observer) {
-  //   //     entries.forEach(function(entry) {
-  //   //       if (entry.isIntersecting) {
-  //   //         let lazyImage = entry.target;
-  //   //         lazyImage.src = lazyImage.dataset.src;
-  //   //         lazyImage.srcset = lazyImage.dataset.srcset;
-  //   //         lazyImage.classList.remove('lazy');
-  //   //         lazyImageObserver.unobserve(lazyImage);
-  //   //       }
-  //   //     });
-  //   //   });
-
-  //   //   lazyImages.forEach(function(lazyImage) {
-  //   //     lazyImageObserver.observe(lazyImage);
-  //   //   });
-  //   // }
-  //   // }
-  // }
 
   getFullDescription() {
     const text = `
@@ -213,7 +186,6 @@ class Gallery {
     this.data = await this.convertData();
     this.generatePrevue();
     this.createMasonryLayout();
-    // this.setIntersectionObserver();
     this.gallery.addEventListener('click', this.openFullImage.bind(this));
   }
 }
