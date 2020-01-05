@@ -1,4 +1,4 @@
-const biggestIndex = 7;
+const biggestIndex = 6;
 
 export const chooseNextIndex = (direction, previousIndex) => {
   // indexes are from 0 to n, so if we are on nth (last) slide and moving right,
@@ -8,7 +8,7 @@ export const chooseNextIndex = (direction, previousIndex) => {
   if (direction === 'right') {
     nextIndex = previousIndex !== biggestIndex ? previousIndex + 1 : 0;
   } else {
-    nextIndex = previousIndex !== 0 ? previousIndex - 1 : biggestIndex - 1;
+    nextIndex = previousIndex !== 0 ? previousIndex - 1 : biggestIndex;
   }
   return nextIndex;
 };

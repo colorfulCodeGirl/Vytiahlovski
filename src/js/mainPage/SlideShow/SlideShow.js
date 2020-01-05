@@ -5,7 +5,7 @@ const resizeSlideShowFrame = () => {
   slideFame.style.height = `${window.innerHeight * 0.925}px`;
 };
 
-export const getSlideDimensions = () => {
+const getSlideDimensions = () => {
   const isPortrait = window.matchMedia('(orientation: portrait)').matches;
   let height = '';
   let width = '';
@@ -17,7 +17,7 @@ export const getSlideDimensions = () => {
   return { width, height };
 };
 
-function prepareFirstSlideImage() {
+const prepareFirstSlideImage = () => {
   const { width, height } = getSlideDimensions();
 
   fetchFullImage({
@@ -28,7 +28,18 @@ function prepareFirstSlideImage() {
     imageName: 'tetiana/53.jpg',
     attributeArray: [['alt', ' '], ['data-index', 0]],
   });
-}
+};
+
+export const lazyLoadSlides = () => {
+  const { width, height } = getSlideDimensions();
+  for (let i = 1; i < 7; i++) {
+    fetchFullImage({
+      placeholderSelector: `.slideshow__slide.download[data-index="${i}"]`,
+      width,
+      height,
+    });
+  }
+};
 
 const initSlideshow = () => {
   resizeSlideShowFrame();

@@ -1,13 +1,13 @@
 import { chooseNextIndex, moveSlide } from './SlideShowCommon';
 
-const biggestIndex = 7;
 const slides = document.querySelectorAll('.slideshow__slide');
 let previousSlide = document.querySelector('.slideshow__slide--active');
 let previousIndex = parseFloat(previousSlide.dataset.index);
 
 const prepareSlidesMobile = (nextIndex) => {
-  const nextRightIndex = nextIndex + 1 > biggestIndex ? 0 : nextIndex + 1;
-  const nextLeftIndex = nextIndex - 1 < 0 ? biggestIndex : nextIndex - 1;
+  //choose future next indexes, that will be used after user once again clicks on left or right button
+  const nextRightIndex = chooseNextIndex('right', nextIndex);
+  const nextLeftIndex = chooseNextIndex('left', nextIndex);
   const nextRight = slides[nextRightIndex];
   const nextLeft = slides[nextLeftIndex];
 
