@@ -2,8 +2,6 @@ import Macy from 'macy';
 import cloudinary from 'cloudinary-core';
 import Spinner from '../UI/Spinner/Spinner';
 import fetchFullImage from '../UI/fetchFullImage';
-// eslint-disable-next-line import/extensions
-import data from '../../assets/tapestry.json';
 
 class Gallery {
   constructor(person) {
@@ -20,9 +18,13 @@ class Gallery {
     this.spinner = Spinner('#353030');
   }
 
-  convertData() {
-    const myJSON = JSON.stringify(data);
-    this.data = JSON.parse(myJSON);
+  async convertData() {
+    let data;
+    const getData = await import(`../../assets/${this.person}.json`).then(
+      (response) => (data = response.default),
+    );
+    // data = JSON.parse(data);
+    return data;
   }
 
   // eslint-disable-next-line class-methods-use-this
@@ -207,8 +209,8 @@ class Gallery {
     this.openFullImage(null, nextIndex);
   }
 
-  init() {
-    this.convertData();
+  async init() {
+    this.data = await this.convertData();
     this.generatePrevue();
     this.createMasonryLayout();
     // this.setIntersectionObserver();

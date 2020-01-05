@@ -13,6 +13,7 @@ const person = location.slice(personStartIndex);
 const personGallery = new Gallery(person);
 personGallery.init();
 
+//load Menu.js on click
 const menuToggler = document.querySelector('.menu-toggler');
 menuToggler.addEventListener(
   'click',
@@ -25,9 +26,7 @@ menuToggler.addEventListener(
   { once: true },
 );
 
-const emailForm = new EmailForm('.section--contact');
-emailForm.init();
-
+//lazy load rest of the code
 window.onload = () => {
   const isDesktop = window.matchMedia('(pointer: fine)').matches;
   if (isDesktop) {
