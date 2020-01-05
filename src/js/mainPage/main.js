@@ -1,5 +1,5 @@
 const getInitMenu = () => import('../commonComponents/Menu');
-const SimpleScrollbar = () => import('simple-scrollbar');
+const getSimpleScrollbar = () => import('simple-scrollbar');
 const getChangeSlideMobile = () => import('./SlideShow/SlideShowMobile');
 const getChangeSlideDesktop = () => import('./SlideShow/SlideShowDesktop');
 const getInitAutoPlay = () => import('./SlideShow/SlideShowAuto');
@@ -24,7 +24,7 @@ menuToggler.addEventListener(
   { once: true },
 );
 
-//init textsections
+//init text sections
 const biography = new TextSection('.section--biography');
 biography.init();
 const achievements = new TextSection('.section--achievements');
@@ -34,14 +34,12 @@ achievements.init();
 const lazyLoadScrollBar = () => {
   import('simple-scrollbar/simple-scrollbar.css');
   const scrollbarContainer = document.querySelector('.l-content');
-  SimpleScrollbar().then((scrollBar) => {
-    scrollBar.default.initEl(scrollbarContainer);
-  });
+  getSimpleScrollbar().then((scrollBar) => scrollBar.default.initEl(scrollbarContainer));
 };
 
 window.onload = () => {
   const isDesktop = window.matchMedia('(pointer: fine)').matches;
-  let userClickedAt = 0;
+  let userClickedAt = { time: 0 };
 
   lazyLoadSlides();
 
@@ -53,7 +51,7 @@ window.onload = () => {
       const desktopNav = document.querySelectorAll('.slideshow-nav-desktop__link');
       desktopNav.forEach((btn) => {
         btn.addEventListener('click', (e) => {
-          userClickedAt = new Date().getTime();
+          userClickedAt.time = new Date().getTime();
           changeSlideDesktop.default(e);
         });
       });
@@ -67,7 +65,7 @@ window.onload = () => {
       const mobileNav = document.querySelectorAll('.slideshow-nav-mobile__arrow-block');
       mobileNav.forEach((arrow) => {
         arrow.addEventListener('click', (e) => {
-          userClickedAt = new Date().getTime();
+          userClickedAt.time = new Date().getTime();
           changeSlideMobile.default(e);
         });
       });
