@@ -5,7 +5,7 @@ const resizeSlideShowFrame = () => {
   slideFame.style.height = `${window.innerHeight * 0.925}px`;
 };
 
-function prepareFirstSlideImage() {
+export const getSlideDimensions = () => {
   const isPortrait = window.matchMedia('(orientation: portrait)').matches;
   let height = '';
   let width = '';
@@ -14,6 +14,11 @@ function prepareFirstSlideImage() {
   } else {
     width = window.innerWidth;
   }
+  return { width, height };
+};
+
+function prepareFirstSlideImage() {
+  const { width, height } = getSlideDimensions();
 
   fetchFullImage({
     placeholderSelector: '.slideshow__slide.placeholder',

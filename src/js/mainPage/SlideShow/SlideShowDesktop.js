@@ -1,6 +1,6 @@
 import { chooseNextIndex, moveSlide } from './SlideShowCommon';
 
-const slides = document.querySelectorAll('.slideshow__slide');
+const slides = document.querySelectorAll('img.slideshow__slide');
 let previousSlide = document.querySelector('.slideshow__slide--active');
 let previousIndex = parseFloat(previousSlide.dataset.index);
 
@@ -38,7 +38,6 @@ const changeSlideDesktop = (e) => {
   setTimeout(prepareSlidesDesktop.bind(this, previousSlide), 2000);
   previousIndex = nextIndex;
   previousSlide = nextSlide;
-  userClickedAt = e ? new Date().getTime() : 0;
 };
 
 export default changeSlideDesktop;

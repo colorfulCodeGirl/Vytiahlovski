@@ -3,9 +3,10 @@ const SimpleScrollbar = () => import('simple-scrollbar');
 const getChangeSlideMobile = () => import('./SlideShow/SlideShowMobile');
 const getChangeSlideDesktop = () => import('./SlideShow/SlideShowDesktop');
 const getInitAutoPlay = () => import('./SlideShow/SlideShowAuto');
-import initSlideshow from './SlideShow/SlideShow';
-// import EmailForm from '../commonComponents/EmailForm';
-// import TextSection from './TextSection';
+const getEmailForm = () => import('../commonComponents/EmailForm');
+import initSlideshow, { getSlideDimensions } from './SlideShow/SlideShow';
+import fetchFullImage from '../UI/fetchFullImage';
+import TextSection from './TextSection';
 import '../../css/main.css';
 
 initSlideshow();
@@ -22,18 +23,25 @@ menuToggler.addEventListener(
   { once: true },
 );
 
-// const biography = new TextSection('.section--biography');
-// biography.init();
+const biography = new TextSection('.section--biography');
+biography.init();
 
-// const achievements = new TextSection('.section--achievements');
-// achievements.init();
-
-// const emailForm = new EmailForm('.section--contact');
-// emailForm.init();
+const achievements = new TextSection('.section--achievements');
+achievements.init();
 
 window.onload = () => {
   const isDesktop = window.matchMedia('(pointer: fine)').matches;
   let userClickedAt = 0;
+  const { width, height } = getSlideDimensions();
+
+  for (let i = 1; i < 7; i++) {
+    fetchFullImage({
+      placeholderSelector: `.slideshow__slide.download[data-index="${i}"]`,
+      width,
+      height,
+    });
+  }
+
   if (isDesktop) {
     import('simple-scrollbar/simple-scrollbar.css');
     const scrollbarContainer = document.querySelector('.l-content');
@@ -43,28 +51,34 @@ window.onload = () => {
 
     getChangeSlideDesktop().then((changeSlideDesktop) => {
       const desktopNav = document.querySelectorAll('.slideshow-nav-desktop__link');
+      desktopNav.forEach((btn) => {
+        btn.addEventListener('click', (e) => {
+          userClickedAt = new Date().getTime();
+          changeSlideDesktop.default(e);
+        });
+      });
       getInitAutoPlay().then((initAutoPlayModule) =>
         initAutoPlayModule.default(changeSlideDesktop.default, userClickedAt),
       );
-      desktopNav.forEach((btn) => {
-        btn.addEventListener('click', () => {
-          userClickedAt = new Date().getTime();
-          changeSlideDesktop.default();
-        });
-      });
     });
   } else {
     getChangeSlideMobile().then((changeSlideMobile) => {
       const mobileNav = document.querySelectorAll('.slideshow-nav-mobile__arrow-block');
+      mobileNav.forEach((arrow) => {
+        arrow.addEventListener('click', (e) => {
+          userClickedAt = new Date().getTime();
+          changeSlideMobile.default(e);
+        });
+      });
       getInitAutoPlay().then((initAutoPlayModule) =>
         initAutoPlayModule.default(changeSlideMobile.default, userClickedAt),
       );
-      mobileNav.forEach((arrow) => {
-        arrow.addEventListener('click', () => {
-          userClickedAt = new Date().getTime();
-          changeSlideMobile.default();
-        });
-      });
+    });
+  }
+  if (window.innerWidth <= 600) {
+    getEmailForm().then((module) => {
+      const emailForm = new module.default('.section--contact');
+      emailForm.init();
     });
   }
 };

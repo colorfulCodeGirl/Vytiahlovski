@@ -34,6 +34,7 @@ const toggleMenu = (e) => {
   if (!navigateToSection) {
     e.preventDefault();
     toggler.classList.toggle('menu-toggler--close');
+    toggler.classList.toggle('menu-toggler--active');
     menu.classList.toggle('menu--active');
     trapTabKey();
     const isNavElement = e.target.dataset.type === 'nav';

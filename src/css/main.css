@@ -1,18 +1,6 @@
-.transition-fade {
-  transition: 2s;
-  transform: translateY(0);
-}
-html.is-animating .transition-fade {
-  opacity: 0;
-  transform: translateY(-100%);
-}
-html {
-  scroll-behavior: smooth;
-}
 /*
 ---INITIALIZE---
 */
-
 :root {
   box-sizing: border-box;
   font-size: 10px;
@@ -22,18 +10,6 @@ html {
   --text-color: #353030;
   --text-invert-color: #ffffff;
 }
-/* 
-@media (min-width: 600px) {
-  :root {
-    font-size: 12px;
-  }
-}
-
-@media (min-width: 1600px) {
-  :root {
-    font-size: 14px;
-  }
-} */
 
 *,
 *::after,

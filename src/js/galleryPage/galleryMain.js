@@ -1,8 +1,8 @@
 const getInitMenu = () => import('../commonComponents/Menu');
 const SimpleScrollbar = () => import('simple-scrollbar');
+const getEmailForm = () => import('../commonComponents/EmailForm');
 
 import Gallery from './Gallery';
-import EmailForm from '../commonComponents/EmailForm';
 import '../../css/main.css';
 import '../../css/gallery.css';
 
@@ -10,8 +10,8 @@ const location = window.location.href;
 const personStartIndex = location.indexOf('#') + 1;
 const person = location.slice(personStartIndex);
 
-const tetianaGallery = new Gallery(person);
-tetianaGallery.init();
+const personGallery = new Gallery(person);
+personGallery.init();
 
 const menuToggler = document.querySelector('.menu-toggler');
 menuToggler.addEventListener(
@@ -35,6 +35,12 @@ window.onload = () => {
     const scrollbarContainer = document.querySelector('.l-content');
     SimpleScrollbar().then((scrollBar) => {
       scrollBar.default.initEl(scrollbarContainer);
+    });
+  }
+  if (window.innerWidth <= 600) {
+    getEmailForm().then((module) => {
+      const emailForm = new module.default('.section--contact');
+      emailForm.init();
     });
   }
 };
