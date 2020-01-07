@@ -598,7 +598,7 @@ TEXT (Biography and Achievements)
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   column-gap: 3vw;
-  row-gap: 5vw;
+  row-gap: 1vw;
   margin-bottom: 5vh;
 }
 

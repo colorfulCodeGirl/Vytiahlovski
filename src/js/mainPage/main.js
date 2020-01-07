@@ -1,17 +1,17 @@
+import initSlideshow, { lazyLoadSlides } from './SlideShow/SlideShow';
+import TextSection from './TextSection';
+import '../../css/main.css';
+
 const getInitMenu = () => import('../commonComponents/Menu');
 const getSimpleScrollbar = () => import('simple-scrollbar');
 const getChangeSlideMobile = () => import('./SlideShow/SlideShowMobile');
 const getChangeSlideDesktop = () => import('./SlideShow/SlideShowDesktop');
 const getInitAutoPlay = () => import('./SlideShow/SlideShowAuto');
 const getEmailForm = () => import('../commonComponents/EmailForm');
-import initSlideshow, { lazyLoadSlides } from './SlideShow/SlideShow';
-import fetchFullImage from '../UI/fetchFullImage';
-import TextSection from './TextSection';
-import '../../css/main.css';
 
 initSlideshow();
 
-//load Menu.js on click
+// load Menu.js on click
 const menuToggler = document.querySelector('.menu-toggler');
 menuToggler.addEventListener(
   'click',
@@ -24,13 +24,13 @@ menuToggler.addEventListener(
   { once: true },
 );
 
-//init text sections
+// init text sections
 const biography = new TextSection('.section--biography');
 biography.init();
 const achievements = new TextSection('.section--achievements');
 achievements.init();
 
-//lazy load rest of the code
+// lazy load rest of the code
 const lazyLoadScrollBar = () => {
   import('simple-scrollbar/simple-scrollbar.css');
   const scrollbarContainer = document.querySelector('.l-content');
@@ -39,13 +39,13 @@ const lazyLoadScrollBar = () => {
 
 window.onload = () => {
   const isDesktop = window.matchMedia('(pointer: fine)').matches;
-  let userClickedAt = { time: 0 };
+  const userClickedAt = { time: 0 };
 
   lazyLoadSlides();
   lazyLoadScrollBar();
 
   if (isDesktop) {
-    //lazy load code and set event Listeners for desktop slideshow and autoplay
+    // lazy load code and set event Listeners for desktop slideshow and autoplay
     getChangeSlideDesktop().then((changeSlideDesktop) => {
       const desktopNav = document.querySelectorAll('.slideshow-nav-desktop__link');
       desktopNav.forEach((btn) => {
@@ -54,12 +54,12 @@ window.onload = () => {
           changeSlideDesktop.default(e);
         });
       });
-      getInitAutoPlay().then((initAutoPlayModule) =>
-        initAutoPlayModule.default(changeSlideDesktop.default, userClickedAt),
-      );
+      getInitAutoPlay().then((initAutoPlayModule) => {
+        initAutoPlayModule.default(changeSlideDesktop.default, userClickedAt);
+      });
     });
   } else {
-    //lazy load code and set event Listeners for mobile slideshow and autoplay
+    // lazy load code and set event Listeners for mobile slideshow and autoplay
     getChangeSlideMobile().then((changeSlideMobile) => {
       const mobileNav = document.querySelectorAll('.slideshow-nav-mobile__arrow-block');
       mobileNav.forEach((arrow) => {
@@ -68,15 +68,16 @@ window.onload = () => {
           changeSlideMobile.default(e);
         });
       });
-      getInitAutoPlay().then((initAutoPlayModule) =>
-        initAutoPlayModule.default(changeSlideMobile.default, userClickedAt),
-      );
+      getInitAutoPlay().then((initAutoPlayModule) => {
+        initAutoPlayModule.default(changeSlideMobile.default, userClickedAt);
+      });
     });
   }
-  //load email logic needed only for small device
+  // load email logic needed only for small device
   if (window.innerWidth <= 600) {
     getEmailForm().then((module) => {
-      const emailForm = new module.default('.section--contact');
+      const EmailConstructor = module.default;
+      const emailForm = new EmailConstructor('.section--contact');
       emailForm.init();
     });
   }

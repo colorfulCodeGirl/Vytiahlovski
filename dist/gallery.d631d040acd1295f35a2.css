@@ -648,7 +648,7 @@ TEXT (Biography and Achievements)
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   column-gap: 3vw;
-  row-gap: 5vw;
+  row-gap: 1vw;
   margin-bottom: 5vh;
 }
 
@@ -1155,7 +1155,7 @@ Full image
 .full-image__text {
   animation-name: scale;
   animation-duration: 0.5s;
-  max-width: 250px;
+  min-width: 80vw;
   grid-column: 1 / -1;
   grid-row: 2 / -1;
   margin: 0;
@@ -1165,6 +1165,10 @@ Full image
 .spinner-container {
   grid-column: 1 / -1;
   grid-row: 1 / 2;
+}
+
+.spinner-container {
+  min-height: 60vh;
 }
 
 .full-image__image {
@@ -1230,7 +1234,7 @@ Full image
   .full-image__text {
     grid-column: 1 / 2;
     grid-row: 1 / -1;
-    /* min-width: 200px; */
+    min-width: auto;
     max-width: 200px;
   }
   .full-image__image,

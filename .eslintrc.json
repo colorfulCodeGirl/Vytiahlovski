@@ -22,7 +22,7 @@
       }
     ],
     "no-plusplus": ["error", { "allowForLoopAfterthoughts": true }],
-    "implicit-arrow-linebreak": ["error", "below"],
+    "implicit-arrow-linebreak": ["error", "beside"],
     "linebreak-style": 0,
     "global-require": 0,
     "eslint linebreak-style": [0, "error", "windows"]

@@ -5,14 +5,14 @@ const fetchFullImage = ({
   containerSelector,
   width = '',
   height = '',
-  imageName,
+  name,
   attributeArray = [],
 }) => {
   const placeholder = document.querySelector(placeholderSelector);
   const container = containerSelector ? document.querySelector(`.${containerSelector}`) : null;
   const parent = placeholder.parentNode;
   const claud = new cloudinary.Cloudinary({ cloud_name: 'vanilna', secure: true });
-  imageName = imageName ? imageName : placeholder.dataset.src;
+  const imageName = !name ? placeholder.dataset.src : name;
 
   const imageLoader = new Image();
   attributeArray.forEach((attribute) => {

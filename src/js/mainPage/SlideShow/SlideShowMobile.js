@@ -5,7 +5,8 @@ let previousSlide = document.querySelector('.slideshow__slide--active');
 let previousIndex = parseFloat(previousSlide.dataset.index);
 
 const prepareSlidesMobile = (nextIndex) => {
-  //choose future next indexes, that will be used after user once again clicks on left or right button
+  // choose future next indexes,
+  // that will be used after user once again clicks on left or right button
   const nextRightIndex = chooseNextIndex('right', nextIndex);
   const nextLeftIndex = chooseNextIndex('left', nextIndex);
   const nextRight = slides[nextRightIndex];

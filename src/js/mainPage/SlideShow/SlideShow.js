@@ -25,7 +25,7 @@ const prepareFirstSlideImage = () => {
     containerSelector: 'slideshow__slide--container',
     width,
     height,
-    imageName: 'tetiana/53.jpg',
+    name: 'tetiana/53.jpg',
     attributeArray: [['alt', ' '], ['data-index', 0]],
   });
 };

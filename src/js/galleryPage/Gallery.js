@@ -16,23 +16,25 @@ class Gallery {
     this.fullDescription = null;
     this.openImageIndex = null;
     this.spinner = Spinner('#353030');
+    this.observer = null;
+    this.macy = null;
+    this.imgQuantity = null;
+    this.isFetching = false;
   }
 
   async convertData() {
-    let data;
-    const getData = await import(`../../assets/${this.person}.json`).then(
-      (response) => (data = response.default),
+    const data = await import(`../../assets/${this.person}.json`).then(
+      (response) => response.default,
     );
+    this.imgQuantity = Object.keys(data).length;
     return data;
   }
 
-  // eslint-disable-next-line class-methods-use-this
   createMasonryLayout() {
-    // eslint-disable-next-line no-unused-vars
-    const macyInstance = new Macy({
+    this.macy = Macy({
       container: '.gallery',
       trueOrder: true,
-      waitForImages: false,
+      waitForImages: true,
       margin: 7,
       columns: 4,
       breakAt: {
@@ -58,18 +60,21 @@ class Gallery {
     return prevueWidth;
   }
 
-  generatePrevue() {
+  async generatePrevue() {
     const startIndex = this.imageCount;
     const isDesktop = window.matchMedia('(min-width: 825px) and (pointer: fine)').matches;
-    const endIndex = isDesktop ? startIndex + 10 : startIndex + 6;
+    let endIndex = isDesktop ? startIndex + 8 : startIndex + 6;
+    if (endIndex > this.imgQuantity) {
+      endIndex = this.imgQuantity + 1;
+    }
     const prevueWidth = this.findPrevueImgWidth().toFixed(0);
+
     for (let i = startIndex; i < endIndex; i++) {
       const img = this.cloud.imageTag(`${this.person}/${i}`, {
-        dpr: 'auto',
-        effect: 'blur:1500',
-        quality: 1,
-        width: prevueWidth,
         crop: 'scale',
+        quality: 'auto:good',
+        dpr: 'auto',
+        width: prevueWidth,
         fetchFormat: 'auto',
         class: 'placeholder',
         'data-index': i,
@@ -79,22 +84,24 @@ class Gallery {
       div.innerHTML = `
                 ${img.toHtml()}
                 <div class="image-block__popup" data-index=${i}>
-                  <p class="image-block__text">${this.data[i].name}</p>
+                <p class="image-block__text">${this.data[i].name}</p>
                 </div>
-      `;
+                `;
       div.classList.add('image-block');
       div.setAttribute('data-index', i);
       this.gallery.appendChild(div);
+      if (endIndex !== this.imgQuantity && i === endIndex - 1) {
+        const target = document.querySelector(`img[data-index="${i}"]`);
+        this.observer.observe(target);
+        target.addEventListener(
+          'load',
+          () => {
+            this.isFetching = false;
+          },
+          { once: true },
+        );
+      }
     }
-
-    for (let i = startIndex; i < endIndex; i++) {
-      fetchFullImage({
-        placeholderSelector: `[data-index="${i}"] > img`,
-        width: prevueWidth,
-        imageName: `${this.person}/${i}`,
-      });
-    }
-
     this.imageCount = endIndex;
   }
 
@@ -176,14 +183,32 @@ class Gallery {
   openNextFullImage(e) {
     this.closeFullImage();
     const { direction } = e.target.dataset;
-    if (this.openImageIndex == 1 && direction === 'left') return;
+    if (this.openImageIndex === 1 && direction === 'left') return;
 
     const nextIndex = direction === 'right' ? +this.openImageIndex + 1 : this.openImageIndex - 1;
     this.openFullImage(null, nextIndex);
   }
 
+  setIntersectionObserver() {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting && !this.isFetching) {
+          this.isFetching = true;
+          console.log(entry.target);
+          this.generatePrevue();
+          this.macy.runOnImageLoad(() => {
+            this.macy.recalculate(true);
+          }, true);
+          observer.unobserve(entry.target);
+        }
+      });
+    });
+    return observer;
+  }
+
   async init() {
     this.data = await this.convertData();
+    this.observer = this.setIntersectionObserver();
     this.generatePrevue();
     this.createMasonryLayout();
     this.gallery.addEventListener('click', this.openFullImage.bind(this));
