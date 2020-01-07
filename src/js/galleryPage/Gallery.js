@@ -194,11 +194,8 @@ class Gallery {
       entries.forEach((entry) => {
         if (entry.isIntersecting && !this.isFetching) {
           this.isFetching = true;
-          console.log(entry.target);
           this.generatePrevue();
-          this.macy.runOnImageLoad(() => {
-            this.macy.recalculate(true);
-          }, true);
+          this.macy.recalculate(true);
           observer.unobserve(entry.target);
         }
       });
