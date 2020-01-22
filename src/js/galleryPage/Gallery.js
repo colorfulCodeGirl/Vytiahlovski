@@ -34,7 +34,6 @@ class Gallery {
     this.macy = Macy({
       container: '.gallery',
       trueOrder: true,
-      waitForImages: true,
       margin: 7,
       columns: 4,
       breakAt: {
@@ -90,17 +89,17 @@ class Gallery {
       div.classList.add('image-block');
       div.setAttribute('data-index', i);
       this.gallery.appendChild(div);
-      if (endIndex !== this.imgQuantity && i === endIndex - 1) {
-        const target = document.querySelector(`img[data-index="${i}"]`);
-        this.observer.observe(target);
-        target.addEventListener(
-          'load',
-          () => {
-            this.isFetching = false;
-          },
-          { once: true },
-        );
-      }
+      // if (endIndex !== this.imgQuantity && i === endIndex - 1) {
+      //   const target = document.querySelector(`img[data-index="${i}"]`);
+      //   this.observer.observe(target);
+      //   target.addEventListener(
+      //     'load',
+      //     () => {
+      //       this.isFetching = false;
+      //     },
+      //     { once: true },
+      //   );
+      // }
     }
     this.imageCount = endIndex;
   }
@@ -189,23 +188,23 @@ class Gallery {
     this.openFullImage(null, nextIndex);
   }
 
-  setIntersectionObserver() {
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting && !this.isFetching) {
-          this.isFetching = true;
-          this.generatePrevue();
-          this.macy.recalculate(true);
-          observer.unobserve(entry.target);
-        }
-      });
-    });
-    return observer;
-  }
+  // setIntersectionObserver() {
+  //   const observer = new IntersectionObserver((entries) => {
+  //     entries.forEach((entry) => {
+  //       if (entry.isIntersecting && !this.isFetching) {
+  //         this.isFetching = true;
+  //         this.generatePrevue();
+  //         // this.macy.recalculate(true);
+  //         observer.unobserve(entry.target);
+  //       }
+  //     });
+  //   });
+  //   return observer;
+  // }
 
   async init() {
     this.data = await this.convertData();
-    this.observer = this.setIntersectionObserver();
+    // this.observer = this.setIntersectionObserver();
     this.generatePrevue();
     this.createMasonryLayout();
     this.gallery.addEventListener('click', this.openFullImage.bind(this));
