@@ -61,17 +61,6 @@ const initAutoPlay = (changeSlideHandler, userClickedAt) => {
     }
   };
   document.addEventListener(visibilityChange, handleVisibilityChange);
-
-  // handle switching to other app via keybord (Page Visibiliti API doesn't help)
-  window.onblur = () => {
-    clearInterval(currentAnimation);
-  };
-  window.onfocus = () => {
-    currentAnimation = setInterval(
-      autoChangeSlide.bind(null, changeSlideHandler, userClickedAt),
-      4000,
-    );
-  };
 };
 
 export default initAutoPlay;

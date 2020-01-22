@@ -1,7 +1,6 @@
 import Macy from 'macy';
 import cloudinary from 'cloudinary-core';
 import Spinner from '../UI/Spinner/Spinner';
-import fetchFullImage from '../UI/fetchFullImage';
 
 class Gallery {
   constructor(person) {

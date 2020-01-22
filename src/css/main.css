@@ -3,12 +3,18 @@
 */
 :root {
   box-sizing: border-box;
-  font-size: 10px;
+  font-size: 8px;
   --background-color: #353030;
   --accents: #dd0000;
   --light-additional: #ffffff;
   --text-color: #353030;
   --text-invert-color: #ffffff;
+}
+
+@media (min-width: 400px) {
+  :root {
+    font-size: 10px;
+  }
 }
 
 *,

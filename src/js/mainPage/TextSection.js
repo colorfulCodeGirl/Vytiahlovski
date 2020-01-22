@@ -56,13 +56,13 @@ class TextSection {
       }
     };
 
-    if (window.innerWidth > 400) {
+    if (window.innerWidth >= 600) {
       appendText();
     }
-    if (window.innerWidth > 650) {
+    if (window.innerWidth >= 700) {
       appendText();
     }
-    if (window.innerWidth > 900) {
+    if (window.innerWidth >= 900) {
       appendText();
     }
   }
