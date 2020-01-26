@@ -181,7 +181,7 @@ class Gallery {
   openNextFullImage(e) {
     this.closeFullImage();
     const { direction } = e.target.dataset;
-    if (this.openImageIndex === 1 && direction === 'left') return;
+    if (this.openImageIndex === '1' && direction === 'left') return;
 
     const nextIndex = direction === 'right' ? +this.openImageIndex + 1 : this.openImageIndex - 1;
     this.openFullImage(null, nextIndex);

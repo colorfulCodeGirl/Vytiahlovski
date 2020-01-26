@@ -1,5 +1,5 @@
 import cloudinary from 'cloudinary-core';
-import Spinner from '../UI/Spinner/Spinner';
+import Spinner from '../../UI/Spinner/Spinner';
 import './FullImage.css';
 
 const cloud = new cloudinary.Cloudinary({ cloud_name: 'vanilna', secure: true });

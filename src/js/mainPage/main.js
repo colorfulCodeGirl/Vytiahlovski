@@ -1,6 +1,6 @@
 import initSlideshow, { lazyLoadSlides } from './SlideShow/SlideShow';
 import TextSection from './TextSection';
-import openFullImage from './FullImage';
+import openFullImage from './FullImage/FullImage';
 import '../../css/main.css';
 
 const getInitMenu = () => import('../commonComponents/Menu');
