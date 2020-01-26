@@ -118,10 +118,12 @@ class Gallery {
   handleFullImageSection() {
     const close = this.fullImageSection.querySelector('.full-image__close');
     const arrows = this.fullImageSection.querySelectorAll('.full-image__arrow');
+    const overlay = this.fullImageSection.querySelector('.full-image__overlay');
     const height = window.innerHeight;
     this.fullImageSection.style.display = 'grid';
     this.fullImageSection.style.height = `${height}px`;
     close.addEventListener('click', this.closeFullImage.bind(this), { once: true });
+    overlay.addEventListener('click', this.closeFullImage.bind(this), { once: true });
     arrows.forEach((arrow) => {
       arrow.addEventListener('click', this.openNextFullImage.bind(this), { once: true });
     });

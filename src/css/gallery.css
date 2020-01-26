@@ -80,11 +80,17 @@ Full image
   display: none;
   position: absolute;
   top: 0;
-  background-color: rgba(53, 48, 48, 0.9);
   padding: 0.7rem;
   grid-template-columns: auto 1fr auto;
   grid-template-rows: auto 1fr auto;
   z-index: 9997;
+}
+
+.full-image__overlay {
+  grid-column: 1 / -1;
+  grid-row: 1 / -1;
+  margin: -0.7rem;
+  background-color: rgba(53, 48, 48, 0.9);
 }
 
 .full-image__container {
@@ -168,7 +174,9 @@ Full image
   .full-image {
     padding: 2rem;
   }
-
+  .full-image__overlay {
+    margin: -2rem;
+  }
   .full-image__arrow {
     height: 10rem;
     width: 5rem;
