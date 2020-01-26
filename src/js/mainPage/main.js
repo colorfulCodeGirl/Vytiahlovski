@@ -1,5 +1,6 @@
 import initSlideshow, { lazyLoadSlides } from './SlideShow/SlideShow';
 import TextSection from './TextSection';
+import openFullImage from './FullImage';
 import '../../css/main.css';
 
 const getInitMenu = () => import('../commonComponents/Menu');
@@ -82,3 +83,7 @@ window.onload = () => {
     });
   }
 };
+
+const workSectionPhotos = document.querySelectorAll('.works__person');
+
+workSectionPhotos.forEach((section) => section.addEventListener('click', openFullImage));
