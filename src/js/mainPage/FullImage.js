@@ -38,6 +38,8 @@ const handleFullImageSection = () => {
 };
 
 const openFullImage = (e) => {
+  if (e.target.tagName === 'A') return;
+
   handleFullImageSection();
   fullImageContainer.prepend(spinner);
   const link = document.querySelector('.full-image__button');
