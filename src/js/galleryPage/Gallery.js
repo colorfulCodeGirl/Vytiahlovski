@@ -2,7 +2,7 @@ import Macy from 'macy';
 import cloudinary from 'cloudinary-core';
 import Spinner from '../UI/Spinner/Spinner';
 
-require('intersection-observer');
+// require('intersection-observer');
 
 class Gallery {
   constructor(person) {
