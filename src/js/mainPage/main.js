@@ -1,3 +1,6 @@
+import 'core-js/stable';
+import 'regenerator-runtime/runtime';
+
 import initSlideshow, { lazyLoadSlides } from './SlideShow/SlideShow';
 import TextSection from './TextSection';
 import openFullImage from './FullImage/FullImage';
