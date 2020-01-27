@@ -1,5 +1,7 @@
 // SLIDE ANIMATION
 // when page is idle (user didn't click)
+require('intersection-observer');
+
 const slideShow = document.querySelector('.slideshow');
 
 const autoChangeSlide = (changeSlideHandler, userClickedAt) => {
