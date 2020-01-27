@@ -13,6 +13,7 @@ class Gallery {
     this.gallery = document.querySelector('.gallery');
     this.cloud = new cloudinary.Cloudinary({ cloud_name: 'vanilna', secure: true });
     this.imageCount = 1;
+    this.newImages = [];
     this.data = null;
     this.fullImageSection = document.querySelector('section.full-image');
     this.fullImageContainer = this.fullImageSection.querySelector('.full-image__container');
@@ -91,6 +92,8 @@ class Gallery {
                 </div>
                 `;
       div.classList.add('image-block');
+      div.classList.add('hidden-prevue');
+      this.newImages.push(div);
       div.setAttribute('data-index', i);
       this.gallery.appendChild(div);
       if (endIndex !== this.imgQuantity && i === endIndex - 1) {
@@ -199,8 +202,12 @@ class Gallery {
       entries.forEach((entry) => {
         if (entry.isIntersecting && !this.isFetching) {
           this.isFetching = true;
+          this.newImages = [];
           this.generatePrevue();
           this.macy.recalculate(true);
+          setTimeout(() => {
+            this.newImages.forEach((imgBlock) => imgBlock.classList.remove('hidden-prevue'));
+          }, 100);
           observer.unobserve(entry.target);
         }
       });
@@ -213,6 +220,7 @@ class Gallery {
     this.observer = this.setIntersectionObserver();
     this.generatePrevue();
     this.createMasonryLayout();
+    this.newImages.forEach((imgBlock) => imgBlock.classList.remove('hidden-prevue'));
     this.gallery.addEventListener('click', this.openFullImage.bind(this));
   }
 }

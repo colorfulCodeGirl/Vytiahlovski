@@ -1,6 +1,10 @@
 /*
 ---INITIALIZE---
 */
+.l-content {
+  scroll-behavior: smooth !important;
+}
+
 :root {
   box-sizing: border-box;
   font-size: 8px;
@@ -140,9 +144,10 @@ Menu
 */
 .menu {
   position: fixed;
+  right: 0;
   padding: 17vh 0 20vh 0;
   background-color: var(--background-color);
-  width: 100%;
+  width: 30%;
   height: 100%;
   margin: 0;
   overflow: hidden;
@@ -171,7 +176,7 @@ Menu
 }
 
 .menu__line {
-  width: 30vw;
+  width: 10vw;
 }
 
 .menu__link,
@@ -583,6 +588,11 @@ Slideshow frame
   height: 0.2rem;
   background-color: var(--accents);
   margin-left: 40%;
+}
+
+.section__heading-left::after {
+  margin-right: 40%;
+  margin-left: 0;
 }
 
 @media (min-width: 825px) {

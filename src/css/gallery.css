@@ -43,6 +43,12 @@
   grid-template-columns: 1fr;
   grid-template-rows: 1fr;
   overflow: hidden;
+  transform: translateX(0);
+  transition: transform 0.3s 0.1s linear;
+}
+
+.hidden-prevue {
+  transform: translateX(-1000%);
 }
 
 .image-block > img,
@@ -197,7 +203,7 @@ Full image
     grid-column: 1 / 2;
     grid-row: 1 / -1;
     min-width: auto;
-    max-width: 200px;
+    max-width: 100px;
   }
   .full-image__image,
   .spinner-container {
