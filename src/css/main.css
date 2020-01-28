@@ -144,10 +144,9 @@ Menu
 */
 .menu {
   position: fixed;
-  right: 0;
   padding: 17vh 0 20vh 0;
   background-color: var(--background-color);
-  width: 30%;
+  width: 100%;
   height: 100%;
   margin: 0;
   overflow: hidden;
@@ -176,9 +175,18 @@ Menu
 }
 
 .menu__line {
-  width: 10vw;
+  width: 30vw;
 }
 
+@media (orientation: landscape) {
+  .menu {
+    right: 0;
+    width: 30%;
+  }
+  .menu__line {
+    width: 10vw;
+  }
+}
 .menu__link,
 .menu__line {
   transform: translateX(100vw);
@@ -793,7 +801,7 @@ Mykhailo's works
 }
 
 .works__person--mykhailo .works__column--1 {
-  grid-template-rows: 3fr 1fr 3fr;
+  grid-template-rows: 3fr 3fr;
 }
 
 .works__person--mykhailo .works__column--2 {

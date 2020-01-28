@@ -4,13 +4,21 @@
 
 .gallery {
   max-width: 96%;
-  margin: 0 auto;
+  margin: 0 0.6rem;
   min-height: 100vh;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
 }
 
 @media (min-width: 1200px) {
   .gallery {
     max-width: 1200px;
+    margin: 0 auto;
   }
 }
 
@@ -43,12 +51,13 @@
   grid-template-columns: 1fr;
   grid-template-rows: 1fr;
   overflow: hidden;
-  transform: translateX(0);
-  transition: transform 0.3s 0.1s linear;
+  padding: 0.6rem 0.3rem 0 0.3rem;
+  opacity: 1;
+  transition: opacity 0.6s 0.1s linear;
 }
 
 .hidden-prevue {
-  transform: translateX(-1000%);
+  opacity: 0;
 }
 
 .image-block > img,

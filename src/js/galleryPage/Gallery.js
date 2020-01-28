@@ -11,6 +11,7 @@ class Gallery {
   constructor(person) {
     this.person = person;
     this.gallery = document.querySelector('.gallery');
+    this.columns = [];
     this.cloud = new cloudinary.Cloudinary({ cloud_name: 'vanilna', secure: true });
     this.imageCount = 1;
     this.newImages = [];
@@ -23,6 +24,7 @@ class Gallery {
     this.spinner = Spinner('#353030');
     this.observer = null;
     this.macy = null;
+    this.positionCount = 0;
     this.imgQuantity = null;
     this.isFetching = false;
   }
@@ -35,17 +37,30 @@ class Gallery {
     return data;
   }
 
-  createMasonryLayout() {
-    this.macy = Macy({
-      container: '.gallery',
-      trueOrder: true,
-      margin: 7,
-      columns: 4,
-      breakAt: {
-        1050: 3,
-        600: 2,
-      },
-    });
+  createGalleryColumns() {
+    // this.macy = Macy({
+    //   container: '.gallery',
+    //   trueOrder: true,
+    //   margin: 7,
+    //   columns: 4,
+    //   breakAt: {
+    //     1050: 3,
+    //     600: 2,
+    //   },
+    // });
+    const width = window.innerWidth;
+    let columnCount = 2;
+    if (width >= 600 && width < 1050) {
+      columnCount = 3;
+    } else if (width >= 1050) {
+      columnCount = 4;
+    }
+    for (let i = 0; i < columnCount; i++) {
+      const column = document.createElement('div');
+      column.classList.add('column');
+      this.gallery.appendChild(column);
+      this.columns.push(column);
+    }
   }
 
   // eslint-disable-next-line class-methods-use-this
@@ -95,7 +110,9 @@ class Gallery {
       div.classList.add('hidden-prevue');
       this.newImages.push(div);
       div.setAttribute('data-index', i);
-      this.gallery.appendChild(div);
+      this.columns[this.positionCount].appendChild(div);
+      this.positionCount =
+        this.positionCount === this.columns.length - 1 ? 0 : this.positionCount + 1;
       if (endIndex !== this.imgQuantity && i === endIndex - 1) {
         const target = document.querySelector(`img[data-index="${i}"]`);
         this.observer.observe(target);
@@ -204,7 +221,6 @@ class Gallery {
           this.isFetching = true;
           this.newImages = [];
           this.generatePrevue();
-          this.macy.recalculate(true);
           setTimeout(() => {
             this.newImages.forEach((imgBlock) => imgBlock.classList.remove('hidden-prevue'));
           }, 100);
@@ -218,8 +234,8 @@ class Gallery {
   async init() {
     this.data = await this.convertData();
     this.observer = this.setIntersectionObserver();
+    this.createGalleryColumns();
     this.generatePrevue();
-    this.createMasonryLayout();
     this.newImages.forEach((imgBlock) => imgBlock.classList.remove('hidden-prevue'));
     this.gallery.addEventListener('click', this.openFullImage.bind(this));
   }
