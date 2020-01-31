@@ -41,10 +41,19 @@ export const lazyLoadSlides = () => {
   }
 };
 
+const handleDownArrow = () => {
+  const arrow = document.querySelector('.slideshow__down-arrow');
+  const firstSection = document.querySelector('#biography');
+  arrow.addEventListener('click', () => {
+    firstSection.scrollIntoView({ behavior: 'smooth' });
+  });
+};
+
 const initSlideshow = () => {
   resizeSlideShowFrame();
   window.addEventListener('resize', resizeSlideShowFrame);
   prepareFirstSlideImage();
+  handleDownArrow();
 };
 
 export default initSlideshow;
