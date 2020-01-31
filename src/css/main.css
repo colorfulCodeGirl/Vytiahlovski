@@ -1,10 +1,6 @@
 /*
 ---INITIALIZE---
 */
-.l-content {
-  scroll-behavior: smooth !important;
-}
-
 :root {
   box-sizing: border-box;
   font-size: 8px;
@@ -76,6 +72,10 @@
   flex-wrap: wrap;
   justify-content: flex-end;
   align-items: center;
+}
+
+.ss-content {
+  scroll-behavior: smooth !important;
 }
 
 @media not all and (pointer: fine) {
@@ -433,8 +433,8 @@ Slideshow navigation
   height: 10vw;
   z-index: 999;
   position: absolute;
-  bottom: 14vh;
-  left: 3vw;
+  bottom: 17vh;
+  left: calc(50% - 7vw);
   animation-name: down-arrow;
   animation-duration: 5s;
   animation-iteration-count: infinite;
@@ -447,17 +447,20 @@ Slideshow navigation
   0% {
     transform: translateY(0) scale(1);
   }
-  85% {
+  80% {
     transform: translateY(0) scale(1);
   }
-  90% {
+  85% {
     transform: translateY(-1rem) scale(1.1);
   }
-  95% {
+  90% {
     transform: translateY(0) scale(0.9);
   }
-  100% {
+  95% {
     transform: translateY(-1rem) scale(1.1);
+  }
+  100% {
+    transform: translateY(0) scale(1);
   }
 }
 
