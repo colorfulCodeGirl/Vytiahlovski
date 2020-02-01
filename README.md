@@ -18,4 +18,4 @@ I will write this web using pure js. The project of this web You can find in pro
 
 Wish me luck ;)
 
-Demo - https://vanilna.github.io/Vytiahlovski/
+Demo - https://vytiahlovski.netlify.com
