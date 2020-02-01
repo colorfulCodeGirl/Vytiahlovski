@@ -1,7 +1,6 @@
 import 'core-js/stable';
 import 'regenerator-runtime/runtime';
 
-import Macy from 'macy';
 import cloudinary from 'cloudinary-core';
 import Spinner from '../UI/Spinner/Spinner';
 

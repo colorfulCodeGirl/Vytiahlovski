@@ -51,23 +51,40 @@ const handleDownArrow = () => {
     // otherwise it doesn't scroll to the very end
     if (nextSectionIndex === 0) {
       sections[nextSectionIndex].scrollIntoView({ behavior: 'smooth', block: 'end' });
+      // set next index after firing observers when scrolling up
+      // otherwise it's set to "2"
+      setTimeout(() => {
+        nextSectionIndex = 1;
+      }, 500);
     } else {
-      sections[nextSectionIndex].scrollIntoView({ behavior: 'smooth' });
-    }
-    if (nextSectionIndex === sections.length - 1) {
-      nextSectionIndex = 0;
-      arrow.classList.add('slideshow__down-arrow--backwards');
-    } else {
-      nextSectionIndex += 1;
-      arrow.classList.remove('slideshow__down-arrow--backwards');
-    }
-    // mobile class is needed to position arrow lover on the next screens
-    if (nextSectionIndex === 2) {
-      arrow.classList.add('slideshow__down-arrow--mobile');
-    } else if (nextSectionIndex === 0) {
-      arrow.classList.remove('slideshow__down-arrow--mobile');
+      sections[nextSectionIndex].scrollIntoView({ behavior: 'smooth', block: 'center' });
     }
   });
+  // handle arrow when scrolling manually
+  const intersectOptions = {
+    root: null,
+    threshold: 0.5,
+  };
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        const { index } = entry.target.dataset;
+        if (index === '4') {
+          nextSectionIndex = 0;
+          arrow.classList.remove('slideshow__down-arrow--mobile');
+          arrow.classList.add('slideshow__down-arrow--backwards');
+        } else if (index === '0') {
+          arrow.classList.remove('slideshow__down-arrow--mobile');
+        } else {
+          arrow.classList.remove('slideshow__down-arrow--backwards');
+          nextSectionIndex = +index + 1;
+          arrow.classList.add('slideshow__down-arrow--mobile');
+        }
+        console.log(nextSectionIndex);
+      }
+    });
+  }, intersectOptions);
+  sections.forEach((section) => observer.observe(section));
 };
 
 const initSlideshow = () => {

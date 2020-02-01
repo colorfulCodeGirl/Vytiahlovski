@@ -32,7 +32,6 @@
     "cloudinary-core": "^2.8.0",
     "core-js": "^3.6.4",
     "intersection-observer": "^0.7.0",
-    "macy": "^2.5.1",
     "regenerator-runtime": "^0.13.3",
     "simple-scrollbar": "^0.4.0"
   },
