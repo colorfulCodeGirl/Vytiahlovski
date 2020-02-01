@@ -4,7 +4,7 @@ import './FullImage.css';
 
 const cloud = new cloudinary.Cloudinary({ cloud_name: 'vanilna', secure: true });
 const spinner = Spinner('#353030');
-const fullImageSection = document.querySelector('section.full-image');
+const fullImageSection = document.querySelector('.full-image');
 const fullImageContainer = fullImageSection.querySelector('.full-image__container');
 let fullImage = null;
 const descriptionData = {};

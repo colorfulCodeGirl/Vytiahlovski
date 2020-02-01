@@ -41,11 +41,25 @@ export const lazyLoadSlides = () => {
   }
 };
 
+let nextSectionIndex = 1;
+const arrow = document.querySelector('.slideshow__down-arrow');
+const sections = document.querySelectorAll('section');
+
 const handleDownArrow = () => {
-  const arrow = document.querySelector('.slideshow__down-arrow');
-  const firstSection = document.querySelector('#biography');
   arrow.addEventListener('click', () => {
-    firstSection.scrollIntoView({ behavior: 'smooth' });
+    sections[nextSectionIndex].scrollIntoView({ behavior: 'smooth' });
+    if (nextSectionIndex === sections.length - 1) {
+      nextSectionIndex = 0;
+      arrow.classList.add('slideshow__down-arrow--backwards');
+    } else {
+      nextSectionIndex += 1;
+      arrow.classList.remove('slideshow__down-arrow--backwards');
+    }
+    if (nextSectionIndex === 2) {
+      arrow.classList.add('slideshow__down-arrow--mobile');
+    } else if (nextSectionIndex === 0) {
+      arrow.classList.remove('slideshow__down-arrow--mobile');
+    }
   });
 };
 
