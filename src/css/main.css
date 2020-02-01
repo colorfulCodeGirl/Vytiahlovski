@@ -433,14 +433,14 @@ Slideshow navigation
   height: 10vw;
   z-index: 999;
   position: fixed;
-  bottom: 17vh;
+  bottom: 19vh;
   left: calc(50% - 7vw);
   animation-name: down-arrow;
   animation-duration: 5s;
   animation-iteration-count: infinite;
   transition: opacity 0.3s 0s linear;
 }
-.slideshow__down-arrow:hover path {
+.slideshow__down-arrow:active path {
   fill: var(--accents);
 }
 .slideshow__down-arrow--backwards path {
@@ -505,6 +505,9 @@ desktop slideshow navigation available only for mouse users
   }
   .slideshow__down-arrow--backwards {
     bottom: 8vh;
+  }
+  .slideshow__down-arrow:hover path {
+    fill: var(--accents);
   }
   .slideshow-nav-desktop__list-item {
     display: block;
