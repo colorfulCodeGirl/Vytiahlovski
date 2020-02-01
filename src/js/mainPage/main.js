@@ -90,3 +90,13 @@ window.onload = () => {
 const workSectionPhotos = document.querySelectorAll('.works__person');
 
 workSectionPhotos.forEach((section) => section.addEventListener('click', openFullImage));
+
+// window.addEventListener('load', () => {
+//   const location = window.location.href;
+//   if (location.includes('#')) {
+//     const sectionStartIndex = location.indexOf('#');
+//     const sectionId = location.slice(sectionStartIndex);
+//     const section = document.querySelector(sectionId);
+//     section.scrollIntoView({ behaviour: 'smooth' });
+//   }
+// });

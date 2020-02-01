@@ -433,8 +433,8 @@ Slideshow navigation
   height: 10vw;
   z-index: 999;
   position: fixed;
-  bottom: 19vh;
-  left: calc(50% - 7vw);
+  bottom: 20vh;
+  left: calc(50% - 10vw);
   animation-name: down-arrow;
   animation-duration: 5s;
   animation-iteration-count: infinite;
@@ -449,9 +449,11 @@ Slideshow navigation
 }
 .slideshow__down-arrow--backwards {
   bottom: 10vh;
+  left: calc(50% - 7vw);
 }
 .slideshow__down-arrow--mobile {
   bottom: 3vh;
+  left: calc(50% - 7vw);
 }
 
 @keyframes down-arrow {
