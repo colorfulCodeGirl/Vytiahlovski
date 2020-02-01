@@ -47,6 +47,8 @@ const handleDownArrow = () => {
   const arrow = document.querySelector('.slideshow__down-arrow');
   const sections = document.querySelectorAll('section');
   arrow.addEventListener('click', () => {
+    // when scrolling back to top on mobile need to align first section to bottom
+    // otherwise it doesn't scroll to the very end
     if (nextSectionIndex === 0) {
       sections[nextSectionIndex].scrollIntoView({ behavior: 'smooth', block: 'end' });
     } else {
@@ -59,6 +61,7 @@ const handleDownArrow = () => {
       nextSectionIndex += 1;
       arrow.classList.remove('slideshow__down-arrow--backwards');
     }
+    // mobile class is needed to position arrow lover on the next screens
     if (nextSectionIndex === 2) {
       arrow.classList.add('slideshow__down-arrow--mobile');
     } else if (nextSectionIndex === 0) {
