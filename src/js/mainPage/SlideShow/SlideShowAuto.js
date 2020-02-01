@@ -7,7 +7,7 @@ const slideShow = document.querySelector('.slideshow');
 const autoChangeSlide = (changeSlideHandler, userClickedAt) => {
   const currentTime = new Date().getTime();
   const timePassed = currentTime - userClickedAt.time;
-  if (timePassed >= 4000) {
+  if (timePassed >= 6000) {
     changeSlideHandler();
   }
 };
@@ -28,7 +28,7 @@ const initAutoPlay = (changeSlideHandler, userClickedAt) => {
     } else {
       currentAnimation = setInterval(
         autoChangeSlide.bind(null, changeSlideHandler, userClickedAt),
-        4000,
+        6000,
       );
     }
     isAnimating = !isAnimating;
@@ -58,7 +58,7 @@ const initAutoPlay = (changeSlideHandler, userClickedAt) => {
     } else {
       currentAnimation = setInterval(
         autoChangeSlide.bind(null, changeSlideHandler, userClickedAt),
-        4000,
+        6000,
       );
     }
   };
