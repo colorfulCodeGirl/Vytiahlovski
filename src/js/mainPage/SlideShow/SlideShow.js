@@ -42,12 +42,16 @@ export const lazyLoadSlides = () => {
 };
 
 let nextSectionIndex = 1;
-const arrow = document.querySelector('.slideshow__down-arrow');
-const sections = document.querySelectorAll('section');
 
 const handleDownArrow = () => {
+  const arrow = document.querySelector('.slideshow__down-arrow');
+  const sections = document.querySelectorAll('section');
   arrow.addEventListener('click', () => {
-    sections[nextSectionIndex].scrollIntoView({ behavior: 'smooth' });
+    if (nextSectionIndex === 0) {
+      sections[nextSectionIndex].scrollIntoView({ behavior: 'smooth', block: 'end' });
+    } else {
+      sections[nextSectionIndex].scrollIntoView({ behavior: 'smooth' });
+    }
     if (nextSectionIndex === sections.length - 1) {
       nextSectionIndex = 0;
       arrow.classList.add('slideshow__down-arrow--backwards');
