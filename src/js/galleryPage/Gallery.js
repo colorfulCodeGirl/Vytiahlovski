@@ -26,6 +26,7 @@ class Gallery {
     this.positionCount = 0;
     this.imgQuantity = null;
     this.isFetching = false;
+    this.isDesktop = window.matchMedia('(min-width: 825px) and (pointer: fine)').matches;
   }
 
   async convertData() {
@@ -80,8 +81,7 @@ class Gallery {
 
   async generatePrevue() {
     const startIndex = this.imageCount;
-    const isDesktop = window.matchMedia('(min-width: 825px) and (pointer: fine)').matches;
-    let endIndex = isDesktop ? startIndex + 8 : startIndex + 6;
+    let endIndex = this.isDesktop ? startIndex + 8 : startIndex + 6;
     if (endIndex > this.imgQuantity) {
       endIndex = this.imgQuantity + 1;
     }
@@ -110,8 +110,8 @@ class Gallery {
       this.newImages.push(div);
       div.setAttribute('data-index', i);
       this.columns[this.positionCount].appendChild(div);
-      this.positionCount =
-        this.positionCount === this.columns.length - 1 ? 0 : this.positionCount + 1;
+      const colLength = this.columns.length;
+      this.positionCount = this.positionCount === colLength - 1 ? 0 : this.positionCount + 1;
       if (endIndex !== this.imgQuantity && i === endIndex - 1) {
         const target = document.querySelector(`img[data-index="${i}"]`);
         this.observer.observe(target);
@@ -165,22 +165,49 @@ class Gallery {
     this.openImageIndex = !nextIndex ? e.target.parentElement.dataset.index : nextIndex;
     const imageHeight = (window.innerHeight * 0.95).toFixed(0);
 
-    this.fullImage = new Image();
-    this.fullImage.src = this.cloud.url(`${this.person}/${this.openImageIndex}`, {
-      height: imageHeight,
-      quality: 'auto',
-      crop: 'scale',
-      fetchFormat: 'auto',
-    });
-
-    this.fullImage.classList.add('full-image__image');
-    this.fullImage.setAttribute('data-index', this.openImageIndex);
-    this.fullImage.removeAttribute('height');
-
     this.fullDescription = this.getFullDescription();
     this.fullImageContainer.prepend(this.fullDescription);
 
-    this.fullImage.addEventListener('load', this.loadHandler.bind(this), { once: true });
+    // handle triptych and diptych on desktop
+    if (this.isDesktop) {
+      const currentImgData = this.data[this.openImageIndex];
+      if (currentImgData.isDiptych || currentImgData.isTriptych) {
+        const { isDiptych, orientation, parts } = currentImgData;
+        const wrapper = document.createElement('div');
+        wrapper.classList.add('full-image__wrapper');
+        if (orientation === 'vertical') {
+          wrapper.classList.add('full-image__wrapper--vertical');
+        }
+        parts.forEach((part, i) => {
+          const newImage = new Image();
+          newImage.src = this.cloud.url(`${this.person}/${part}`, {
+            height: imageHeight,
+            quality: 'auto',
+            crop: 'scale',
+            fetchFormat: 'auto',
+          });
+          const className = isDiptych ? 'diptych' : 'triptych';
+          newImage.classList.add(className);
+          wrapper.appendChild(newImage);
+          if (i === parts.length - 1) {
+            this.fullImage = wrapper;
+            newImage.addEventListener('load', this.loadHandler.bind(this), { once: true });
+          }
+        });
+      } else {
+        this.fullImage = new Image();
+        this.fullImage.src = this.cloud.url(`${this.person}/${this.openImageIndex}`, {
+          height: imageHeight,
+          quality: 'auto',
+          crop: 'scale',
+          fetchFormat: 'auto',
+        });
+        this.fullImage.classList.add('full-image__image');
+        this.fullImage.setAttribute('data-index', this.openImageIndex);
+        this.fullImage.removeAttribute('height');
+        this.fullImage.addEventListener('load', this.loadHandler.bind(this), { once: true });
+      }
+    }
   }
 
   loadHandler() {
@@ -193,6 +220,8 @@ class Gallery {
   closeFullImage() {
     this.fullImageSection.style.display = 'none';
     this.fullImage.removeEventListener('load', this.loadHandler.bind(this), { once: true });
+    // this.fullImageContainer.innerText = `<a class="button button--left-side full-image__button" href=""
+    // data-name="tetiana">See Gallery</a>`;
     if (this.fullImage.parentNode === this.fullImageContainer) {
       this.fullImageContainer.removeChild(this.fullImage);
     }

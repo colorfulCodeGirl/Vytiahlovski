@@ -185,6 +185,31 @@ Full image
   justify-self: end;
 }
 
+.full-image__wrapper {
+  display: flex;
+  margin: -2rem -2rem 0 0;
+  max-height: calc(95vh - 4rem);
+  max-width: calc(100vw - 19rem - 200px);
+  justify-content: space-evenly;
+}
+
+.full-image__wrapper--vertical {
+  flex-direction: column;
+  height: calc(95vh - 4rem);
+}
+
+.full-image__wrapper > .diptych {
+  max-width: 45%;
+}
+
+.full-image__wrapper > .triptych {
+  max-width: 29%;
+}
+.full-image__wrapper--vertical > .triptych {
+  max-width: 70%;
+  max-height: 29%;
+}
+
 @media (orientation: landscape) {
   .full-image {
     padding: 2rem;
@@ -198,7 +223,7 @@ Full image
     grid-row: 2 / 4;
   }
   .full-image__container {
-    align-self: end;
+    align-self: center;
     justify-self: center;
     padding: 0 0 5rem 2rem;
     gap: 3rem;
