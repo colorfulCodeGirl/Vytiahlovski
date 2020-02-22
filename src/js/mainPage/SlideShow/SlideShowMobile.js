@@ -1,8 +1,8 @@
 import { chooseNextIndex, moveSlide } from './SlideShowCommon';
 
-const slides = document.querySelectorAll('.slideshow__slide');
+const slides = document.querySelectorAll('img.slideshow__slide');
 let previousSlide = document.querySelector('.slideshow__slide--active');
-let previousIndex = parseFloat(previousSlide.dataset.index);
+let previousIndex = Number(previousSlide.dataset.index) || 0;
 
 const prepareSlidesMobile = (nextIndex) => {
   // choose future next indexes,
@@ -36,7 +36,17 @@ const prepareSlidesMobile = (nextIndex) => {
 const changeSlideMobile = (e) => {
   // if function was triggered automatically
   // use 'right' as a direction
-  const direction = e ? e.target.dataset.direction : 'right';
+  let direction = 'right';
+  if (e && e.target.dataset.direction) {
+    direction = e.target.dataset.direction;
+  } else if (e && e.detail) {
+    const { currentDirection } = e.detail.data[0];
+    if (!(currentDirection > 90 && currentDirection < 270)) {
+      direction = 'left';
+    } else {
+      direction = 'right';
+    }
+  }
   const nextIndex = chooseNextIndex(direction, previousIndex);
   const nextSlide = slides[nextIndex];
   moveSlide(nextSlide, direction, previousSlide);

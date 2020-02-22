@@ -80,7 +80,6 @@ const handleDownArrow = () => {
           nextSectionIndex = +index + 1;
           arrow.classList.add('slideshow__down-arrow--mobile');
         }
-        console.log(nextSectionIndex);
       }
     });
   }, intersectOptions);

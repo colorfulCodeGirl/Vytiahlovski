@@ -575,7 +575,7 @@ Slideshow frame
   overflow: hidden;
   justify-self: center;
   transform: translateX(100%);
-  transition: transform 2s ease-out;
+  transition: transform 1.2s -0.5s linear;
   /*make img overflow horizontally but cover whole screen vertically*/
   width: auto;
   height: 100%;

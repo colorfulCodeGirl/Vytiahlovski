@@ -1,5 +1,6 @@
 import 'core-js/stable';
 import 'regenerator-runtime/runtime';
+import ZingTouch from 'zingtouch';
 
 import initSlideshow, { lazyLoadSlides } from './SlideShow/SlideShow';
 import TextSection from './TextSection';
@@ -52,12 +53,14 @@ window.onload = () => {
     // lazy load code and set event Listeners for desktop slideshow and autoplay
     getChangeSlideDesktop().then((changeSlideDesktop) => {
       const desktopNav = document.querySelectorAll('.slideshow-nav-desktop__link');
+
       desktopNav.forEach((btn) => {
         btn.addEventListener('click', (e) => {
           userClickedAt.time = new Date().getTime();
           changeSlideDesktop.default(e);
         });
       });
+
       getInitAutoPlay().then((initAutoPlayModule) => {
         initAutoPlayModule.default(changeSlideDesktop.default, userClickedAt);
       });
@@ -65,18 +68,31 @@ window.onload = () => {
   } else {
     // lazy load code and set event Listeners for mobile slideshow and autoplay
     getChangeSlideMobile().then((changeSlideMobile) => {
+      const container = document.querySelector('.slideshow');
+      const activeRegion = ZingTouch.Region(container);
       const mobileNav = document.querySelectorAll('.slideshow-nav-mobile__arrow-block');
+      const slides = document.querySelectorAll('img.slideshow__slide');
+
       mobileNav.forEach((arrow) => {
-        arrow.addEventListener('click', (e) => {
+        activeRegion.bind(arrow, 'tap', (e) => {
           userClickedAt.time = new Date().getTime();
           changeSlideMobile.default(e);
         });
       });
+
+      slides.forEach((slide) => {
+        activeRegion.bind(slide, 'swipe', (e) => {
+          userClickedAt.time = new Date().getTime();
+          changeSlideMobile.default(e);
+        });
+      });
+
       getInitAutoPlay().then((initAutoPlayModule) => {
         initAutoPlayModule.default(changeSlideMobile.default, userClickedAt);
       });
     });
   }
+
   // load email logic needed only for small device
   if (window.innerWidth <= 600) {
     getEmailForm().then((module) => {
@@ -90,13 +106,3 @@ window.onload = () => {
 const workSectionPhotos = document.querySelectorAll('.works__person');
 
 workSectionPhotos.forEach((section) => section.addEventListener('click', openFullImage));
-
-// window.addEventListener('load', () => {
-//   const location = window.location.href;
-//   if (location.includes('#')) {
-//     const sectionStartIndex = location.indexOf('#');
-//     const sectionId = location.slice(sectionStartIndex);
-//     const section = document.querySelector(sectionId);
-//     section.scrollIntoView({ behaviour: 'smooth' });
-//   }
-// });
