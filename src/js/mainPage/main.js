@@ -68,7 +68,7 @@ window.onload = () => {
   } else {
     // lazy load code and set event Listeners for mobile slideshow and autoplay
     getChangeSlideMobile().then((changeSlideMobile) => {
-      const container = document.querySelector('.slideshow');
+      const container = document.querySelector('.slideshow__frame');
       const activeRegion = ZingTouch.Region(container);
       const mobileNav = document.querySelectorAll('.slideshow-nav-mobile__arrow-block');
       const slides = document.querySelectorAll('img.slideshow__slide');
