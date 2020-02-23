@@ -57,6 +57,7 @@
 }
 
 .l-content {
+  margin-top: 7.5vh;
   grid-area: content;
   overflow: hidden;
   width: 100vw;
@@ -68,6 +69,7 @@
   width: 100vw;
   background-color: var(--background-color);
   z-index: 30;
+  position: fixed;
   display: flex;
   flex-wrap: wrap;
   justify-content: flex-end;

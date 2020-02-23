@@ -71,7 +71,6 @@ window.onload = () => {
 
       slides.addEventListener('touchstart', (e) => {
         e.preventDefault();
-        console.log(e);
         const hasClassName = typeof e.target.className === 'string';
         if (hasClassName && e.target.className.includes('arrow')) {
           // user interacts with left/right arrow block
@@ -89,7 +88,7 @@ window.onload = () => {
               const differenceY = startY - endY;
               if (Math.abs(differenceX) > Math.abs(differenceY)) {
                 changeSlideMobile.default(null, differenceX);
-              } else {
+              } else if (differenceY > 0) {
                 const biographySection = document.querySelector('#biography');
                 biographySection.scrollIntoView({ behavior: 'smooth' });
               }
