@@ -89,7 +89,8 @@ window.onload = () => {
               if (Math.abs(differenceX) > Math.abs(differenceY)) {
                 changeSlideMobile.default(null, differenceX);
               } else {
-                window.scrollBy(0, differenceY * 5);
+                const biographySection = document.querySelector('#biography');
+                biographySection.scrollIntoView({ behavior: 'smooth', block: 'end' });
               }
             },
             { once: true },
