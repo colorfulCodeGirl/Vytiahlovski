@@ -79,6 +79,7 @@ window.onload = () => {
           changeSlideMobile.default(e);
         } else if (hasClassName && e.target.className.includes('slideshow-nav-mobile')) {
           // user interacts with slides
+          userClickedAt.time = new Date().getTime();
           const { screenX: startX, screenY: startY } = e.touches[0];
           slides.addEventListener(
             'touchend',
