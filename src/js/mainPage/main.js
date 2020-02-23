@@ -89,7 +89,7 @@ window.onload = () => {
               if (Math.abs(differenceX) > Math.abs(differenceY)) {
                 changeSlideMobile.default(null, differenceX);
               } else {
-                window.scrollBy(0, differenceY);
+                window.scrollBy(0, differenceY * 5);
               }
             },
             { once: true },
