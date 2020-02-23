@@ -91,7 +91,7 @@ window.onload = () => {
                 changeSlideMobile.default(null, differenceX);
               } else {
                 const biographySection = document.querySelector('#biography');
-                biographySection.scrollIntoView({ behavior: 'smooth', block: 'end' });
+                biographySection.scrollIntoView({ behavior: 'smooth' });
               }
             },
             { once: true },
