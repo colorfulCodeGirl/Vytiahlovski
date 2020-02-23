@@ -1,6 +1,5 @@
 import 'core-js/stable';
 import 'regenerator-runtime/runtime';
-import ZingTouch from 'zingtouch';
 
 import initSlideshow, { lazyLoadSlides } from './SlideShow/SlideShow';
 import TextSection from './TextSection';
@@ -68,23 +67,40 @@ window.onload = () => {
   } else {
     // lazy load code and set event Listeners for mobile slideshow and autoplay
     getChangeSlideMobile().then((changeSlideMobile) => {
-      const container = document.querySelector('.slideshow__frame');
-      const activeRegion = ZingTouch.Region(container);
-      const mobileNav = document.querySelectorAll('.slideshow-nav-mobile__arrow-block');
-      const slides = document.querySelectorAll('img.slideshow__slide');
+      const slides = document.querySelector('.slideshow');
 
-      mobileNav.forEach((arrow) => {
-        activeRegion.bind(arrow, 'tap', (e) => {
+      slides.addEventListener('touchstart', (e) => {
+        e.preventDefault();
+        console.log(e);
+        const hasClassName = typeof e.target.className === 'string';
+        if (hasClassName && e.target.className.includes('arrow')) {
+          // user interacts with left/right arrow block
           userClickedAt.time = new Date().getTime();
           changeSlideMobile.default(e);
-        });
-      });
-
-      slides.forEach((slide) => {
-        activeRegion.bind(slide, 'swipe', (e) => {
-          userClickedAt.time = new Date().getTime();
-          changeSlideMobile.default(e);
-        });
+        } else if (hasClassName && e.target.className.includes('slideshow-nav-mobile')) {
+          // user interacts with slides
+          const { screenX: startX, screenY: startY } = e.touches[0];
+          slides.addEventListener(
+            'touchend',
+            (ev) => {
+              const { screenX: endX, screenY: endY } = ev.changedTouches[0];
+              const differenceX = startX - endX;
+              const differenceY = startY - endY;
+              if (Math.abs(differenceX) > Math.abs(differenceY)) {
+                changeSlideMobile.default(null, differenceX);
+              } else {
+                window.scrollBy(0, differenceY);
+              }
+            },
+            { once: true },
+          );
+        } else {
+          // user interacts with down arrow
+          const arrow = document.querySelector('.slideshow__down-arrow');
+          const event = document.createEvent('SVGEvents');
+          event.initEvent('click', true, true);
+          arrow.dispatchEvent(event);
+        }
       });
 
       getInitAutoPlay().then((initAutoPlayModule) => {

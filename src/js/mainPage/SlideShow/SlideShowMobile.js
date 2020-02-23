@@ -33,19 +33,14 @@ const prepareSlidesMobile = (nextIndex) => {
 };
 
 // CLICK HANDLER
-const changeSlideMobile = (e) => {
+const changeSlideMobile = (e, differenceX = null) => {
   // if function was triggered automatically
   // use 'right' as a direction
   let direction = 'right';
   if (e && e.target.dataset.direction) {
     direction = e.target.dataset.direction;
-  } else if (e && e.detail) {
-    const { currentDirection } = e.detail.data[0];
-    if (!(currentDirection > 90 && currentDirection < 270)) {
-      direction = 'left';
-    } else {
-      direction = 'right';
-    }
+  } else if (differenceX) {
+    direction = differenceX > 0 ? 'right' : 'left';
   }
   const nextIndex = chooseNextIndex(direction, previousIndex);
   const nextSlide = slides[nextIndex];

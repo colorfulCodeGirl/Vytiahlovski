@@ -46,7 +46,8 @@ let nextSectionIndex = 1;
 const handleDownArrow = () => {
   const arrow = document.querySelector('.slideshow__down-arrow');
   const sections = document.querySelectorAll('section');
-  arrow.addEventListener('click', () => {
+
+  const clickHandler = () => {
     // when scrolling back to top on mobile need to align first section to bottom
     // otherwise it doesn't scroll to the very end
     if (nextSectionIndex === 0) {
@@ -59,7 +60,9 @@ const handleDownArrow = () => {
     } else {
       sections[nextSectionIndex].scrollIntoView({ behavior: 'smooth', block: 'center' });
     }
-  });
+  };
+
+  arrow.addEventListener('click', clickHandler);
   // handle arrow when scrolling manually
   const intersectOptions = {
     root: null,
