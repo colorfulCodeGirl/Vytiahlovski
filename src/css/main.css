@@ -423,7 +423,7 @@ Slideshow navigation
 .slideshow__down-arrow {
   width: 10vw;
   height: 10vw;
-  z-index: 999;
+  z-index: 20;
   position: fixed;
   bottom: 20vh;
   left: calc(50% - 10vw);

@@ -90,11 +90,8 @@ Full image
 }
 
 @media (orientation: landscape) {
-  .full-image {
-    padding: 2rem;
-  }
   .full-image__container {
-    align-self: end;
+    align-self: center;
     justify-self: center;
     padding: 0 0 5rem 2rem;
     gap: 3rem;
@@ -120,5 +117,6 @@ Full image
   }
   .full-image__image {
     margin: -2rem -2rem 0 0;
+    max-height: 78vh;
   }
 }
