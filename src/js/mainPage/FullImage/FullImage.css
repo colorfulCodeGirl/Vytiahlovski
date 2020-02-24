@@ -5,12 +5,17 @@ Full image
   width: 100vw;
   display: none;
   position: fixed;
-  top: 7.5vh;
-  background-color: rgba(53, 48, 48, 0.5);
-  padding: 0.7rem;
+  top: 0;
   grid-template-columns: auto 1fr auto;
   grid-template-rows: auto 1fr auto;
-  z-index: 9997;
+  z-index: 25;
+}
+
+.full-image__overlay {
+  grid-column: 1 / -1;
+  grid-row: 1 / -1;
+  margin: -0.7rem;
+  background-color: rgba(53, 48, 48, 0.5);
 }
 
 .full-image__container {
@@ -23,7 +28,7 @@ Full image
   max-height: 97%;
   align-self: center;
   justify-self: center;
-  z-index: 9999;
+  z-index: 26;
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: auto auto;
@@ -65,7 +70,7 @@ Full image
 .full-image__image {
   animation-name: scale;
   animation-duration: 0.5s;
-  max-height: 78vh;
+  max-height: 65vh;
   margin: -1.5rem -1.5rem 0 0;
   max-width: 93vw;
 }
@@ -80,7 +85,8 @@ Full image
   width: 5rem;
   height: 5rem;
   padding: 1rem;
-  z-index: 10000;
+  margin-top: 7vh;
+  z-index: 25;
 }
 
 @media (orientation: landscape) {

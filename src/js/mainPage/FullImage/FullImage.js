@@ -43,10 +43,12 @@ const closeFullImage = () => {
 
 const handleFullImageSection = () => {
   const close = fullImageSection.querySelector('.full-image__close');
+  const overlay = fullImageSection.querySelector('.full-image__overlay');
   fullImageSection.style.display = 'grid';
-  const height = window.innerHeight * 0.925;
+  const height = window.innerHeight;
   fullImageSection.style.height = `${height}px`;
   close.addEventListener('click', closeFullImage, { once: true });
+  overlay.addEventListener('click', closeFullImage, { once: true });
 };
 
 async function openFullImage(e) {
