@@ -1,7 +1,7 @@
 import fetchFullImage from '../../UI/fetchFullImage';
 
 const resizeSlideShowFrame = () => {
-  const slideFame = document.querySelector('.slideshow__frame');
+  const slideFame = document.querySelector('.slideshow');
   slideFame.style.height = `${window.innerHeight}px`;
 };
 
