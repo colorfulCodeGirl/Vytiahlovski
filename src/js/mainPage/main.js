@@ -38,7 +38,15 @@ achievements.init();
 const lazyLoadScrollBar = () => {
   import('simple-scrollbar/simple-scrollbar.css');
   const scrollbarContainer = document.querySelector('.l-content');
-  getSimpleScrollbar().then((scrollBar) => scrollBar.default.initEl(scrollbarContainer));
+  getSimpleScrollbar()
+    .then((scrollBar) => scrollBar.default.initEl(scrollbarContainer))
+    .then(() => {
+      const searchParams = new URLSearchParams(window.location.search);
+      const sectionId = searchParams.get('id');
+      if (!sectionId) return;
+      const section = document.querySelector(`#${sectionId}`);
+      section.scrollIntoView({ behavior: 'smooth' });
+    });
 };
 
 window.onload = () => {
@@ -111,3 +119,7 @@ window.onload = () => {
 const workSectionPhotos = document.querySelectorAll('.works__person');
 
 workSectionPhotos.forEach((section) => section.addEventListener('click', openFullImage));
+
+// when redirecting from gallery to section page jumps up (initiating scrollBar)
+// this will sent to chosen section, but won't prevent page jump on slow connections
+setTimeout(() => {}, 1000);
