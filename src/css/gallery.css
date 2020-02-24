@@ -111,7 +111,7 @@ Full image
   grid-column: 1 / -1;
   grid-row: 1 / -1;
   margin: -0.7rem;
-  background-color: rgba(53, 48, 48, 0.9);
+  background-color: rgba(53, 48, 48, 0.5);
 }
 
 .full-image__container {

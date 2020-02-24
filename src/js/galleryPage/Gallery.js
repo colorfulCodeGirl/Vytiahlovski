@@ -184,19 +184,19 @@ class Gallery {
             newImage.addEventListener('load', this.loadHandler.bind(this), { once: true });
           }
         });
-      } else {
-        this.fullImage = new Image();
-        this.fullImage.src = this.cloud.url(`${this.person}/${this.openImageIndex}`, {
-          height: imageHeight,
-          quality: 'auto',
-          crop: 'scale',
-          fetchFormat: 'auto',
-        });
-        this.fullImage.classList.add('full-image__image');
-        this.fullImage.setAttribute('data-index', this.openImageIndex);
-        this.fullImage.removeAttribute('height');
-        this.fullImage.addEventListener('load', this.loadHandler.bind(this), { once: true });
       }
+    } else {
+      this.fullImage = new Image();
+      this.fullImage.src = this.cloud.url(`${this.person}/${this.openImageIndex}`, {
+        height: imageHeight,
+        quality: 'auto',
+        crop: 'scale',
+        fetchFormat: 'auto',
+      });
+      this.fullImage.classList.add('full-image__image');
+      this.fullImage.setAttribute('data-index', this.openImageIndex);
+      this.fullImage.removeAttribute('height');
+      this.fullImage.addEventListener('load', this.loadHandler.bind(this), { once: true });
     }
   }
 
@@ -210,17 +210,7 @@ class Gallery {
   closeFullImage() {
     this.fullImageSection.style.display = 'none';
     this.fullImage.removeEventListener('load', this.loadHandler.bind(this), { once: true });
-    // this.fullImageContainer.innerText = `<a class="button button--left-side full-image__button" href=""
-    // data-name="tetiana">See Gallery</a>`;
-    if (this.fullImage.parentNode === this.fullImageContainer) {
-      this.fullImageContainer.removeChild(this.fullImage);
-    }
-    if (this.fullDescription.parentNode === this.fullImageContainer) {
-      this.fullImageContainer.removeChild(this.fullDescription);
-    }
-    if (this.spinner.parentNode === this.fullImageContainer) {
-      this.fullImageContainer.removeChild(this.spinner);
-    }
+    this.fullImageContainer.innerHTML = '';
   }
 
   openNextFullImage(e) {
