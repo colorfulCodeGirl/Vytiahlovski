@@ -159,6 +159,7 @@ class Gallery {
       if (orientation === 'vertical') {
         wrapper.classList.add('full-image__wrapper--vertical');
       }
+      console.log(currentImgData);
       parts.forEach((part, i) => {
         const newImage = new Image();
         newImage.src = this.cloud.url(`${this.person}/${part}`, {

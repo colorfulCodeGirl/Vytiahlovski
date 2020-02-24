@@ -8,8 +8,8 @@
     "isTriptych": false
   },
   "2": {
-    "name": "COMPOSITION",
-    "size": "60×42",
+    "name": "COMPOSITION (DIPTYCH)",
+    "size": "60×42, 60×36",
     "material": "Wool, artificial fibers, weaving",
     "year": 1993,
     "isDiptych": true,
@@ -17,8 +17,8 @@
     "parts": ["2", "3"]
   },
   "3": {
-    "name": "COMPOSITION",
-    "size": "60×36",
+    "name": "COMPOSITION (DIPTYCH)",
+    "size": "60×42, 60×36",
     "material": "Wool, artificial fibers, weaving",
     "year": 1993,
     "isDiptych": true,
@@ -82,8 +82,8 @@
     "isTriptych": false
   },
   "11": {
-    "name": "THE SONG OF MY CHILDHOOD CITY",
-    "size": "104×45",
+    "name": "THE SONG OF MY CHILDHOOD CITY (DIPTYCH)",
+    "size": "104×45, 104×90",
     "material": "Wool, artificial fibers, weaving",
     "year": 2007,
     "isDiptych": true,
@@ -91,8 +91,8 @@
     "parts": ["11", "12"]
   },
   "12": {
-    "name": "THE SONG OF MY CHILDHOOD CITY",
-    "size": "104×90",
+    "name": "THE SONG OF MY CHILDHOOD CITY (DIPTYCH)",
+    "size": "104×45, 104×90",
     "material": "Wool, artificial fibers, weaving",
     "year": 2007,
     "isDiptych": true,
@@ -100,8 +100,8 @@
     "parts": ["11", "12"]
   },
   "13": {
-    "name": "THE COBWEB OF THE GREEN VALLEY",
-    "size": "90×75",
+    "name": "THE COBWEB OF THE GREEN VALLEY (TRIPTYCH)",
+    "size": "90×75, 90×110, 90×75",
     "material": "Wool, artificial fibers, weaving",
     "year": 2007,
     "isDiptych": false,
@@ -110,8 +110,8 @@
     "parts": ["13", "14", "15"]
   },
   "14": {
-    "name": "THE COBWEB OF THE GREEN VALLEY",
-    "size": "90×110",
+    "name": "THE COBWEB OF THE GREEN VALLEY (TRIPTYCH)",
+    "size": "90×75, 90×110, 90×75",
     "material": "Wool, artificial fibers, weaving",
     "year": 2007,
     "isDiptych": false,
@@ -120,8 +120,8 @@
     "parts": ["13", "14", "15"]
   },
   "15": {
-    "name": "THE COBWEB OF THE GREEN VALLEY",
-    "size": "90×75",
+    "name": "THE COBWEB OF THE GREEN VALLEY (TRIPTYCH)",
+    "size": "90×75, 90×110, 90×75",
     "material": "Wool, artificial fibers, weaving",
     "year": 2015,
     "isDiptych": false,
@@ -154,8 +154,8 @@
     "isTriptych": false
   },
   "19": {
-    "name": "THE TRAILS OF DREAMS",
-    "size": "65×40",
+    "name": "THE TRAILS OF DREAMS (DIPTYCH)",
+    "size": "65×40, 65×50",
     "material": "Wool, artificial fibers, weaving",
     "year": 2009,
     "isDiptych": true,
@@ -163,8 +163,8 @@
     "parts": ["19", "20"]
   },
   "20": {
-    "name": "THE TRAILS OF DREAMS",
-    "size": "65×50",
+    "name": "THE TRAILS OF DREAMS (DIPTYCH)",
+    "size": "65×40, 65×50",
     "material": "Wool, artificial fibers, weaving",
     "year": 2009,
     "isDiptych": true,
@@ -204,8 +204,8 @@
     "isTriptych": false
   },
   "25": {
-    "name": "GENEROSITY OF FEELINGS",
-    "size": "58×47",
+    "name": "GENEROSITY OF FEELINGS (DIPTYCH)",
+    "size": "58×47, 58×43",
     "material": "Wool, artificial fibers, weaving",
     "year": 2012,
     "isDiptych": true,
@@ -213,8 +213,8 @@
     "parts": ["25", "26"]
   },
   "26": {
-    "name": "GENEROSITY OF FEELINGS",
-    "size": "58×43",
+    "name": "GENEROSITY OF FEELINGS (DIPTYCH)",
+    "size": "58×47, 58×43",
     "material": "Wool, artificial fibers, weaving",
     "year": 2012,
     "isDiptych": true,
@@ -294,8 +294,8 @@
     "isTriptych": false
   },
   "36": {
-    "name": "THE SUN IN THE CITY",
-    "size": "32×24",
+    "name": "THE SUN IN THE CITY (DIPTYCH)",
+    "size": "32×24, 32×24",
     "material": "Wool, artificial fibers, weaving",
     "year": 2005,
     "isDiptych": true,
@@ -303,8 +303,8 @@
     "parts": ["36", "37"]
   },
   "37": {
-    "name": "THE SUN IN THE CITY",
-    "size": "32×24",
+    "name": "THE SUN IN THE CITY (DIPTYCH)",
+    "size": "32×24, 32×24",
     "material": "Wool, artificial fibers, weaving",
     "year": 2005,
     "isDiptych": true,
@@ -312,8 +312,8 @@
     "parts": ["36", "37"]
   },
   "38": {
-    "name": "THE SUN AND THE ROCKS",
-    "size": "22×12",
+    "name": "THE SUN AND THE ROCKS (TRIPTYCH)",
+    "size": "22×12, 22×12, 22×12",
     "material": "Wool, artificial fibers, weaving",
     "year": 1998,
     "isDiptych": false,
@@ -322,8 +322,8 @@
     "parts": ["38", "39", "40"]
   },
   "39": {
-    "name": "THE SUN AND THE ROCKS",
-    "size": "22×12",
+    "name": "THE SUN AND THE ROCKS (TRIPTYCH)",
+    "size": "22×12, 22×12, 22×12",
     "material": "Wool, artificial fibers, weaving",
     "year": 1998,
     "isDiptych": false,
@@ -332,8 +332,8 @@
     "parts": ["38", "39", "40"]
   },
   "40": {
-    "name": "THE SUN AND THE ROCKS",
-    "size": "22×12",
+    "name": "THE SUN AND THE ROCKS (TRIPTYCH)",
+    "size": "22×12, 22×12, 22×12",
     "material": "Wool, artificial fibers, weaving",
     "year": 1998,
     "isDiptych": false,
@@ -350,8 +350,8 @@
     "isTriptych": false
   },
   "42": {
-    "name": "THE COUPLE",
-    "size": "14×14",
+    "name": "THE COUPLE (DIPTYCH)",
+    "size": "14×14, 14×14",
     "material": "Wool, artificial fibers, weaving",
     "year": 2008,
     "isDiptych": true,
@@ -359,8 +359,8 @@
     "parts": ["42", "43"]
   },
   "43": {
-    "name": "THE COUPLE",
-    "size": "14×14",
+    "name": "THE COUPLE (DIPTYCH)",
+    "size": "14×14, 14×14",
     "material": "Wool, artificial fibers, weaving",
     "year": 2008,
     "isDiptych": true,
@@ -424,8 +424,8 @@
     "isTriptych": false
   },
   "51": {
-    "name": "GRANDMA'S EMBROIDERED TOWELS",
-    "size": "145×85",
+    "name": "GRANDMA'S EMBROIDERED TOWELS (DIPTYCH)",
+    "size": "145×85б 145×110",
     "material": "Wool, artificial fibers, weaving",
     "year": 2008,
     "isDiptych": true,
@@ -433,8 +433,8 @@
     "parts": ["51", "52"]
   },
   "52": {
-    "name": "GRANDMA'S EMBROIDERED TOWELS",
-    "size": "145×110",
+    "name": "GRANDMA'S EMBROIDERED TOWELS (DIPTYCH)",
+    "size": "145×85б 145×110",
     "material": "Wool, artificial fibers, weaving",
     "year": 2008,
     "isDiptych": true,
@@ -466,8 +466,8 @@
     "isTriptych": false
   },
   "56": {
-    "name": "SAILS OF HOPE",
-    "size": "157×77",
+    "name": "SAILS OF HOPE (DIPTYCH)",
+    "size": "157×77, 145×78",
     "material": "Wool, artificial fibers, weaving",
     "year": 1993,
     "isDiptych": true,
@@ -475,8 +475,8 @@
     "parts": ["56", "57"]
   },
   "57": {
-    "name": "SAILS OF HOPE",
-    "size": "145×78",
+    "name": "SAILS OF HOPE (DIPTYCH)",
+    "size": "157×77, 145×78",
     "material": "Wool, artificial fibers, weaving",
     "year": 1993,
     "isDiptych": true,
@@ -500,8 +500,8 @@
     "isTriptych": false
   },
   "60": {
-    "name": "MYSTERIOUS TRAVELS AFTER THE WHITE TOWELS",
-    "size": "116×132",
+    "name": "MYSTERIOUS TRAVELS AFTER THE WHITE TOWELS (DIPTYCH)",
+    "size": "116×132, 116×51",
     "material": "Wool, artificial fibers, weaving",
     "year": 2009,
     "isDiptych": true,
@@ -509,8 +509,8 @@
     "parts": ["60", "61"]
   },
   "61": {
-    "name": "MYSTERIOUS TRAVELS AFTER THE WHITE TOWELS",
-    "size": "116×51",
+    "name": "MYSTERIOUS TRAVELS AFTER THE WHITE TOWELS (DIPTYCH)",
+    "size": "116×132, 116×51",
     "material": "Wool, artificial fibers, weaving",
     "year": 2009,
     "isDiptych": true,
@@ -534,8 +534,8 @@
     "isTriptych": false
   },
   "64": {
-    "name": "THE HEAT OF TWO IN THE COLD",
-    "size": "105×70",
+    "name": "THE HEAT OF TWO IN THE COLD (DIPTYCH)",
+    "size": "105×70, 109×99",
     "material": "Wool, artificial fibers, weaving",
     "year": 2003,
     "isDiptych": true,
@@ -543,8 +543,8 @@
     "parts": ["64", "65"]
   },
   "65": {
-    "name": "THE HEAT OF TWO IN THE COLD",
-    "size": "109×99",
+    "name": "THE HEAT OF TWO IN THE COLD (DIPTYCH)",
+    "size": "105×70, 109×99",
     "material": "Wool, artificial fibers, weaving",
     "year": 2003,
     "isDiptych": true,
@@ -576,8 +576,8 @@
     "isTriptych": false
   },
   "69": {
-    "name": "WIND AND UMBRELLAS",
-    "size": "88×113",
+    "name": "WIND AND UMBRELLAS (DIPTYCH)",
+    "size": "88×113, 88×113",
     "material": "Wool, artificial fibers, weaving",
     "year": 2008,
     "isDiptych": true,
@@ -585,8 +585,8 @@
     "parts": ["69", "70"]
   },
   "70": {
-    "name": "WIND AND UMBRELLAS",
-    "size": "88×113",
+    "name": "WIND AND UMBRELLAS (DIPTYCH)",
+    "size": "88×113, 88×113",
     "material": "Wool, artificial fibers, weaving",
     "year": 2008,
     "isDiptych": true,
@@ -602,8 +602,8 @@
     "isTriptych": false
   },
   "72": {
-    "name": "THE GREEN DAYBREAK",
-    "size": "92×71",
+    "name": "THE GREEN DAYBREAK (TRIPTYCH)",
+    "size": "92×71, 92×110, 92×74",
     "material": "Wool, artificial fibers, weaving",
     "year": 2016,
     "isDiptych": false,
@@ -612,8 +612,8 @@
     "parts": ["72", "73", "74"]
   },
   "73": {
-    "name": "THE GREEN DAYBREAK",
-    "size": "92×110",
+    "name": "THE GREEN DAYBREAK (TRIPTYCH)",
+    "size": "92×71, 92×110, 92×74",
     "material": "Wool, artificial fibers, weaving",
     "year": 2016,
     "isDiptych": false,
@@ -622,8 +622,8 @@
     "parts": ["72", "73", "74"]
   },
   "74": {
-    "name": "THE GREEN DAYBREAK",
-    "size": "92×74",
+    "name": "THE GREEN DAYBREAK (TRIPTYCH)",
+    "size": "92×71, 92×110, 92×74",
     "material": "Wool, artificial fibers, weaving",
     "year": 2016,
     "isDiptych": false,
@@ -680,8 +680,8 @@
     "isTriptych": false
   },
   "81": {
-    "name": "THE EVENING HOARFROST",
-    "size": "33×108",
+    "name": "THE EVENING HOARFROST (TRIPTYCH)",
+    "size": "33×108, 73×108, 42×108",
     "material": "Wool, artificial fibers, weaving",
     "year": 1997,
     "isDiptych": false,
@@ -690,8 +690,8 @@
     "parts": ["81", "82", "83"]
   },
   "82": {
-    "name": "THE EVENING HOARFROST",
-    "size": "73×108",
+    "name": "THE EVENING HOARFROST (TRIPTYCH)",
+    "size": "33×108, 73×108, 42×108",
     "material": "Wool, artificial fibers, weaving",
     "year": 1997,
     "isDiptych": false,
@@ -700,8 +700,8 @@
     "parts": ["81", "82", "83"]
   },
   "83": {
-    "name": "THE EVENING HOARFROST",
-    "size": "42×108",
+    "name": "THE EVENING HOARFROST (TRIPTYCH)",
+    "size": "33×108, 73×108, 42×108",
     "material": "Wool, artificial fibers, weaving",
     "year": 1997,
     "isDiptych": false,
@@ -862,8 +862,8 @@
     "isTriptych": false
   },
   "103": {
-    "name": "THE MORNING FOG",
-    "size": "63×80",
+    "name": "THE MORNING FOG (DIPTYCH)",
+    "size": "63×80, 63×80",
     "material": "Wool, artificial fibers, weaving",
     "year": 1991,
     "isDiptych": true,
@@ -871,8 +871,8 @@
     "parts": ["103", "104"]
   },
   "104": {
-    "name": "THE MORNING FOG",
-    "size": "63×80",
+    "name": "THE MORNING FOG (DIPTYCH)",
+    "size": "63×80, 63×80",
     "material": "Wool, artificial fibers, weaving",
     "year": 1991,
     "isDiptych": true,
@@ -880,8 +880,8 @@
     "parts": ["103", "104"]
   },
   "105": {
-    "name": "THE WARMTH OF THE AMBER SHORE",
-    "size": "33×92",
+    "name": "THE WARMTH OF THE AMBER SHORE (TRIPTYCH)",
+    "size": "33×92, 62×92, 65×92",
     "material": "Wool, artificial fibers, weaving",
     "year": 1995,
     "isDiptych": false,
@@ -890,8 +890,8 @@
     "parts": ["105", "106", "107"]
   },
   "106": {
-    "name": "THE WARMTH OF THE AMBER SHORE",
-    "size": "62×92",
+    "name": "THE WARMTH OF THE AMBER SHORE (TRIPTYCH)",
+    "size": "33×92, 62×92, 65×92",
     "material": "Wool, artificial fibers, weaving",
     "year": 1995,
     "isDiptych": false,
@@ -900,8 +900,8 @@
     "parts": ["105", "106", "107"]
   },
   "107": {
-    "name": "THE WARMTH OF THE AMBER SHORE",
-    "size": "65×92",
+    "name": "THE WARMTH OF THE AMBER SHORE (TRIPTYCH)",
+    "size": "33×92, 62×92, 65×92",
     "material": "Wool, artificial fibers, weaving",
     "year": 1995,
     "isDiptych": false,
@@ -910,8 +910,8 @@
     "parts": ["105", "106", "107"]
   },
   "108": {
-    "name": "THE RHYTHMS OF THE LIGHT",
-    "size": "40×98",
+    "name": "THE RHYTHMS OF THE LIGHT (TRIPTYCH)",
+    "size": "40×98, 61×98, 67×98",
     "material": "Wool, artificial fibers, weaving",
     "year": 1994,
     "isDiptych": false,
@@ -920,8 +920,8 @@
     "parts": ["108", "109", "110"]
   },
   "109": {
-    "name": "THE RHYTHMS OF THE LIGHT",
-    "size": "61×98",
+    "name": "THE RHYTHMS OF THE LIGHT (TRIPTYCH)",
+    "size": "40×98, 61×98, 67×98",
     "material": "Wool, artificial fibers, weaving",
     "year": 1994,
     "isDiptych": false,
@@ -930,8 +930,8 @@
     "parts": ["108", "109", "110"]
   },
   "110": {
-    "name": "THE RHYTHMS OF THE LIGHT",
-    "size": "67×98",
+    "name": "THE RHYTHMS OF THE LIGHT (TRIPTYCH)",
+    "size": "40×98, 61×98, 67×98",
     "material": "Wool, artificial fibers, weaving",
     "year": 1994,
     "isDiptych": false,
@@ -940,8 +940,8 @@
     "parts": ["108", "109", "110"]
   },
   "111": {
-    "name": "THE EARTH BREATH",
-    "size": "84×55",
+    "name": "THE EARTH BREATH (TRIPTYCH)",
+    "size": "84×55, 84×55, 84×55",
     "material": "Wool, artificial fibers, weaving",
     "year": 1990,
     "isDiptych": false,
@@ -950,8 +950,8 @@
     "parts": ["111", "112", "113"]
   },
   "112": {
-    "name": "THE EARTH BREATH",
-    "size": "84×55",
+    "name": "THE EARTH BREATH (TRIPTYCH)",
+    "size": "84×55, 84×55, 84×55",
     "material": "Wool, artificial fibers, weaving",
     "year": 1990,
     "isDiptych": false,
@@ -960,8 +960,8 @@
     "parts": ["111", "112", "113"]
   },
   "113": {
-    "name": "THE EARTH BREATH",
-    "size": "84×55",
+    "name": "THE EARTH BREATH (TRIPTYCH)",
+    "size": "84×55, 84×55, 84×55",
     "material": "Wool, artificial fibers, weaving",
     "year": 1990,
     "isDiptych": false,
@@ -1002,8 +1002,8 @@
     "isTriptych": false
   },
   "118": {
-    "name": "HAVEN'T MET",
-    "size": "51×42",
+    "name": "HAVEN'T MET (DIPTYCH)",
+    "size": "51×42, 51×30",
     "material": "Wool, artificial fibers, weaving",
     "year": 1994,
     "isDiptych": true,
@@ -1011,8 +1011,8 @@
     "parts": ["118", "119"]
   },
   "119": {
-    "name": "HAVEN'T MET",
-    "size": "51×30",
+    "name": "HAVEN'T MET (DIPTYCH)",
+    "size": "51×42, 51×30",
     "material": "Wool, artificial fibers, weaving",
     "year": 1994,
     "isDiptych": true,
@@ -1020,8 +1020,8 @@
     "parts": ["118", "119"]
   },
   "120": {
-    "name": "LONELINESS",
-    "size": "60×30",
+    "name": "LONELINESS (TRIPTYCH)",
+    "size": "60×30, 60×75, 60×30",
     "material": "Wool, artificial fibers, weaving",
     "year": 1990,
     "isDiptych": false,
@@ -1030,8 +1030,8 @@
     "parts": ["120", "121", "122"]
   },
   "121": {
-    "name": "LONELINESS",
-    "size": "60×75",
+    "name": "LONELINESS (TRIPTYCH)",
+    "size": "60×30, 60×75, 60×30",
     "material": "Wool, artificial fibers, weaving",
     "year": 1990,
     "isDiptych": false,
@@ -1040,8 +1040,8 @@
     "parts": ["120", "121", "122"]
   },
   "122": {
-    "name": "LONELINESS",
-    "size": "60×30",
+    "name": "LONELINESS (TRIPTYCH)",
+    "size": "60×30, 60×75, 60×30",
     "material": "Wool, artificial fibers, weaving",
     "year": 1990,
     "isDiptych": false,
