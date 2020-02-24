@@ -66,8 +66,9 @@
   grid-area: header;
   height: 7.5vh;
   width: 100vw;
-  background-color: var(--background-color);
+  background-color: rgba(53, 48, 48, 0.7);
   z-index: 30;
+  position: fixed;
   display: flex;
   flex-wrap: wrap;
   justify-content: flex-end;

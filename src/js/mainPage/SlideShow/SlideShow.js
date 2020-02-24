@@ -2,7 +2,7 @@ import fetchFullImage from '../../UI/fetchFullImage';
 
 const resizeSlideShowFrame = () => {
   const slideFame = document.querySelector('.slideshow__frame');
-  slideFame.style.height = `${window.innerHeight * 0.925}px`;
+  slideFame.style.height = `${window.innerHeight}px`;
 };
 
 const getSlideDimensions = () => {
@@ -14,29 +14,32 @@ const getSlideDimensions = () => {
   } else {
     width = window.innerWidth;
   }
-  return { width, height };
+  const cropWidth = window.innerWidth;
+  return { width, height, cropWidth };
 };
 
 const prepareFirstSlideImage = () => {
-  const { width, height } = getSlideDimensions();
+  const { width, height, cropWidth } = getSlideDimensions();
 
   fetchFullImage({
     placeholderSelector: '.slideshow__slide.placeholder',
     containerSelector: 'slideshow__slide--container',
     width,
     height,
+    cropWidth,
     name: 'tetiana/53.jpg',
     attributeArray: [['alt', ' '], ['data-index', 0]],
   });
 };
 
 export const lazyLoadSlides = () => {
-  const { width, height } = getSlideDimensions();
+  const { width, height, cropWidth } = getSlideDimensions();
   for (let i = 1; i < 7; i++) {
     fetchFullImage({
       placeholderSelector: `.slideshow__slide.download[data-index="${i}"]`,
       width,
       height,
+      cropWidth,
     });
   }
 };

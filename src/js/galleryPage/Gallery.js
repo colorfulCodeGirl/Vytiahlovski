@@ -38,16 +38,6 @@ class Gallery {
   }
 
   createGalleryColumns() {
-    // this.macy = Macy({
-    //   container: '.gallery',
-    //   trueOrder: true,
-    //   margin: 7,
-    //   columns: 4,
-    //   breakAt: {
-    //     1050: 3,
-    //     600: 2,
-    //   },
-    // });
     const width = window.innerWidth;
     let columnCount = 2;
     if (width >= 600 && width < 1050) {
