@@ -70,13 +70,17 @@ window.onload = () => {
       const slides = document.querySelector('.slideshow');
 
       slides.addEventListener('touchstart', (e) => {
-        e.preventDefault();
-        const hasClassName = typeof e.target.className === 'string';
-        if (hasClassName && e.target.className.includes('arrow')) {
+        const { className } = e.target;
+        const isSideArrow = className && className.includes('arrow');
+        const isSlide = className && (className.includes('nav') || className.includes('_slide'));
+        // const isSvgPart = e.target.ownerSVGElement;
+        // const isDownArrow = isSvgPart || (className && className.includes('down-arrow'));
+
+        if (isSideArrow) {
           // user interacts with left/right arrow block
           userClickedAt.time = new Date().getTime();
           changeSlideMobile.default(e);
-        } else if (hasClassName && e.target.className.includes('slideshow-nav-mobile')) {
+        } else if (isSlide) {
           // user interacts with slides
           userClickedAt.time = new Date().getTime();
           const { screenX: startX, screenY: startY } = e.touches[0];
@@ -88,20 +92,18 @@ window.onload = () => {
               const differenceY = startY - endY;
               if (Math.abs(differenceX) > Math.abs(differenceY)) {
                 changeSlideMobile.default(null, differenceX);
-              } else if (differenceY > 0) {
-                const biographySection = document.querySelector('#biography');
-                biographySection.scrollIntoView({ behavior: 'smooth' });
               }
             },
             { once: true },
           );
-        } else {
-          // user interacts with down arrow
-          const arrow = document.querySelector('.slideshow__down-arrow');
-          const event = document.createEvent('SVGEvents');
-          event.initEvent('click', true, true);
-          arrow.dispatchEvent(event);
         }
+        // else if (isDownArrow) {
+        //   // user interacts with down arrow
+        //   const arrow = document.querySelector('.slideshow__down-arrow');
+        //   const event = document.createEvent('SVGEvents');
+        //   event.initEvent('click', true, true);
+        //   arrow.dispatchEvent(event);
+        // }
       });
 
       getInitAutoPlay().then((initAutoPlayModule) => {
