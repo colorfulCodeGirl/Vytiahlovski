@@ -52,14 +52,12 @@ window.onload = () => {
     // lazy load code and set event Listeners for desktop slideshow and autoplay
     getChangeSlideDesktop().then((changeSlideDesktop) => {
       const desktopNav = document.querySelectorAll('.slideshow-nav-desktop__link');
-
       desktopNav.forEach((btn) => {
         btn.addEventListener('click', (e) => {
           userClickedAt.time = new Date().getTime();
           changeSlideDesktop.default(e);
         });
       });
-
       getInitAutoPlay().then((initAutoPlayModule) => {
         initAutoPlayModule.default(changeSlideDesktop.default, userClickedAt);
       });
@@ -68,14 +66,10 @@ window.onload = () => {
     // lazy load code and set event Listeners for mobile slideshow and autoplay
     getChangeSlideMobile().then((changeSlideMobile) => {
       const slides = document.querySelector('.slideshow');
-
       slides.addEventListener('touchstart', (e) => {
         const { className } = e.target;
         const isSideArrow = className && className.includes('arrow');
         const isSlide = className && (className.includes('nav') || className.includes('_slide'));
-        // const isSvgPart = e.target.ownerSVGElement;
-        // const isDownArrow = isSvgPart || (className && className.includes('down-arrow'));
-
         if (isSideArrow) {
           // user interacts with left/right arrow block
           userClickedAt.time = new Date().getTime();
@@ -97,15 +91,7 @@ window.onload = () => {
             { once: true },
           );
         }
-        // else if (isDownArrow) {
-        //   // user interacts with down arrow
-        //   const arrow = document.querySelector('.slideshow__down-arrow');
-        //   const event = document.createEvent('SVGEvents');
-        //   event.initEvent('click', true, true);
-        //   arrow.dispatchEvent(event);
-        // }
       });
-
       getInitAutoPlay().then((initAutoPlayModule) => {
         initAutoPlayModule.default(changeSlideMobile.default, userClickedAt);
       });

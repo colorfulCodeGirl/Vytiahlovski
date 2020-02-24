@@ -42,22 +42,13 @@
 ---LAYOUT---
 */
 
-.l-body {
+.l-content {
   background-color: var(--background-color);
   color: var(--text-invert-color);
   margin: 0;
   font-family: 'Roboto', sans-serif;
   font-weight: 300;
   height: 100vh;
-  overflow-x: hidden;
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-template-rows: auto 1fr;
-  grid-template-areas: 'header' 'content';
-}
-
-.l-content {
-  grid-area: content;
   overflow: hidden;
   width: 100vw;
 }
@@ -148,10 +139,10 @@ Menu
   padding: 17vh 0 20vh 0;
   background-color: var(--background-color);
   width: 100%;
-  height: 100%;
+  height: 100vh;
   margin: 0;
   overflow: hidden;
-  z-index: 20;
+  z-index: 29;
   transform: translateX(100vw);
   transition: transform 1s 0.9s ease-in;
 }

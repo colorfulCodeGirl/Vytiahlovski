@@ -76,7 +76,6 @@ class Gallery {
       endIndex = this.imgQuantity + 1;
     }
     const prevueWidth = this.findPrevueImgWidth().toFixed(0);
-
     for (let i = startIndex; i < endIndex; i++) {
       const img = this.cloud.imageTag(`${this.person}/${i}`, {
         crop: 'scale',
@@ -87,7 +86,6 @@ class Gallery {
         class: 'placeholder',
         'data-index': i,
       });
-
       const div = document.createElement('div');
       div.innerHTML = `
                 ${img.toHtml()}
@@ -147,44 +145,36 @@ class Gallery {
     // check if user clicked on gaps between photos (target == gallery)
     // if e = null than function was called after click on arrow button (openNextFullImage)
     if (e && e.target === this.gallery) return;
-
     this.handleFullImageSection();
-
     this.fullImageContainer.prepend(this.spinner);
-
     this.openImageIndex = !nextIndex ? e.target.parentElement.dataset.index : nextIndex;
     const imageHeight = (window.innerHeight * 0.95).toFixed(0);
-
     this.fullDescription = this.getFullDescription();
     this.fullImageContainer.prepend(this.fullDescription);
-
-    // handle triptych and diptych on desktop
-    if (this.isDesktop) {
-      const currentImgData = this.data[this.openImageIndex];
-      if (currentImgData.isDiptych || currentImgData.isTriptych) {
-        const { isDiptych, orientation, parts } = currentImgData;
-        const wrapper = document.createElement('div');
-        wrapper.classList.add('full-image__wrapper');
-        if (orientation === 'vertical') {
-          wrapper.classList.add('full-image__wrapper--vertical');
-        }
-        parts.forEach((part, i) => {
-          const newImage = new Image();
-          newImage.src = this.cloud.url(`${this.person}/${part}`, {
-            height: imageHeight,
-            quality: 'auto',
-            crop: 'scale',
-            fetchFormat: 'auto',
-          });
-          const className = isDiptych ? 'diptych' : 'triptych';
-          newImage.classList.add(className);
-          wrapper.appendChild(newImage);
-          if (i === parts.length - 1) {
-            this.fullImage = wrapper;
-            newImage.addEventListener('load', this.loadHandler.bind(this), { once: true });
-          }
-        });
+    const currentImgData = this.data[this.openImageIndex];
+    if (this.isDesktop && (currentImgData.isDiptych || currentImgData.isTriptych)) {
+      const { isDiptych, orientation, parts } = currentImgData;
+      const wrapper = document.createElement('div');
+      wrapper.classList.add('full-image__wrapper');
+      if (orientation === 'vertical') {
+        wrapper.classList.add('full-image__wrapper--vertical');
       }
+      parts.forEach((part, i) => {
+        const newImage = new Image();
+        newImage.src = this.cloud.url(`${this.person}/${part}`, {
+          height: imageHeight,
+          quality: 'auto',
+          crop: 'scale',
+          fetchFormat: 'auto',
+        });
+        const className = isDiptych ? 'diptych' : 'triptych';
+        newImage.classList.add(className);
+        wrapper.appendChild(newImage);
+        if (i === parts.length - 1) {
+          this.fullImage = wrapper;
+          newImage.addEventListener('load', this.loadHandler.bind(this), { once: true });
+        }
+      });
     } else {
       this.fullImage = new Image();
       this.fullImage.src = this.cloud.url(`${this.person}/${this.openImageIndex}`, {
@@ -209,7 +199,9 @@ class Gallery {
 
   closeFullImage() {
     this.fullImageSection.style.display = 'none';
-    this.fullImage.removeEventListener('load', this.loadHandler.bind(this), { once: true });
+    if (this.fullImage) {
+      this.fullImage.removeEventListener('load', this.loadHandler.bind(this), { once: true });
+    }
     this.fullImageContainer.innerHTML = '';
   }
 
@@ -217,7 +209,6 @@ class Gallery {
     this.closeFullImage();
     const { direction } = e.target.dataset;
     if (this.openImageIndex === '1' && direction === 'left') return;
-
     const nextIndex = direction === 'right' ? +this.openImageIndex + 1 : this.openImageIndex - 1;
     this.openFullImage(null, nextIndex);
   }

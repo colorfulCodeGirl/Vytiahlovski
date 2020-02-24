@@ -11,10 +11,7 @@
         rel="stylesheet">
 </head>
 
-<body class="l-body">
-
-
-
+<body class="l-content">
     <nav aria-label="Main menu" class="menu" aria-hidden=true>
         <ul class="menu__list">
             <li><a href="#biography" tabindex="-1"
@@ -39,819 +36,803 @@
             </li>
             <li><a href="#contact" tabindex="-1"
                     class="menu__link menu__link--forth" data-target="contact"
-                    data-type="nav">Contact</a></li>
+                    data-type="nav">Contact</a>
+            </li>
         </ul>
     </nav>
+    <header class="l-header">
+        <button class="menu-toggler menu-toggler--active"
+            aria-label="Open main menu" type="button">
+            <p class="sr-only">Open main menu</p>
+            <div class="menu-toggler__box">
+                <span class="menu-toggler__bar"></span>
+            </div>
+        </button>
+    </header>
+    <main class="home-page">
+        <section class="slideshow" data-index='0' data-classes=''>
 
-    <div class="l-content">
-        <main class="home-page">
-            <header class="l-header">
-                <button class="menu-toggler menu-toggler--active"
-                    aria-label="Open main menu" type="button">
-                    <p class="sr-only">Open main menu</p>
-                    <div class="menu-toggler__box">
-                        <span class="menu-toggler__bar"></span>
-                    </div>
-                </button>
-            </header>
-            <section class="slideshow" data-index='0' data-classes=''>
-
-                <div class="slideshow-nav-mobile">
-                    <div class="slideshow-nav-mobile__arrow-block"
+            <div class="slideshow-nav-mobile">
+                <div class="slideshow-nav-mobile__arrow-block"
+                    data-direction="left">
+                    <p class="slideshow-nav-mobile__arrow"
                         data-direction="left">
-                        <p class="slideshow-nav-mobile__arrow"
-                            data-direction="left">
-                            &#8249;</p>
-                    </div>
-                    <div class="slideshow-nav-mobile__arrow-block"
+                        &#8249;</p>
+                </div>
+                <div class="slideshow-nav-mobile__arrow-block"
+                    data-direction="right">
+                    <p class="slideshow-nav-mobile__arrow"
                         data-direction="right">
-                        <p class="slideshow-nav-mobile__arrow"
-                            data-direction="right">
-                            &#8250;</p>
-                    </div>
+                        &#8250;</p>
                 </div>
+            </div>
 
-                <ul class="slideshow-nav-desktop">
-                    <li class="slideshow-nav-desktop__list-item"><a
-                            class="slideshow-nav-desktop__link slideshow-nav-desktop__link--active"
-                            href="#" data-index="0"
-                            aria-label="first slide"></a>
-                    </li>
-                    <li class="slideshow-nav-desktop__list-item"><a
-                            class="slideshow-nav-desktop__link" href="#"
-                            data-index="1" aria-label="second slide"></a></li>
-                    <li class="slideshow-nav-desktop__list-item"><a
-                            class="slideshow-nav-desktop__link" href="#"
-                            data-index="2" aria-label="third slide"></a></li>
-                    <li class="slideshow-nav-desktop__list-item"><a
-                            class="slideshow-nav-desktop__link" href="#"
-                            data-index="3" aria-label="forth slide"></a></li>
-                    <li class="slideshow-nav-desktop__list-item"><a
-                            class="slideshow-nav-desktop__link" href="#"
-                            data-index="4" aria-label="fifth slide"></a></li>
-                    <li class="slideshow-nav-desktop__list-item"><a
-                            class="slideshow-nav-desktop__link" href="#"
-                            data-index="5" aria-label="sixth slide"></a></li>
-                    <li class="slideshow-nav-desktop__list-item"><a
-                            class="slideshow-nav-desktop__link" href="#"
-                            data-index="6" aria-label="seventh slide"></a>
-                    </li class="slideshow-nav-desktop__list-item">
-                </ul>
-                <div class="slideshow__frame">
-                    <img
-                        class='slideshow__slide slideshow__slide--active slideshow__slide--container'>
-                    <picture
-                        class="slideshow__slide slideshow__slide--active placeholder">
-                        <source
-                            srcset="https://res.cloudinary.com/vanilna/image/upload/c_scale,dpr_auto,e_blur:1500,f_auto,q_1,w_1200/v1576254582/tetiana/53.jpg"
-                            media="(min-width: 900px)">
-                        <source
-                            srcset="https://res.cloudinary.com/vanilna/image/upload/c_scale,dpr_auto,e_blur:1500,f_auto,q_1,w_900/v1576254582/tetiana/53.jpg"
-                            media="(min-width: 600px)">
-                        <img src="https://res.cloudinary.com/vanilna/image/upload/c_scale,dpr_auto,e_blur:1500,f_auto,q_1,w_600/v1576254582/tetiana/53.jpg"
-                            class="slideshow__slide slideshow__slide--active"
-                            alt="" data-index="0" />
-                    </picture>
-                    <img class='slideshow__slide download' data-src="tetiana/7"
-                        alt="" data-index="1">
-                    <img class='slideshow__slide download' data-src="tetiana/84"
-                        alt="" data-index="2">
-                    <img class='slideshow__slide download' data-src="tetiana/98"
-                        alt="" data-index="3">
-                    <img class='slideshow__slide download' data-src="tetiana/68"
-                        alt="" data-index="4">
-                    <img class='slideshow__slide download' data-src="tetiana/69"
-                        alt="" data-index="5">
-                    <img class='slideshow__slide download' data-src="tetiana/73"
-                        alt="" data-index="6">
-                </div>
-                <h1 class="sr-only">Tetiana and Mykhailo Vytiahlovski</h1>
-                <picture class="slideshow__logo">
+            <ul class="slideshow-nav-desktop">
+                <li class="slideshow-nav-desktop__list-item"><a
+                        class="slideshow-nav-desktop__link slideshow-nav-desktop__link--active"
+                        href="#" data-index="0" aria-label="first slide"></a>
+                </li>
+                <li class="slideshow-nav-desktop__list-item"><a
+                        class="slideshow-nav-desktop__link" href="#"
+                        data-index="1" aria-label="second slide"></a></li>
+                <li class="slideshow-nav-desktop__list-item"><a
+                        class="slideshow-nav-desktop__link" href="#"
+                        data-index="2" aria-label="third slide"></a></li>
+                <li class="slideshow-nav-desktop__list-item"><a
+                        class="slideshow-nav-desktop__link" href="#"
+                        data-index="3" aria-label="forth slide"></a></li>
+                <li class="slideshow-nav-desktop__list-item"><a
+                        class="slideshow-nav-desktop__link" href="#"
+                        data-index="4" aria-label="fifth slide"></a></li>
+                <li class="slideshow-nav-desktop__list-item"><a
+                        class="slideshow-nav-desktop__link" href="#"
+                        data-index="5" aria-label="sixth slide"></a></li>
+                <li class="slideshow-nav-desktop__list-item"><a
+                        class="slideshow-nav-desktop__link" href="#"
+                        data-index="6" aria-label="seventh slide"></a>
+                </li class="slideshow-nav-desktop__list-item">
+            </ul>
+            <div class="slideshow__frame">
+                <img
+                    class='slideshow__slide slideshow__slide--active slideshow__slide--container'>
+                <picture
+                    class="slideshow__slide slideshow__slide--active placeholder">
                     <source
-                        srcset="https://res.cloudinary.com/vanilna/image/upload/c_scale,q_auto,w_1000/main-page/main-header.png"
+                        srcset="https://res.cloudinary.com/vanilna/image/upload/c_scale,dpr_auto,e_blur:1500,f_auto,q_1,w_1200/v1576254582/tetiana/53.jpg"
+                        media="(min-width: 900px)">
+                    <source
+                        srcset="https://res.cloudinary.com/vanilna/image/upload/c_scale,dpr_auto,e_blur:1500,f_auto,q_1,w_900/v1576254582/tetiana/53.jpg"
                         media="(min-width: 600px)">
-                    <img class="slideshow__logo"
-                        src="https://res.cloudinary.com/vanilna/image/upload/c_scale,q_auto,w_500/main-page/main-header.png"
-                        alt="Tetiana and Mykhailo Vytiahlovski" />
+                    <img src="https://res.cloudinary.com/vanilna/image/upload/c_scale,dpr_auto,e_blur:1500,f_auto,q_1,w_600/v1576254582/tetiana/53.jpg"
+                        class="slideshow__slide slideshow__slide--active" alt=""
+                        data-index="0" />
                 </picture>
+                <img class='slideshow__slide download' data-src="tetiana/7"
+                    alt="" data-index="1">
+                <img class='slideshow__slide download' data-src="tetiana/84"
+                    alt="" data-index="2">
+                <img class='slideshow__slide download' data-src="tetiana/98"
+                    alt="" data-index="3">
+                <img class='slideshow__slide download' data-src="tetiana/68"
+                    alt="" data-index="4">
+                <img class='slideshow__slide download' data-src="tetiana/69"
+                    alt="" data-index="5">
+                <img class='slideshow__slide download' data-src="tetiana/73"
+                    alt="" data-index="6">
+            </div>
+            <h1 class="sr-only">Tetiana and Mykhailo Vytiahlovski</h1>
+            <picture class="slideshow__logo">
+                <source
+                    srcset="https://res.cloudinary.com/vanilna/image/upload/c_scale,q_auto,w_1000/main-page/main-header.png"
+                    media="(min-width: 600px)">
+                <img class="slideshow__logo"
+                    src="https://res.cloudinary.com/vanilna/image/upload/c_scale,q_auto,w_500/main-page/main-header.png"
+                    alt="Tetiana and Mykhailo Vytiahlovski" />
+            </picture>
 
-                <svg class="slideshow__down-arrow"
-                    xmlns="http://www.w3.org/2000/svg" xml:space="preserve"
-                    width="1181px" height="1181px" version="1.1"
-                    shape-rendering="geometricPrecision"
-                    text-rendering="geometricPrecision"
-                    image-rendering="optimizeQuality" fill-rule="evenodd"
-                    clip-rule="evenodd" viewBox="0 0 1181 1181"
-                    xmlns:xlink="http://www.w3.org/1999/xlink">
-                    <g id="Layer_x0020_1">
-                        <path fill="rgba(255, 255, 255, 0.7)"
-                            d="M590.97 9.87c318.71,0 577.07,258.36 577.07,577.07 0,318.71 -258.36,577.08 -577.07,577.08 -318.71,0 -577.08,-258.37 -577.08,-577.08 0,-318.71 258.37,-577.07 577.08,-577.07zm-1.91 65.19l0 0c16.3,0 29.64,13.33 29.64,29.64l0 821.33 354.25 -354.25c11.3,-11.3 29.78,-11.3 41.08,0l0 0c11.3,11.3 11.3,29.78 0,41.08l-402 402c-1.95,2.4 -4.27,4.49 -6.87,6.19 -2.26,1.54 -4.69,2.73 -7.21,3.57 -10.46,4.13 -22.87,1.99 -31.29,-6.43l-404.78 -404.78c-11.3,-11.3 -11.3,-29.79 0,-41.09l0.01 0c11.29,-11.3 29.78,-11.3 41.08,0l356.45 356.45 0 -824.07c0,-16.31 13.34,-29.64 29.64,-29.64z" />
-                    </g>
-                </svg>
+            <svg class="slideshow__down-arrow"
+                xmlns="http://www.w3.org/2000/svg" xml:space="preserve"
+                width="1181px" height="1181px" version="1.1"
+                shape-rendering="geometricPrecision"
+                text-rendering="geometricPrecision"
+                image-rendering="optimizeQuality" fill-rule="evenodd"
+                clip-rule="evenodd" viewBox="0 0 1181 1181"
+                xmlns:xlink="http://www.w3.org/1999/xlink">
+                <g id="Layer_x0020_1">
+                    <path fill="rgba(255, 255, 255, 0.7)"
+                        d="M590.97 9.87c318.71,0 577.07,258.36 577.07,577.07 0,318.71 -258.36,577.08 -577.07,577.08 -318.71,0 -577.08,-258.37 -577.08,-577.08 0,-318.71 258.37,-577.07 577.08,-577.07zm-1.91 65.19l0 0c16.3,0 29.64,13.33 29.64,29.64l0 821.33 354.25 -354.25c11.3,-11.3 29.78,-11.3 41.08,0l0 0c11.3,11.3 11.3,29.78 0,41.08l-402 402c-1.95,2.4 -4.27,4.49 -6.87,6.19 -2.26,1.54 -4.69,2.73 -7.21,3.57 -10.46,4.13 -22.87,1.99 -31.29,-6.43l-404.78 -404.78c-11.3,-11.3 -11.3,-29.79 0,-41.09l0.01 0c11.29,-11.3 29.78,-11.3 41.08,0l356.45 356.45 0 -824.07c0,-16.31 13.34,-29.64 29.64,-29.64z" />
+                </g>
+            </svg>
 
 
-            </section>
+        </section>
 
-            <section class="section section--biography" id="biography"
-                data-index='1' data-classes='slideshow__down-arrow--mobile'>
-                <h2 class="section__heading">Biography</h2>
-                <div class="section__content text-section">
-                    <div class="text-section__person">
-                        <picture
-                            class="text-section__img text-section__img--left">
-                            <source
-                                srcset="https://res.cloudinary.com/vanilna/image/upload/c_scale,f_auto,q_auto,r_max,w_300/main-page/tetiana-portrait"
-                                media="(min-width: 600px)">
-                            <img src="https://res.cloudinary.com/vanilna/image/upload/c_scale,f_auto,q_auto,r_max,w_200/main-page/tetiana-portrait"
-                                class="text-section__img--portrait"
-                                alt="Portrait of Tetiana Vytiahlovska" />
-                        </picture>
+        <section class="section section--biography" id="biography"
+            data-index='1' data-classes='slideshow__down-arrow--mobile'>
+            <h2 class="section__heading">Biography</h2>
+            <div class="section__content text-section">
+                <div class="text-section__person">
+                    <picture class="text-section__img text-section__img--left">
+                        <source
+                            srcset="https://res.cloudinary.com/vanilna/image/upload/c_scale,f_auto,q_auto,r_max,w_300/main-page/tetiana-portrait"
+                            media="(min-width: 600px)">
+                        <img src="https://res.cloudinary.com/vanilna/image/upload/c_scale,f_auto,q_auto,r_max,w_200/main-page/tetiana-portrait"
+                            class="text-section__img--portrait"
+                            alt="Portrait of Tetiana Vytiahlovska" />
+                    </picture>
 
-                        <div
-                            class="text-section__lead text-section__lead--right">
-                            <p class="text-section__paragraph"><span
-                                    class="uppercase">Tetiana
-                                    Vytiahlovska</span> - she was
-                                born
-                                in
-                                Buchach in 1964
-                                (Ternopil
-                                region). From 1975 to 1978 Tetiana studied at
-                                Buchach Art
-                                School for children.</p>
-                            <button class="button button--right-side"
-                                data-person="tetiana"
-                                aria-label="Whole Tetniana's biography"
-                                type="button">more...</button>
-                        </div>
-                        <div
-                            class="text-section__full-text text-section__full-text--tetiana">
-                            <p>In 1983 she finished Art Weaving Department of
-                                Vyzhnytsya College of Applied and
-                                Decorative
-                                Arts.
-                            </p>
-                            <p>In 1989 Tetiana finished Art Weaving Department
-                                of Lviv Institute of Applied and
-                                Decorative
-                                Arts
-                                (now
-                                – Lviv National Art Academy).</p>
-                            <p>She had personal exhibitions – in Ternopil, Kyiv,
-                                Slavutych, Lviv. Since 1995 she has
-                                been a
-                                member
-                                of the National Union of Artists of Ukraine.</p>
-                            <ul>
-                                <li>Laureate of the exhibition dedicated to
-                                    400-th anniversary of the Union of Brest
-                                    (Ternopil,
-                                    1995);</li>
-                                <li>Laureate of the first prize in the
-                                    International exhibition 6-th Lviv Autumn
-                                    Salon
-                                    "High
-                                    Castle
-                                    2002";</li>
-                                <li>Laureate of regional Culture Award in the
-                                    category “Visual Art named after Mykhailo
-                                    Boychuk”
-                                    for
-                                    art project "Holiday of heaven and earth"
-                                    (2015, co-authored);</li>
-                                <li>Diploma in the category “For expressive
-                                    language of textile" at the 1st Ukrainian
-                                    Triennial
-                                    of
-                                    Artistic Textile (Kiev, 2004);</li>
-                                <li>Magazine “Child’s World” award at the
-                                    International exhibition 10-th Lviv Autumn
-                                    Salon
-                                    “High
-                                    Castle 2006”;</li>
-                                <li>Certificates of honor and valuable prizes
-                                    from Minister of Culture and Arts (2008,
-                                    2009,
-                                    2010,
-                                    2011, 2015, 2016 р.р.) for significant
-                                    contribution to the creation of spiritual
-                                    values
-                                    and
-                                    high
-                                    professional excellence.</li>
-                            </ul>
-                            <p>Tetiana lives and works in Zavodske town,
-                                Chortkiv district, Ternopil region (she works
-                                as a
-                                head
-                                of
-                                the
-                                department and a teacher at School of Arts).</p>
-                        </div>
+                    <div class="text-section__lead text-section__lead--right">
+                        <p class="text-section__paragraph"><span
+                                class="uppercase">Tetiana
+                                Vytiahlovska</span> - she was
+                            born
+                            in
+                            Buchach in 1964
+                            (Ternopil
+                            region). From 1975 to 1978 Tetiana studied at
+                            Buchach Art
+                            School for children.</p>
+                        <button class="button button--right-side"
+                            data-person="tetiana"
+                            aria-label="Whole Tetniana's biography"
+                            type="button">more...</button>
                     </div>
-
-                    <div class="text-section__person">
-                        <div
-                            class="text-section__lead text-section__lead--left">
-                            <p class="text-section__paragraph"><span
-                                    class="uppercase">Mykhailo
-                                    Vytiahlovskyi</span> - he was
-                                born
-                                in
-                                Soroky, Buchach
-                                district,
-                                Ternopil region in 1963. From 1974 to 1978
-                                Mykhailo studied at Buchach Art School for
-                                children.
-                            </p>
-                            <button class="button button--left-side"
-                                data-person="mykhailo"
-                                aria-label="Whole Mykhailo's biography"
-                                type="button">more...</button>
-                        </div>
-                        <picture
-                            class="text-section__img text-section__img--right">
-                            <source
-                                srcset="https://res.cloudinary.com/vanilna/image/upload/c_scale,f_auto,q_auto,r_max,w_300/main-page/mykhailo-portrait"
-                                media="(min-width: 600px)">
-                            <img src="https://res.cloudinary.com/vanilna/image/upload/c_scale,f_auto,q_auto,r_max,w_200/main-page/mykhailo-portrait"
-                                class="text-section__img--portrait"
-                                alt="Portrait of Mykhailo Vytiahlovskyi" />
-                        </picture>
-
-                        <div
-                            class="text-section__full-text text-section__full-text--mykhailo">
-                            <p>In 1982 he finished Wooden Art Department of
-                                Kosiv Technical College of Folk Crafts.</p>
-                            <p>In 1990 he finished faculty “Interior and
-                                Equipment” of Lviv Institute of Applied and
-                                Decorative
-                                Arts
-                                (now – Lviv National Art Academy).</p>
-                            <p>He creates modern art projects, filed with deep
-                                philosophical sense. Mykhailo works as a
-                                sculptor,
-                                but also he creates many oil and acrylic
-                                paintings.</p>
-                            <p>He was a participant of many regional, national
-                                and international exhibitions. He also
-                                had
-                                his
-                                personal
-                                exhibitions in Ternopil, Kyiv, Slavutych, Lviv.
-                            </p>
-                            <p>Since 1995 he has been a member of the National
-                                Union of Artists of Ukraine. Mykhailo is
-                                a
-                                winner
-                                of
-                                Lviv autumn salon “High castle 2013”.</p>
-                            <p>Laureate of regional Culture Award in the
+                    <div
+                        class="text-section__full-text text-section__full-text--tetiana">
+                        <p>In 1983 she finished Art Weaving Department of
+                            Vyzhnytsya College of Applied and
+                            Decorative
+                            Arts.
+                        </p>
+                        <p>In 1989 Tetiana finished Art Weaving Department
+                            of Lviv Institute of Applied and
+                            Decorative
+                            Arts
+                            (now
+                            – Lviv National Art Academy).</p>
+                        <p>She had personal exhibitions – in Ternopil, Kyiv,
+                            Slavutych, Lviv. Since 1995 she has
+                            been a
+                            member
+                            of the National Union of Artists of Ukraine.</p>
+                        <ul>
+                            <li>Laureate of the exhibition dedicated to
+                                400-th anniversary of the Union of Brest
+                                (Ternopil,
+                                1995);</li>
+                            <li>Laureate of the first prize in the
+                                International exhibition 6-th Lviv Autumn
+                                Salon
+                                "High
+                                Castle
+                                2002";</li>
+                            <li>Laureate of regional Culture Award in the
                                 category “Visual Art named after Mykhailo
                                 Boychuk”
                                 for
-                                art
-                                project "Defects of the civilization" (2015,
-                                co-authored).</p>
-                        </div>
+                                art project "Holiday of heaven and earth"
+                                (2015, co-authored);</li>
+                            <li>Diploma in the category “For expressive
+                                language of textile" at the 1st Ukrainian
+                                Triennial
+                                of
+                                Artistic Textile (Kiev, 2004);</li>
+                            <li>Magazine “Child’s World” award at the
+                                International exhibition 10-th Lviv Autumn
+                                Salon
+                                “High
+                                Castle 2006”;</li>
+                            <li>Certificates of honor and valuable prizes
+                                from Minister of Culture and Arts (2008,
+                                2009,
+                                2010,
+                                2011, 2015, 2016 р.р.) for significant
+                                contribution to the creation of spiritual
+                                values
+                                and
+                                high
+                                professional excellence.</li>
+                        </ul>
+                        <p>Tetiana lives and works in Zavodske town,
+                            Chortkiv district, Ternopil region (she works
+                            as a
+                            head
+                            of
+                            the
+                            department and a teacher at School of Arts).</p>
                     </div>
                 </div>
-            </section>
 
-            <section class="section section--works" id="works" data-index='2'
-                data-classes='slideshow__down-arrow--mobile'>
-                <h2 class="section__heading section__heading-left">Works</h2>
-                <div class="section__content works">
-                    <div class="works__person works__person--tetiana"
-                        data-person="tetiana">
-                        <div class="works__column works__column--1">
-                            <a class="button button--works js-tetiana-gallery"
-                                href="./gallery.html#tetiana"
-                                data-name="tetiana">TETIANA</a>
-                            <picture class="work__img-block">
-                                <source
-                                    srcset="https://res.cloudinary.com/vanilna/image/upload/c_scale,f_auto,q_auto,w_380/tetiana/66"
-                                    media="(min-width: 600px)">
-                                <img src="https://res.cloudinary.com/vanilna/image/upload/c_scale,f_auto,q_auto,w_280/tetiana/66"
-                                    class="work__img" alt="" data-index="66"
-                                    data-person="tetiana" />
-                            </picture>
-                            <picture class="work__img-block">
-                                <source
-                                    srcset="https://res.cloudinary.com/vanilna/image/upload/c_scale,f_auto,q_auto,w_380/tetiana/98"
-                                    media="(min-width: 600px)">
-                                <img src="https://res.cloudinary.com/vanilna/image/upload/c_scale,f_auto,q_auto,w_220/tetiana/98"
-                                    class="work__img" alt="" data-index="98"
-                                    data-person="tetiana" />
-                            </picture>
-                        </div>
-                        <div class="works__column works__column--2">
-                            <picture
-                                class="work__img-block work__img--full-width">
-                                <source
-                                    srcset="https://res.cloudinary.com/vanilna/image/upload/c_scale,f_auto,q_auto,w_380/tetiana/54"
-                                    media="(min-width: 600px)">
-                                <img src="https://res.cloudinary.com/vanilna/image/upload/c_scale,f_auto,q_auto,w_220/tetiana/54"
-                                    class="work__img" alt="" data-index="54"
-                                    data-person="tetiana" />
-                            </picture>
-                            <picture class="work__img-block">
-                                <source
-                                    srcset="https://res.cloudinary.com/vanilna/image/upload/c_scale,f_auto,q_auto,w_250/tetiana/62"
-                                    media="(min-width: 600px)">
-                                <img src="https://res.cloudinary.com/vanilna/image/upload/c_scale,f_auto,q_auto,w_150/tetiana/62"
-                                    class="work__img" alt="" data-index="62"
-                                    data-person="tetiana" />
-                            </picture>
-                            <picture class="work__img-block">
-                                <source
-                                    srcset="https://res.cloudinary.com/vanilna/image/upload/c_scale,f_auto,q_auto,w_250/tetiana/52"
-                                    media="(min-width: 600px)">
-                                <img src="https://res.cloudinary.com/vanilna/image/upload/c_scale,f_auto,q_auto,w_150/tetiana/52"
-                                    class="work__img" alt="" data-index="52"
-                                    data-person="tetiana" />
-                            </picture>
-                            <picture
-                                class="work__img-block work__img--full-width">
-                                <source
-                                    srcset="https://res.cloudinary.com/vanilna/image/upload/c_scale,f_auto,q_auto,w_380/tetiana/63"
-                                    media="(min-width: 600px)">
-                                <img src="https://res.cloudinary.com/vanilna/image/upload/c_scale,f_auto,q_auto,w_220/tetiana/63"
-                                    class="work__img" alt="" data-index="63"
-                                    data-person="tetiana" />
-                            </picture>
-                        </div>
-                        <div class="works__column works__column--3">
-                            <picture class="work__img-block">
-                                <source
-                                    srcset="https://res.cloudinary.com/vanilna/image/upload/c_scale,f_auto,q_auto,w_600/tetiana/78"
-                                    media="(min-width: 600px)">
-                                <img src="https://res.cloudinary.com/vanilna/image/upload/c_scale,f_auto,q_auto,w_400/tetiana/78"
-                                    class="work__img" alt="" data-index="78"
-                                    data-person="tetiana" />
-                            </picture>
-                            <picture class="work__img-block">
-                                <source
-                                    srcset="https://res.cloudinary.com/vanilna/image/upload/c_scale,f_auto,q_auto,w_600/tetiana/73"
-                                    media="(min-width: 600px)">
-                                <img src="https://res.cloudinary.com/vanilna/image/upload/c_scale,f_auto,q_auto,w_400/tetiana/73"
-                                    class="work__img" alt="" data-index="73"
-                                    data-person="tetiana" />
-                            </picture>
-                        </div>
+                <div class="text-section__person">
+                    <div class="text-section__lead text-section__lead--left">
+                        <p class="text-section__paragraph"><span
+                                class="uppercase">Mykhailo
+                                Vytiahlovskyi</span> - he was
+                            born
+                            in
+                            Soroky, Buchach
+                            district,
+                            Ternopil region in 1963. From 1974 to 1978
+                            Mykhailo studied at Buchach Art School for
+                            children.
+                        </p>
+                        <button class="button button--left-side"
+                            data-person="mykhailo"
+                            aria-label="Whole Mykhailo's biography"
+                            type="button">more...</button>
                     </div>
+                    <picture class="text-section__img text-section__img--right">
+                        <source
+                            srcset="https://res.cloudinary.com/vanilna/image/upload/c_scale,f_auto,q_auto,r_max,w_300/main-page/mykhailo-portrait"
+                            media="(min-width: 600px)">
+                        <img src="https://res.cloudinary.com/vanilna/image/upload/c_scale,f_auto,q_auto,r_max,w_200/main-page/mykhailo-portrait"
+                            class="text-section__img--portrait"
+                            alt="Portrait of Mykhailo Vytiahlovskyi" />
+                    </picture>
 
-                    <div class="works__person works__person--mykhailo"
-                        data-person="mykhailo">
-                        <div class="works__column works__column--1">
-                            <picture class="work__img-block">
-                                <source
-                                    srcset="https://res.cloudinary.com/vanilna/image/upload/c_scale,f_auto,q_auto,w_600/mykhailo/15"
-                                    media="(min-width: 600px)">
-                                <img src="https://res.cloudinary.com/vanilna/image/upload/c_scale,f_auto,q_auto,w_400/mykhailo/15"
-                                    class="work__img cutting-heads" alt=""
-                                    data-index="15" data-person="mykhailo" />
-                            </picture>
-                            <picture class="work__img-block">
-                                <source
-                                    srcset="https://res.cloudinary.com/vanilna/image/upload/c_scale,f_auto,q_auto,w_600/mykhailo/13"
-                                    media="(min-width: 600px)">
-                                <img src="https://res.cloudinary.com/vanilna/image/upload/c_scale,f_auto,q_auto,w_400/mykhailo/13"
-                                    class="work__img" alt="" data-index="13"
-                                    data-person="mykhailo" />
-                            </picture>
-                        </div>
-                        <div class="works__column works__column--2">
-                            <picture class="work__img-block">
-                                <source
-                                    srcset="https://res.cloudinary.com/vanilna/image/upload/c_scale,f_auto,q_auto,w_200/mykhailo/10"
-                                    media="(min-width: 600px)">
-                                <img src="https://res.cloudinary.com/vanilna/image/upload/c_scale,f_auto,q_auto,w_150/mykhailo/10"
-                                    class="work__img  cutting-heads" alt=""
-                                    data-index="10" data-person="mykhailo" />
-                            </picture>
-                            <picture class="work__img-block">
-                                <source
-                                    srcset="https://res.cloudinary.com/vanilna/image/upload/c_scale,f_auto,q_auto,w_200/mykhailo/6"
-                                    media="(min-width: 600px)">
-                                <img src="https://res.cloudinary.com/vanilna/image/upload/c_scale,f_auto,q_auto,w_150/mykhailo/6"
-                                    class="work__img" alt="" data-index="6"
-                                    data-person="mykhailo" />
-                            </picture>
-                            <picture class="work__img-block">
-                                <source
-                                    srcset="https://res.cloudinary.com/vanilna/image/upload/c_scale,f_auto,q_auto,w_200/mykhailo/7"
-                                    media="(min-width: 600px)">
-                                <img src="https://res.cloudinary.com/vanilna/image/upload/c_scale,f_auto,q_auto,w_150/mykhailo/7"
-                                    class="work__img" alt="" data-index="7"
-                                    data-person="mykhailo" />
-                            </picture>
-                        </div>
-                        <div class="works__column works__column--3">
-                            <a class="button button--works js-mykhailo-gallery"
-                                href="./gallery.html#mykhailo"
-                                data-name="mykhailo">MYKHAILO</a>
-                            <picture
-                                class="work__img-block work__img--full-width">
-                                <source
-                                    srcset="https://res.cloudinary.com/vanilna/image/upload/c_scale,f_auto,q_auto,w_600/mykhailo/12"
-                                    media="(min-width: 600px)">
-                                <img src="https://res.cloudinary.com/vanilna/image/upload/c_scale,f_auto,q_auto,w_400/mykhailo/12"
-                                    class="work__img" alt="" data-index="12"
-                                    data-person="mykhailo" />
-                            </picture>
-                            <picture class="work__img-block">
-                                <source
-                                    srcset="https://res.cloudinary.com/vanilna/image/upload/c_scale,f_auto,q_auto,w_200/mykhailo/5"
-                                    media="(min-width: 600px)">
-                                <img src="https://res.cloudinary.com/vanilna/image/upload/c_scale,f_auto,q_auto,w_150/mykhailo/5"
-                                    class="work__img" alt="" data-index="5"
-                                    data-person="mykhailo" />
-                            </picture>
-                            <picture class="work__img-block">
-                                <source
-                                    srcset="https://res.cloudinary.com/vanilna/image/upload/c_scale,f_auto,q_auto,w_200/mykhailo/2"
-                                    media="(min-width: 600px)">
-                                <img src="https://res.cloudinary.com/vanilna/image/upload/c_scale,f_auto,q_auto,w_150/mykhailo/2"
-                                    class="work__img" alt="" data-index="2"
-                                    data-person="mykhailo" />
-                            </picture>
-                            <picture class="work__img-block">
-                                <source
-                                    srcset="https://res.cloudinary.com/vanilna/image/upload/c_scale,f_auto,q_auto,w_200/mykhailo/18"
-                                    media="(min-width: 600px)">
-                                <img src="https://res.cloudinary.com/vanilna/image/upload/c_scale,f_auto,q_auto,w_150/mykhailo/18"
-                                    class="work__img" alt="" data-index="18"
-                                    data-person="mykhailo" />
-                            </picture>
-                        </div>
+                    <div
+                        class="text-section__full-text text-section__full-text--mykhailo">
+                        <p>In 1982 he finished Wooden Art Department of
+                            Kosiv Technical College of Folk Crafts.</p>
+                        <p>In 1990 he finished faculty “Interior and
+                            Equipment” of Lviv Institute of Applied and
+                            Decorative
+                            Arts
+                            (now – Lviv National Art Academy).</p>
+                        <p>He creates modern art projects, filed with deep
+                            philosophical sense. Mykhailo works as a
+                            sculptor,
+                            but also he creates many oil and acrylic
+                            paintings.</p>
+                        <p>He was a participant of many regional, national
+                            and international exhibitions. He also
+                            had
+                            his
+                            personal
+                            exhibitions in Ternopil, Kyiv, Slavutych, Lviv.
+                        </p>
+                        <p>Since 1995 he has been a member of the National
+                            Union of Artists of Ukraine. Mykhailo is
+                            a
+                            winner
+                            of
+                            Lviv autumn salon “High castle 2013”.</p>
+                        <p>Laureate of regional Culture Award in the
+                            category “Visual Art named after Mykhailo
+                            Boychuk”
+                            for
+                            art
+                            project "Defects of the civilization" (2015,
+                            co-authored).</p>
                     </div>
                 </div>
-            </section>
-
-            <section class="section section--achievements" id="achievements"
-                data-index='3' data-classes='slideshow__down-arrow--mobile'>
-                <h2 class="section__heading">Achievements
-                </h2>
-                <div class="section__content text-section">
-                    <div class="text-section__person">
-                        <picture
-                            class="text-section__img text-section__img--left">
-                            <source
-                                srcset="https://res.cloudinary.com/vanilna/image/upload/c_scale,f_auto,q_auto,w_220/main-page/achievements-tapestry"
-                                media="(min-width: 600px)">
-                            <img src="https://res.cloudinary.com/vanilna/image/upload/c_scale,f_auto,q_auto,w_170/main-page/achievements-tapestry"
-                                class="text-section__img--work"
-                                alt="Tapestry of Tetiana Vytiahlovska" />
-                        </picture>
-
-                        <div
-                            class="text-section__lead text-section__lead--right">
-                            <p class="text-section__paragraph"><span
-                                    class="uppercase">Tetiana
-                                    Vytiahlovska</span>
-                                lives an active artistic life since the 1989:
-                                regional, Ukrainian and
-                                international exhibitions. As
-                                result
-                                exhibitions:</p>
-                            <ul
-                                class="text-section__list text-section__list--right">
-                                <li
-                                    class="text-section__list-item text-section__list-item--right">
-                                    Personal exhibitions in Ternopil – in 1995
-                                    and 2000.</li>
-                            </ul>
-                            <button class="button button--right-side"
-                                data-person="tetiana"
-                                aria-label="Tetiana's achievements"
-                                type="button">more...</button>
-                        </div>
-
-                        <div
-                            class="text-section__full-text text-section__full-text--tetiana">
-                            <ul
-                                class="text-section__list text-section__list--right">
-                                <li
-                                    class="text-section__list-item text-section__list-item--right">
-                                    Personal exhibition in Slavutych – in 1996.
-                                </li>
-                                <li
-                                    class="text-section__list-item text-section__list-item--right">
-                                    Personal exhibition in Kyiv – in 1997.</li>
-                                <li
-                                    class="text-section__list-item text-section__list-item--right">
-                                    Personal exhibition in Lviv – in 2004.</li>
-                                <li
-                                    class="text-section__list-item text-section__list-item--right">
-                                    Personal exhibition in Zbarazh – in 2008.
-                                </li>
-                                <li
-                                    class="text-section__list-item text-section__list-item--right">
-                                    Regional exhibition for 400th Anniversary of
-                                    Berestechko's union. Ternopil, 1995. II
-                                    place
-                                    (the
-                                    first one wasn’t selected).</li>
-                                <li
-                                    class="text-section__list-item text-section__list-item--right">
-                                    Modern Art Exhibition and Days of Ukrainian
-                                    Culture in Munich “Ukraine – 1999”.</li>
-                                <li
-                                    class="text-section__list-item text-section__list-item--right">
-                                    6th International Exhibition: Lviv Autumn
-                                    Salon “High Castle 2002”. First place for
-                                    work
-                                    “Exidental witnesses of somebody’s love”.
-                                </li>
-                                <li
-                                    class="text-section__list-item text-section__list-item--right">
-                                    4th Ukrainian Exhibition of Modern Art.
-                                    Ternopil, 2002.</li>
-                                <li
-                                    class="text-section__list-item text-section__list-item--right">
-                                    7th International Exhibition: Lviv Autumn
-                                    Salon “High Castle 2003”. </li>
-                                <li
-                                    class="text-section__list-item text-section__list-item--right">
-                                    Participation in annual regional
-                                    exhibitions.</li>
-                                <li
-                                    class="text-section__list-item text-section__list-item--right">
-                                    1st Ukrainian Triennial of Artistic Textile.
-                                    Kiev, 2004. Diploma "For expressive
-                                    language of
-                                    textile" for tapestry "Night still life".
-                                </li>
-                                <li
-                                    class="text-section__list-item text-section__list-item--right">
-                                    10th International Exhibition: Lviv Autumn
-                                    Salon “High Castle 2006”. Magazine
-                                    “Child’s
-                                    World”
-                                    award.</li>
-                                <li
-                                    class="text-section__list-item text-section__list-item--right">
-                                    2nd Ukrainian Triennial of Artistic Textile.
-                                    Kiev, 2007.</li>
-                                <li
-                                    class="text-section__list-item text-section__list-item--right">
-                                    Ukrainian Art Exhibition “Picturesque
-                                    Ukraine”. Ternopil, 2007.</li>
-                                <li
-                                    class="text-section__list-item text-section__list-item--right">
-                                    11th International Exhibition: Lviv Autumn
-                                    Salon “High Castle 2007”.</li>
-                                <li
-                                    class="text-section__list-item text-section__list-item--right">
-                                    12th International Exhibition: Lviv Autumn
-                                    Salon “High Castle 2008”.</li>
-                                <li
-                                    class="text-section__list-item text-section__list-item--right">
-                                    3rd Art In plain air “Artists about Ternopil
-                                    region”. 2009.</li>
-                                <li
-                                    class="text-section__list-item text-section__list-item--right">
-                                    13th International Exhibition: Lviv Autumn
-                                    Salon “High Castle 2009”.</li>
-                                <li
-                                    class="text-section__list-item text-section__list-item--right">
-                                    14th International Exhibition: Lviv Autumn
-                                    Salon “High Castle 2010”.</li>
-                                <li
-                                    class="text-section__list-item text-section__list-item--right">
-                                    Collective Exhibition “Ternopil Artists in
-                                    Lviv Art Palace”. 2012, 2013.</li>
-                                <li
-                                    class="text-section__list-item text-section__list-item--right">
-                                    16th International Exhibition: Lviv Autumn
-                                    Salon “High Castle 2012”.</li>
-                                <li
-                                    class="text-section__list-item text-section__list-item--right">
-                                    Ukrainian Exhibition of Arts and Crafts
-                                    “God’s World as an Easter Day”. Ternopil,
-                                    2013.
-                                </li>
-                                <li
-                                    class="text-section__list-item text-section__list-item--right">
-                                    2nd Ukrainian Triennial “Ukrainian Folk
-                                    Modern 2012”. Chernivtsi.</li>
-                                <li
-                                    class="text-section__list-item text-section__list-item--right">
-                                    3rd Ukrainian Triennial “Ukrainian Folk
-                                    Modern 2015”. Chernivtsi.</li>
-                                <li
-                                    class="text-section__list-item text-section__list-item--right">
-                                    19th International Exhibition: Lviv Autumn
-                                    Salon “High Castle 2015”.</li>
-                                <li
-                                    class="text-section__list-item text-section__list-item--right">
-                                    Regional “Christmas” exhibition. Ternopil.
-                                </li>
-                                <li
-                                    class="text-section__list-item text-section__list-item--right">
-                                    Personal exhibition in Ternopil – in 2016.
-                                </li>
-                                <li
-                                    class="text-section__list-item text-section__list-item--right">
-                                    Personal exhibition in Chicago – in 2017.
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <div class="text-section__person">
-                        <div
-                            class="text-section__lead text-section__lead--left">
-                            <p class="text-section__paragraph"><span
-                                    class="uppercase">Mykhailo
-                                    Vytiahlovskyi</span>
-                                lives an active artistic life since the 1989:
-                                regional, Ukrainian and international
-                                exhibitions.
-                                As
-                                a
-                                result exhibitions:</p>
-                            <ul class="text-section__list">
-                                <li>Personal exhibitions in Ternopil – in 1995
-                                    and 2000.</li>
-                            </ul>
-                            <button class="button button--left-side"
-                                data-person="mykhailo"
-                                aria-label="Mykhailo's achievements"
-                                type="button">more...</button>
-                        </div>
-                        <picture
-                            class="text-section__img text-section__img--right">
-                            <source
-                                srcset="https://res.cloudinary.com/vanilna/image/upload/c_scale,f_auto,q_auto,w_220/main-page/achievements-sculpture"
-                                media="(min-width: 600px)">
-                            <img src="https://res.cloudinary.com/vanilna/image/upload/c_scale,f_auto,q_auto,w_170/main-page/achievements-sculpture"
-                                class="text-section__img--work"
-                                alt="Sculpture of Mykhailo Vytiahlovskyi" />
-                        </picture>
-
-                        <div
-                            class="text-section__full-text text-section__full-text--mykhailo">
-                            <ul class="text-section__list">
-                                <li>Personal exhibition in Slavutych – in 1996.
-                                </li>
-                                <li>Personal exhibition in Kyiv – in 1997.</li>
-                                <li>Personal exhibition in Lviv – in 2004.</li>
-                                <li>Personal exhibition in Zbarazh – in 2008.
-                                </li>
-                                <li>Modern Art Exhibition and Days of Ukrainian
-                                    Culture in Munich “Ukraine – 1999”.</li>
-                                <li>4th Ukrainian Exhibition of Modern Art.
-                                    Ternopil, 2002.</li>
-                                <li>6th International Exhibition: Lviv Autumn
-                                    Salon “High Castle 2002”. </li>
-                                <li>Participation in annual regional and
-                                    Ukrainian exhibitions.</li>
-                                <li>7th International Exhibition: Lviv Autumn
-                                    Salon “High Castle 2003”. </li>
-                                <li>11th International Exhibition: Lviv Autumn
-                                    Salon “High Castle 2007”.</li>
-                                <li>Ukrainian Art Exhibition “Picturesque
-                                    Ukraine”. Ternopil, 2007. </li>
-                                <li>7th Ukrainian Exhibition of Modern Art.
-                                    Ternopil, 2008.</li>
-                                <li>12th International Exhibition: Lviv Autumn
-                                    Salon “High Castle 2008”.</li>
-                                <li>3rd Art In plain air “Artists about Ternopil
-                                    region”. 2009.</li>
-                                <li>Collective Exhibition “Ternopil Artists in
-                                    Lviv Art Palace”. 2012, 2013.</li>
-                                <li>Ukrainian Exhibition of Arts and Crafts
-                                    “God’s world as an Easter day”. Ternopil,
-                                    2013.
-                                </li>
-                                <li>13th International Exhibition: Lviv Autumn
-                                    Salon “High Castle 2009”. Diploma for
-                                    work “A
-                                    young
-                                    miss and her old blanket”. </li>
-                                <li>10th Ukrainian Exhibition of Modern Art.
-                                    Ternopil, 2014.</li>
-                                <li>19th International Exhibition: Lviv Autumn
-                                    Salon “High Castle 2015”.</li>
-                                <li>Regional “Christmas” exhibition. Ternopil.
-                                </li>
-                                <li>Personal exhibition in Ternopil – in 2016.
-                                </li>
-                                <li>Personal exhibition in Chicago – in 2017.
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <section class="section section--contact" id="contact"
-                data-index='4' data-classes='slideshow__down-arrow--mobile'>
-                <h2 class="section__heading section__heading-left">Contact</h2>
-                <div class="section__content contact">
-                    <div class="contact__media contact__media--facebook">
-                        <a href="https://www.facebook.com/vytiaglovska/"
-                            class="contact__link"
-                            aria-label="Find Tetiana on Facebook"
-                            target="_blank">Find Tetiana
-                            on
-                            <svg class="contact__icon"
-                                xmlns="http://www.w3.org/2000/svg"
-                                shape-rendering="geometricPrecision"
-                                text-rendering="geometricPrecision"
-                                image-rendering="optimizeQuality"
-                                viewBox="0 0 150 150">
-                                <path
-                                    d="M136.1 73.6c0-32.2-26.1-58.2-58.2-58.2-32.1 0-58.2 26.1-58.2 58.2 0 29.1 21.3 53.1 49.1 57.5l0-40.7-14.8 0 0-16.8 14.8 0 0-12.8c0-14.6 8.7-22.6 22-22.6 6.4 0 13 1.1 13 1.1l0 14.3-7.3 0c-7.2 0-9.5 4.5-9.5 9.1l0 10.9 16.1 0-2.6 16.8-13.6 0 0 40.7c27.8-4.4 49.1-28.4 49.1-57.5z"
-                                    fill="#FEFEFE" /></svg></a>
-                    </div>
-                    <div class="contact__media contact__media--instagram">
-                        <a href="https://www.instagram.com/tetiana.vytiaglovska/"
-                            class="contact__link"
-                            aria-label="Find Tetiana on Instagram"
-                            target="_blank">Find Tetiana
-                            on
-                            <svg class="contact__icon"
-                                xmlns="http://www.w3.org/2000/svg"
-                                shape-rendering="geometricPrecision"
-                                text-rendering="geometricPrecision"
-                                image-rendering="optimizeQuality"
-                                viewBox="0 0 150 150">
-                                <style>
-                                    .a {
-                                        fill: #FEFEFE;
-                                    }
-                                </style>
-                                <path
-                                    d="M76.8 12.2c-16.6 0-18.7 0.1-25.2 0.4-6.5 0.3-10.9 1.3-14.8 2.8-4 1.6-7.4 3.7-10.8 7.1-3.4 3.4-5.5 6.8-7 10.8-1.5 3.9-2.5 8.3-2.8 14.8-0.3 6.5-0.4 8.6-0.4 25.2 0 16.6 0.1 18.7 0.4 25.2 0.3 6.5 1.3 11 2.8 14.8 1.6 4 3.7 7.4 7.1 10.8 3.4 3.4 6.8 5.5 10.8 7.1 3.9 1.5 8.3 2.6 14.8 2.8 6.5 0.3 8.6 0.4 25.2 0.4 16.6 0 18.7-0.1 25.2-0.4 6.5-0.3 11-1.3 14.8-2.8 4-1.6 7.4-3.6 10.8-7 3.4-3.4 5.5-6.8 7.1-10.8 1.5-3.9 2.5-8.3 2.8-14.8 0.3-6.5 0.4-8.6 0.4-25.2 0-16.6-0.1-18.7-0.4-25.2-0.3-6.5-1.3-10.9-2.8-14.8-1.6-4-3.7-7.4-7-10.8-3.4-3.4-6.8-5.5-10.8-7-3.9-1.5-8.3-2.5-14.8-2.8-6.5-0.3-8.6-0.4-25.2-0.4l0 0zm0 11c16.3 0 18.3 0.1 24.7 0.4 6 0.3 9.2 1.3 11.4 2.1 2.9 1.1 4.9 2.4 7 4.6 2.1 2.1 3.5 4.2 4.6 7 0.8 2.2 1.8 5.4 2.1 11.4 0.3 6.4 0.4 8.4 0.4 24.7 0 16.3-0.1 18.3-0.3 24.7-0.3 6-1.3 9.2-2.1 11.3-1.1 2.9-2.4 4.9-4.6 7-2.1 2.1-4.2 3.5-7 4.6-2.2 0.8-5.4 1.8-11.3 2.1-6.4 0.3-8.4 0.4-24.7 0.4-16.3 0-18.2-0.1-24.7-0.4-6-0.3-9.2-1.3-11.3-2.1-2.9-1.1-4.9-2.4-7-4.6-2.1-2.1-3.5-4.2-4.6-7-0.8-2.1-1.8-5.4-2.1-11.3-0.3-6.4-0.4-8.4-0.4-24.7 0-16.3 0.1-18.2 0.4-24.7 0.3-6 1.3-9.2 2.1-11.3 1.1-2.8 2.4-4.9 4.6-7 2.1-2.1 4.2-3.5 7-4.6 2.2-0.8 5.4-1.8 11.3-2.1 6.4-0.3 8.4-0.3 24.7-0.3z"
-                                    class="a" />
-                                <path
-                                    d="M76.8 93.6c-11.2 0-20.4-9.1-20.4-20.4 0-11.2 9.1-20.4 20.4-20.4 11.3 0 20.4 9.1 20.4 20.4 0 11.3-9.1 20.4-20.4 20.4zm0-51.7c-17.3 0-31.4 14.1-31.4 31.4 0 17.3 14 31.4 31.4 31.4 17.3 0 31.4-14 31.4-31.4 0-17.3-14-31.4-31.4-31.4z"
-                                    class="a" />
-                                <path
-                                    d="M116.7 40.6c0 4.1-3.3 7.3-7.3 7.3-4 0-7.3-3.3-7.3-7.3 0-4 3.3-7.3 7.3-7.3 4.1 0 7.3 3.3 7.3 7.3z"
-                                    class="a" />
-                            </svg></a>
-                    </div>
-                    <button
-                        class="button button--email-toggler button--right-side"
-                        type="button">Send us email</button>
-                    <div class="overlay"></div>
-                    <div class="email-form">
-                        <div class="email-form__line"></div>
-                        <form aria-label="email" class="email-form__wrapper"
-                            action="mailto:gobelin@ukr.net" method="post"
-                            enctype="text/plain">
-                            <button
-                                class="button button--close button--right-side"
-                                type="button">&times;</button>
-                            <h3 class="email-form__header">Send us email:</h3>
-                            <label for="email-address" class="sr-only">email
-                                address:</label>
-                            <input type="email" id="email-address"
-                                class="email-form__address"
-                                placeholder="your@email.com">
-                            <label for="email-text" class="sr-only">email
-                                text:</label>
-                            <textarea id="email-text" class="email-form__text"
-                                placeholder="Enter Your email..."></textarea>
-                            <input type="submit" value="Send"
-                                class="button button--submit button--left-side">
-                        </form>
-                        <div class="email-form__line email-form__line--last">
-                        </div>
-                    </div>
-                </div>
-            </section>
-        </main>
-
-        <footer class="footer">
-            <p class="footer__paragraph">© Copyright 2020. Vytiahlovski Gallery
-                all rights
-                reserved. Created by <a href="https://github.com/Vanilna"
-                    class="footer__page-author" target="_blank">Oleksandra
-                    Vytiahlovska</a></p>
-        </footer>
-        <div class="full-image">
-            <svg class="full-image__close full-image__close--stroke js-close"
-                xmlns="http://www.w3.org/2000/svg" width="160.211"
-                height="156.211" viewBox="0 0 160.211 156.211"
-                data-type="close">
-                <g transform="translate(-69.895 -171.895)" data-type="close">
-                    <line x2="139" y2="135" transform="translate(80.5 182.5)"
-                        fill="none" stroke-linecap="round" stroke-width="15"
-                        data-type="close" />
-                    <line x1="139" y2="135" transform="translate(80.5 182.5)"
-                        fill="none" stroke-linecap="round" stroke-width="15"
-                        data-type="close" />
-                </g>
-            </svg>
-            <div class="full-image__container">
             </div>
+        </section>
+
+        <section class="section section--works" id="works" data-index='2'
+            data-classes='slideshow__down-arrow--mobile'>
+            <h2 class="section__heading section__heading-left">Works</h2>
+            <div class="section__content works">
+                <div class="works__person works__person--tetiana"
+                    data-person="tetiana">
+                    <div class="works__column works__column--1">
+                        <a class="button button--works js-tetiana-gallery"
+                            href="./gallery.html#tetiana"
+                            data-name="tetiana">TETIANA</a>
+                        <picture class="work__img-block">
+                            <source
+                                srcset="https://res.cloudinary.com/vanilna/image/upload/c_scale,f_auto,q_auto,w_380/tetiana/66"
+                                media="(min-width: 600px)">
+                            <img src="https://res.cloudinary.com/vanilna/image/upload/c_scale,f_auto,q_auto,w_280/tetiana/66"
+                                class="work__img" alt="" data-index="66"
+                                data-person="tetiana" />
+                        </picture>
+                        <picture class="work__img-block">
+                            <source
+                                srcset="https://res.cloudinary.com/vanilna/image/upload/c_scale,f_auto,q_auto,w_380/tetiana/98"
+                                media="(min-width: 600px)">
+                            <img src="https://res.cloudinary.com/vanilna/image/upload/c_scale,f_auto,q_auto,w_220/tetiana/98"
+                                class="work__img" alt="" data-index="98"
+                                data-person="tetiana" />
+                        </picture>
+                    </div>
+                    <div class="works__column works__column--2">
+                        <picture class="work__img-block work__img--full-width">
+                            <source
+                                srcset="https://res.cloudinary.com/vanilna/image/upload/c_scale,f_auto,q_auto,w_380/tetiana/54"
+                                media="(min-width: 600px)">
+                            <img src="https://res.cloudinary.com/vanilna/image/upload/c_scale,f_auto,q_auto,w_220/tetiana/54"
+                                class="work__img" alt="" data-index="54"
+                                data-person="tetiana" />
+                        </picture>
+                        <picture class="work__img-block">
+                            <source
+                                srcset="https://res.cloudinary.com/vanilna/image/upload/c_scale,f_auto,q_auto,w_250/tetiana/62"
+                                media="(min-width: 600px)">
+                            <img src="https://res.cloudinary.com/vanilna/image/upload/c_scale,f_auto,q_auto,w_150/tetiana/62"
+                                class="work__img" alt="" data-index="62"
+                                data-person="tetiana" />
+                        </picture>
+                        <picture class="work__img-block">
+                            <source
+                                srcset="https://res.cloudinary.com/vanilna/image/upload/c_scale,f_auto,q_auto,w_250/tetiana/52"
+                                media="(min-width: 600px)">
+                            <img src="https://res.cloudinary.com/vanilna/image/upload/c_scale,f_auto,q_auto,w_150/tetiana/52"
+                                class="work__img" alt="" data-index="52"
+                                data-person="tetiana" />
+                        </picture>
+                        <picture class="work__img-block work__img--full-width">
+                            <source
+                                srcset="https://res.cloudinary.com/vanilna/image/upload/c_scale,f_auto,q_auto,w_380/tetiana/63"
+                                media="(min-width: 600px)">
+                            <img src="https://res.cloudinary.com/vanilna/image/upload/c_scale,f_auto,q_auto,w_220/tetiana/63"
+                                class="work__img" alt="" data-index="63"
+                                data-person="tetiana" />
+                        </picture>
+                    </div>
+                    <div class="works__column works__column--3">
+                        <picture class="work__img-block">
+                            <source
+                                srcset="https://res.cloudinary.com/vanilna/image/upload/c_scale,f_auto,q_auto,w_600/tetiana/78"
+                                media="(min-width: 600px)">
+                            <img src="https://res.cloudinary.com/vanilna/image/upload/c_scale,f_auto,q_auto,w_400/tetiana/78"
+                                class="work__img" alt="" data-index="78"
+                                data-person="tetiana" />
+                        </picture>
+                        <picture class="work__img-block">
+                            <source
+                                srcset="https://res.cloudinary.com/vanilna/image/upload/c_scale,f_auto,q_auto,w_600/tetiana/73"
+                                media="(min-width: 600px)">
+                            <img src="https://res.cloudinary.com/vanilna/image/upload/c_scale,f_auto,q_auto,w_400/tetiana/73"
+                                class="work__img" alt="" data-index="73"
+                                data-person="tetiana" />
+                        </picture>
+                    </div>
+                </div>
+
+                <div class="works__person works__person--mykhailo"
+                    data-person="mykhailo">
+                    <div class="works__column works__column--1">
+                        <picture class="work__img-block">
+                            <source
+                                srcset="https://res.cloudinary.com/vanilna/image/upload/c_scale,f_auto,q_auto,w_600/mykhailo/15"
+                                media="(min-width: 600px)">
+                            <img src="https://res.cloudinary.com/vanilna/image/upload/c_scale,f_auto,q_auto,w_400/mykhailo/15"
+                                class="work__img cutting-heads" alt=""
+                                data-index="15" data-person="mykhailo" />
+                        </picture>
+                        <picture class="work__img-block">
+                            <source
+                                srcset="https://res.cloudinary.com/vanilna/image/upload/c_scale,f_auto,q_auto,w_600/mykhailo/13"
+                                media="(min-width: 600px)">
+                            <img src="https://res.cloudinary.com/vanilna/image/upload/c_scale,f_auto,q_auto,w_400/mykhailo/13"
+                                class="work__img" alt="" data-index="13"
+                                data-person="mykhailo" />
+                        </picture>
+                    </div>
+                    <div class="works__column works__column--2">
+                        <picture class="work__img-block">
+                            <source
+                                srcset="https://res.cloudinary.com/vanilna/image/upload/c_scale,f_auto,q_auto,w_200/mykhailo/10"
+                                media="(min-width: 600px)">
+                            <img src="https://res.cloudinary.com/vanilna/image/upload/c_scale,f_auto,q_auto,w_150/mykhailo/10"
+                                class="work__img  cutting-heads" alt=""
+                                data-index="10" data-person="mykhailo" />
+                        </picture>
+                        <picture class="work__img-block">
+                            <source
+                                srcset="https://res.cloudinary.com/vanilna/image/upload/c_scale,f_auto,q_auto,w_200/mykhailo/6"
+                                media="(min-width: 600px)">
+                            <img src="https://res.cloudinary.com/vanilna/image/upload/c_scale,f_auto,q_auto,w_150/mykhailo/6"
+                                class="work__img" alt="" data-index="6"
+                                data-person="mykhailo" />
+                        </picture>
+                        <picture class="work__img-block">
+                            <source
+                                srcset="https://res.cloudinary.com/vanilna/image/upload/c_scale,f_auto,q_auto,w_200/mykhailo/7"
+                                media="(min-width: 600px)">
+                            <img src="https://res.cloudinary.com/vanilna/image/upload/c_scale,f_auto,q_auto,w_150/mykhailo/7"
+                                class="work__img" alt="" data-index="7"
+                                data-person="mykhailo" />
+                        </picture>
+                    </div>
+                    <div class="works__column works__column--3">
+                        <a class="button button--works js-mykhailo-gallery"
+                            href="./gallery.html#mykhailo"
+                            data-name="mykhailo">MYKHAILO</a>
+                        <picture class="work__img-block work__img--full-width">
+                            <source
+                                srcset="https://res.cloudinary.com/vanilna/image/upload/c_scale,f_auto,q_auto,w_600/mykhailo/12"
+                                media="(min-width: 600px)">
+                            <img src="https://res.cloudinary.com/vanilna/image/upload/c_scale,f_auto,q_auto,w_400/mykhailo/12"
+                                class="work__img" alt="" data-index="12"
+                                data-person="mykhailo" />
+                        </picture>
+                        <picture class="work__img-block">
+                            <source
+                                srcset="https://res.cloudinary.com/vanilna/image/upload/c_scale,f_auto,q_auto,w_200/mykhailo/5"
+                                media="(min-width: 600px)">
+                            <img src="https://res.cloudinary.com/vanilna/image/upload/c_scale,f_auto,q_auto,w_150/mykhailo/5"
+                                class="work__img" alt="" data-index="5"
+                                data-person="mykhailo" />
+                        </picture>
+                        <picture class="work__img-block">
+                            <source
+                                srcset="https://res.cloudinary.com/vanilna/image/upload/c_scale,f_auto,q_auto,w_200/mykhailo/2"
+                                media="(min-width: 600px)">
+                            <img src="https://res.cloudinary.com/vanilna/image/upload/c_scale,f_auto,q_auto,w_150/mykhailo/2"
+                                class="work__img" alt="" data-index="2"
+                                data-person="mykhailo" />
+                        </picture>
+                        <picture class="work__img-block">
+                            <source
+                                srcset="https://res.cloudinary.com/vanilna/image/upload/c_scale,f_auto,q_auto,w_200/mykhailo/18"
+                                media="(min-width: 600px)">
+                            <img src="https://res.cloudinary.com/vanilna/image/upload/c_scale,f_auto,q_auto,w_150/mykhailo/18"
+                                class="work__img" alt="" data-index="18"
+                                data-person="mykhailo" />
+                        </picture>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section section--achievements" id="achievements"
+            data-index='3' data-classes='slideshow__down-arrow--mobile'>
+            <h2 class="section__heading">Achievements
+            </h2>
+            <div class="section__content text-section">
+                <div class="text-section__person">
+                    <picture class="text-section__img text-section__img--left">
+                        <source
+                            srcset="https://res.cloudinary.com/vanilna/image/upload/c_scale,f_auto,q_auto,w_220/main-page/achievements-tapestry"
+                            media="(min-width: 600px)">
+                        <img src="https://res.cloudinary.com/vanilna/image/upload/c_scale,f_auto,q_auto,w_170/main-page/achievements-tapestry"
+                            class="text-section__img--work"
+                            alt="Tapestry of Tetiana Vytiahlovska" />
+                    </picture>
+
+                    <div class="text-section__lead text-section__lead--right">
+                        <p class="text-section__paragraph"><span
+                                class="uppercase">Tetiana
+                                Vytiahlovska</span>
+                            lives an active artistic life since the 1989:
+                            regional, Ukrainian and
+                            international exhibitions. As
+                            result
+                            exhibitions:</p>
+                        <ul
+                            class="text-section__list text-section__list--right">
+                            <li
+                                class="text-section__list-item text-section__list-item--right">
+                                Personal exhibitions in Ternopil – in 1995
+                                and 2000.</li>
+                        </ul>
+                        <button class="button button--right-side"
+                            data-person="tetiana"
+                            aria-label="Tetiana's achievements"
+                            type="button">more...</button>
+                    </div>
+
+                    <div
+                        class="text-section__full-text text-section__full-text--tetiana">
+                        <ul
+                            class="text-section__list text-section__list--right">
+                            <li
+                                class="text-section__list-item text-section__list-item--right">
+                                Personal exhibition in Slavutych – in 1996.
+                            </li>
+                            <li
+                                class="text-section__list-item text-section__list-item--right">
+                                Personal exhibition in Kyiv – in 1997.</li>
+                            <li
+                                class="text-section__list-item text-section__list-item--right">
+                                Personal exhibition in Lviv – in 2004.</li>
+                            <li
+                                class="text-section__list-item text-section__list-item--right">
+                                Personal exhibition in Zbarazh – in 2008.
+                            </li>
+                            <li
+                                class="text-section__list-item text-section__list-item--right">
+                                Regional exhibition for 400th Anniversary of
+                                Berestechko's union. Ternopil, 1995. II
+                                place
+                                (the
+                                first one wasn’t selected).</li>
+                            <li
+                                class="text-section__list-item text-section__list-item--right">
+                                Modern Art Exhibition and Days of Ukrainian
+                                Culture in Munich “Ukraine – 1999”.</li>
+                            <li
+                                class="text-section__list-item text-section__list-item--right">
+                                6th International Exhibition: Lviv Autumn
+                                Salon “High Castle 2002”. First place for
+                                work
+                                “Exidental witnesses of somebody’s love”.
+                            </li>
+                            <li
+                                class="text-section__list-item text-section__list-item--right">
+                                4th Ukrainian Exhibition of Modern Art.
+                                Ternopil, 2002.</li>
+                            <li
+                                class="text-section__list-item text-section__list-item--right">
+                                7th International Exhibition: Lviv Autumn
+                                Salon “High Castle 2003”. </li>
+                            <li
+                                class="text-section__list-item text-section__list-item--right">
+                                Participation in annual regional
+                                exhibitions.</li>
+                            <li
+                                class="text-section__list-item text-section__list-item--right">
+                                1st Ukrainian Triennial of Artistic Textile.
+                                Kiev, 2004. Diploma "For expressive
+                                language of
+                                textile" for tapestry "Night still life".
+                            </li>
+                            <li
+                                class="text-section__list-item text-section__list-item--right">
+                                10th International Exhibition: Lviv Autumn
+                                Salon “High Castle 2006”. Magazine
+                                “Child’s
+                                World”
+                                award.</li>
+                            <li
+                                class="text-section__list-item text-section__list-item--right">
+                                2nd Ukrainian Triennial of Artistic Textile.
+                                Kiev, 2007.</li>
+                            <li
+                                class="text-section__list-item text-section__list-item--right">
+                                Ukrainian Art Exhibition “Picturesque
+                                Ukraine”. Ternopil, 2007.</li>
+                            <li
+                                class="text-section__list-item text-section__list-item--right">
+                                11th International Exhibition: Lviv Autumn
+                                Salon “High Castle 2007”.</li>
+                            <li
+                                class="text-section__list-item text-section__list-item--right">
+                                12th International Exhibition: Lviv Autumn
+                                Salon “High Castle 2008”.</li>
+                            <li
+                                class="text-section__list-item text-section__list-item--right">
+                                3rd Art In plain air “Artists about Ternopil
+                                region”. 2009.</li>
+                            <li
+                                class="text-section__list-item text-section__list-item--right">
+                                13th International Exhibition: Lviv Autumn
+                                Salon “High Castle 2009”.</li>
+                            <li
+                                class="text-section__list-item text-section__list-item--right">
+                                14th International Exhibition: Lviv Autumn
+                                Salon “High Castle 2010”.</li>
+                            <li
+                                class="text-section__list-item text-section__list-item--right">
+                                Collective Exhibition “Ternopil Artists in
+                                Lviv Art Palace”. 2012, 2013.</li>
+                            <li
+                                class="text-section__list-item text-section__list-item--right">
+                                16th International Exhibition: Lviv Autumn
+                                Salon “High Castle 2012”.</li>
+                            <li
+                                class="text-section__list-item text-section__list-item--right">
+                                Ukrainian Exhibition of Arts and Crafts
+                                “God’s World as an Easter Day”. Ternopil,
+                                2013.
+                            </li>
+                            <li
+                                class="text-section__list-item text-section__list-item--right">
+                                2nd Ukrainian Triennial “Ukrainian Folk
+                                Modern 2012”. Chernivtsi.</li>
+                            <li
+                                class="text-section__list-item text-section__list-item--right">
+                                3rd Ukrainian Triennial “Ukrainian Folk
+                                Modern 2015”. Chernivtsi.</li>
+                            <li
+                                class="text-section__list-item text-section__list-item--right">
+                                19th International Exhibition: Lviv Autumn
+                                Salon “High Castle 2015”.</li>
+                            <li
+                                class="text-section__list-item text-section__list-item--right">
+                                Regional “Christmas” exhibition. Ternopil.
+                            </li>
+                            <li
+                                class="text-section__list-item text-section__list-item--right">
+                                Personal exhibition in Ternopil – in 2016.
+                            </li>
+                            <li
+                                class="text-section__list-item text-section__list-item--right">
+                                Personal exhibition in Chicago – in 2017.
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="text-section__person">
+                    <div class="text-section__lead text-section__lead--left">
+                        <p class="text-section__paragraph"><span
+                                class="uppercase">Mykhailo
+                                Vytiahlovskyi</span>
+                            lives an active artistic life since the 1989:
+                            regional, Ukrainian and international
+                            exhibitions.
+                            As
+                            a
+                            result exhibitions:</p>
+                        <ul class="text-section__list">
+                            <li>Personal exhibitions in Ternopil – in 1995
+                                and 2000.</li>
+                        </ul>
+                        <button class="button button--left-side"
+                            data-person="mykhailo"
+                            aria-label="Mykhailo's achievements"
+                            type="button">more...</button>
+                    </div>
+                    <picture class="text-section__img text-section__img--right">
+                        <source
+                            srcset="https://res.cloudinary.com/vanilna/image/upload/c_scale,f_auto,q_auto,w_220/main-page/achievements-sculpture"
+                            media="(min-width: 600px)">
+                        <img src="https://res.cloudinary.com/vanilna/image/upload/c_scale,f_auto,q_auto,w_170/main-page/achievements-sculpture"
+                            class="text-section__img--work"
+                            alt="Sculpture of Mykhailo Vytiahlovskyi" />
+                    </picture>
+
+                    <div
+                        class="text-section__full-text text-section__full-text--mykhailo">
+                        <ul class="text-section__list">
+                            <li>Personal exhibition in Slavutych – in 1996.
+                            </li>
+                            <li>Personal exhibition in Kyiv – in 1997.</li>
+                            <li>Personal exhibition in Lviv – in 2004.</li>
+                            <li>Personal exhibition in Zbarazh – in 2008.
+                            </li>
+                            <li>Modern Art Exhibition and Days of Ukrainian
+                                Culture in Munich “Ukraine – 1999”.</li>
+                            <li>4th Ukrainian Exhibition of Modern Art.
+                                Ternopil, 2002.</li>
+                            <li>6th International Exhibition: Lviv Autumn
+                                Salon “High Castle 2002”. </li>
+                            <li>Participation in annual regional and
+                                Ukrainian exhibitions.</li>
+                            <li>7th International Exhibition: Lviv Autumn
+                                Salon “High Castle 2003”. </li>
+                            <li>11th International Exhibition: Lviv Autumn
+                                Salon “High Castle 2007”.</li>
+                            <li>Ukrainian Art Exhibition “Picturesque
+                                Ukraine”. Ternopil, 2007. </li>
+                            <li>7th Ukrainian Exhibition of Modern Art.
+                                Ternopil, 2008.</li>
+                            <li>12th International Exhibition: Lviv Autumn
+                                Salon “High Castle 2008”.</li>
+                            <li>3rd Art In plain air “Artists about Ternopil
+                                region”. 2009.</li>
+                            <li>Collective Exhibition “Ternopil Artists in
+                                Lviv Art Palace”. 2012, 2013.</li>
+                            <li>Ukrainian Exhibition of Arts and Crafts
+                                “God’s world as an Easter day”. Ternopil,
+                                2013.
+                            </li>
+                            <li>13th International Exhibition: Lviv Autumn
+                                Salon “High Castle 2009”. Diploma for
+                                work “A
+                                young
+                                miss and her old blanket”. </li>
+                            <li>10th Ukrainian Exhibition of Modern Art.
+                                Ternopil, 2014.</li>
+                            <li>19th International Exhibition: Lviv Autumn
+                                Salon “High Castle 2015”.</li>
+                            <li>Regional “Christmas” exhibition. Ternopil.
+                            </li>
+                            <li>Personal exhibition in Ternopil – in 2016.
+                            </li>
+                            <li>Personal exhibition in Chicago – in 2017.
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section section--contact" id="contact" data-index='4'
+            data-classes='slideshow__down-arrow--mobile'>
+            <h2 class="section__heading section__heading-left">Contact</h2>
+            <div class="section__content contact">
+                <div class="contact__media contact__media--facebook">
+                    <a href="https://www.facebook.com/vytiaglovska/"
+                        class="contact__link"
+                        aria-label="Find Tetiana on Facebook"
+                        target="_blank">Find Tetiana
+                        on
+                        <svg class="contact__icon"
+                            xmlns="http://www.w3.org/2000/svg"
+                            shape-rendering="geometricPrecision"
+                            text-rendering="geometricPrecision"
+                            image-rendering="optimizeQuality"
+                            viewBox="0 0 150 150">
+                            <path
+                                d="M136.1 73.6c0-32.2-26.1-58.2-58.2-58.2-32.1 0-58.2 26.1-58.2 58.2 0 29.1 21.3 53.1 49.1 57.5l0-40.7-14.8 0 0-16.8 14.8 0 0-12.8c0-14.6 8.7-22.6 22-22.6 6.4 0 13 1.1 13 1.1l0 14.3-7.3 0c-7.2 0-9.5 4.5-9.5 9.1l0 10.9 16.1 0-2.6 16.8-13.6 0 0 40.7c27.8-4.4 49.1-28.4 49.1-57.5z"
+                                fill="#FEFEFE" /></svg></a>
+                </div>
+                <div class="contact__media contact__media--instagram">
+                    <a href="https://www.instagram.com/tetiana.vytiaglovska/"
+                        class="contact__link"
+                        aria-label="Find Tetiana on Instagram"
+                        target="_blank">Find Tetiana
+                        on
+                        <svg class="contact__icon"
+                            xmlns="http://www.w3.org/2000/svg"
+                            shape-rendering="geometricPrecision"
+                            text-rendering="geometricPrecision"
+                            image-rendering="optimizeQuality"
+                            viewBox="0 0 150 150">
+                            <style>
+                                .a {
+                                    fill: #FEFEFE;
+                                }
+                            </style>
+                            <path
+                                d="M76.8 12.2c-16.6 0-18.7 0.1-25.2 0.4-6.5 0.3-10.9 1.3-14.8 2.8-4 1.6-7.4 3.7-10.8 7.1-3.4 3.4-5.5 6.8-7 10.8-1.5 3.9-2.5 8.3-2.8 14.8-0.3 6.5-0.4 8.6-0.4 25.2 0 16.6 0.1 18.7 0.4 25.2 0.3 6.5 1.3 11 2.8 14.8 1.6 4 3.7 7.4 7.1 10.8 3.4 3.4 6.8 5.5 10.8 7.1 3.9 1.5 8.3 2.6 14.8 2.8 6.5 0.3 8.6 0.4 25.2 0.4 16.6 0 18.7-0.1 25.2-0.4 6.5-0.3 11-1.3 14.8-2.8 4-1.6 7.4-3.6 10.8-7 3.4-3.4 5.5-6.8 7.1-10.8 1.5-3.9 2.5-8.3 2.8-14.8 0.3-6.5 0.4-8.6 0.4-25.2 0-16.6-0.1-18.7-0.4-25.2-0.3-6.5-1.3-10.9-2.8-14.8-1.6-4-3.7-7.4-7-10.8-3.4-3.4-6.8-5.5-10.8-7-3.9-1.5-8.3-2.5-14.8-2.8-6.5-0.3-8.6-0.4-25.2-0.4l0 0zm0 11c16.3 0 18.3 0.1 24.7 0.4 6 0.3 9.2 1.3 11.4 2.1 2.9 1.1 4.9 2.4 7 4.6 2.1 2.1 3.5 4.2 4.6 7 0.8 2.2 1.8 5.4 2.1 11.4 0.3 6.4 0.4 8.4 0.4 24.7 0 16.3-0.1 18.3-0.3 24.7-0.3 6-1.3 9.2-2.1 11.3-1.1 2.9-2.4 4.9-4.6 7-2.1 2.1-4.2 3.5-7 4.6-2.2 0.8-5.4 1.8-11.3 2.1-6.4 0.3-8.4 0.4-24.7 0.4-16.3 0-18.2-0.1-24.7-0.4-6-0.3-9.2-1.3-11.3-2.1-2.9-1.1-4.9-2.4-7-4.6-2.1-2.1-3.5-4.2-4.6-7-0.8-2.1-1.8-5.4-2.1-11.3-0.3-6.4-0.4-8.4-0.4-24.7 0-16.3 0.1-18.2 0.4-24.7 0.3-6 1.3-9.2 2.1-11.3 1.1-2.8 2.4-4.9 4.6-7 2.1-2.1 4.2-3.5 7-4.6 2.2-0.8 5.4-1.8 11.3-2.1 6.4-0.3 8.4-0.3 24.7-0.3z"
+                                class="a" />
+                            <path
+                                d="M76.8 93.6c-11.2 0-20.4-9.1-20.4-20.4 0-11.2 9.1-20.4 20.4-20.4 11.3 0 20.4 9.1 20.4 20.4 0 11.3-9.1 20.4-20.4 20.4zm0-51.7c-17.3 0-31.4 14.1-31.4 31.4 0 17.3 14 31.4 31.4 31.4 17.3 0 31.4-14 31.4-31.4 0-17.3-14-31.4-31.4-31.4z"
+                                class="a" />
+                            <path
+                                d="M116.7 40.6c0 4.1-3.3 7.3-7.3 7.3-4 0-7.3-3.3-7.3-7.3 0-4 3.3-7.3 7.3-7.3 4.1 0 7.3 3.3 7.3 7.3z"
+                                class="a" />
+                        </svg></a>
+                </div>
+                <button class="button button--email-toggler button--right-side"
+                    type="button">Send us email</button>
+                <div class="overlay"></div>
+                <div class="email-form">
+                    <div class="email-form__line"></div>
+                    <form aria-label="email" class="email-form__wrapper"
+                        action="mailto:gobelin@ukr.net" method="post"
+                        enctype="text/plain">
+                        <button class="button button--close button--right-side"
+                            type="button">&times;</button>
+                        <h3 class="email-form__header">Send us email:</h3>
+                        <label for="email-address" class="sr-only">email
+                            address:</label>
+                        <input type="email" id="email-address"
+                            class="email-form__address"
+                            placeholder="your@email.com">
+                        <label for="email-text" class="sr-only">email
+                            text:</label>
+                        <textarea id="email-text" class="email-form__text"
+                            placeholder="Enter Your email..."></textarea>
+                        <input type="submit" value="Send"
+                            class="button button--submit button--left-side">
+                    </form>
+                    <div class="email-form__line email-form__line--last">
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p class="footer__paragraph">© Copyright 2020. Vytiahlovski Gallery
+            all rights
+            reserved. Created by <a href="https://github.com/Vanilna"
+                class="footer__page-author" target="_blank">Oleksandra
+                Vytiahlovska</a></p>
+    </footer>
+    <div class="full-image">
+        <svg class="full-image__close full-image__close--stroke js-close"
+            xmlns="http://www.w3.org/2000/svg" width="160.211" height="156.211"
+            viewBox="0 0 160.211 156.211" data-type="close">
+            <g transform="translate(-69.895 -171.895)" data-type="close">
+                <line x2="139" y2="135" transform="translate(80.5 182.5)"
+                    fill="none" stroke-linecap="round" stroke-width="15"
+                    data-type="close" />
+                <line x1="139" y2="135" transform="translate(80.5 182.5)"
+                    fill="none" stroke-linecap="round" stroke-width="15"
+                    data-type="close" />
+            </g>
+        </svg>
+        <div class="full-image__container">
         </div>
     </div>
+
 </body>
 
 </html>
