@@ -567,7 +567,9 @@ Slideshow frame
   overflow: hidden;
   justify-self: center;
   transform: translateX(100%);
-  transition: transform 1.2s -0.5s linear;
+  opacity: 0;
+  transition: opacity 0.9s cubic-bezier(0.21, 0.58, 0.7, 0.79),
+    transform 1s 0.3s cubic-bezier(0.21, 0.58, 0.7, 0.79);
   /*make img overflow horizontally but cover whole screen vertically*/
   width: auto;
   height: 100%;
@@ -596,6 +598,9 @@ Slideshow frame
 
 .slideshow__slide--active {
   transform: translateX(0);
+  opacity: 1;
+  transition: opacity 0.9s 0.3s cubic-bezier(0.21, 0.58, 0.7, 0.79),
+    transform 0.3s cubic-bezier(0.21, 0.58, 0.7, 0.79);
 }
 
 .js-transition-off {

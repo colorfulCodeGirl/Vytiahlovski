@@ -32,7 +32,7 @@ const fetchFullImage = ({
         width,
         height,
         crop: 'scale',
-        quality: 'auto:good',
+        quality: 60,
         dpr: 'auto',
         fetchFormat: 'auto',
       },
