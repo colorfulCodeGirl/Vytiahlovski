@@ -135,7 +135,7 @@ Full image
 .full-image__text {
   animation-name: scale;
   animation-duration: 0.5s;
-  min-width: 80vw;
+  min-width: 70vw;
   grid-column: 1 / -1;
   grid-row: 2 / -1;
   margin: 0;
