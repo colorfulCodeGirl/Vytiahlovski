@@ -816,6 +816,7 @@ WORK
   width: 100%;
   height: 100%;
   object-fit: cover;
+  cursor: pointer;
 }
 
 @media (min-width: 450px) {
