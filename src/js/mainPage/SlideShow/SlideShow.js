@@ -7,10 +7,16 @@ const resizeSlideShowFrame = () => {
 
 const getSlideDimensions = () => {
   const isPortrait = window.matchMedia('(orientation: portrait)').matches;
+  const isAlmostSquare = window.matchMedia('(min-aspect-ratio: 1/1) and (max-aspect-ratio: 4/3)')
+    .matches;
   let height = '';
   let width = '';
   if (isPortrait) {
     height = window.innerHeight;
+  } else if (isAlmostSquare) {
+    // not working for vertical images
+    height = window.innerHeight;
+    width = window.innerWidth;
   } else {
     width = window.innerWidth;
   }
