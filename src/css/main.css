@@ -144,7 +144,6 @@ Menu
   overflow: hidden;
   z-index: 29;
   transform: translateX(100vw);
-  transition: transform 1s 0.9s ease-in;
 }
 
 .menu__list {
